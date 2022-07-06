@@ -12,6 +12,11 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
+service:
+  type: LoadBalancer
+  port: 80
+  name: nginxservice
+
 # imagePullSecrets: []
 # nameOverride: ""
 # fullnameOverride: ""
@@ -37,10 +42,6 @@ image:
 #   # readOnlyRootFilesystem: true
 #   # runAsNonRoot: true
 #   # runAsUser: 1000
-
-# service:
-#   type: ClusterIP
-#   port: 80
 
 # ingress:
 #   enabled: false
