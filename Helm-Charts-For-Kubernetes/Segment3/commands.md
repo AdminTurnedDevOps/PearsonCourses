@@ -1,0 +1,1 @@
+`helm install nginx /path/to/helmchart --dry-run --debug`
