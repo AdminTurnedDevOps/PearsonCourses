@@ -1,4 +1,5 @@
 replicaCount: 1
+#replicaCount: 3
 
 app: nginx-deployment
 
@@ -10,5 +11,5 @@ image:
 
 service:
   type: LoadBalancer
-  port: 80
+  port: 8080
   name: nginxservice
