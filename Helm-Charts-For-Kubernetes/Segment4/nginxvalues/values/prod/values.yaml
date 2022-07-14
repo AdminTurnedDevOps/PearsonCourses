@@ -1,0 +1,14 @@
+replicaCount: 5
+
+app: nginx-deployment
+
+image:
+  repository: nginx
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+service:
+  type: LoadBalancer
+  port: 8080
+  name: nginxservice
