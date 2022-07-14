@@ -36,14 +36,19 @@
 Once created, popular the Value files with your choice of values
 
 2. Create namespaces
-`kubectl create namespace dev`
-`kubectl create namespace staging`
-`kubectl create namespace prod`
+```
+kubectl create namespace dev
+kubectl create namespace staging
+kubectl create namespace prod
+```
 
 3. Create the Helm Charts
-`helm install nginxdev nginxvalues -n dev -f values-dev.yaml`
-`helm install nginxstaging nginxvalues -n staging -f values-staging.yaml`
-`helm install nginxprod nginxvalues -n prod -f values-prod.yaml`
+```
+helm install nginxdev nginxvalues -n dev -f values-dev.yaml
+helm install nginxstaging nginxvalues -n staging -f values-staging.yaml
+helm install nginxprod nginxvalues -n prod -f values-prod.yaml
+```
+
 
 4. Cleanup
 `helm uninstall nginxdev -n dev`
