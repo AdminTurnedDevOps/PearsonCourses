@@ -2,9 +2,11 @@
 # Values.yaml Lab
 
 ## Create Namespaces
-`kubectl create namespace dev`
-`kubectl create namespace staging`
-`kubectl create namespace prod`
+```
+kubectl create namespace dev
+kubectl create namespace staging
+kubectl create namespace prod
+```
 
 ## Charge Directory
 `cd Segment4`
@@ -51,8 +53,10 @@ helm install nginxprod nginxvalues -n prod -f values-prod.yaml
 
 
 4. Cleanup
-`helm uninstall nginxdev -n dev`
-`helm uninstall nginxstaging -n staging`
-`helm uninstall nginxprod -n prod`
+```
+helm uninstall nginxdev -n dev
+helm uninstall nginxstaging -n staging
+helm uninstall nginxprod -n prod
+```
 
 # Go Templates Lab
