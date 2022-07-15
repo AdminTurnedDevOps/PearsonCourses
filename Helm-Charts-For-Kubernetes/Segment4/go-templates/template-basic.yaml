@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: devrelease
+data:
+  firstName: {{ quote .Values.name.firstName }}
+  lastName: {{ quote .Values.name.lastName }}
