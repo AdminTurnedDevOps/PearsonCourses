@@ -1,6 +1,6 @@
 1. Sign up for Artifact Hub [here](https://artifacthub.io/)
 2. Once signed in, click on your profile and go to Control Panel
-![](../images/2.png)
+![](../images/1.png)
 3. Go to the Repository tab and click on *ADD REPOSITORY*
 4. Add in the following information:
 - The name of your Helm Chart
