@@ -22,7 +22,7 @@ You'll need a Helm Chart that can then be turned into a Chart Repository. A Char
 
 You'll see that your repo is set up as a GitHub Page and there's a specific URL for it up top
 
-![](../images/2.png)
+[](../images/2.png)
 
 By default Source usually gets set to `gh-pages` branch. If this is not set by default, then select it.
 
@@ -39,7 +39,7 @@ In such setup you can use your default branch to store your charts code, and gh-
 
 1. Sign up for Artifact Hub [here](https://artifacthub.io/)
 2. Once signed in, click on your profile and go to Control Panel
-![](../images/1.png)
+[](../images/1.png)
 3. Go to the Repository tab and click on *ADD REPOSITORY*
 4. Add in the following information:
 - The name of your Helm Chart
