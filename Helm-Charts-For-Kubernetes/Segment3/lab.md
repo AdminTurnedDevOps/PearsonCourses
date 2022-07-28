@@ -23,6 +23,12 @@ Test the Helm Chart
 
 6. Run `kubectl get deployments` to see that the `replicaSet` changed.
 
+## View Helm Chart History
+
+1. `helm history nginxapp`
+2. Make a change to the `values.yaml`, for example, change the `replicacount` from `1` to `2`
+3. `helm upgrade nginxapp .`
+
 ## Rollback The Helm Chart
 
 1. Retrieve the history of the Helm Chart
