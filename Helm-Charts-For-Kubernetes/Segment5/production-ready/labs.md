@@ -1,10 +1,21 @@
-## Go SDK
-1. `cd` into `Segment5/advanced/gosdk`
-2. `go mod init gosdk`
+# Go SDK
+
+## List Helm
+1. `cd` into `Segment5/advanced/list`
+2. `go mod init list`
 3. `go mod tidy`
 4. `go get helm.sh/helm/v3/pkg/action`
-5. `go get helm.sh/helm/v3/pkg/cli`
+5. `go get helm.sh/helm/v3/pkg/action`
 6. `go run main.go`
+
+## Create A Helm Chart
+1. `cd` into `Segment5/advanced/createchart`
+2. `go mod init list`
+3. `go mod tidy`
+4. `go get helm.sh/helm/v3/pkg/action`
+5. `go get helm.sh/helm/v3/pkg/action`
+6. `go get helm.sh/helm/v3/pkg/chart/loader`
+7. `go run main.go "../mychart" "nginxapp"`
 
 ## Real-World Projects
 
