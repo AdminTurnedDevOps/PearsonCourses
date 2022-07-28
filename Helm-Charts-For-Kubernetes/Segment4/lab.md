@@ -78,3 +78,7 @@ This code ensures that the labels are all lower case, per the `lower` pipeline b
 
 5. Clean up
 `helm uninstall nginxupdate`
+
+## Conditionals
+
+1. View the `conditionals` directory

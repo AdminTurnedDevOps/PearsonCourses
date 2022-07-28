@@ -29,6 +29,10 @@ Test the Helm Chart
 2. Make a change to the `values.yaml`, for example, change the `replicacount` from `1` to `2`
 3. `helm upgrade nginxapp .`
 
+## Test The Helm Chart
+
+1. `helm test nginxapp`
+
 ## Rollback The Helm Chart
 
 1. Retrieve the history of the Helm Chart

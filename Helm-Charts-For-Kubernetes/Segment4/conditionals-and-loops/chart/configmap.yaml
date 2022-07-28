@@ -1,0 +1,26 @@
+# 1. Get the LangUsed and their values.
+# 2. Get a collect of values
+# 3. Iterate depending on the number of elements within
+# 4. For every element get the current element that is the scope within this particular block
+# 5. Convert into a title format that is the first capital letter and put it within the quote.
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-configmap
+  labels:
+  {{- with .Values.tags }}
+    first: {{ .programming }}
+    second: {{ .devops }}
+    thrid: {{ .deployment }}
+  {{- end }}
+data:
+  myvalue: "Sample Config Map"
+  message: {{ .Values.message }}
+  website: {{ upper .Values.website }}
+  ownerName: {{ quote .Values.owner.name }}
+  ownerPlace: {{ quote .Values.owner.place }}
+  LanguagesUsed: |-
+    {{- range .Values.LangUsed }}
+    - {{ . | title | quote }}
+    {{- end }}
