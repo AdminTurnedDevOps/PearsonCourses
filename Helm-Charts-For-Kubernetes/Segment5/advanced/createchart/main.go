@@ -43,8 +43,4 @@ func main() {
 	}
 
 	fmt.Println(results)
-
-	// for _, result := range results {
-	// 	log.Printf("%+v", result)
-	// }
 }
