@@ -11,13 +11,12 @@ import (
 )
 
 func main() {
+	// Pass in the path to the helm chart and the name of the helm chart at runtime
 	helmChart := os.Args[1]
 	releaseName := os.Args[2]
+
 	// Call upon the CLI package
 	settings := cli.New()
-
-	// helmChart := "../mychart"
-	// releaseName := "nginxapp"
 
 	chart, err := loader.Load(helmChart)
 	if err != nil {
@@ -32,10 +31,10 @@ func main() {
 		log.Printf("%+v", err)
 	}
 
-	// Create a new instance of the `List` action, which lists out your manifests.
+	// Create a new instance of the `Install` action, which is similar to running `helm instll`
 	client := action.NewInstall(config)
 
-	// List only Helm Charts that are deployed
+	// Install a helm chart
 	client.ReleaseName = releaseName
 	results, err := client.Run(chart, nil)
 	if err != nil {
