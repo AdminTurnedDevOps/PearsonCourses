@@ -41,13 +41,13 @@ git push
 
 ## Deploy the app
 ```
-flux create helmrelease nginxdeployment \
+flux create kustomization nginxdeployment \
   --target-namespace=default \
-  --source=withgitops/nginx \
-  --path="GitOps-For-Kubernetes/Section3/hands-on/withgitops/nginx" \
+  --source=nginxdeploy \
+  --path="GitOps-For-Kubernetes/Section3/hands-on/withgitops/kustomize" \
   --prune=true \
-  --interval=10s \
-  --export > ./clusters/minikube/nginxdeployment-deployment.yaml
+  --interval=5m \
+  --export > ./clusters/my-cluster/nginxdeployment-kustomization.yaml
   ```
 
   ```
@@ -55,3 +55,6 @@ git add .
 git commit -m "deploy nginxdeployment app"
 git push
 ```
+
+## Watch the release
+`flux get helmreleases --watch`

@@ -5,15 +5,15 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: {{ .Values.app }}
-  replicas: {{ .Values.replicaCount }}
+      app: nginxdeployment
+  replicas: 2
   template:
     metadata:
       labels:
-        app: {{ .Values.app }}
+        app: nginxdeployment
     spec:
       containers:
       - name: nginxdeployment
-        image: {{ .Values.image.repository }}
+        image: nginx:latest
         ports:
         - containerPort: 80
