@@ -1,0 +1,2 @@
+Run the following:
+`kubectl apply -f deployment.yaml`
