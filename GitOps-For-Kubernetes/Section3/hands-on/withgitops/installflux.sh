@@ -7,7 +7,7 @@ flux bootstrap github \
 
 
 flux create source git nginxdeployment \
-  --url=https://github.com/stefanprodan/podinfo \
+  --url=https://github.com/AdminTurnedDevOps/PearsonCourses/GitOps-For-Kubernetes/Section3/hands-on/withgitops \
   --branch=master \
-  --interval=30s \
-  --export > ./clusters/my-cluster/podinfo-source.yaml
+  --interval=10s \
+  --export > ./clusters/minikube/podinfo-source.yaml

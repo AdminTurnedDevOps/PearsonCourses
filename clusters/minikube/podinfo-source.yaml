@@ -1,0 +1,12 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: GitRepository
+metadata:
+  name: nginxdeployment
+  namespace: flux-system
+spec:
+  interval: 10s
+  ref:
+    branch: master
+  url: https://github.com/AdminTurnedDevOps/PearsonCourses/GitOps-For-Kubernetes/Section3/hands-on/withgitops
+
