@@ -7,7 +7,7 @@ flux bootstrap github \
   --owner=adminturneddevops \
   --repository=flux-fleet \
   --branch=main \
-  --namespace=flux \
+  --namespace=flux-system \
   --path=./clusters/minikube \
   --personal
   ```
@@ -43,11 +43,11 @@ git push
 ```
 flux create kustomization nginxdeployment \
   --target-namespace=default \
-  --source=nginxdeploy \
-  --path="GitOps-For-Kubernetes/Section3/hands-on/withgitops/kustomize" \
+  --source=nginxdeployment \
+  --path="./GitOps-For-Kubernetes/Section3/hands-on/withgitops/kustomize" \
   --prune=true \
   --interval=5m \
-  --export > ./clusters/my-cluster/nginxdeployment-kustomization.yaml
+  --export > ./clusters/minikube/nginxdeployment-kustomization.yaml
   ```
 
   ```

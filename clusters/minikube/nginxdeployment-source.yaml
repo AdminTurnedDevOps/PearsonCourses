@@ -1,0 +1,12 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: GitRepository
+metadata:
+  name: nginxdeployment
+  namespace: flux-system
+spec:
+  interval: 10s
+  ref:
+    branch: main
+  url: https://github.com/AdminTurnedDevOps/PearsonCourses
+
