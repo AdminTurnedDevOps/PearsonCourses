@@ -41,10 +41,10 @@ git push
 
 ## Deploy the app
 ```
-flux create nginxdeployment \
+flux create helmrelease nginxdeployment \
   --target-namespace=default \
-  --source=nginxdeployment \
-  --path="GitOps-For-Kubernetes/Section3/hands-on/withgitops" \
+  --source=withgitops/nginx \
+  --path="GitOps-For-Kubernetes/Section3/hands-on/withgitops/nginx" \
   --prune=true \
   --interval=10s \
   --export > ./clusters/minikube/nginxdeployment-deployment.yaml
