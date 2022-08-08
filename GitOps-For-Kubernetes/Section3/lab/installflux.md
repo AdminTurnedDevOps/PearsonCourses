@@ -1,20 +1,22 @@
+## Specifiy Git credentials
+export GITHUB_TOKEN=<your-token>
+export GITHUB_USER=<your-username>
+
+## Check Flux Installation
+  `flux check --pre`
+
 ## Connect To GitHub
 
 The command below not only connects Flux to GitHub, but it creates a new repo called `flux-fleet` where you can manage all of your clusters and repos/sources from one place.
 
 ```
 flux bootstrap github \
-  --owner=adminturneddevops \
-  --repository=flux-fleet \
+  --owner=$GITHUB_USER \
+  --repository=fleet-gitops1 \
   --branch=main \
-  --namespace=flux-system \
   --path=./clusters/minikube \
   --personal
   ```
-
-
-## Check Flux Installation
-  `flux check --pre`
 
 ## Flux-fleet repo
 
@@ -26,16 +28,15 @@ You're going to need to perform your flux commands from the `flux-fleet` reposit
 
 ## Add the repo/source to Flux
 ```
-flux create source git nginxdeployment \
-  --url=https://github.com/AdminTurnedDevOps/PearsonCourses \
+flux create source git podinfo \
+  --url=https://github.com/adminturneddevops/PearsonCourses \
   --branch=main \
-  --interval=10s \
+  --interval=30s \
   --export > ./clusters/minikube/nginxdeployment-source.yaml
 ```
 
 ```
-git add .
-git commit -m "push nginxdeploy source"
+git add -A && git commit -m "Add nginxdeployment GitRepository"
 git push
 ```
 
@@ -43,8 +44,8 @@ git push
 ```
 flux create kustomization nginxdeployment \
   --target-namespace=default \
-  --source=nginxdeployment \
-  --path="./GitOps-For-Kubernetes/Section3/hands-on/withgitops/kustomize" \
+  --source=podinfo \
+  --path="./kustomize" \
   --prune=true \
   --interval=5m \
   --export > ./clusters/minikube/nginxdeployment-kustomization.yaml
@@ -57,4 +58,4 @@ git push
 ```
 
 ## Watch the release
-`flux get helmreleases --watch`
+`flux get kustomizations --watch`
