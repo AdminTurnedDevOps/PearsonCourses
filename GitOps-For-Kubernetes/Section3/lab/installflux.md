@@ -12,7 +12,7 @@ The command below not only connects Flux to GitHub, but it creates a new repo ca
 ```
 flux bootstrap github \
   --owner=$GITHUB_USER \
-  --repository=fleet-gitops2 \
+  --repository=fleet-gitops \
   --branch=main \
   --path=./clusters/minikube \
   --personal
