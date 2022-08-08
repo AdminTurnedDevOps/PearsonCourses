@@ -12,7 +12,7 @@ The command below not only connects Flux to GitHub, but it creates a new repo ca
 ```
 flux bootstrap github \
   --owner=$GITHUB_USER \
-  --repository=fleet-gitops1 \
+  --repository=fleet-gitops2 \
   --branch=main \
   --path=./clusters/minikube \
   --personal
@@ -28,7 +28,7 @@ You're going to need to perform your flux commands from the `flux-fleet` reposit
 
 ## Add the repo/source to Flux
 ```
-flux create source git podinfo \
+flux create source git nginxdeployment \
   --url=https://github.com/adminturneddevops/PearsonCourses \
   --branch=main \
   --interval=30s \
@@ -44,7 +44,7 @@ git push
 ```
 flux create kustomization nginxdeployment \
   --target-namespace=default \
-  --source=podinfo \
+  --source=nginxdeployment \
   --path="./kustomize" \
   --prune=true \
   --interval=5m \
@@ -52,8 +52,7 @@ flux create kustomization nginxdeployment \
   ```
 
   ```
-git add .
-git commit -m "deploy nginxdeployment app"
+git add -A && git commit -m "Add nginxdeployment Kustomization"
 git push
 ```
 
