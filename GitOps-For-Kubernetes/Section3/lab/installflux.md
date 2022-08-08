@@ -14,6 +14,7 @@ flux bootstrap github \
   --owner=$GITHUB_USER \
   --repository=fleet-gitops \
   --branch=main \
+  --namespace=fluxname \
   --path=./clusters/minikube \
   --personal
   ```
@@ -32,6 +33,7 @@ flux create source git nginxdeployment \
   --url=https://github.com/adminturneddevops/PearsonCourses \
   --branch=main \
   --interval=30s \
+  --namespace=fluxname \
   --export > ./clusters/minikube/nginxdeployment-source.yaml
 ```
 
@@ -47,6 +49,7 @@ flux create kustomization nginxdeployment \
   --source=nginxdeployment \
   --path="./kustomize" \
   --prune=true \
+  --namespace=fluxname \
   --interval=5m \
   --export > ./clusters/minikube/nginxdeployment-kustomization.yaml
   ```
@@ -57,4 +60,4 @@ git push
 ```
 
 ## Watch the release
-`flux get kustomizations --watch`
+`flux get kustomizations -n fluxname --watch`
