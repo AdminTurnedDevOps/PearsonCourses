@@ -21,7 +21,7 @@ Add the context
 `argocd cluster add kubernetes_context_name_here`
 
 ## Logging Into Argo
-Log into the server via the CLI
+Log into the server via the CLI. The port is what ArgoCD is hosting hosted on from the `kubectl port-forward` section in **Server Installation**
 `argocd login 127.0.0.1:argocd_port_here`
 
 ## App Deployment

@@ -81,10 +81,3 @@ kubectl -n monitoring port-forward svc/kube-prometheus-stack-grafana 3000:80
 ```
 
 Access the dashboard: http://localhost:3000/d/flux-control-plane/flux-control-plane
-
-```
-Default Credentials
-- username: admin
-- password: prom-operator
-```
-
