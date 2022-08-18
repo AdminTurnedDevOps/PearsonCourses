@@ -1,4 +1,4 @@
-## CLI Installation
+## ArgoCD CLI Installation
 https://argo-cd.readthedocs.io/en/stable/cli_installation/
 
 ## Server Installation
