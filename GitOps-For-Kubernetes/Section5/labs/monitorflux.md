@@ -1,7 +1,7 @@
 ## Specifiy Git credentials
 ```
-export GITHUB_TOKEN=<your-token>
-export GITHUB_USER=<your-username>
+export GITHUB_TOKEN=
+export GITHUB_USER=
 ```
 
 ## Check Flux Installation
@@ -33,13 +33,9 @@ You're going to need to perform your flux commands from the `flux-fleet` reposit
 ```
 flux create source git flux-monitoring \
   --interval=30m \
+  --namespace=fluxname \
   --url=https://github.com/fluxcd/flux2 \
   --branch=main
-```
-
-```
-git add -A && git commit -m "Add nginxdeployment GitRepository"
-git push
 ```
 
 ## Deploy the app
@@ -48,15 +44,13 @@ flux create kustomization kube-prometheus-stack \
   --interval=1h \
   --prune \
   --source=flux-monitoring \
+  --namespace=fluxname \
   --path="./manifests/monitoring/kube-prometheus-stack" \
   --health-check-timeout=5m \
   --wait
   ```
 
-```
-git add -A && git commit -m "Add nginxdeployment Kustomization"
-git push
-```
+Wait around 3-5 minutes after the app is deployed
 
 ## Install Flux Dashboard
 ```
@@ -65,14 +59,10 @@ flux create kustomization monitoring-config \
   --interval=1h \
   --prune=true \
   --source=flux-monitoring \
+  --namespace=fluxname \
   --path="./manifests/monitoring/monitoring-config" \
   --health-check-timeout=1m \
   --wait
-```
-
-```
-git add -A && git commit -m "Add nginxdeployment Kustomization"
-git push
 ```
 
 ## Port Forward
@@ -81,3 +71,9 @@ kubectl -n monitoring port-forward svc/kube-prometheus-stack-grafana 3000:80
 ```
 
 Access the dashboard: http://localhost:3000/d/flux-control-plane/flux-control-plane
+
+Credentials
+```
+Username: admin
+Password: prom-operator
+```

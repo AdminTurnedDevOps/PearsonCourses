@@ -27,3 +27,5 @@ Password: admin
 ```
 
 Within Prometheus, import the example ArgoCD dashboard in. It's in the same directory as this `handson.md` file and it's called `argo.json`
+
+You can now see the cluster and apps deployed.
