@@ -12,6 +12,7 @@ Get the initial admin password
 Open up Argo's UI
 `kubectl port-forward service/argocd-server :80`
 
+## Registering A Cluster
 Get your current context for your k8s cluster
 
 `kubectl config get-contexts -o name`
@@ -19,6 +20,7 @@ Get your current context for your k8s cluster
 Add the context
 `argocd cluster add kubernetes_context_name_here`
 
+## Logging Into Argo
 Log into the server via the CLI
 `argocd login 127.0.0.1:argocd_port_here`
 
