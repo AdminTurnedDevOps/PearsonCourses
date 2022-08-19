@@ -20,6 +20,9 @@ Get your current context for your k8s cluster
 Add the context
 `argocd cluster add kubernetes_context_name_here`
 
+**IF THIS STEP DOESN'T WORK**
+If you're using Minikube, or another cluster, and you're trying to register the cluster that you installed ArgoCD on, it will most likely fail because ArgoCD is already running on the cluster
+
 ## Logging Into Argo
 Log into the server via the CLI. The port is what ArgoCD is hosting hosted on from the `kubectl port-forward` section in **Server Installation**
 `argocd login 127.0.0.1:argocd_port_here`
