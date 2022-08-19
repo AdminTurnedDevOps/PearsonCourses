@@ -2,15 +2,17 @@
 https://argo-cd.readthedocs.io/en/stable/cli_installation/
 
 ## Server Installation
+Create namespace
+`kubectl create namespace argocd`
 
 Install Argo
-`kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-cd/v2.4.3/manifests/ha/install.yaml`
+`kubectl apply -f -n argocd https://raw.githubusercontent.com/argoproj/argo-cd/v2.4.3/manifests/ha/install.yaml`
 
 Get the initial admin password
-`kubectl  get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d`
+`kubectl get secret -n argocd argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d`
 
 Open up Argo's UI
-`kubectl port-forward service/argocd-server :80`
+`kubectl port-forward -n argocd service/argocd-server :80`
 
 ## Registering A Cluster
 Get your current context for your k8s cluster
