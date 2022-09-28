@@ -6,7 +6,7 @@ Create namespace
 `kubectl create namespace argocd`
 
 Install Argo
-`kubectl apply -f -n argocd https://raw.githubusercontent.com/argoproj/argo-cd/v2.4.3/manifests/ha/install.yaml`
+`kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/ha/install.yaml`
 
 Get the initial admin password
 `kubectl get secret -n argocd argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d`
