@@ -11,7 +11,7 @@ func main() {
 	}
 
 	// Without Update
-	fmt.Println(countwithme["C"])
+	fmt.Println(countwithme["B"])
 
 	// With udpdate
 	// countwithme["B"] = 100

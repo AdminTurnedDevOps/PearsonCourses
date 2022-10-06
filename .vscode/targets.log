@@ -6,11 +6,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
- 
-make: *** No rule to make target `all'.  Stop.
 
-
-# Make data base, printed on Fri Aug 19 06:29:26 2022
+# Make data base, printed on Thu Oct  6 07:22:33 2022
 
 # Variables
 
@@ -47,18 +44,17 @@ VSCODE_CWD = /
 # environment
 GOPROXY = https://proxy.golang.org,direct
 # environment
-PATH = /opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion.app/Contents/Public:/usr/local/go/bin:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Frameworks/Mono.framework/Versions/Current/Commands
+PATH = /opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion Tech Preview.app/Contents/Public:/usr/local/go/bin:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Frameworks/Mono.framework/Versions/Current/Commands
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
 GOPATH = /Users/michael/go
- 
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.fPw2EfskpR/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.Fr1qoINBiO/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -76,11 +72,11 @@ HOME = /Users/michael
 # default
 MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /Developer)/Makefiles
 # environment
-VSCODE_CODE_CACHE_PATH = /Users/michael/Library/Application Support/Code/CachedData/6d9b74a70ca9c7733b29f0456fd8195364076dda
+VSCODE_CODE_CACHE_PATH = /Users/michael/Library/Application Support/Code/CachedData/74b1f979648cc44d385a2286793c226e611f59e7
 # environment
 LOGNAME = michael
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
 ZSH = /Users/michael/.oh-my-zsh
 # environment
@@ -114,7 +110,7 @@ TMPDIR = /var/folders/c7/m_mq7b7d6t37zt5fg7gg4hb80000gn/T/
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /Users/michael/Library/Application Support/Code/1.70.1-main.sock
+VSCODE_IPC_HOOK = /Users/michael/Library/Application Support/Code/1.71.2-main.sock
 # environment
 MallocNanoZone = 0
 # makefile
@@ -124,7 +120,7 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = application.com.microsoft.VSCode.25155684.25155690
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.29841649.29841655
 # environment
 HOMEBREW_PREFIX = /opt/homebrew
 # automatic
@@ -156,7 +152,7 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 93451
+VSCODE_PID = 44238
 # variable set hash-table stats:
 # Load=71/1024=7%, Rehash=0, Collisions=2/92=2%
 
@@ -166,9 +162,9 @@ VSCODE_PID = 93451
 
 # Directories
 
-# . (device 16777232, inode 13966938): 9 files, no impossibilities.
+# . (device 16777234, inode 13966938): 10 files, no impossibilities.
 
-# 9 files, no impossibilities in 1 directories.
+# 10 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -240,6 +236,8 @@ GNUmakefile:
 # strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
 # strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Fri Aug 19 06:29:26 2022
+# Finished Make data base on Thu Oct  6 07:22:33 2022
 
  
+make: *** No rule to make target `all'.  Stop.
+

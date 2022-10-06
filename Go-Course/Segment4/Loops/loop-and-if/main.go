@@ -8,7 +8,7 @@ func main() {
 		for {
 			fmt.Println("confirmed")
 			// This is going to be infinite unless we use a break
-			// break
+			break
 		}
 	}
 }

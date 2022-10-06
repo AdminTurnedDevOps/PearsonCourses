@@ -9,6 +9,10 @@ kubectl apply -f https://raw.githubusercontent.com/fluxcd/helm-operator/1.4.3/de
 ```
 
 ```
+kubectl create namespace fluxname
+```
+
+```
 helm upgrade -i helm-operator fluxcd/helm-operator \
     --namespace fluxname \
     --set helm.versions=v3

@@ -8,6 +8,6 @@ package main
 import "fmt"
 
 func main() {
-	const hiagain = "hello world"
+	const hiagain string = "hello world"
 	fmt.Println(hiagain)
 }

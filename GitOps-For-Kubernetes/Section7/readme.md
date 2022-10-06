@@ -10,6 +10,10 @@ This lab is going to be based off of everything we've talked about throughout th
 2. Install Argo
 `kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/ha/install.yaml`
 
+If you aren't in an HA environment that has three (3) nodes (for example, if you're using Minikube)
+
+`kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml`
+
 3. Get the initial admin password
 `kubectl get secret -n argocd argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d`
 

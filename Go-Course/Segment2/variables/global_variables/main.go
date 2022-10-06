@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-var sayhi = "hello world"
+var sayhi string = "hello world"
 
 func main() {
 	testing()
