@@ -1,4 +1,5 @@
-```az ad user create --display-name pearsonuser --password 'Password12!@' --user-principal-name pearsonuser@mlevan1992outlook.onmicrosoft.com
+```
+az ad user create --display-name pearsonuser --password 'Password12!@' --user-principal-name pearsonuser@mlevan1992outlook.onmicrosoft.com
 ```
 
 ```
