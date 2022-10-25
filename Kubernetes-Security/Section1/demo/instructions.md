@@ -1,0 +1,1 @@
+Remote into Windows box and showcase the CIS GUI tool when scanning against a server.
