@@ -28,6 +28,10 @@ spec:
 EOF
 ```
 
-## Cleanup
+### Cleanup
 
 `kubectl delete peerauthentication -n istio-system default`
+
+## Configure access control for workloads
+- https://istio.io/latest/docs/examples/bookinfo/#deploying-the-application
+- https://istio.io/latest/docs/tasks/security/authorization/authz-http/
