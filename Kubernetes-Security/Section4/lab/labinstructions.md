@@ -47,5 +47,40 @@ Illuminatio is an open-source network policy tester. Instead of having to run th
 
 2. Run the scan
 `illuminatio clean run`
+## Set up a security context in a Pod (this won't work)
 
-## Implement a security context in a Deployment Manifest
+1. Run the below.
+
+kubectl apply -f - <<EOF
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  selector:
+    matchLabels:
+      app: nginxdeployment
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: nginxdeployment
+    spec:
+      securityContext:
+        runAsNonRoot: true
+      containers:
+      - name: nginxdeployment
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+EOF
+
+2. Run the following to see Pods
+`kubectl get pods`
+
+You'll notice how the Pods didn't start.
+
+3. Run the following to see what's going on with the Pods
+`kubectl describe pods pod_name`
+
+You'll see an output that the Nginx image wants to run the image as root.
