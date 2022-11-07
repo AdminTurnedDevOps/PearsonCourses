@@ -1,6 +1,15 @@
-Create a service account
+## Create a service account
 
-Implementing roles and RoleBindings for a user 
+```
+kubectl create -f - <<EOF
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: miketest
+automountServiceAccountToken: false
+EOF
+```
 
-Quick look at Kubescapes RBAC Visualizer
+## Quick look at Kubescapes RBAC Visualizer
 
+Open up in Kubescape
