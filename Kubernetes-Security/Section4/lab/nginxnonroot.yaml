@@ -22,3 +22,27 @@ spec:
       securityContext:  
         runAsUser: 5554	
 EOF
+
+kubectl apply -f - <<EOF
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  selector:
+    matchLabels:
+      app: nginxdeployment
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nginxdeployment
+    spec:
+      containers:
+      - name: nginxdeployment
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+      securityContext:  
+        runAsUser: 999
+EOF
