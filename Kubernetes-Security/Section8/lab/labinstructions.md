@@ -62,6 +62,10 @@ vault write auth/kubernetes/config kubernetes_host="https://$KUBERNETES_PORT_443
 ### Create A Secret
 
 ```
+vault secrets enable -path=secret kv-v2
+```
+
+```
 vault kv put secret/config username="helloworld" password="supersecret"
 ```
 
@@ -69,7 +73,7 @@ vault kv put secret/config username="helloworld" password="supersecret"
 
 ```
 vault policy write apptest - <<EOF
-path "secret/config" {
+path "secret/data/config" {
   capabilities = ["read"]
 }
 EOF
@@ -119,11 +123,11 @@ spec:
       annotations:
         vault.hashicorp.com/agent-inject: 'true'
         vault.hashicorp.com/role: 'apptest'
-        vault.hashicorp.com/agent-inject-secret-database-config.txt: 'secret/config'
+        vault.hashicorp.com/agent-inject-secret-database-config.txt: 'secret/data/config'
       labels:
         app: nginxdeployment
     spec:
-      serviceAccountName: vaultinject
+      serviceAccountName: apptest
       containers:
       - name: nginxdeployment
         image: nginx:latest
