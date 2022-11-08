@@ -52,6 +52,8 @@ helm repo update
 helm install vault hashicorp/vault --set "server.dev.enabled=true"
 ```
 
+If you go with the `server.dev` option, the token value when logging in is `root`.
+
 If you're running on another type of cluster, like Azure Kubernetes Service, you can use the below.
 
 ```
@@ -70,3 +72,9 @@ helm install vault hashicorp/vault \
 7. Follow the instructions to unseal Vault with the keys that you downloaded
 
 8. To sign into Vault, use the `root_token` key in the Keys JSON file that you downloaded.
+
+9. Exec into the `vault-0` Pod
+`kubectl exec -it vault-0 -- /bin/sh`
+
+10. Within the Pod, run the following command to log into Vault via the CLI.
+`vault login`
