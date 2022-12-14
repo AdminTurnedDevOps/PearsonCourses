@@ -6,8 +6,9 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
+ 
 
-# Make data base, printed on Mon Nov  7 15:45:48 2022
+# Make data base, printed on Wed Dec 14 14:33:09 2022
 
 # Variables
 
@@ -54,7 +55,7 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.blzgPVbgFm/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.ecKBZWlnHi/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -72,7 +73,7 @@ HOME = /Users/michael
 # default
 MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /Developer)/Makefiles
 # environment
-VSCODE_CODE_CACHE_PATH = /Users/michael/Library/Application Support/Code/CachedData/8fa188b2b301d36553cbc9ce1b0a146ccb93351f
+VSCODE_CODE_CACHE_PATH = /Users/michael/Library/Application Support/Code/CachedData/5235c6bb189b60b01b1f49062f4ffa42384f8c91
 # environment
 LOGNAME = michael
 # environment
@@ -110,7 +111,7 @@ TMPDIR = /var/folders/c7/m_mq7b7d6t37zt5fg7gg4hb80000gn/T/
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /Users/michael/Library/Application Support/Code/1.73.0-main.sock
+VSCODE_IPC_HOOK = /Users/michael/Library/Application Support/Code/1.74.0-main.sock
 # environment
 MallocNanoZone = 0
 # makefile
@@ -120,7 +121,7 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = application.com.microsoft.VSCode.35812736.35812742
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.39750313.39750319
 # environment
 HOMEBREW_PREFIX = /opt/homebrew
 # automatic
@@ -152,7 +153,7 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 29782
+VSCODE_PID = 35439
 # variable set hash-table stats:
 # Load=71/1024=7%, Rehash=0, Collisions=2/92=2%
 
@@ -162,7 +163,7 @@ VSCODE_PID = 29782
 
 # Directories
 
-# . (device 16777233, inode 13966938): 10 files, no impossibilities.
+# . (device 16777230, inode 13966938): 10 files, no impossibilities.
 
 # 10 files, no impossibilities in 1 directories.
 
@@ -236,7 +237,7 @@ GNUmakefile:
 # strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
 # strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Mon Nov  7 15:45:48 2022
+# Finished Make data base on Wed Dec 14 14:33:09 2022
 
  
 make: *** No rule to make target `all'.  Stop.
