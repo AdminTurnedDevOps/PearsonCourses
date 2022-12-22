@@ -35,7 +35,7 @@ kubectl create namespace prod
 `values-staging.yaml`
 `values-prod.yaml`
 
-Once created, popular the Value files with your choice of values
+Once created, populate the Value files with your choice of values
 
 2. Create namespaces
 ```

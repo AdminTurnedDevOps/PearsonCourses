@@ -16,7 +16,7 @@ kubectl create -f manifests/
 Configure Prometheus to listen to the `/metrics` endpoint from ArgoCD. The Argo Rollouts controller is already instrumented with Prometheus metrics available at /metrics in port 8082. You can use these metrics to look at the health of the controller either via dashboards or via other Prometheus integrations.
 
 ```
-kubectl apply -f metricsconsumption.yaml
+kubectl apply -f metriccconsumption.yaml
 ```
 
 ```
