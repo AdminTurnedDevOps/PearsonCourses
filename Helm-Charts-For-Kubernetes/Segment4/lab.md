@@ -11,6 +11,8 @@ kubectl create namespace prod
 ## Charge Directory
 `cd Segment4`
 
+Ensure to create the Helm Charts for each section below like you learned in the previous labs. For example, the Dev Helm installation wants a Helm Chart called `nginxvalues`
+
 ## Install For Dev
 `helm install nginxdev nginxvalues -n dev -f nginxvalues/values/dev/values.yaml`
 `kubectl get pods -n dev`
