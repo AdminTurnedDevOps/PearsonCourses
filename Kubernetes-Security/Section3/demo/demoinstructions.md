@@ -21,6 +21,9 @@ OR
 
 `istioctl install`
 
+**For one node clusters**:
+`istioctl install --set profile=demo`
+
 ## Istio Sidecar Injection
 
 Take a look at both options below.
