@@ -6,8 +6,11 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
+ 
+make: *** No rule to make target `all'.  Stop.
 
-# Make data base, printed on Thu Jan 19 07:12:06 2023
+
+# Make data base, printed on Sat Feb  4 08:20:49 2023
 
 # Variables
 
@@ -58,6 +61,7 @@ SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.ecKBZWlnHi/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
+ 
 PWD = /Users/michael/Desktop/PearsonCourses
 # environment
 HOMEBREW_CELLAR = /opt/homebrew/Cellar
@@ -152,7 +156,7 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 94575
+VSCODE_PID = 85847
 # variable set hash-table stats:
 # Load=71/1024=7%, Rehash=0, Collisions=2/92=2%
 
@@ -173,6 +177,7 @@ VSCODE_PID = 94575
 # Files
 
 # Not a target:
+ 
 all:
 #  Command-line target.
 #  Implicit rule search has been done.
@@ -236,8 +241,6 @@ GNUmakefile:
 # strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
 # strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Thu Jan 19 07:12:06 2023
+# Finished Make data base on Sat Feb  4 08:20:49 2023
 
  
-make: *** No rule to make target `all'.  Stop.
-
