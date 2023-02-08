@@ -4,12 +4,12 @@ export GITHUB_TOKEN=<your-token>
 export GITHUB_USER=<your-username>
 ```
 
-![](GitOps-For-Kubernetes/images/1.png)
+![](../../images/1.png)
 
 ## Install Flux
 It's all based on the OS that you're currently on.
 
-![](GitOps-For-Kubernetes/images/2.png)
+![](../../images/2.png)
 
 https://fluxcd.io/flux/installation/
 
