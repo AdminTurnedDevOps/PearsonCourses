@@ -1,11 +1,20 @@
+A lot of the steps below will look like the steps you went through in Section 3.
+
+They're very similar. The difference is the application you're installing for the dashboard.
+
 ## Specifiy Git credentials
+
 ```
 export GITHUB_TOKEN=
 export GITHUB_USER=
 ```
 
+![](../../images/1.png)
+
 ## Check Flux Installation
-  `flux check --pre`
+  ```
+  flux check --pre
+  ```
 
 ## Connect To GitHub
 
@@ -27,7 +36,6 @@ You're going to need to perform your flux commands from the `flux-fleet` reposit
 
 1. Clone the `flux-fleet` repository to your `localhost`
 2. `cd` into the `flux-fleet` repo
-
 
 ## Add the repo/source to Flux
 ```
@@ -72,8 +80,10 @@ kubectl -n monitoring port-forward svc/kube-prometheus-stack-grafana 3000:80
 
 Access the dashboard: http://localhost:3000/d/flux-control-plane/flux-control-plane
 
-Credentials
-```
-Username: admin
-Password: prom-operator
-```
+Credentials:
+1. Username: admin
+2. Password: prom-operator
+
+When logging in, you should see a view similar to the screenshot below.
+
+![](../../images/5.png)
