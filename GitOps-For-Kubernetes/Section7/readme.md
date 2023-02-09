@@ -1,3 +1,5 @@
+**If the `kube-prometheus` directory is empty for you, please re-clone it here**: https://prometheus-operator.dev/docs/prologue/quick-start/
+
 Start Fresh! 
 
 This lab is going to be based off of everything we've talked about throughout this course and what we built on. Because of that, a few of these components may already exist. If you're using Minikube, KinD, Docker Desktop, etc..., delete the cluster and deploy a new one.
