@@ -1,9 +1,21 @@
 ## Enable audit logs on control plane
-1. Copy everything in `policy.yaml`
-2. SSH into the Kubernetes cluster and go to: `sudo vim /etc/kubernetes/simple-policy.yaml`
-3. Open up the following location: `sudo vim /etc/kubernetes/manifests/kube-apiserver.yaml`
+
+1. Copy everything in `policy.yaml` in the existing Demo directory.
+
+2. SSH into the Kubernetes cluster and go to:
+
+```
+sudo vim /etc/kubernetes/simple-policy.yaml
+```
+
+3. Open up the following location:
+
+```
+sudo vim /etc/kubernetes/manifests/kube-apiserver.yaml
+```
 
 Add in the following:
+
 ```
 - --audit-log-maxage=7
 - --audit-log-maxbackup=2
@@ -16,6 +28,7 @@ Add in the following:
 ```
 
 Under volume mounts, add the following
+
 ```
 - mountPath: /etc/kubernetes/simple-policy.yaml
   name: audit
@@ -26,6 +39,7 @@ Under volume mounts, add the following
 ```
 
 Under host path, add the following:
+
 ```
 - hostPath:
     path: /etc/kubernetes/simple-policy.yaml
@@ -38,14 +52,19 @@ Under host path, add the following:
 ```
 
 4. Restart kubelet
+
 ```
 sudo systemctl restart kubelet
 ```
 
 4. Confirm that the Kubelet is still running
-`kubectl get nodes`
+
+```
+kubectl get nodes
+```
 
 ## View audit logs on a control plane
+
 ```
 tail -f /var/log/audit.log
 ```
@@ -78,11 +97,15 @@ spec:
 EOF
 
 2. Run the following to see Pods
-`kubectl get pods`
+```
+kubectl get pods
+```
 
 You'll notice how the Pods didn't start.
 
 3. Run the following to see what's going on with the Pods
-`kubectl describe pods pod_name`
+```
+kubectl describe pods pod_name
+```
 
 You'll see an output that the Nginx image wants to run the image as root.
