@@ -33,11 +33,15 @@ curl -L https://github.com/aquasecurity/kube-bench/releases/download/v0.6.10/kub
 
 Then, you can run the installation.
 
-`sudo apt install ./kube-bench_0.6.10_linux_amd64.deb -f`
+```
+sudo apt install ./kube-bench_0.6.10_linux_amd64.deb -f
+```
 
 There are several other installation options. Please see them here: 
 
 2. Once kube-bench is installed, run it on the terminal. 
-`kube-bench`
+```
+kube-bench
+```
 
 It's going to run against your Kubernetes cluster that's in your current context, so you should see a ton of output on the terminal.

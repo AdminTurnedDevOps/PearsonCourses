@@ -1,17 +1,23 @@
 ## Deploy OPA Gatekeeper
 
-1. Add the Helm Chart
-`helm repo add gatekeeper https://open-policy-agent.github.io/gatekeeper/charts`
+1. Add the OPA Helm Chart
+```
+helm repo add gatekeeper https://open-policy-agent.github.io/gatekeeper/charts
+```
 
-2. Install the Helm Chart
-`helm install gatekeeper/gatekeeper --name-template=gatekeeper --namespace gatekeeper-system --create-namespace`
+2. Install the OPA Helm Chart
+```
+helm install gatekeeper/gatekeeper --name-template=gatekeeper --namespace gatekeeper-system --create-namespace
+```
 
 3. Confirm that all Kubernetes resources were deployed.
-`kubectl get all -n gatekeeper-system`
+```
+kubectl get all -n gatekeeper-system
+```
 
 ## Implementing Kyverno policies
 
-1. Install Kyverno on your Kubernetes cluster.
+1. Install Kyverno on your Kubernetes cluster via Helm.
 ```
 helm repo add kyverno https://kyverno.github.io/kyverno/
 
@@ -21,7 +27,9 @@ helm install kyverno kyverno/kyverno -n kyverno --create-namespace
 ```
 
 2. Confirm that all of the resources are running.
-`kubectl get all -n kyverno`
+```
+kubectl get all -n kyverno
+```
 
 3. Create a new YAML file, call it `disallow.yaml`, and add in the following config.
 ```
@@ -58,7 +66,9 @@ spec:
 ```
 
 4. Run the following:
-`kubectl create -f Kyverno/disallow.yaml`
+```
+kubectl create -f Kyverno/disallow.yaml
+```
 
 5. Create a new YAML file called nginx.yaml and paste in the following configuration.
 ```
@@ -84,6 +94,7 @@ spec:
 ```
 
 You should see an output similiar to the below.
+
 ```
 kubectl create -f nginx.yaml
 Error from server: error when creating "nginx.yaml": admission webhook "validate.kyverno.svc-fail" denied the request: 

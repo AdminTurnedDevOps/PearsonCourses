@@ -1,10 +1,14 @@
 ## Implementing Kyverno policies
 
 1. Install Kyverno on your Kubernetes cluster.
-`kubectl create -f https://raw.githubusercontent.com/kyverno/kyverno/main/config/install.yaml`
+```
+kubectl create -f https://raw.githubusercontent.com/kyverno/kyverno/main/config/install.yaml
+```
 
 2. Confirm that all of the resources are running.
-`kubectl get all -n kyverno`
+```
+kubectl get all -n kyverno
+```
 
 3. Create a new YAML file, call it `disallow.yaml`, and add in the following config.
 ```
@@ -41,7 +45,9 @@ spec:
 ```
 
 4. Run the following:
-`kubectl create -f Kyverno/disallow.yaml`
+```
+kubectl create -f Kyverno/disallow.yaml
+```
 
 5. Create a new YAML file called nginx.yaml and paste in the following configuration.
 ```
@@ -67,6 +73,7 @@ spec:
 ```
 
 You should see an output similiar to the below.
+
 ```
 kubectl create -f nginx.yaml
 Error from server: error when creating "nginx.yaml": admission webhook "validate.kyverno.svc-fail" denied the request: 
@@ -177,7 +184,9 @@ EOF
 ```
 
 5. Wait a few minutes and when you see that it doesn't come online, delete it.
-`kubectl delete deployment nginx-deployment`
+```
+kubectl delete deployment nginx-deployment
+```
 
 6. The Manifest below will work and the Pods will come online because a container image version number is specified.
 ```
