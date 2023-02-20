@@ -6,11 +6,15 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
+ 
+make: *** No rule to make target `all'.  Stop.
 
-# Make data base, printed on Thu Feb  9 11:59:19 2023
+
+# Make data base, printed on Mon Feb 20 12:19:32 2023
 
 # Variables
 
+ 
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
@@ -54,7 +58,7 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.ecKBZWlnHi/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.kalBRb5088/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -72,7 +76,7 @@ HOME = /Users/michael
 # default
 MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /Developer)/Makefiles
 # environment
-VSCODE_CODE_CACHE_PATH = /Users/michael/Library/Application Support/Code/CachedData/e2816fe719a4026ffa1ee0189dc89bdfdbafb164
+VSCODE_CODE_CACHE_PATH = /Users/michael/Library/Application Support/Code/CachedData/441438abd1ac652551dbe4d408dfcec8a499b8bf
 # environment
 LOGNAME = michael
 # environment
@@ -110,7 +114,7 @@ TMPDIR = /var/folders/c7/m_mq7b7d6t37zt5fg7gg4hb80000gn/T/
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /Users/michael/Library/Application Support/Code/1.75.0-main.sock
+VSCODE_IPC_HOOK = /Users/michael/Library/Application Support/Code/1.75.1-main.sock
 # environment
 MallocNanoZone = 0
 # makefile
@@ -120,7 +124,7 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = application.com.microsoft.VSCode.45331012.45331018
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.46422997.46423003
 # environment
 HOMEBREW_PREFIX = /opt/homebrew
 # automatic
@@ -152,7 +156,7 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 94398
+VSCODE_PID = 15376
 # variable set hash-table stats:
 # Load=71/1024=7%, Rehash=0, Collisions=2/92=2%
 
@@ -162,7 +166,7 @@ VSCODE_PID = 94398
 
 # Directories
 
-# . (device 16777230, inode 13966938): 12 files, no impossibilities.
+# . (device 16777234, inode 13966938): 12 files, no impossibilities.
 
 # 12 files, no impossibilities in 1 directories.
 
@@ -183,6 +187,7 @@ all:
 
 # Not a target:
 .SUFFIXES:
+ 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -236,8 +241,6 @@ GNUmakefile:
 # strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
 # strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Thu Feb  9 11:59:19 2023
+# Finished Make data base on Mon Feb 20 12:19:32 2023
 
  
-make: *** No rule to make target `all'.  Stop.
-

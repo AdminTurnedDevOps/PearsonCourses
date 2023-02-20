@@ -1,1 +1,1 @@
-Remote into Windows box and showcase the CIS GUI tool when scanning against a server.
+Showcase the Benchmarks available from CIS and showcase the Kubernetes Benchmark.
