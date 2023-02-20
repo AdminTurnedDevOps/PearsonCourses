@@ -15,7 +15,9 @@ EOF
 ```
 
 2. Confirm that the secret was created by running the following command.
-`kubectl get secrets`
+```
+kubectl get secrets
+```
 
 3. Inject the secret into a Pod.
 ```
@@ -63,7 +65,9 @@ helm install vault hashicorp/vault \
 ```
 
 4. Open up the Vault web UI by running the following command and utilizing the `vault-ui` Service.
-`kubectl get svc`
+```
+kubectl get svc
+```
 
 5. Enter 5 in the *Key shares* and 3 in the *Key threshold* text fields.
 
@@ -74,7 +78,11 @@ helm install vault hashicorp/vault \
 8. To sign into Vault, use the `root_token` key in the Keys JSON file that you downloaded.
 
 9. Exec into the `vault-0` Pod
-`kubectl exec -it vault-0 -- /bin/sh`
+```
+kubectl exec -it vault-0 -- /bin/sh
+```
 
 10. Within the Pod, run the following command to log into Vault via the CLI.
-`vault login`
+```
+vault login
+```

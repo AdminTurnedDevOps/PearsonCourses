@@ -1,7 +1,9 @@
 ## Create a service account
 
 1. Run the following command:
-`kubectl create sa mikeuser`
+```
+kubectl create sa mikeuser
+```
 
 ## Create a ClusterRole
 
@@ -55,7 +57,9 @@ EOF
 Now let's put it all together. The below configurations will create a new service account, a new role that has read/write, bind the role to the service account, and you can use the service account to create a Pod.
 
 1. Create the service account
-`kubectl create sa podcreator`
+```
+kubectl create sa podcreator
+```
 
 2. Create the read and write cluster role
 
@@ -91,6 +95,8 @@ EOF
 ```
 
 4. Create a Pod with the Service Account associated.
+```
+kubectl apply -f - <<EOF
 apiVersion: v1
 kind: Pod
 metadata:
@@ -101,3 +107,5 @@ spec:
     name: nginxpod
   serviceAccountName: podcreator
   automountServiceAccountToken: false
+EOF
+```
