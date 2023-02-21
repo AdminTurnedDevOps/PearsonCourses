@@ -18,7 +18,7 @@ sts.amazonaws.com
 
 8. Once complete, click the blue **Add provider** button.
 
-9. Once added, you’ll see an output similar to the screenshot below indicating that the provider has been added. You’ll also see a message that requires you to assign an IAM role so the provider can be added.
+9. Once added, you’ll see an output that shows the provider. There will be a green box on the screen that indicates you must assign an IAM Role to start using the provider.
 
 10. Click the **Assign role** button and choose the option to **Create a new role**.
 
@@ -29,3 +29,5 @@ sts.amazonaws.com
 13. Click Next through the Tags screen, indicating that you don’t add any tags (although, you can if you’d like).
 
 14. Then, give the Role a name and click the blue **Create role** button.
+
+15. The OIDC provider is now connected.

@@ -1,1 +1,1 @@
-Showcase the Benchmarks available from CIS and showcase the Kubernetes Benchmark.
+Showcase the Benchmarks available from CIS and showcase the Kubernetes Benchmark (PDFs already available via email)
