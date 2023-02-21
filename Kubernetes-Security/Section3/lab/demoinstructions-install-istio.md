@@ -69,6 +69,9 @@ kubectl get namespace -L istio-injection
 ```
 
 Option 2: Manually inject the sidecar container
+The example below is if you have a Kubernetes Manifest that's called something like `nginx.yaml`. You can then inject the Sidecar into the Kubernetes Deployment as you run it. This type of implementation should be a last resort as it's incredibly manual.
+
+You don't have to run the code below. This is just to showcase an example.
 ```
 istioctl kube-inject -f nginx.yaml | kubectl apply -f -
 ```
