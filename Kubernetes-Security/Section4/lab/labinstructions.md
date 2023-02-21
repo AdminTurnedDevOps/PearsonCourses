@@ -1,3 +1,18 @@
+**CALLOUT**
+This lab does not work with Minikube out of the box. The reason why is because the default CNI that's used doesn't allow Network Policies. This lab has been tested with Azure Kubernetes Service (AKS) and Elastic Kubernetes Service (EKS), and it worked on those platforms. Because of that, it's been identified that it's not a code issue, but a local CNI/networking issue when it comes to Minikube.
+
+For the fix, you'll need to create a Minikube cluster using either the Cilium CNI or the Calico CNI.
+
+```
+minikube delete
+```
+
+```
+minikube start --network-plugin=cni --cni=cilium
+
+```
+
+
 ## NetworkPolicy implementation
 
 1. Run the following Pods
@@ -23,7 +38,7 @@ You should see that the Ping worked.
 
 4. Create a network policy that blocks all ingress traffic to `busybox1`
 
-kubectl create -f - <<EOF
+kubectl apply -f - <<EOF
 kind: NetworkPolicy
 apiVersion: networking.k8s.io/v1
 metadata:
@@ -57,6 +72,8 @@ pip3 install git+https://github.com/inovex/illuminatio
 ```
 illuminatio clean run
 ```
+
+The scan will fail due to the Network Policy you implemented. 
 ## Set up a security context in a Pod (this won't work)
 
 1. Run the below.
@@ -100,3 +117,5 @@ kubectl describe pods pod_name
 ```
 
 You'll see an output that the Nginx image wants to run the image as root.
+
+There's an Nginx container image specifically designed for this so you can run it as NonRoot, but this lab was meant to show that even with best practices, you may still run into hurdles.
