@@ -19,6 +19,11 @@ EOF
 kubectl get secrets
 ```
 
+You can now see the secret in plain text.
+```
+kubectl get secret testsecret -o jsonpath='{.data}'
+```
+
 3. Inject the secret into a Pod.
 ```
 kubectl apply -f - <<EOF

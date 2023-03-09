@@ -45,6 +45,7 @@ subjects:
 - kind: ServiceAccount
   name: mikeuser
   apiGroup: ""
+  namespace: default
 roleRef:
   kind: ClusterRole
   name: reader
