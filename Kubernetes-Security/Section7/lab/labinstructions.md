@@ -41,11 +41,11 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: read-pod-global
+  namespace: default
 subjects:
 - kind: ServiceAccount
   name: mikeuser
   apiGroup: ""
-  namespace: default
 roleRef:
   kind: ClusterRole
   name: reader
