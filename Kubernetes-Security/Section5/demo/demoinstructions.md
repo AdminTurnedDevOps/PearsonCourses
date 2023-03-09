@@ -10,6 +10,12 @@ helm repo add gatekeeper https://open-policy-agent.github.io/gatekeeper/charts
 helm install gatekeeper/gatekeeper --name-template=gatekeeper --namespace gatekeeper-system --create-namespace
 ```
 
+OR
+
+```
+kubectl apply -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper/master/deploy/gatekeeper.yaml
+```
+
 3. Confirm that all Kubernetes resources were deployed.
 ```
 kubectl get all -n gatekeeper-system
