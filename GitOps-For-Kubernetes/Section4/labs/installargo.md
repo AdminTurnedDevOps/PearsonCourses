@@ -1,4 +1,4 @@
-## ArgoCD CLI Installation
+# ArgoCD CLI Installation
 https://argo-cd.readthedocs.io/en/stable/cli_installation/
 
 ## Server Installation
@@ -65,3 +65,20 @@ If you have another containerized app that you'd like to try to deploy, feel fre
 You should now see the app running in the Argo UI
 
 ![](../../images/3.png)
+
+# Helm Installation
+
+You can also run the following Helm Chart which does all of the above server configuration (minus the app deployment) for you.
+
+```
+helm install argocd -n argocd argo/argo-cd \
+--set redis-ha.enabled=true \
+--set controller.replicas=1 \
+--set server.autoscaling.enabled=true \
+--set server.autoscaling.minReplicas=2 \
+--set repoServer.autoscaling.enabled=true \
+--set repoServer.autoscaling.minReplicas=2 \
+--set applicationSet.replicaCount=2 \
+--set server.service.type=LoadBalancer \
+--create-namespace
+```
