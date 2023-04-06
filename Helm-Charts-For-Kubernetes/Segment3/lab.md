@@ -38,7 +38,7 @@ You should only see one replica.
 
 5. Run the upgrade command.
 ```
-helm upgrade nginx nginxupdate/
+helm upgrade nginx nginxtestupdate/
 ```
 
 Notice with this upgrade you aren't utilizing the current directory (`.`) like in the last lab. This shows you that you don't have to be in the current directory to upgrade, but instead, point to the Helm Chart directory which you'd like to update.

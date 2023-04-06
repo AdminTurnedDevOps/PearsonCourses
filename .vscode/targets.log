@@ -10,7 +10,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
 
 
-# Make data base, printed on Mon Apr  3 12:43:54 2023
+# Make data base, printed on Thu Apr  6 07:22:27 2023
 
 # Variables
 
@@ -39,6 +39,7 @@ sonobuoy = /Users/michael/sonobuoyapp/sonobuoy
 # makefile
 MAKEFILE_LIST := 
 # environment
+ 
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
 __CFBundleIdentifier = com.microsoft.VSCode
@@ -132,6 +133,8 @@ XPC_SERVICE_NAME = application.com.microsoft.VSCode.50683214.50683220
 HOMEBREW_PREFIX = /opt/homebrew
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
+# environment
+VSCODE_L10N_BUNDLE_LOCATION = 
 # automatic
 +F = $(notdir $+)
 # environment
@@ -161,7 +164,7 @@ LANG = C
 # environment
 VSCODE_PID = 45362
 # variable set hash-table stats:
-# Load=73/1024=7%, Rehash=0, Collisions=2/94=2%
+# Load=74/1024=7%, Rehash=0, Collisions=2/95=2%
 
 # Pattern-specific Variable Values
 
@@ -243,6 +246,6 @@ GNUmakefile:
 # strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
 # strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Mon Apr  3 12:43:54 2023
+# Finished Make data base on Thu Apr  6 07:22:27 2023
 
  
