@@ -43,7 +43,7 @@ helm upgrade nginx nginxtestupdate/
 
 Notice with this upgrade you aren't utilizing the current directory (`.`) like in the last lab. This shows you that you don't have to be in the current directory to upgrade, but instead, point to the Helm Chart directory which you'd like to update.
 
-6. Run `kubectl get deployments` to see that the `replicaSet` changed from 1 to 2.
+6. Run `kubectl get deployments` to see that the `replicaSet` changed from 1 to 3.
 
 ## View Helm Chart History
 
