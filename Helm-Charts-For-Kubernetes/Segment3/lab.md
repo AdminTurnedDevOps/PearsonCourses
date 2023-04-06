@@ -58,7 +58,7 @@ This is great for not only version control, but troubleshooting. If a containeri
 
 1. Run the history command.
 ```
-helm history nginx
+helm history name_of_helm_chart
 ```
 
 ## Rollback The Helm Chart
@@ -67,19 +67,19 @@ Rollbacks allow you to take a chart that you changed and roll it back to a previ
 
 1. Retrieve the history of the Helm Chart
 ```
-helm history nginx
+helm history name_of_helm_chart
 ```
 
 2. Take note of the revision number that you want to roll back to
 
 3. Run the rollback command to the revision you wish to roll back to
 ```
-helm rollback nginx 1
+helm rollback name_of_helm_chart 1
 ```
 
 ## Delete The Helm Chart
 
 1. To clean up the Helm Chart, run the following.
 ```
-helm uninstall nginx
+helm uninstall name_of_helm_chart
 ```

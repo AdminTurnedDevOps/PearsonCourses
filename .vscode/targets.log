@@ -6,11 +6,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
- 
-make: *** No rule to make target `all'.  Stop.
 
-
-# Make data base, printed on Thu Apr  6 07:22:27 2023
+# Make data base, printed on Thu Apr  6 09:40:04 2023
 
 # Variables
 
@@ -39,7 +36,6 @@ sonobuoy = /Users/michael/sonobuoyapp/sonobuoy
 # makefile
 MAKEFILE_LIST := 
 # environment
- 
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
 __CFBundleIdentifier = com.microsoft.VSCode
@@ -246,6 +242,8 @@ GNUmakefile:
 # strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
 # strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Thu Apr  6 07:22:27 2023
+# Finished Make data base on Thu Apr  6 09:40:04 2023
 
  
+make: *** No rule to make target `all'.  Stop.
+
