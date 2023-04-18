@@ -1,0 +1,1 @@
+Showcase cluster resources being utilized in AKS
