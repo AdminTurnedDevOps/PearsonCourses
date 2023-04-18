@@ -3,7 +3,7 @@
 kubectl create namespace test
 ```
 
-3. Specifiy a resource quota.
+2. Specifiy a resource quota.
 ```
 apiVersion: v1
 kind: ResourceQuota
@@ -16,7 +16,7 @@ spec:
     limits.memory: 1000Mi
 ```
 
-4. Deploy a Pod with the resource quota in place.
+3. Deploy a Pod with the resource quota in place.
 ```
 apiVersion: v1
 kind: Pod
