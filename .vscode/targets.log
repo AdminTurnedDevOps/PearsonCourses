@@ -6,8 +6,11 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
+ 
+make: *** No rule to make target `all'.  Stop.
 
-# Make data base, printed on Tue Apr 18 14:16:03 2023
+
+# Make data base, printed on Thu Apr 20 13:49:39 2023
 
 # Variables
 
@@ -36,27 +39,23 @@ sonobuoy = /Users/michael/sonobuoyapp/sonobuoy
 # makefile
 MAKEFILE_LIST := 
 # environment
-VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
-# environment
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
 INFOPATH = /opt/homebrew/share/info:
 # environment
 VSCODE_CWD = /
 # environment
-GOPROXY = https://proxy.golang.org,direct
-# environment
-PATH = /Users/michael/.docker/bin:/Users/michael/.rd/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion Tech Preview.app/Contents/Public:/usr/local/go/bin:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Frameworks/Mono.framework/Versions/Current/Commands
+PATH = /opt/homebrew/opt/openssl@3/bin:/Users/michael/.docker/bin:/Users/michael/.rd/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion Tech Preview.app/Contents/Public:/usr/local/go/bin:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Frameworks/Mono.framework/Versions/Current/Commands
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
-GOPATH = /Users/michael/go
+LaunchInstanceID = 01D5BB7C-DC8C-4C4C-B02E-B407A4E0ECBE
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.qMyJmtarWo/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.VrlKQhFPd9/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -68,7 +67,7 @@ ORIGINAL_XDG_CURRENT_DESKTOP = undefined
 # environment
 MANPATH = /opt/homebrew/share/man::
 # environment
-GOMODCACHE = /Users/michael/go/pkg/mod
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
 HOME = /Users/michael
 # default
@@ -93,8 +92,6 @@ MAKE = $(MAKE_COMMAND)
 MAKECMDGOALS := all
 # environment
 SHLVL = 1
-# environment
-VSCODE_CRASH_REPORTER_SANDBOXED_HINT = 1
 # default
 MAKE_VERSION := 3.81
 # environment
@@ -147,6 +144,8 @@ MAKEFILES :=
 PAGER = less
 # environment
 LC_ALL = C
+# environment
+SECURITYSESSIONID = 186b2
 # automatic
 ^F = $(notdir $^)
 # default
@@ -158,9 +157,9 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 45362
+VSCODE_PID = 595
 # variable set hash-table stats:
-# Load=74/1024=7%, Rehash=0, Collisions=2/95=2%
+# Load=72/1024=7%, Rehash=0, Collisions=1/93=1%
 
 # Pattern-specific Variable Values
 
@@ -168,7 +167,7 @@ VSCODE_PID = 45362
 
 # Directories
 
-# . (device 16777230, inode 13966938): 13 files, no impossibilities.
+# . (device 16777233, inode 13966938): 13 files, no impossibilities.
 
 # 13 files, no impossibilities in 1 directories.
 
@@ -242,8 +241,6 @@ GNUmakefile:
 # strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
 # strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Tue Apr 18 14:16:03 2023
+# Finished Make data base on Thu Apr 20 13:49:39 2023
 
  
-make: *** No rule to make target `all'.  Stop.
-

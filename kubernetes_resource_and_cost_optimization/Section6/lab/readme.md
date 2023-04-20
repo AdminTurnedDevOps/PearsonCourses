@@ -10,12 +10,13 @@ curl -H "Authorization: Token (you'll get this from your Cast.ai dashboard when 
 
 Go to your Cast.ai dashboard and you'll now see your cluster.
 
-
 ## Implement resource optimization with Sosivio
 
 **Ensure that you have at least a two node cluster**
 
 1. Go to the following page to download Sosivio https://www.sosiv.io/app/download
+
+The installation will be based on your OS. The direction below showcase a Mac installer, but you'll also see options for a Windows installer.
 
 2. Untar
 

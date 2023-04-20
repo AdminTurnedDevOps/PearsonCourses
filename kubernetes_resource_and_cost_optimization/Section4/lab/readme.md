@@ -19,20 +19,6 @@ helm upgrade --install --create-namespace -n portainer portainer portainer/porta
     --set tls.force=true
 ```
 
-### Rancher Local On Docker Container (optional)
-1. Install Rancher
-```
-docker run -d --restart=unless-stopped \
-  -p 80:80 -p 443:443 \
-  --privileged \
-  rancher/rancher:latest
-```
-
-2. Retrieve initial password
-docker logs your_rancher_container_id  2>&1 | grep "Bootstrap Password:"
-
-3. Log in and register cluster.
-
 ### Rancher On Kubernetes
 
 1. Install Ingress
@@ -84,6 +70,19 @@ kubectl get secret --namespace cattle-system bootstrap-secret -o go-template='{{
 kubectl port-forward -n cattle-system svc/rancher 8080:443
 ```
 
+### Rancher Local On Docker Container (optional)
+1. Install Rancher
+```
+docker run -d --restart=unless-stopped \
+  -p 80:80 -p 443:443 \
+  --privileged \
+  rancher/rancher:latest
+```
+
+2. Retrieve initial password
+docker logs your_rancher_container_id  2>&1 | grep "Bootstrap Password:"
+
+3. Log in and register cluster.
 
 ## Viewing Resources
 

@@ -1,4 +1,4 @@
-Check billing
+# Check billing
 
 ## If You Have AWS
 

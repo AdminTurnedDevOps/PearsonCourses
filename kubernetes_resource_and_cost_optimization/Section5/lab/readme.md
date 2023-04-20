@@ -13,7 +13,7 @@ resourceGroup=
 aksClusterName=
 
 az aks update \
-  --resource-group $myResourceGroup \
+  --resource-group $resourceGroup \
   --name $aksClusterName \
   --enable-cluster-autoscaler \
   --min-count 1 \
