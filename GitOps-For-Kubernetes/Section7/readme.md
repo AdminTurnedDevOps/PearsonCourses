@@ -32,6 +32,7 @@ If you are running a local cluster, like Minikube or Kind, please note that this
 
 ```
 helm repo add argo https://argoproj.github.io/argo-helm
+```
 
 2. Next, deploy ArgoCD with Helm. The Helm Chart below confirms high availability and that the ArgoCD UI is connected to a load balancer so you don't have to run `kube port-forward`
 
@@ -164,7 +165,6 @@ spec:
     server: "https://kubernetes.default.svc"
     namespace: kubeseal
 ```
-
 
 
 ## Helpful Docs
