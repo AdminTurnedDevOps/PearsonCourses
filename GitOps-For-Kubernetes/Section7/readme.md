@@ -22,6 +22,32 @@ If you aren't in an HA environment that has three (3) nodes (for example, if you
 4. Open up Argo's UI
 `kubectl port-forward -n argocd service/argocd-server :80`
 
+## OPTIONAL: Deploy ArgoCD With Helm
+
+If you already deplyoed ArgoCD, you will need to delete the installation for this section if you choose to do it. This section is optional.
+
+If you are running a local cluster, like Minikube or Kind, please note that this lab won't work. However, you should still go through the code and see how it looks because this is the solution you'll most likely be using in production.
+
+1. First, add the Helm repo for ArgoCD.
+
+```
+helm repo add argo https://argoproj.github.io/argo-helm
+
+2. Next, deploy ArgoCD with Helm. The Helm Chart below confirms high availability and that the ArgoCD UI is connected to a load balancer so you don't have to run `kube port-forward`
+
+```
+helm install argocd -n argocd argo/argo-cd \
+--set redis-ha.enabled=true \
+--set controller.replicas=1 \
+--set server.autoscaling.enabled=true \
+--set server.autoscaling.minReplicas=2 \
+--set repoServer.autoscaling.enabled=true \
+--set repoServer.autoscaling.minReplicas=2 \
+--set applicationSet.replicaCount=2 \
+--set server.service.type=LoadBalancer \
+--create-namespace
+```
+
 ## Log Into Argo
 1. Log into the server via the CLI. The port is what ArgoCD is hosting hosted on from the `kubectl port-forward` section in **Server Installation**
 `argocd login 127.0.0.1:argocd_port_here`
@@ -109,6 +135,37 @@ You can now see the cluster and apps deployed.
 
 3. Add the chosen context
 `argocd cluster add kubernetes_context_name_here`
+
+## Deploy An App In A Declarative Fashion
+
+The lab below will showcase how you can use the declarative ArgoCD Application Controller to deploy Helm Charts.
+
+1. Create the Kubeseal Namespace
+```
+kubectl create namespace kubeseal
+```
+
+2. Deploy the Bitnami Sealed Secrets Helm Chart using the declarative Controller for ArgoCD
+```
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sealed-secrets
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: sealed-secrets
+    repoURL: https://bitnami-labs.github.io/sealed-secrets
+    targetRevision: 1.16.1
+    helm:
+      releaseName: sealed-secrets
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: kubeseal
+```
+
+
 
 ## Helpful Docs
 - https://argo-cd.readthedocs.io/en/stable/operator-manual/metrics/
