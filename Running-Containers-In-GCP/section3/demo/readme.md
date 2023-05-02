@@ -13,4 +13,6 @@ If you'd like, you can also try one of the other options as well if you have an 
 
 There isn't much needed to turn on in the **Advanced settings**, but it also wouldn't hurt if you'd like to test out any of the options.
 
-4. You'll be brought to a page that shows the cluster is currently being created. Once created, you'll see that it's added to the Anthos Fleet.
+4. You'll be brought to a page that shows the cluster is currently being created. Once created, you'll see a "register" button. Click the button to register the cluster with Anthos.
+
+Once you go to the Clusters tab in Anthos, you'll now see your cluster available.
