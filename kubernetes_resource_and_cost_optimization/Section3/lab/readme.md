@@ -17,3 +17,7 @@
 ## Azure Cost Calc
 
 https://azure.microsoft.com/en-us/pricing/calculator/
+
+## Vegeta
+
+https://github.com/tsenart/vegeta
