@@ -4,6 +4,8 @@
 
 https://docs.aws.amazon.com/eks/latest/userguide/autoscaling.html
 
+https://repost.aws/knowledge-center/eks-install-karpenter
+
 ### For Azure
 
 1. Run the following and ensure to put in the proper values for the variables.
