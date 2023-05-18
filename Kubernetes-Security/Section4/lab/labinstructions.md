@@ -38,6 +38,7 @@ You should see that the Ping worked.
 
 4. Create a network policy that blocks all ingress traffic to `busybox1`
 
+```
 kubectl apply -f - <<EOF
 kind: NetworkPolicy
 apiVersion: networking.k8s.io/v1
@@ -49,6 +50,7 @@ spec:
       app: busybox1
   ingress: []
 EOF
+```
 
 5. Run the Ping again.
 
