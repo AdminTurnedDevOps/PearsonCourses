@@ -70,6 +70,8 @@ You should now see the app running in the Argo UI
 
 You can also run the following Helm Chart which does all of the above server configuration (minus the app deployment) for you.
 
+The below will only work with a cluster that has 3 or more worker nodes.
+
 ```
 helm install argocd -n argocd argo/argo-cd \
 --set redis-ha.enabled=true \
