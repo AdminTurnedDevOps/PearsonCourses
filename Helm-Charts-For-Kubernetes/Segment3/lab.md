@@ -1,3 +1,5 @@
+(15 minutes)
+
 ## Create the Helm Chart
 1. Create a Helm Chart
 ```

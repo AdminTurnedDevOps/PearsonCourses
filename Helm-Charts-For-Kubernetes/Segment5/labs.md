@@ -1,3 +1,5 @@
+(20 minutes)
+
 # Go SDK
 
 For the purposes of this section, you don't have to know Go, but you should have some prior programming experience. It's totally fine if you don't know everything that's going on in this lab. This lab is more to show that there are other ways to interact with Helm other than the CLI that we've been using.

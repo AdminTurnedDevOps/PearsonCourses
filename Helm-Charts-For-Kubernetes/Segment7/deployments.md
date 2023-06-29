@@ -1,3 +1,5 @@
+(15 minutes)
+
 ## Argo
 
 https://github.com/argoproj/argo-helm/blob/main/charts/argo-cd/values.yaml
