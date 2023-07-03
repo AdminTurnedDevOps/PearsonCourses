@@ -31,7 +31,7 @@ func main() {
 		log.Printf("%+v", err)
 	}
 
-	// Create a new instance of the `Install` action, which is similar to running `helm instll`
+	// Create a new instance of the `Install` action, which is similar to running `helm install`
 	client := action.NewInstall(config)
 
 	// Install a helm chart

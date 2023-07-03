@@ -9,5 +9,6 @@ import "fmt"
 
 func main() {
 	const hiagain string = "hello world"
+
 	fmt.Println(hiagain)
 }
