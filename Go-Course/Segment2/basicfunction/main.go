@@ -5,6 +5,7 @@ package main
 
 import "fmt"
 
+// If your code is for a shared library, it does not get a `main` function
 func main() {
 	fmt.Println("Hello World")
 }
