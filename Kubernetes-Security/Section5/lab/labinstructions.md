@@ -86,6 +86,28 @@ require-labels:
   autogen-check-for-labels: 'validation error: label ''app.kubernetes.io/name'' is
     required. rule autogen-check-for-labels failed at path /spec/template/metadata/labels/app.kubernetes.io/name/'
 ```
+## Deploy OPA Gatekeeper
+
+1. Add the OPA Helm Chart
+```
+helm repo add gatekeeper https://open-policy-agent.github.io/gatekeeper/charts
+```
+
+2. Install the OPA Helm Chart
+```
+helm install gatekeeper/gatekeeper --name-template=gatekeeper --namespace gatekeeper-system --create-namespace
+```
+
+OR
+
+```
+kubectl apply -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper/master/deploy/gatekeeper.yaml
+```
+
+3. Confirm that all Kubernetes resources were deployed.
+```
+kubectl get all -n gatekeeper-system
+```
 
 ## Deploy and implement OPA policies
 
