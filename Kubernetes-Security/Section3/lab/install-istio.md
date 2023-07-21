@@ -1,3 +1,5 @@
+15 minutes
+
 ## Install Istio
 
 First, add the Istio repo.
@@ -80,4 +82,23 @@ istioctl kube-inject -f nginx.yaml | kubectl apply -f -
 
 ```
 kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.15/samples/addons/kiali.yaml
+```
+
+## Enabling mTLS
+
+When enabling mTLS encryption for east-west traffic, you have the ability to lock down mTLS for each Namespace.
+
+For example, the below enables mTLS for the `default` Namespace
+
+1. Lock down mTLS per each namespace
+```
+kubectl apply -n default -f - <<EOF
+apiVersion: security.istio.io/v1beta1
+kind: PeerAuthentication
+metadata:
+  name: "default"
+spec:
+  mtls:
+    mode: STRICT
+EOF
 ```

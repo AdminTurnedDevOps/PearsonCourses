@@ -1,3 +1,5 @@
+15 minutes.
+
 **CALLOUT**
 This lab does not work with Minikube out of the box. The reason why is because the default CNI that's used doesn't allow Network Policies. This lab has been tested with Azure Kubernetes Service (AKS) and Elastic Kubernetes Service (EKS), and it worked on those platforms. Because of that, it's been identified that it's not a code issue, but a local CNI/networking issue when it comes to Minikube.
 

@@ -1,3 +1,5 @@
+10 minutes
+
 ## Implementing Kyverno policies
 
 1. Install Kyverno on your Kubernetes cluster.

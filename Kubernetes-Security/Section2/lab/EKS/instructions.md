@@ -1,3 +1,5 @@
+5 minutes
+
 1. First, log into the AWS console and go to your EKS cluster.
 
 2. Go to the **Overview** tab and click on **Details**. Copy the OpenID Connect URL.

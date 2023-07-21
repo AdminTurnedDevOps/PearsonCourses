@@ -1,3 +1,5 @@
+5 minutes
+
 the example user used below is from my domain. Please ensure to use a user from your domain.
 
 ```

@@ -1,3 +1,5 @@
+10 minutes
+
 ## Create a service account
 
 1. Run the following command:

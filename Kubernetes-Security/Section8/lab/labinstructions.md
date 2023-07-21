@@ -1,3 +1,5 @@
+15 minutes
+
 ## Creating an instance of Vault
 
 1. Add the HashiCorp Help Repo

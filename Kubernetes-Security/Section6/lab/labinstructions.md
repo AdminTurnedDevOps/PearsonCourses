@@ -1,3 +1,5 @@
+10 minutes
+
 ## Implementing cluster scanning with Kubescape
 
 1. Sign up for the Kubescape Forever Free editor: https://cloud.armosec.io/account/sign-up
