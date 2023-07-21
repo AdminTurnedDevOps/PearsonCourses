@@ -1,3 +1,5 @@
+the example user used below is from my domain. Please ensure to use a user from your domain.
+
 ```
 az ad user create --display-name pearsonuser --password 'Password12!@' --user-principal-name pearsonuser@mlevan1992outlook.onmicrosoft.com
 ```
