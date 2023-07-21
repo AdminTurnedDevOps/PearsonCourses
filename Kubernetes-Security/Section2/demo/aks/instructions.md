@@ -17,4 +17,4 @@ az role assignment create \
         --query id -o tsv)
 ```
 
-Log into the Azure portal, go to your AKS cluster, and check the permissions on "pearsonuser@mlevan1992outlook.onmicrosoft.com"
+Log into the Azure portal, go to your AKS cluster, and check the permissions on the user.
