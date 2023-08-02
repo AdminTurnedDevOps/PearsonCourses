@@ -1,4 +1,4 @@
-15 minutes
+10 minutes
 
 ## Creating an instance of Vault
 
