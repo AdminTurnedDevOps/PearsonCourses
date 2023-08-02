@@ -1,3 +1,5 @@
+10 minutes
+
 ## Specifiy Git credentials
 ```
 export GITHUB_TOKEN=<your-token>

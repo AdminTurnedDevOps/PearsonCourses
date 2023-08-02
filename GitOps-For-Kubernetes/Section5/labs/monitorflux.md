@@ -1,3 +1,5 @@
+10 minutes
+
 A lot of the steps below will look like the steps you went through in Section 3.
 
 They're very similar. The difference is the application you're installing for the dashboard.

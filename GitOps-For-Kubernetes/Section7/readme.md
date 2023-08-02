@@ -1,3 +1,5 @@
+15 minutes
+
 **If the `kube-prometheus` directory is empty for you, please re-clone it here**: https://prometheus-operator.dev/docs/prologue/quick-start/
 
 Start Fresh! 

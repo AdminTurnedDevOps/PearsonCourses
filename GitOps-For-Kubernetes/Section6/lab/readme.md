@@ -1,3 +1,4 @@
+10 minutes
 
 ## Helm Chart
 Take a look at the Helm Chart in the `nginx` directory. You'll see that it contains a way to deploy an Nginx stateless app.

@@ -1,3 +1,5 @@
+15 minutes
+
 # ArgoCD CLI Installation
 https://argo-cd.readthedocs.io/en/stable/cli_installation/
 
