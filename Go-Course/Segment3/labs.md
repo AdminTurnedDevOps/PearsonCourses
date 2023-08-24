@@ -3,7 +3,6 @@
 10 minutes
 
 Write and run the code in the following directories:
-- `function-syntax`
 - `Libraries`
 - Pointers
 - Return types
