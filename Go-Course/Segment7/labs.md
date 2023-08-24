@@ -1,5 +1,7 @@
 ## Labs Segment 6
 
+15 minutes
+
 Write and run the code in the following directories:
 - `Channels`
 - `Goroutines`

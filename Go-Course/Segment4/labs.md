@@ -1,5 +1,7 @@
 ## Labs Segment 4
 
+10 minutes
+
 Write and run the code in the following directories:
 - `Breaks-And-Continues`
 - `conditionals`

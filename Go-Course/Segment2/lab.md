@@ -1,5 +1,7 @@
 ## Labs Segment 2
 
+15 minutes
+
 Write and run the code in the following directories:
 - `basicfunction`
 - `constants`

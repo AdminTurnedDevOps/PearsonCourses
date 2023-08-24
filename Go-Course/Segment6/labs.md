@@ -1,5 +1,7 @@
 ## Labs Segment 5
 
+10 minutes
+
 Write and run the code in the following directories:
 - `Benchmark-Testing`
 - `gosec`
