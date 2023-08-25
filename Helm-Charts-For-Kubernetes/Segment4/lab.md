@@ -1,4 +1,4 @@
-(20 minutes)
+(15 minutes)
 # Environments
 
 In this lab, you're going to see the power of where Helm Charts shine a ton, which is how to deploy a Chart to each environment.

@@ -1,4 +1,4 @@
-(20 minutes)
+(10 minutes)
 
 # Go SDK
 

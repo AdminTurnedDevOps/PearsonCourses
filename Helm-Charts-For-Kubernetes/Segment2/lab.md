@@ -1,4 +1,4 @@
-(15 minutes)
+(10 minutes)
 
 ## Create A Helm Chart
 1. Create a Helm Chart with the following command

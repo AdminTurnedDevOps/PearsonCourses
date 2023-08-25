@@ -1,4 +1,4 @@
-(20 minutes)
+(10 minutes)
 
 To learn more about chart repos, check out this link: https://helm.sh/docs/topics/chart_repository/
 
