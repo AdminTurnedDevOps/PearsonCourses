@@ -157,19 +157,19 @@ helm create nginxpipelines
 
 3. Replace line 6 of the `deployment.yaml` with the following:
 ```
-{{- include "nginxpipelines.labels" . | indent 4 | lower }}
+{{- include "nginxpipelines.labels" . | nindent 4 | lower }}
 ```
 
 This code ensures that the labels are all lower case, which is what the `lower` pipeline is used for. Per best practices and standards, lowercase RFC 1123 subdomain must consist of lower case alphanumeric characters, so you want to ensure that your labels are lowercase.
 
 4. Run the following to install the Helm Chart
 ```
-helm install nginxupdate .
+helm install nginxpipeline .
 ```
 
 The Helm Chart is now created and the labels are all lowercase.
 
 5. Clean up
 ```
-helm uninstall nginxupdate
+helm uninstall nginxpipeline
 ```
