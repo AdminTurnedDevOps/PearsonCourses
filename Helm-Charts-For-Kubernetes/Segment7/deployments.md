@@ -1,4 +1,4 @@
-(10 minutes)
+(5 minutes)
 
 ## Argo
 
