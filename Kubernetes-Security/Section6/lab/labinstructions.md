@@ -39,6 +39,13 @@ Then, you can run the installation.
 sudo apt install ./kube-bench_0.6.10_linux_amd64.deb -f
 ```
 
+ON MAC
+```
+curl -L https://github.com/aquasecurity/kube-bench/releases/download/v0.6.2/kube-bench_0.6.2_linux_amd64.tar.gz -o kube-bench_0.6.2_linux_amd64.tar.gz
+
+tar -xvf kube-bench_0.6.2_linux_amd64.tar.gz
+```
+
 There are several other installation options. Please see them here: 
 
 2. Once kube-bench is installed, run it on the terminal. 

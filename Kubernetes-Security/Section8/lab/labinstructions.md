@@ -41,7 +41,10 @@ helm install vault hashicorp/vault \
 9. Exec into the `vault-0` Pod
 `kubectl exec -it vault-0 -- /bin/sh`
 
-10. Within the Pod, run the following command to log into Vault via the CLI.
+10. Unseal
+`kubectl exec --stdin=true --tty=true vault-0 -n vault -- vault operator init``
+
+11. Within the Pod, run the following command to log into Vault via the CLI.
 `vault login`
 
 ## Enabling Kubernetes Authentication In Vault.
