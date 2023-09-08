@@ -27,55 +27,68 @@ helm install vault hashicorp/vault \
   --set='ui.serviceType=LoadBalancer'
 ```
 
-4. Open up the Vault web UI by running the following command and utilizing the `vault-ui` Service.
-`kubectl get svc`
+4. Open up the Vault web UI by utilizing the `vault-ui` Service.
+
+If you have a load balaner: ipaddress:8200
+
+If you don't have a load balancer
+```
+kubectl port-forward svc/vault-ui 8200:8200
+```
 
 5. Enter 5 in the *Key shares* and 3 in the *Key threshold* text fields.
 
-6. Download the keys (the option is on the bottom of the screen so just scroll down).
+6. Download the keys (the option is on the bottom of the screen so just scroll down) and open the JSON file.
 
-7. Follow the instructions to unseal Vault with the keys that you downloaded
+7. Click the blue **Continue to Unseal** button and follow the instructions.
 
 8. To sign into Vault, use the `root_token` key in the Keys JSON file that you downloaded.
 
 9. Exec into the `vault-0` Pod
-`kubectl exec -it vault-0 -- /bin/sh`
+```
+kubectl exec -it vault-0 -- /bin/sh
+```
 
-10. Unseal
-`kubectl exec --stdin=true --tty=true vault-0 -n vault -- vault operator init`
-
-11. Within the Pod, run the following command to log into Vault via the CLI.
-`vault login`
+11. Within the Pod, run the following command to log into Vault via the CLI and use the Root Token.
+```
+vault login
+```
 
 ## Enabling Kubernetes Authentication In Vault.
 
 ### Enable Kubernetes Auth
 
+1. Exec into the Pod
 ```
 kubectl exec -ti vault-0 -- /bin/sh
 ```
 
+2. Enable Kubernetes for Vault
 ```
 vault auth enable kubernetes
 ```
 
+3. Add the Kubernetes host. The Kubernetes host could be a DNS name or an IP address. For example, if you use Azure Kuberntes Service, you won't be given an IP address for the Control Plane. You'll be given a DNS name.
 ```
-vault write auth/kubernetes/config kubernetes_host="https://$KUBERNETES_PORT_443_TCP_ADDR:443"
+vault write auth/kubernetes/config kubernetes_host="https://$KUBERNETES_ADDRESS:443"
 
 ```
 
 ### Create A Secret
 
+1. Create a secret in Vault
 ```
 vault secrets enable -path=secret kv-v2
 ```
 
+2. Add the secret to Vault
 ```
 vault kv put secret/config username="helloworld" password="supersecret"
 ```
 
 ### Create A Policy
 
+1. Create a policy for the secret (read-only)
 ```
 vault policy write apptest - <<EOF
 path "secret/data/config" {
@@ -86,6 +99,7 @@ EOF
 
 ### Create A Role
 
+1. Create a role that helps Kubernetes authenticate to Vault.
 ```
 vault write auth/kubernetes/role/apptest \
     bound_service_account_names=apptest \
@@ -98,11 +112,13 @@ Exit out of the Pod
 
 ### Service Account
 
-Create a new service account in Kubernetes that matches the Role in Vault.
+1. Create a new service account in Kubernetes that matches the Role in Vault.
 
 ```
 kubectl create sa apptest
 ```
+
+This SA will be used to authenticate to Vault.
 
 ## Kubernetes and Vault Annotations
 
@@ -140,3 +156,5 @@ spec:
         - containerPort: 80
 EOF
 ```
+
+After you run the above, run a `kubectl describe pod` against the Nginx Pod and you'll see the Vault config.
