@@ -1,4 +1,4 @@
-5 minutes
+10 minutes
 
 # Check billing
 
