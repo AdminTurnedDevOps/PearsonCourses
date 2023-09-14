@@ -1,3 +1,5 @@
+15 minutes
+
 ## Installing Rancher and Portainer
 
 ### Portainer

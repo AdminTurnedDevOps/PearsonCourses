@@ -1,3 +1,5 @@
+15 minutes
+
 ## Implement cluster autoscaling in Azure or AWS
 
 ### For AWS

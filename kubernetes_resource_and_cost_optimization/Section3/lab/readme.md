@@ -1,3 +1,5 @@
+5 minutes
+
 # Check billing
 
 ## If You Have AWS

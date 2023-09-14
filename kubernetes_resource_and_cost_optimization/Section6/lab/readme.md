@@ -1,3 +1,5 @@
+10 minutes
+
 ## Implement cost optimization with Cast.ai
 
 Sign up for free to use Cast.ai https://cast.ai/

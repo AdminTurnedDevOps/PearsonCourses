@@ -1,3 +1,5 @@
+10 minutes
+
 1. Create the new Namespace.
 ```
 kubectl create namespace test
