@@ -57,7 +57,6 @@ helm repo add rancher-stable https://releases.rancher.com/server-charts/latest
 helm install rancher rancher-stable/rancher \
   --namespace cattle-system \
   --set hostname=rancher.my.org \
-  --set global.cattle.psp.enabled=false \
   --set replicas=3 \
   --create-namespace
 ```
@@ -82,7 +81,7 @@ docker run -d --restart=unless-stopped \
 ```
 
 2. Retrieve initial password
-docker logs your_rancher_container_id  2>&1 | grep "Bootstrap Password:"
+docker logs b431b6263291 2>&1 | grep "Bootstrap Password:"
 
 3. Log in and register cluster.
 

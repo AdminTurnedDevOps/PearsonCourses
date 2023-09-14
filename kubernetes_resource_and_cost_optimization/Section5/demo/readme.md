@@ -44,7 +44,3 @@ spec:
   targetCPUUtilizationPercentage: 50
 EOF
 ```
-
-## Karpenter
-
-https://repost.aws/knowledge-center/eks-install-karpenter
