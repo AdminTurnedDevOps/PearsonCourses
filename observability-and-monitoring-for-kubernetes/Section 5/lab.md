@@ -41,4 +41,10 @@ To log into Grafana:
 
 ## Configuring Grafana In The Cloud
 
-## Configuring Grafana Outside Of The Cloud
+The method of creating a Grafana Service in the cloud will vary based on cloud provider.
+
+Because the method of getting started is quite long, it makes more sense to link to the guide instead of writing it here.
+
+Managed Grafana in AWS: https://docs.aws.amazon.com/grafana/latest/userguide/getting-started-with-AMG.html
+
+Managed Grafana in Azure: https://learn.microsoft.com/en-us/azure/managed-grafana/quickstart-managed-grafana-portal
