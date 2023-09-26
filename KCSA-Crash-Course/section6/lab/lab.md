@@ -1,3 +1,4 @@
+15 minutes
 ## Reviewing CIS Benchmarks
 
 1. Go to the following page: https://www.cisecurity.org/benchmark/kubernetes

@@ -1,3 +1,5 @@
+10 minutes
+
 ## Detecting Compromised Applications
 
 1. To show an overview of the health of a container image.

@@ -1,3 +1,5 @@
+15 minutes
+
 ## Setting Up Artifactory
 
 This lab will go through how to set up Artifactoy. There are a few other ways to do it as well, but using Docker is the least barrier of entry.

@@ -1,3 +1,5 @@
+15 minutes
+
 ## Configure A Network Policy
 
 1. Run the following Pods
