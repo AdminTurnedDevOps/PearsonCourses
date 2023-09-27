@@ -1,3 +1,5 @@
+15 minutes
+
 ## AWS Security
 
 https://docs.aws.amazon.com/secretsmanager/latest/userguide/integrating_csi_driver.html
