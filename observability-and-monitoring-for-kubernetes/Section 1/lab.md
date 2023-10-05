@@ -4,7 +4,7 @@
 
 
 ### Metrics Server
-For some clusters, the Metrics Server may already exist. For example, it comes out of the box in AKS. However, in some cases, it may not. You can use help to install it.
+For some clusters, the Metrics Server may already exist. For example, it comes out of the box in AKS. However, in some cases, it may not. You can use Helm to install it.
 
 ```
 helm repo add metrics-server https://kubernetes-sigs.github.io/metrics-server/
