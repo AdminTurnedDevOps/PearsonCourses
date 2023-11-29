@@ -1,0 +1,19 @@
+- identifier: some_identifier
+  title: Some Title
+  team: []
+  icon: DefaultBlueprint
+  blueprint: argocdApp
+  properties:
+    syncPolicy:
+      a: 1
+      b: 2
+    gitRepo: string
+    gitPath: string
+    syncStatus: string
+    gitRev: string
+  relations:
+    argocdProject: related_entity_identifier
+    workload:
+      - related_entity_identifier
+      - another_related_entity_identifier
+    destinationNamespace: related_entity_identifier
