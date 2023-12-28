@@ -1,0 +1,66 @@
+apiVersion: kubevirt.io/v1
+kind: VirtualMachine
+metadata:
+  name: win2022-server
+spec:
+  running: true
+  template:
+    metadata:
+      labels:
+        kubevirt.io/domain: win2022-server
+        kubevirt.io/os: windows
+    spec:
+      domain:
+        clock:
+          utc: {}
+          timer:
+            hpet:
+              present: false
+            pit:
+              tickPolicy: delay
+            rtc:
+              tickPolicy: catchup
+            hyperv: {}
+        cpu:
+          cores: 4
+        devices:
+          disks:
+          - bootOrder: 1
+            cdrom:
+              bus: sata
+            name: cdromiso
+          - disk:
+              bus: virtio
+            name: harddrive
+            bootOrder: 2
+          - cdrom:
+              bus: sata
+            name: virtiocontainerdisk
+        machine:
+          type: q35
+        resources:
+          requests:
+            memory: 8G
+        features:
+          acpi: {}
+          apic: {}
+          hyperv:
+            relaxed: {}
+            spinlocks:
+              spinlocks: 8191
+            vapic: {}
+          smm: {}
+        # firmware:
+        #   bootloader:
+        #     efi:
+        #       secureBoot: true
+      volumes:
+      - name: cdromiso
+        persistentVolumeClaim:
+          claimName: isohd
+      - name: harddrive
+        persistentVolumeClaim:
+          claimName: winhd
+      - containerDisk:
+          image: kubevirt/virtio-container-disk
+        name: virtiocontainerdisk

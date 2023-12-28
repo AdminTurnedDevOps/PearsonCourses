@@ -1,0 +1,46 @@
+apiVersion: kubevirt.io/v1
+kind: VirtualMachine
+metadata:
+  generation: 1
+  labels:
+    kubevirt.io/os: linux
+  name: ubuntuserver
+spec:
+  running: true
+  template:
+    metadata:
+      labels:
+        kubevirt.io/domain: vm1
+    spec:
+      domain:
+        cpu:
+          cores: 2
+        devices:
+          disks:
+          - bootOrder: 2
+            cdrom:
+              bus: sata
+            name: cdromiso
+          - disk:
+              bus: virtio
+            name: harddrive
+            bootOrder: 1
+          - cdrom:
+              bus: sata
+              readonly: true
+            name: virtio-drivers
+        machine:
+          type: q35
+        resources:
+          requests:
+            memory: 4096M
+      volumes:
+      - name: cdromiso
+        persistentVolumeClaim:
+          claimName: ubuntuisohd
+      - name: harddrive
+        persistentVolumeClaim:
+          claimName: linhd
+      - name:  virtio-drivers
+        containerDisk:
+          image: kubevirt/virtio-container-disk
