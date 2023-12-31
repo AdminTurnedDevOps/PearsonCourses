@@ -1,0 +1,24 @@
+name: 'Example Pipeline'
+
+on:
+  workflow_dispatch:
+  
+permissions:
+  contents: read
+
+jobs:
+  terraform:
+    name: 'Terraform'
+    runs-on: ubuntu-latest
+    environment: production
+
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      
+    - name: Hello World
+      run: echo "Hello World!"
