@@ -1,6 +1,6 @@
 # Port
 
-10 minutes
+15 minutes
 
 ## Configuration
 
