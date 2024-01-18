@@ -156,7 +156,7 @@ EOF
 
 1. Install Kyverno on your Kubernetes cluster.
 ```
-kubectl create -f https://raw.githubusercontent.com/kyverno/kyverno/main/config/install.yaml
+kubectl create -f https://github.com/kyverno/kyverno/releases/download/v1.10.0/install.yaml
 ```
 
 2. Confirm that all of the resources are running.
