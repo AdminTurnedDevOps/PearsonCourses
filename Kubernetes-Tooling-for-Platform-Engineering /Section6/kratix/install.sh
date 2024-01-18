@@ -1,7 +1,3 @@
 ```
-kubectl apply --filename https://raw.githubusercontent.com/syntasso/kratix/main/distribution/single-cluster/install-all-in-one.yaml
-```
-
-```
-kubectl apply --filename https://raw.githubusercontent.com/syntasso/kratix/main/distribution/single-cluster/config-all-in-one.yaml
+kubectl apply --filename https://github.com/syntasso/kratix/releases/latest/download/install-all-in-one.yaml
 ```
