@@ -36,7 +36,7 @@ Forward the port of the Grafana UI so you can log in and see the graphs
 
 
 ```
-kubectl --namespace monitoring port-forward svc/grafana 3000
+kubectl --namespace monitoring port-forward svc/kubeprometheus-grafana 3000
 ```
 
 To log into Grafana:
