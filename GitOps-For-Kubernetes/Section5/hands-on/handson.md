@@ -36,12 +36,12 @@ Forward the port of the Grafana UI so you can log in and see the graphs
 
 
 ```
-kubectl --namespace monitoring port-forward svc/kubeprometheus-grafana 3000
+kubectl port-forward svc/kubeprometheus-grafana 8082:80
 ```
 
 To log into Grafana:
 1. Username: admin
-2. Password: admin
+2. Password: prom-operator
 
 Within Grafana, import the example ArgoCD dashboard in. It's in the same directory as this `handson.md` file and it's called `argo.json`
 
