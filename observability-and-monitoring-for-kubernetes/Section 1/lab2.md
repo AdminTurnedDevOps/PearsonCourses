@@ -1,3 +1,5 @@
+5 minutes
+
 ## OpenLens
 
 1. Install
