@@ -2,25 +2,11 @@
 
 ## Configuring Kube-Prometheus
 
-Clone the `kube-prometheus` repo
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 
-```
-git clone https://github.com/prometheus-operator/kube-prometheus.git
-```
+helm repo update
 
-CD into the `kube-prometheus` repo
-
-Run the following code block together.
-
-```
-# Create the namespace and CRDs, and then wait for them to be availble before creating the remaining resources
-kubectl create -f manifests/setup
-
-# Wait until the "servicemonitors" CRD is created. The message "No resources found" means success in this context.
-until kubectl get servicemonitors --all-namespaces ; do date; sleep 1; echo ""; done
-
-kubectl create -f manifests/
-```
+helm install kube-prometheus -n monitoring prometheus-community/kube-prometheus-stack --create-namespace
 
 Forward the port of the UI so you can log into Prometheus and see the Metrics.
 
@@ -32,12 +18,12 @@ Forward the port of the Grafana UI so you can log in and see the graphs
 
 
 ```
-kubectl --namespace monitoring port-forward svc/grafana 3000
+kubectl --namespace monitoring port-forward svc/kube-prometheus-grafana 3000:80
 ```
 
 To log into Grafana:
 1. Username: admin
-2. Password: admin
+2. Password: prom-operator
 
 ## Configuring Grafana In The Cloud
 
