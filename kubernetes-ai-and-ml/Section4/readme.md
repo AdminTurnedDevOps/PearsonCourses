@@ -1,4 +1,4 @@
-10 minutes
+15 minutes
 
 ## Mac/Linux Installation
 ```
