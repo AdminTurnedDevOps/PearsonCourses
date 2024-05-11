@@ -21,9 +21,9 @@ cd kubeflow-aks
 cd manifests/
 ```
 
-4. Check out the v1.7 branch and go back to the root directory.
+4. Check out the v1.8 branch and go back to the root directory.
 ```
-git checkout v1.7-branch
+git checkout v1.8-branch
 cd ..
 ```
 
@@ -38,3 +38,6 @@ while ! kustomize build vanilla | kubectl apply -f -; do echo "Retrying to apply
 ```
 kubectl port-forward svc/istio-ingressgateway -n istio-system 8080:80
 ```
+
+Default username: user@example.com
+Default password: 12341234
