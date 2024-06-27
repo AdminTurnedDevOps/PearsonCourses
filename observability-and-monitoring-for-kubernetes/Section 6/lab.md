@@ -20,11 +20,9 @@ kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/
 Helm:
 
 ```
-helm repo add open-telemetry https://open-telemetry.github.io/opentelemetry-helm-charts
+helm repo add geek-cookbook https://geek-cookbook.github.io/charts/
 
-helm repo update
-
-helm install opentelemetry-operator open-telemetry/opentelemetry-operator
+helm install my-otel-collector geek-cookbook/otel-collector
 ```
 
 Manifest:
