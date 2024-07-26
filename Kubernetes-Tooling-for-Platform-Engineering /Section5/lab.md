@@ -36,7 +36,12 @@ yarn dev
 
 To run CNOE, you'll need Docker running on your desktop or a Kubernetes cluster in your current context.
 
-1. Run the following command in the Section5 directory.
+1. Run the following to Download idpbuilder
+```
+curl -fsSL https://raw.githubusercontent.com/cnoe-io/idpbuilder/main/hack/install.sh | bash
+```
+
+2. Run the following command
 
 ```
 ./idpbuilder create
