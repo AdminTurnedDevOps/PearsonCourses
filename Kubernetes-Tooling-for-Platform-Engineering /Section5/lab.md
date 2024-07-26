@@ -44,5 +44,5 @@ curl -fsSL https://raw.githubusercontent.com/cnoe-io/idpbuilder/main/hack/instal
 2. Run the following command
 
 ```
-./idpbuilder create
+idpbuilder create
 ```
