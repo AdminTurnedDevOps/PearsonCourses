@@ -18,7 +18,7 @@ Currently the default AI provider is OpenAI, you will need to generate an API ke
 
 You can do this by running `k8sgpt generate`. A brower will open to generate the token.
 
-Run `k8sgpt auth` add to set it in k8sgpt.
+Run `k8sgpt auth add` add to set it in k8sgpt.
 
 You can provide the password directly using the --password flag.
 
