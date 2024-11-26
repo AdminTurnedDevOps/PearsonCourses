@@ -22,7 +22,7 @@ helm install cilium cilium/cilium \
 --set eni.enabled=true \
 --set ipam.mode=eni \
 --set nodeinit.enabled=true \
---set kubeProxyReplacement=strict
+--set kubeProxyReplacement=true
 ```
 
 ```
