@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1AzureDiskVolumeSource.mjs";export class AzureDiskVolumeSource extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(AzureDiskVolumeSource,validate);export{AzureDiskVolumeSource as IoK8sApiCoreV1AzureDiskVolumeSource};

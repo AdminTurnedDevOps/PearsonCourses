@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1ScopeSelector.mjs";export class ScopeSelector extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(ScopeSelector,validate);export{ScopeSelector as IoK8sApiCoreV1ScopeSelector};

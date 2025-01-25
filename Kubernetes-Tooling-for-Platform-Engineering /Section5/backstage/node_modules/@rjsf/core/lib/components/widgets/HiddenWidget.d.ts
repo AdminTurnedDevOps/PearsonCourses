@@ -1,0 +1,8 @@
+import { FormContextType, RJSFSchema, StrictRJSFSchema, WidgetProps } from '@rjsf/utils';
+/** The `HiddenWidget` is a widget for rendering a hidden input field.
+ *  It is typically used by setting type to "hidden".
+ *
+ * @param props - The `WidgetProps` for this component
+ */
+declare function HiddenWidget<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>({ id, value, }: WidgetProps<T, S, F>): import("react/jsx-runtime").JSX.Element;
+export default HiddenWidget;

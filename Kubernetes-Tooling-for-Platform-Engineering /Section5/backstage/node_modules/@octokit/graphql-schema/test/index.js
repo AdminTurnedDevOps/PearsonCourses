@@ -1,0 +1,2 @@
+require("./smoke");
+require("./validate");

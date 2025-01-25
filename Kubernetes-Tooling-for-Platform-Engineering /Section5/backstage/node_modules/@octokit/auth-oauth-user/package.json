@@ -1,0 +1,55 @@
+{
+  "name": "@octokit/auth-oauth-user",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "2.1.2",
+  "description": "Octokit authentication strategy for OAuth clients",
+  "repository": "https://github.com/octokit/auth-oauth-user.js",
+  "keywords": [
+    "github",
+    "api",
+    "sdk",
+    "toolkit"
+  ],
+  "author": "Gregor Martynus (https://dev.to/gr2m)",
+  "license": "MIT",
+  "dependencies": {
+    "@octokit/auth-oauth-device": "^4.0.0",
+    "@octokit/oauth-methods": "^2.0.0",
+    "@octokit/request": "^6.0.0",
+    "@octokit/types": "^9.0.0",
+    "btoa-lite": "^1.0.0",
+    "universal-user-agent": "^6.0.0"
+  },
+  "devDependencies": {
+    "@octokit/core": "^4.0.0",
+    "@octokit/tsconfig": "^2.0.0",
+    "@types/btoa-lite": "^1.0.0",
+    "@types/jest": "^29.0.0",
+    "@types/node": "^18.0.0",
+    "esbuild": "^0.17.19",
+    "fetch-mock": "^9.11.0",
+    "glob": "^10.2.7",
+    "jest": "^29.0.0",
+    "mockdate": "^3.0.4",
+    "prettier": "2.8.8",
+    "semantic-release": "^21.0.0",
+    "semantic-release-plugin-update-version-in-files": "^1.1.0",
+    "ts-jest": "^29.0.0",
+    "typescript": "^5.0.0"
+  },
+  "peerDependencies": {},
+  "engines": {
+    "node": ">= 14"
+  },
+  "files": [
+    "dist-*/**",
+    "bin/**"
+  ],
+  "main": "dist-node/index.js",
+  "browser": "dist-web/index.js",
+  "types": "dist-types/index.d.ts",
+  "module": "dist-src/index.js",
+  "sideEffects": false
+}

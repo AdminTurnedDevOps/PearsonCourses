@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1CephFSVolumeSource.mjs";export class CephFSVolumeSource extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(CephFSVolumeSource,validate);export{CephFSVolumeSource as IoK8sApiCoreV1CephFSVolumeSource};

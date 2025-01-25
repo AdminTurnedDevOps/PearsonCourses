@@ -1,0 +1,38 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://asyncapi.com/bindings/kafka/0.3.0/server.json",
+    "title": "Server Schema",
+    "description": "This object contains server connection information to a Kafka broker. This object contains additional information not possible to represent within the core AsyncAPI specification.",
+    "type": "object",
+    "additionalProperties": false,
+    "patternProperties": {
+      "^x-[\\w\\d\\.\\x2d_]+$": {
+        "$ref": "http://asyncapi.com/definitions/3.0.0/specificationExtension.json"
+      }
+    },
+    "properties": {
+      "schemaRegistryUrl": {
+        "type": "string",
+        "description": "API URL for the Schema Registry used when producing Kafka messages (if a Schema Registry was used)."
+      },
+      "schemaRegistryVendor": {
+        "type": "string",
+        "description": "The vendor of the Schema Registry and Kafka serdes library that should be used."
+      },
+      "bindingVersion": {
+        "type": "string",
+        "enum": [
+          "0.3.0"
+        ],
+        "description": "The version of this binding."
+      }
+    },
+    "examples": [
+      {
+        "schemaRegistryUrl": "https://my-schema-registry.com",
+        "schemaRegistryVendor": "confluent",
+        "bindingVersion": "0.3.0"
+      }
+    ]
+  }
+  

@@ -1,0 +1,6 @@
+{
+  "type": "string",
+  "format": "uri",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://asyncapi.com/definitions/2.0.0-rc1/ReferenceObject.json"
+}

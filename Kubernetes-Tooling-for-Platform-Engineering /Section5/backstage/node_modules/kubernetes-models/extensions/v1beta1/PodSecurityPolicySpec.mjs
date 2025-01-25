@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiExtensionsV1beta1PodSecurityPolicySpec.mjs";export class PodSecurityPolicySpec extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(PodSecurityPolicySpec,validate);export{PodSecurityPolicySpec as IoK8sApiExtensionsV1beta1PodSecurityPolicySpec};

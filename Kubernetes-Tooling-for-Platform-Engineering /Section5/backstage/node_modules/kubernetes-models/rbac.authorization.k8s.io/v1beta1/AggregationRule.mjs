@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiRbacV1beta1AggregationRule.mjs";export class AggregationRule extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(AggregationRule,validate);export{AggregationRule as IoK8sApiRbacV1beta1AggregationRule};

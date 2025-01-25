@@ -1,0 +1,1 @@
+export const validate=function validate21(data,{instancePath="",parentData,parentDataProperty,rootData=data}={}){return validate21.errors=null,!0};

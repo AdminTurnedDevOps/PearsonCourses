@@ -1,0 +1,1077 @@
+{
+    "id": "http://asyncapi.com/definitions/1.0.0/asyncapi.json",
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "title": "AsyncAPI 1.0 schema.",
+    "type": "object",
+    "required": [
+        "asyncapi",
+        "info",
+        "topics"
+    ],
+    "additionalProperties": false,
+    "patternProperties": {
+        "^x-": {
+            "$ref": "http://asyncapi.com/definitions/1.0.0/vendorExtension.json"
+        }
+    },
+    "properties": {
+        "asyncapi": {
+            "type": "string",
+            "enum": [
+                "1.0.0"
+            ],
+            "description": "The AsyncAPI specification version of this document."
+        },
+        "info": {
+            "$ref": "http://asyncapi.com/definitions/1.0.0/info.json"
+        },
+        "baseTopic": {
+            "type": "string",
+            "pattern": "^[^/.]",
+            "description": "The base topic to the API. Example: 'hitch'.",
+            "default": ""
+        },
+        "servers": {
+            "type": "array",
+            "items": {
+                "$ref": "http://asyncapi.com/definitions/1.0.0/server.json"
+            },
+            "uniqueItems": true
+        },
+        "topics": {
+            "$ref": "http://asyncapi.com/definitions/1.0.0/topics.json"
+        },
+        "components": {
+            "$ref": "http://asyncapi.com/definitions/1.0.0/components.json"
+        },
+        "tags": {
+            "type": "array",
+            "items": {
+                "$ref": "http://asyncapi.com/definitions/1.0.0/tag.json"
+            },
+            "uniqueItems": true
+        },
+        "security": {
+            "type": "array",
+            "items": {
+                "$ref": "http://asyncapi.com/definitions/1.0.0/SecurityRequirement.json"
+            }
+        },
+        "externalDocs": {
+            "$ref": "http://asyncapi.com/definitions/1.0.0/externalDocs.json"
+        }
+    },
+    "definitions": {
+        "http://asyncapi.com/definitions/1.0.0/vendorExtension.json": {
+            "id": "http://asyncapi.com/definitions/1.0.0/vendorExtension.json",
+            "description": "Any property starting with x- is valid.",
+            "additionalProperties": true,
+            "additionalItems": true
+        },
+        "http://asyncapi.com/definitions/1.0.0/info.json": {
+            "id": "http://asyncapi.com/definitions/1.0.0/info.json",
+            "type": "object",
+            "description": "General information about the API.",
+            "required": [
+                "version",
+                "title"
+            ],
+            "additionalProperties": false,
+            "patternProperties": {
+                "^x-": {
+                    "$ref": "http://asyncapi.com/definitions/1.0.0/vendorExtension.json"
+                }
+            },
+            "properties": {
+                "title": {
+                    "type": "string",
+                    "description": "A unique and precise title of the API."
+                },
+                "version": {
+                    "type": "string",
+                    "description": "A semantic version number of the API."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A longer description of the API. Should be different from the title. CommonMark is allowed."
+                },
+                "termsOfService": {
+                    "type": "string",
+                    "description": "A URL to the Terms of Service for the API. MUST be in the format of a URL.",
+                    "format": "uri"
+                },
+                "contact": {
+                    "$ref": "http://asyncapi.com/definitions/1.0.0/contact.json"
+                },
+                "license": {
+                    "$ref": "http://asyncapi.com/definitions/1.0.0/license.json"
+                }
+            }
+        },
+        "http://asyncapi.com/definitions/1.0.0/contact.json": {
+            "id": "http://asyncapi.com/definitions/1.0.0/contact.json",
+            "type": "object",
+            "description": "Contact information for the owners of the API.",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The identifying name of the contact person/organization."
+                },
+                "url": {
+                    "type": "string",
+                    "description": "The URL pointing to the contact information.",
+                    "format": "uri"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "The email address of the contact person/organization.",
+                    "format": "email"
+                }
+            },
+            "patternProperties": {
+                "^x-": {
+                    "$ref": "http://asyncapi.com/definitions/1.0.0/vendorExtension.json"
+                }
+            }
+        },
+        "http://asyncapi.com/definitions/1.0.0/license.json": {
+            "id": "http://asyncapi.com/definitions/1.0.0/license.json",
+            "type": "object",
+            "required": [
+                "name"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the license type. It's encouraged to use an OSI compatible license."
+                },
+                "url": {
+                    "type": "string",
+                    "description": "The URL pointing to the license.",
+                    "format": "uri"
+                }
+            },
+            "patternProperties": {
+                "^x-": {
+                    "$ref": "http://asyncapi.com/definitions/1.0.0/vendorExtension.json"
+                }
+            }
+        },
+        "http://asyncapi.com/definitions/1.0.0/server.json": {
+            "id": "http://asyncapi.com/definitions/1.0.0/server.json",
+            "type": "object",
+            "description": "An object representing a Server.",
+            "required": [
+                "url",
+                "scheme"
+            ],
+            "additionalProperties": false,
+            "patternProperties": {
+                "^x-": {
+                    "$ref": "http://asyncapi.com/definitions/1.0.0/vendorExtension.json"
+                }
+            },
+            "properties": {
+                "url": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "scheme": {
+                    "type": "string",
+                    "description": "The transfer protocol.",
+                    "enum": [
+                        "kafka",
+                        "kafka-secure",
+                        "amqp",
+                        "amqps",
+                        "mqtt",
+                        "mqtts",
+                        "secure-mqtt",
+                        "ws",
+                        "wss",
+                        "stomp",
+                        "stomps"
+                    ]
+                },
+                "schemeVersion": {
+                    "type": "string"
+                },
+                "variables": {
+                    "$ref": "http://asyncapi.com/definitions/1.0.0/serverVariables.json"
+                }
+            }
+        },
+        "http://asyncapi.com/definitions/1.0.0/serverVariables.json": {
+            "id": "http://asyncapi.com/definitions/1.0.0/serverVariables.json",
+            "type": "object",
+            "additionalProperties": {
+                "$ref": "http://asyncapi.com/definitions/1.0.0/serverVariable.json"
+            }
+        },
+        "http://asyncapi.com/definitions/1.0.0/serverVariable.json": {
+            "id": "http://asyncapi.com/definitions/1.0.0/serverVariable.json",
+            "type": "object",
+            "description": "An object representing a Server Variable for server URL template substitution.",
+            "minProperties": 1,
+            "additionalProperties": false,
+            "patternProperties": {
+                "^x-": {
+                    "$ref": "http://asyncapi.com/definitions/1.0.0/vendorExtension.json"
+                }
+            },
+            "properties": {
+                "enum": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "uniqueItems": true
+                },
+                "default": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                }
+            }
+        },
+        "http://asyncapi.com/definitions/1.0.0/topics.json": {
+            "id": "http://asyncapi.com/definitions/1.0.0/topics.json",
+            "type": "object",
+            "description": "Relative paths to the individual topics. They must be relative to the 'baseTopic'.",
+            "patternProperties": {
+                "^x-": {
+                    "$ref": "http://asyncapi.com/definitions/1.0.0/vendorExtension.json"
+                },
+                "^[^.]": {
+                    "$ref": "http://asyncapi.com/definitions/1.0.0/topicItem.json"
+                }
+            },
+            "additionalProperties": false
+        },
+        "http://asyncapi.com/definitions/1.0.0/topicItem.json": {
+            "id": "http://asyncapi.com/definitions/1.0.0/topicItem.json",
+            "type": "object",
+            "additionalProperties": false,
+            "patternProperties": {
+                "^x-": {
+                    "$ref": "http://asyncapi.com/definitions/1.0.0/vendorExtension.json"
+                }
+            },
+            "minProperties": 1,
+            "properties": {
+                "$ref": {
+                    "type": "string"
+                },
+                "publish": {
+                    "$ref": "http://asyncapi.com/definitions/1.0.0/message.json"
+                },
+                "subscribe": {
+                    "$ref": "http://asyncapi.com/definitions/1.0.0/message.json"
+                },
+                "deprecated": {
+                    "type": "boolean",
+                    "default": false
+                }
+            }
+        },
+        "http://asyncapi.com/definitions/1.0.0/message.json": {
+            "id": "http://asyncapi.com/definitions/1.0.0/message.json",
+            "type": "object",
+            "additionalProperties": false,
+            "patternProperties": {
+                "^x-": {
+                    "$ref": "http://asyncapi.com/definitions/1.0.0/vendorExtension.json"
+                }
+            },
+            "properties": {
+                "$ref": {
+                    "type": "string"
+                },
+                "headers": {
+                    "$ref": "http://asyncapi.com/definitions/1.0.0/schema.json"
+                },
+                "payload": {
+                    "$ref": "http://asyncapi.com/definitions/1.0.0/schema.json"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "http://asyncapi.com/definitions/1.0.0/tag.json"
+                    },
+                    "uniqueItems": true
+                },
+                "summary": {
+                    "type": "string",
+                    "description": "A brief summary of the message."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A longer description of the message. CommonMark is allowed."
+                },
+                "externalDocs": {
+                    "$ref": "http://asyncapi.com/definitions/1.0.0/externalDocs.json"
+                },
+                "deprecated": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "example": {}
+            }
+        },
+        "http://asyncapi.com/definitions/1.0.0/schema.json": {
+            "id": "http://asyncapi.com/definitions/1.0.0/schema.json",
+            "type": "object",
+            "description": "A deterministic version of a JSON Schema object.",
+            "patternProperties": {
+                "^x-": {
+                    "$ref": "http://asyncapi.com/definitions/1.0.0/vendorExtension.json"
+                }
+            },
+            "properties": {
+                "$ref": {
+                    "type": "string"
+                },
+                "format": {
+                    "type": "string"
+                },
+                "title": {
+                    "$ref": "http://json-schema.org/draft-04/schema#/properties/title"
+                },
+                "description": {
+                    "$ref": "http://json-schema.org/draft-04/schema#/properties/description"
+                },
+                "default": {
+                    "$ref": "http://json-schema.org/draft-04/schema#/properties/default"
+                },
+                "multipleOf": {
+                    "$ref": "http://json-schema.org/draft-04/schema#/properties/multipleOf"
+                },
+                "maximum": {
+                    "$ref": "http://json-schema.org/draft-04/schema#/properties/maximum"
+                },
+                "exclusiveMaximum": {
+                    "$ref": "http://json-schema.org/draft-04/schema#/properties/exclusiveMaximum"
+                },
+                "minimum": {
+                    "$ref": "http://json-schema.org/draft-04/schema#/properties/minimum"
+                },
+                "exclusiveMinimum": {
+                    "$ref": "http://json-schema.org/draft-04/schema#/properties/exclusiveMinimum"
+                },
+                "maxLength": {
+                    "$ref": "http://json-schema.org/draft-04/schema#/definitions/positiveInteger"
+                },
+                "minLength": {
+                    "$ref": "http://json-schema.org/draft-04/schema#/definitions/positiveIntegerDefault0"
+                },
+                "pattern": {
+                    "$ref": "http://json-schema.org/draft-04/schema#/properties/pattern"
+                },
+                "maxItems": {
+                    "$ref": "http://json-schema.org/draft-04/schema#/definitions/positiveInteger"
+                },
+                "minItems": {
+                    "$ref": "http://json-schema.org/draft-04/schema#/definitions/positiveIntegerDefault0"
+                },
+                "uniqueItems": {
+                    "$ref": "http://json-schema.org/draft-04/schema#/properties/uniqueItems"
+                },
+                "maxProperties": {
+                    "$ref": "http://json-schema.org/draft-04/schema#/definitions/positiveInteger"
+                },
+                "minProperties": {
+                    "$ref": "http://json-schema.org/draft-04/schema#/definitions/positiveIntegerDefault0"
+                },
+                "required": {
+                    "$ref": "http://json-schema.org/draft-04/schema#/definitions/stringArray"
+                },
+                "enum": {
+                    "$ref": "http://json-schema.org/draft-04/schema#/properties/enum"
+                },
+                "additionalProperties": {
+                    "anyOf": [
+                        {
+                            "$ref": "http://asyncapi.com/definitions/1.0.0/schema.json"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ],
+                    "default": {}
+                },
+                "type": {
+                    "$ref": "http://json-schema.org/draft-04/schema#/properties/type"
+                },
+                "items": {
+                    "anyOf": [
+                        {
+                            "$ref": "http://asyncapi.com/definitions/1.0.0/schema.json"
+                        },
+                        {
+                            "type": "array",
+                            "minItems": 1,
+                            "items": {
+                                "$ref": "http://asyncapi.com/definitions/1.0.0/schema.json"
+                            }
+                        }
+                    ],
+                    "default": {}
+                },
+                "allOf": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "$ref": "http://asyncapi.com/definitions/1.0.0/schema.json"
+                    }
+                },
+                "properties": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "http://asyncapi.com/definitions/1.0.0/schema.json"
+                    },
+                    "default": {}
+                },
+                "discriminator": {
+                    "type": "string"
+                },
+                "readOnly": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "xml": {
+                    "$ref": "http://asyncapi.com/definitions/1.0.0/xml.json"
+                },
+                "externalDocs": {
+                    "$ref": "http://asyncapi.com/definitions/1.0.0/externalDocs.json"
+                },
+                "example": {}
+            },
+            "additionalProperties": false
+        },
+        "http://json-schema.org/draft-04/schema": {
+            "id": "http://json-schema.org/draft-04/schema",
+            "description": "Core schema meta-schema",
+            "definitions": {
+                "schemaArray": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "$ref": "#"
+                    }
+                },
+                "positiveInteger": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "positiveIntegerDefault0": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/positiveInteger"
+                        },
+                        {
+                            "default": 0
+                        }
+                    ]
+                },
+                "simpleTypes": {
+                    "enum": [
+                        "array",
+                        "boolean",
+                        "integer",
+                        "null",
+                        "number",
+                        "object",
+                        "string"
+                    ]
+                },
+                "stringArray": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "minItems": 1,
+                    "uniqueItems": true
+                }
+            },
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "$schema": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "default": {},
+                "multipleOf": {
+                    "type": "number",
+                    "minimum": 0,
+                    "exclusiveMinimum": true
+                },
+                "maximum": {
+                    "type": "number"
+                },
+                "exclusiveMaximum": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "minimum": {
+                    "type": "number"
+                },
+                "exclusiveMinimum": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "maxLength": {
+                    "$ref": "#/definitions/positiveInteger"
+                },
+                "minLength": {
+                    "$ref": "#/definitions/positiveIntegerDefault0"
+                },
+                "pattern": {
+                    "type": "string",
+                    "format": "regex"
+                },
+                "additionalItems": {
+                    "anyOf": [
+                        {
+                            "type": "boolean"
+                        },
+                        {
+                            "$ref": "#"
+                        }
+                    ],
+                    "default": {}
+                },
+                "items": {
+                    "anyOf": [
+                        {
+                            "$ref": "#"
+                        },
+                        {
+                            "$ref": "#/definitions/schemaArray"
+                        }
+                    ],
+                    "default": {}
+                },
+                "maxItems": {
+                    "$ref": "#/definitions/positiveInteger"
+                },
+                "minItems": {
+                    "$ref": "#/definitions/positiveIntegerDefault0"
+                },
+                "uniqueItems": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "maxProperties": {
+                    "$ref": "#/definitions/positiveInteger"
+                },
+                "minProperties": {
+                    "$ref": "#/definitions/positiveIntegerDefault0"
+                },
+                "required": {
+                    "$ref": "#/definitions/stringArray"
+                },
+                "additionalProperties": {
+                    "anyOf": [
+                        {
+                            "type": "boolean"
+                        },
+                        {
+                            "$ref": "#"
+                        }
+                    ],
+                    "default": {}
+                },
+                "definitions": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#"
+                    },
+                    "default": {}
+                },
+                "properties": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#"
+                    },
+                    "default": {}
+                },
+                "patternProperties": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#"
+                    },
+                    "default": {}
+                },
+                "dependencies": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "anyOf": [
+                            {
+                                "$ref": "#"
+                            },
+                            {
+                                "$ref": "#/definitions/stringArray"
+                            }
+                        ]
+                    }
+                },
+                "enum": {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true
+                },
+                "type": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/simpleTypes"
+                        },
+                        {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/simpleTypes"
+                            },
+                            "minItems": 1,
+                            "uniqueItems": true
+                        }
+                    ]
+                },
+                "format": {
+                    "type": "string"
+                },
+                "allOf": {
+                    "$ref": "#/definitions/schemaArray"
+                },
+                "anyOf": {
+                    "$ref": "#/definitions/schemaArray"
+                },
+                "oneOf": {
+                    "$ref": "#/definitions/schemaArray"
+                },
+                "not": {
+                    "$ref": "#"
+                }
+            },
+            "dependencies": {
+                "exclusiveMaximum": [
+                    "maximum"
+                ],
+                "exclusiveMinimum": [
+                    "minimum"
+                ]
+            },
+            "default": {}
+        },
+        "http://asyncapi.com/definitions/1.0.0/xml.json": {
+            "id": "http://asyncapi.com/definitions/1.0.0/xml.json",
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "namespace": {
+                    "type": "string"
+                },
+                "prefix": {
+                    "type": "string"
+                },
+                "attribute": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "wrapped": {
+                    "type": "boolean",
+                    "default": false
+                }
+            }
+        },
+        "http://asyncapi.com/definitions/1.0.0/externalDocs.json": {
+            "id": "http://asyncapi.com/definitions/1.0.0/externalDocs.json",
+            "type": "object",
+            "additionalProperties": false,
+            "description": "information about external documentation",
+            "required": [
+                "url"
+            ],
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string",
+                    "format": "uri"
+                }
+            },
+            "patternProperties": {
+                "^x-": {
+                    "$ref": "http://asyncapi.com/definitions/1.0.0/vendorExtension.json"
+                }
+            }
+        },
+        "http://asyncapi.com/definitions/1.0.0/tag.json": {
+            "id": "http://asyncapi.com/definitions/1.0.0/tag.json",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "externalDocs": {
+                    "$ref": "http://asyncapi.com/definitions/1.0.0/externalDocs.json"
+                }
+            },
+            "patternProperties": {
+                "^x-": {
+                    "$ref": "http://asyncapi.com/definitions/1.0.0/vendorExtension.json"
+                }
+            }
+        },
+        "http://asyncapi.com/definitions/1.0.0/components.json": {
+            "id": "http://asyncapi.com/definitions/1.0.0/components.json",
+            "type": "object",
+            "description": "An object to hold a set of reusable objects for different aspects of the AsyncAPI Specification.",
+            "additionalProperties": false,
+            "properties": {
+                "schemas": {
+                    "$ref": "http://asyncapi.com/definitions/1.0.0/schemas.json"
+                },
+                "messages": {
+                    "$ref": "http://asyncapi.com/definitions/1.0.0/messages.json"
+                },
+                "securitySchemes": {
+                    "type": "object",
+                    "patternProperties": {
+                        "^[a-zA-Z0-9\\.\\-_]+$": {
+                            "oneOf": [
+                                {
+                                    "$ref": "http://asyncapi.com/definitions/1.0.0/Reference.json"
+                                },
+                                {
+                                    "$ref": "http://asyncapi.com/definitions/1.0.0/SecurityScheme.json"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "http://asyncapi.com/definitions/1.0.0/schemas.json": {
+            "id": "http://asyncapi.com/definitions/1.0.0/schemas.json",
+            "type": "object",
+            "additionalProperties": {
+                "$ref": "http://asyncapi.com/definitions/1.0.0/schema.json"
+            },
+            "description": "JSON objects describing schemas the API uses."
+        },
+        "http://asyncapi.com/definitions/1.0.0/messages.json": {
+            "id": "http://asyncapi.com/definitions/1.0.0/messages.json",
+            "type": "object",
+            "additionalProperties": {
+                "$ref": "http://asyncapi.com/definitions/1.0.0/message.json"
+            },
+            "description": "JSON objects describing the messages being consumed and produced by the API."
+        },
+        "http://asyncapi.com/definitions/1.0.0/Reference.json": {
+            "id": "http://asyncapi.com/definitions/1.0.0/Reference.json",
+            "type": "object",
+            "required": [
+                "$ref"
+            ],
+            "properties": {
+                "$ref": {
+                    "type": "string",
+                    "format": "uri"
+                }
+            }
+        },
+        "http://asyncapi.com/definitions/1.0.0/SecurityScheme.json": {
+            "id": "http://asyncapi.com/definitions/1.0.0/SecurityScheme.json",
+            "oneOf": [
+                {
+                    "$ref": "http://asyncapi.com/definitions/1.0.0/userPassword.json"
+                },
+                {
+                    "$ref": "http://asyncapi.com/definitions/1.0.0/apiKey.json"
+                },
+                {
+                    "$ref": "http://asyncapi.com/definitions/1.0.0/X509.json"
+                },
+                {
+                    "$ref": "http://asyncapi.com/definitions/1.0.0/symmetricEncryption.json"
+                },
+                {
+                    "$ref": "http://asyncapi.com/definitions/1.0.0/asymmetricEncryption.json"
+                },
+                {
+                    "$ref": "http://asyncapi.com/definitions/1.0.0/HTTPSecurityScheme.json"
+                }
+            ]
+        },
+        "http://asyncapi.com/definitions/1.0.0/userPassword.json": {
+            "id": "http://asyncapi.com/definitions/1.0.0/userPassword.json",
+            "type": "object",
+            "required": [
+                "type"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "userPassword"
+                    ]
+                },
+                "description": {
+                    "type": "string"
+                }
+            },
+            "patternProperties": {
+                "^x-": {}
+            },
+            "additionalProperties": false
+        },
+        "http://asyncapi.com/definitions/1.0.0/apiKey.json": {
+            "id": "http://asyncapi.com/definitions/1.0.0/apiKey.json",
+            "type": "object",
+            "required": [
+                "type",
+                "in"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "apiKey"
+                    ]
+                },
+                "in": {
+                    "type": "string",
+                    "enum": [
+                        "user",
+                        "password"
+                    ]
+                },
+                "description": {
+                    "type": "string"
+                }
+            },
+            "patternProperties": {
+                "^x-": {}
+            },
+            "additionalProperties": false
+        },
+        "http://asyncapi.com/definitions/1.0.0/X509.json": {
+            "id": "http://asyncapi.com/definitions/1.0.0/X509.json",
+            "type": "object",
+            "required": [
+                "type"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "X509"
+                    ]
+                },
+                "description": {
+                    "type": "string"
+                }
+            },
+            "patternProperties": {
+                "^x-": {}
+            },
+            "additionalProperties": false
+        },
+        "http://asyncapi.com/definitions/1.0.0/symmetricEncryption.json": {
+            "id": "http://asyncapi.com/definitions/1.0.0/symmetricEncryption.json",
+            "type": "object",
+            "required": [
+                "type"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "symmetricEncryption"
+                    ]
+                },
+                "description": {
+                    "type": "string"
+                }
+            },
+            "patternProperties": {
+                "^x-": {}
+            },
+            "additionalProperties": false
+        },
+        "http://asyncapi.com/definitions/1.0.0/asymmetricEncryption.json": {
+            "id": "http://asyncapi.com/definitions/1.0.0/asymmetricEncryption.json",
+            "type": "object",
+            "required": [
+                "type"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "asymmetricEncryption"
+                    ]
+                },
+                "description": {
+                    "type": "string"
+                }
+            },
+            "patternProperties": {
+                "^x-": {}
+            },
+            "additionalProperties": false
+        },
+        "http://asyncapi.com/definitions/1.0.0/HTTPSecurityScheme.json": {
+            "id": "http://asyncapi.com/definitions/1.0.0/HTTPSecurityScheme.json",
+            "oneOf": [
+                {
+                    "$ref": "http://asyncapi.com/definitions/1.0.0/NonBearerHTTPSecurityScheme.json"
+                },
+                {
+                    "$ref": "http://asyncapi.com/definitions/1.0.0/BearerHTTPSecurityScheme.json"
+                },
+                {
+                    "$ref": "http://asyncapi.com/definitions/1.0.0/APIKeyHTTPSecurityScheme.json"
+                }
+            ]
+        },
+        "http://asyncapi.com/definitions/1.0.0/NonBearerHTTPSecurityScheme.json": {
+            "id": "http://asyncapi.com/definitions/1.0.0/NonBearerHTTPSecurityScheme.json",
+            "not": {
+                "type": "object",
+                "properties": {
+                    "scheme": {
+                        "type": "string",
+                        "enum": [
+                            "bearer"
+                        ]
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "scheme",
+                "type"
+            ],
+            "properties": {
+                "scheme": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "http"
+                    ]
+                }
+            },
+            "patternProperties": {
+                "^x-": {}
+            },
+            "additionalProperties": false
+        },
+        "http://asyncapi.com/definitions/1.0.0/BearerHTTPSecurityScheme.json": {
+            "id": "http://asyncapi.com/definitions/1.0.0/BearerHTTPSecurityScheme.json",
+            "type": "object",
+            "required": [
+                "type",
+                "scheme"
+            ],
+            "properties": {
+                "scheme": {
+                    "type": "string",
+                    "enum": [
+                        "bearer"
+                    ]
+                },
+                "bearerFormat": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "http"
+                    ]
+                },
+                "description": {
+                    "type": "string"
+                }
+            },
+            "patternProperties": {
+                "^x-": {}
+            },
+            "additionalProperties": false
+        },
+        "http://asyncapi.com/definitions/1.0.0/APIKeyHTTPSecurityScheme.json": {
+            "id": "http://asyncapi.com/definitions/1.0.0/APIKeyHTTPSecurityScheme.json",
+            "type": "object",
+            "required": [
+                "type",
+                "name",
+                "in"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "httpApiKey"
+                    ]
+                },
+                "name": {
+                    "type": "string"
+                },
+                "in": {
+                    "type": "string",
+                    "enum": [
+                        "header",
+                        "query",
+                        "cookie"
+                    ]
+                },
+                "description": {
+                    "type": "string"
+                }
+            },
+            "patternProperties": {
+                "^x-": {}
+            },
+            "additionalProperties": false
+        },
+        "http://asyncapi.com/definitions/1.0.0/SecurityRequirement.json": {
+            "id": "http://asyncapi.com/definitions/1.0.0/SecurityRequirement.json",
+            "type": "object",
+            "additionalProperties": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "description": "!!Auto generated!! \n Do not manually edit. "
+}

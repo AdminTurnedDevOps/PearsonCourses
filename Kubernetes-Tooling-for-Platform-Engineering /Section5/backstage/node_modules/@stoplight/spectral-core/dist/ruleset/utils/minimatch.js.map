@@ -1,0 +1,1 @@
+{"version":3,"file":"minimatch.js","sourceRoot":"","sources":["../../../src/ruleset/utils/minimatch.ts"],"names":[],"mappings":";;;;AAAA,uEAA2B;AAE3B,MAAM,YAAY,GAAG,EAAE,SAAS,EAAE,IAAI,EAAE,CAAC;AAEzC,SAAgB,SAAS,CAAC,MAAc,EAAE,OAAe;IACvD,OAAO,IAAA,mBAAE,EAAC,MAAM,EAAE,OAAO,EAAE,YAAY,CAAC,CAAC;AAC3C,CAAC;AAFD,8BAEC"}

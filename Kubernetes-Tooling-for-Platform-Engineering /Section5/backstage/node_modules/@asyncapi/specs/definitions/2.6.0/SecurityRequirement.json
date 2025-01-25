@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "description": "Lists of the required security schemes that can be used to execute an operation",
+  "additionalProperties": {
+    "type": "array",
+    "items": {
+      "type": "string"
+    },
+    "uniqueItems": true
+  },
+  "example": {
+    "$ref": "http://asyncapi.com/examples/2.6.0/SecurityRequirement.json"
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://asyncapi.com/definitions/2.6.0/SecurityRequirement.json"
+}

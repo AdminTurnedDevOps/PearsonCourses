@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiBatchV1UncountedTerminatedPods.mjs";export class UncountedTerminatedPods extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(UncountedTerminatedPods,validate);export{UncountedTerminatedPods as IoK8sApiBatchV1UncountedTerminatedPods};

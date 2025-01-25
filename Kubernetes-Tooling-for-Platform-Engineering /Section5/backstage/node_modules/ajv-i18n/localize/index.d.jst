@@ -1,0 +1,9 @@
+import {Localize} from "./types";
+
+type Language =
+  {{~ it.locales:locale }}
+    | "{{=locale}}"
+  {{~}};
+
+declare const def: Record<Language, Localize>;
+export default def;

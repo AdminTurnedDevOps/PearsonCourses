@@ -1,0 +1,101 @@
+{
+  "type": "object",
+  "description": "Holds a set of reusable objects for different aspects of the AsyncAPI specification. All objects defined within the components object will have no effect on the API unless they are explicitly referenced from properties outside the components object.",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^x-[\\w\\d\\.\\x2d_]+$": {
+      "$ref": "http://asyncapi.com/definitions/2.6.0/specificationExtension.json"
+    }
+  },
+  "properties": {
+    "schemas": {
+      "$ref": "http://asyncapi.com/definitions/2.6.0/schemas.json"
+    },
+    "servers": {
+      "$ref": "http://asyncapi.com/definitions/2.6.0/servers.json"
+    },
+    "channels": {
+      "$ref": "http://asyncapi.com/definitions/2.6.0/channels.json"
+    },
+    "serverVariables": {
+      "$ref": "http://asyncapi.com/definitions/2.6.0/serverVariables.json"
+    },
+    "messages": {
+      "$ref": "http://asyncapi.com/definitions/2.6.0/messages.json"
+    },
+    "securitySchemes": {
+      "type": "object",
+      "patternProperties": {
+        "^[\\w\\d\\.\\-_]+$": {
+          "oneOf": [
+            {
+              "$ref": "http://asyncapi.com/definitions/2.6.0/Reference.json"
+            },
+            {
+              "$ref": "http://asyncapi.com/definitions/2.6.0/SecurityScheme.json"
+            }
+          ]
+        }
+      }
+    },
+    "parameters": {
+      "$ref": "http://asyncapi.com/definitions/2.6.0/parameters.json"
+    },
+    "correlationIds": {
+      "type": "object",
+      "patternProperties": {
+        "^[\\w\\d\\.\\-_]+$": {
+          "oneOf": [
+            {
+              "$ref": "http://asyncapi.com/definitions/2.6.0/Reference.json"
+            },
+            {
+              "$ref": "http://asyncapi.com/definitions/2.6.0/correlationId.json"
+            }
+          ]
+        }
+      }
+    },
+    "operationTraits": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "http://asyncapi.com/definitions/2.6.0/operationTrait.json"
+      }
+    },
+    "messageTraits": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "http://asyncapi.com/definitions/2.6.0/messageTrait.json"
+      }
+    },
+    "serverBindings": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "http://asyncapi.com/definitions/2.6.0/bindingsObject.json"
+      }
+    },
+    "channelBindings": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "http://asyncapi.com/definitions/2.6.0/bindingsObject.json"
+      }
+    },
+    "operationBindings": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "http://asyncapi.com/definitions/2.6.0/bindingsObject.json"
+      }
+    },
+    "messageBindings": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "http://asyncapi.com/definitions/2.6.0/bindingsObject.json"
+      }
+    }
+  },
+  "example": {
+    "$ref": "http://asyncapi.com/examples/2.6.0/components.json"
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://asyncapi.com/definitions/2.6.0/components.json"
+}

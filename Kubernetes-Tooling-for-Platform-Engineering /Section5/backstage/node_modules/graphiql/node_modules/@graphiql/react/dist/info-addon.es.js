@@ -1,0 +1,75 @@
+var g = Object.defineProperty;
+var r = (e, t) => g(e, "name", { value: t, configurable: !0 });
+import { C as i } from "./codemirror.es.js";
+import "./codemirror.es2.js";
+i.defineOption("info", !1, (e, t, n) => {
+  if (n && n !== i.Init) {
+    const o = e.state.info.onMouseOver;
+    i.off(e.getWrapperElement(), "mouseover", o), clearTimeout(e.state.info.hoverTimeout), delete e.state.info;
+  }
+  if (t) {
+    const o = e.state.info = T(t);
+    o.onMouseOver = M.bind(null, e), i.on(e.getWrapperElement(), "mouseover", o.onMouseOver);
+  }
+});
+function T(e) {
+  return {
+    options: e instanceof Function ? { render: e } : e === !0 ? {} : e
+  };
+}
+r(T, "createState");
+function h(e) {
+  const { options: t } = e.state.info;
+  return (t == null ? void 0 : t.hoverTime) || 500;
+}
+r(h, "getHoverTime");
+function M(e, t) {
+  const n = e.state.info, o = t.target || t.srcElement;
+  if (!(o instanceof HTMLElement) || o.nodeName !== "SPAN" || n.hoverTimeout !== void 0)
+    return;
+  const s = o.getBoundingClientRect(), u = /* @__PURE__ */ r(function() {
+    clearTimeout(n.hoverTimeout), n.hoverTimeout = setTimeout(p, a);
+  }, "onMouseMove"), f = /* @__PURE__ */ r(function() {
+    i.off(document, "mousemove", u), i.off(e.getWrapperElement(), "mouseout", f), clearTimeout(n.hoverTimeout), n.hoverTimeout = void 0;
+  }, "onMouseOut"), p = /* @__PURE__ */ r(function() {
+    i.off(document, "mousemove", u), i.off(e.getWrapperElement(), "mouseout", f), n.hoverTimeout = void 0, w(e, s);
+  }, "onHover"), a = h(e);
+  n.hoverTimeout = setTimeout(p, a), i.on(document, "mousemove", u), i.on(e.getWrapperElement(), "mouseout", f);
+}
+r(M, "onMouseOver");
+function w(e, t) {
+  const n = e.coordsChar({
+    left: (t.left + t.right) / 2,
+    top: (t.top + t.bottom) / 2
+  }, "window"), o = e.state.info, { options: s } = o, u = s.render || e.getHelper(n, "info");
+  if (u) {
+    const f = e.getTokenAt(n, !0);
+    if (f) {
+      const p = u(f, s, e, n);
+      p && y(e, t, p);
+    }
+  }
+}
+r(w, "onMouseHover");
+function y(e, t, n) {
+  const o = document.createElement("div");
+  o.className = "CodeMirror-info", o.append(n), document.body.append(o);
+  const s = o.getBoundingClientRect(), u = window.getComputedStyle(o), f = s.right - s.left + parseFloat(u.marginLeft) + parseFloat(u.marginRight), p = s.bottom - s.top + parseFloat(u.marginTop) + parseFloat(u.marginBottom);
+  let a = t.bottom;
+  p > window.innerHeight - t.bottom - 15 && t.top > window.innerHeight - t.bottom && (a = t.top - p), a < 0 && (a = t.bottom);
+  let l = Math.max(0, window.innerWidth - f - 15);
+  l > t.left && (l = t.left), o.style.opacity = "1", o.style.top = a + "px", o.style.left = l + "px";
+  let c;
+  const d = /* @__PURE__ */ r(function() {
+    clearTimeout(c);
+  }, "onMouseOverPopup"), m = /* @__PURE__ */ r(function() {
+    clearTimeout(c), c = setTimeout(v, 200);
+  }, "onMouseOut"), v = /* @__PURE__ */ r(function() {
+    i.off(o, "mouseover", d), i.off(o, "mouseout", m), i.off(e.getWrapperElement(), "mouseout", m), o.style.opacity ? (o.style.opacity = "0", setTimeout(() => {
+      o.parentNode && o.remove();
+    }, 600)) : o.parentNode && o.remove();
+  }, "hidePopup");
+  i.on(o, "mouseover", d), i.on(o, "mouseout", m), i.on(e.getWrapperElement(), "mouseout", m);
+}
+r(y, "showPopup");
+//# sourceMappingURL=info-addon.es.js.map

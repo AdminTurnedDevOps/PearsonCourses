@@ -1,0 +1,16 @@
+[
+  {
+    "title": "AsyncAPI Sample App",
+    "description": "This is a sample server.",
+    "termsOfService": "https://asyncapi.org/terms/",
+    "contact": {
+      "name": "API Support",
+      "url": "https://www.example.com/support",
+      "email": "support@example.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  }
+]

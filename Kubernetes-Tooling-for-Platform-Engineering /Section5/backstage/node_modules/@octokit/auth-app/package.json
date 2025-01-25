@@ -1,0 +1,56 @@
+{
+  "name": "@octokit/auth-app",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "4.0.13",
+  "description": "GitHub App authentication for JavaScript",
+  "repository": "github:octokit/auth-app.js",
+  "keywords": [
+    "github",
+    "octokit",
+    "authentication",
+    "api"
+  ],
+  "author": "Gregor Martynus (https://github.com/gr2m)",
+  "license": "MIT",
+  "dependencies": {
+    "@octokit/auth-oauth-app": "^5.0.0",
+    "@octokit/auth-oauth-user": "^2.0.0",
+    "@octokit/request": "^6.0.0",
+    "@octokit/request-error": "^3.0.0",
+    "@octokit/types": "^9.0.0",
+    "deprecation": "^2.3.1",
+    "lru-cache": "^9.0.0",
+    "universal-github-app-jwt": "^1.1.1",
+    "universal-user-agent": "^6.0.0"
+  },
+  "devDependencies": {
+    "@octokit/tsconfig": "^1.0.2",
+    "@sinonjs/fake-timers": "^8.0.0",
+    "@types/fetch-mock": "^7.3.1",
+    "@types/jest": "^29.0.0",
+    "@types/node": "^18.11.18",
+    "@types/sinonjs__fake-timers": "^8.0.0",
+    "esbuild": "^0.17.19",
+    "fetch-mock": "^9.0.0",
+    "glob": "^10.2.5",
+    "jest": "^29.0.0",
+    "prettier": "2.8.8",
+    "semantic-release-plugin-update-version-in-files": "^1.0.0",
+    "ts-jest": "^29.0.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">= 14"
+  },
+  "files": [
+    "dist-*/**",
+    "bin/**"
+  ],
+  "main": "dist-node/index.js",
+  "module": "dist-web/index.js",
+  "types": "dist-types/index.d.ts",
+  "source": "dist-src/index.js",
+  "sideEffects": false
+}

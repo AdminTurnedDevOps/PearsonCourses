@@ -1,0 +1,37 @@
+.graphiql-dialog-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: hsla(var(--color-neutral), var(--alpha-background-heavy));
+  /**
+   * CodeMirror has a `z-index` set for the container of the scrollbar of the
+   * editor, so we have to add one here to make sure that the dialog is shown
+   * above the editor scrollbar (if they are visible).
+   */
+  z-index: 10;
+}
+
+.graphiql-dialog {
+  background-color: hsl(var(--color-base));
+  border: var(--popover-border);
+  border-radius: var(--border-radius-12);
+  box-shadow: var(--popover-box-shadow);
+  margin: 0;
+  max-height: 80vh;
+  max-width: 80vw;
+  overflow: auto;
+  padding: 0;
+  width: unset;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  position: fixed;
+  z-index: 10;
+}
+
+.graphiql-dialog-close > svg {
+  color: hsla(var(--color-neutral), var(--alpha-secondary));
+  display: block;
+  height: var(--px-12);
+  padding: var(--px-12);
+  width: var(--px-12);
+}

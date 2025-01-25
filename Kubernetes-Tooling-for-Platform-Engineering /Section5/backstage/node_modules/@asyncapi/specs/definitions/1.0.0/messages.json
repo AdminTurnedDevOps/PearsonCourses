@@ -1,0 +1,9 @@
+{
+  "type": "object",
+  "additionalProperties": {
+    "$ref": "http://asyncapi.com/definitions/1.0.0/message.json"
+  },
+  "description": "JSON objects describing the messages being consumed and produced by the API.",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://asyncapi.com/definitions/1.0.0/messages.json"
+}

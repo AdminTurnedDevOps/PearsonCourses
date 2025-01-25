@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),Object.defineProperty(exports,"resource",{enumerable:!0,get:function(){return _index}});let _index=require("@swc/helpers/_/_interop_require_wildcard")._(require("./resource/index.js"));

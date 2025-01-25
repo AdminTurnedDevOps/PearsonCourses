@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1NodeSelector.mjs";export class NodeSelector extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(NodeSelector,validate);export{NodeSelector as IoK8sApiCoreV1NodeSelector};

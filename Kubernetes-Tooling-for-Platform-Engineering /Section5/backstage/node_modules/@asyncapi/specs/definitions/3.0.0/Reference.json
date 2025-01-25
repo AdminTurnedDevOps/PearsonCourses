@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "description": "A simple object to allow referencing other components in the specification, internally and externally.",
+  "required": [
+    "$ref"
+  ],
+  "properties": {
+    "$ref": {
+      "description": "The reference string.",
+      "$ref": "http://asyncapi.com/definitions/3.0.0/ReferenceObject.json"
+    }
+  },
+  "example": {
+    "$ref": "http://asyncapi.com/examples/3.0.0/ReferenceObject.json"
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://asyncapi.com/definitions/3.0.0/Reference.json"
+}

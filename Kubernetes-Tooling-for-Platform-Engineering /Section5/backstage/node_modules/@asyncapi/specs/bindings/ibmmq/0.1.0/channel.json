@@ -1,0 +1,124 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://asyncapi.com/bindings/ibmmq/0.1.0/channel.json",
+  "title": "IBM MQ channel bindings object",
+  "description": "This object contains information about the channel representation in IBM MQ. Each channel corresponds to a Queue or Topic within IBM MQ.",
+  "type": "object",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^x-[\\w\\d\\.\\x2d_]+$": {
+      "$ref": "http://asyncapi.com/definitions/3.0.0/specificationExtension.json"
+    }
+  },
+  "properties": {
+    "destinationType": {
+      "type": "string",
+      "enum": ["topic", "queue"],
+      "default": "topic",
+      "description": "Defines the type of AsyncAPI channel."
+    },
+    "queue": {
+      "type": "object",
+      "description": "Defines the properties of a queue.",
+      "properties": {
+        "objectName": {
+          "type": "string",
+          "maxLength": 48,
+          "description": "Defines the name of the IBM MQ queue associated with the channel."
+        },
+        "isPartitioned": {
+          "type": "boolean",
+          "default": false,
+          "description": "Defines if the queue is a cluster queue and therefore partitioned. If 'true', a binding option MAY be specified when accessing the queue. More information on binding options can be found on this page in the IBM MQ Knowledge Center."
+        },
+        "exclusive": {
+          "type": "boolean",
+          "default": false,
+          "description": "Specifies if it is recommended to open the queue exclusively."
+        }
+      },
+      "required": ["objectName"]
+    },
+    "topic": {
+      "type": "object",
+      "description": "Defines the properties of a topic.",
+      "properties": {
+        "string": {
+          "type": "string",
+          "maxLength": 10240,
+          "description": "The value of the IBM MQ topic string to be used."
+        },
+        "objectName": {
+          "type": "string",
+          "maxLength": 48,
+          "description": "The name of the IBM MQ topic object."
+        },
+        "durablePermitted": {
+          "type": "boolean",
+          "default": true,
+          "description": "Defines if the subscription may be durable."
+        },
+        "lastMsgRetained": {
+          "type": "boolean",
+          "default": false,
+          "description": "Defines if the last message published will be made available to new subscriptions."
+        }
+      }
+    },
+    "maxMsgLength": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum":104857600,
+      "description": "The maximum length of the physical message (in bytes) accepted by the Topic or Queue. Messages produced that are greater in size than this value may fail to be delivered. More information on the maximum message length can be found on this [page](https://www.ibm.com/support/knowledgecenter/SSFKSJ_latest/com.ibm.mq.ref.dev.doc/q097520_.html) in the IBM MQ Knowledge Center."
+    },
+    "bindingVersion": {
+      "type": "string",
+      "enum": [
+        "0.1.0"
+      ],
+      "description": "The version of this binding."
+    }
+  },
+  "oneOf": [
+    {
+      "properties": {
+        "destinationType": { "const": "topic" }
+      },
+      "not": {
+        "required": [
+          "queue"
+        ]
+      }
+    },
+    {
+      "properties": {
+        "destinationType": { "const": "queue" }
+      },
+      "required": [
+        "queue"
+      ],
+      "not": {
+        "required": [
+          "topic"
+        ]
+      }
+    }
+  ],
+  "examples": [
+    {
+      "destinationType": "topic",
+      "topic": {
+        "objectName": "myTopicName"
+      },
+      "bindingVersion": "0.1.0"
+    },
+    {
+      "destinationType": "queue",
+      "queue": {
+        "objectName": "myQueueName",
+        "exclusive": true
+      },
+      "bindingVersion": "0.1.0"
+    }
+  ]
+}

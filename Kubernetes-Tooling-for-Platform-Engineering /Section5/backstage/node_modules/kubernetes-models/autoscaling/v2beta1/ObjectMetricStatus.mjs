@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiAutoscalingV2beta1ObjectMetricStatus.mjs";export class ObjectMetricStatus extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(ObjectMetricStatus,validate);export{ObjectMetricStatus as IoK8sApiAutoscalingV2beta1ObjectMetricStatus};

@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiAuthorizationV1ResourceAttributes.mjs";export class ResourceAttributes extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(ResourceAttributes,validate);export{ResourceAttributes as IoK8sApiAuthorizationV1ResourceAttributes};

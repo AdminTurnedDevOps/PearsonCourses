@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1LoadBalancerStatus.mjs";export class LoadBalancerStatus extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(LoadBalancerStatus,validate);export{LoadBalancerStatus as IoK8sApiCoreV1LoadBalancerStatus};

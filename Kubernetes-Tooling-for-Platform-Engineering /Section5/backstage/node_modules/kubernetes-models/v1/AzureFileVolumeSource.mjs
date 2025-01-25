@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1AzureFileVolumeSource.mjs";export class AzureFileVolumeSource extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(AzureFileVolumeSource,validate);export{AzureFileVolumeSource as IoK8sApiCoreV1AzureFileVolumeSource};

@@ -1,0 +1,2 @@
+export { RESOURCE_TYPE_SCAFFOLDER_ACTION, RESOURCE_TYPE_SCAFFOLDER_TEMPLATE, actionExecutePermission, scaffolderActionPermissions, scaffolderPermissions, scaffolderTaskPermissions, scaffolderTemplatePermissions, taskCancelPermission, taskCreatePermission, taskReadPermission, templateManagementPermission, templateParameterReadPermission, templateStepReadPermission } from './permissions.esm.js';
+//# sourceMappingURL=alpha.esm.js.map

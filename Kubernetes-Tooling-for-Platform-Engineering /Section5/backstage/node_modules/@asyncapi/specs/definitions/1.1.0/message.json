@@ -1,0 +1,45 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^x-": {
+      "$ref": "http://asyncapi.com/definitions/1.1.0/vendorExtension.json"
+    }
+  },
+  "properties": {
+    "$ref": {
+      "type": "string"
+    },
+    "headers": {
+      "$ref": "http://asyncapi.com/definitions/1.1.0/schema.json"
+    },
+    "payload": {
+      "$ref": "http://asyncapi.com/definitions/1.1.0/schema.json"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "$ref": "http://asyncapi.com/definitions/1.1.0/tag.json"
+      },
+      "uniqueItems": true
+    },
+    "summary": {
+      "type": "string",
+      "description": "A brief summary of the message."
+    },
+    "description": {
+      "type": "string",
+      "description": "A longer description of the message. CommonMark is allowed."
+    },
+    "externalDocs": {
+      "$ref": "http://asyncapi.com/definitions/1.1.0/externalDocs.json"
+    },
+    "deprecated": {
+      "type": "boolean",
+      "default": false
+    },
+    "example": {}
+  },
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://asyncapi.com/definitions/1.1.0/message.json"
+}

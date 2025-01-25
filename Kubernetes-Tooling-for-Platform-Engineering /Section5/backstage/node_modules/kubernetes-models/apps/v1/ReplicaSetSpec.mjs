@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiAppsV1ReplicaSetSpec.mjs";export class ReplicaSetSpec extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(ReplicaSetSpec,validate);export{ReplicaSetSpec as IoK8sApiAppsV1ReplicaSetSpec};

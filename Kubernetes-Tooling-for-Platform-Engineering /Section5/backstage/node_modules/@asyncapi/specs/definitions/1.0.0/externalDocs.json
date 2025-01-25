@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "description": "information about external documentation",
+  "required": [
+    "url"
+  ],
+  "properties": {
+    "description": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri"
+    }
+  },
+  "patternProperties": {
+    "^x-": {
+      "$ref": "http://asyncapi.com/definitions/1.0.0/vendorExtension.json"
+    }
+  },
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://asyncapi.com/definitions/1.0.0/externalDocs.json"
+}

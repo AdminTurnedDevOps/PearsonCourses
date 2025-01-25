@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "required": [
+    "type"
+  ],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "symmetricEncryption"
+      ]
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "patternProperties": {
+    "^x-": {}
+  },
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://asyncapi.com/definitions/1.1.0/symmetricEncryption.json"
+}

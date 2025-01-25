@@ -1,0 +1,1 @@
+{"version":3,"file":"collectVariables.d.ts","sourceRoot":"","sources":["../../src/utils/collectVariables.ts"],"names":[],"mappings":"AAAA,OAAO,EAEL,aAAa,EACb,YAAY,EAEZ,gBAAgB,EAGjB,MAAM,SAAS,CAAC;AAEjB,oBAAY,cAAc,GAAG;IAC3B,CAAC,QAAQ,EAAE,MAAM,GAAG,gBAAgB,CAAC;CACtC,CAAC;AAUF,wBAAgB,gBAAgB,CAC9B,MAAM,EAAE,aAAa,EACrB,WAAW,EAAE,YAAY,GACxB,cAAc,CA0BhB"}

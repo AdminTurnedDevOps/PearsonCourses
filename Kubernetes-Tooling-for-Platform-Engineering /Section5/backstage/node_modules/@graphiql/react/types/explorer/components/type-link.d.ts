@@ -1,0 +1,11 @@
+/// <reference types="react" />
+import { GraphQLType } from 'graphql';
+import './type-link.css';
+declare type TypeLinkProps = {
+    /**
+     * The type that should be linked to.
+     */
+    type: GraphQLType;
+};
+export declare function TypeLink(props: TypeLinkProps): JSX.Element | null;
+export {};

@@ -1,0 +1,2509 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CustomObjectsApiResponseProcessor = exports.CustomObjectsApiRequestFactory = void 0;
+// TODO: better import syntax?
+const baseapi_1 = require("./baseapi");
+const http_1 = require("../http/http");
+const ObjectSerializer_1 = require("../models/ObjectSerializer");
+const exception_1 = require("./exception");
+const util_1 = require("../util");
+/**
+ * no description
+ */
+class CustomObjectsApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
+    /**
+     * Creates a cluster scoped Custom object
+     * @param group The custom resource\&#39;s group name
+     * @param version The custom resource\&#39;s version
+     * @param plural The custom resource\&#39;s plural name. For TPRs this would be lowercase plural kind.
+     * @param body The JSON schema of the Resource to create.
+     * @param pretty If \&#39;true\&#39;, then the output is pretty printed.
+     * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+     * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
+     */
+    async createClusterCustomObject(group, version, plural, body, pretty, dryRun, fieldManager, _options) {
+        var _a, _b, _c;
+        let _config = _options || this.configuration;
+        // verify required parameter 'group' is not null or undefined
+        if (group === null || group === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "createClusterCustomObject", "group");
+        }
+        // verify required parameter 'version' is not null or undefined
+        if (version === null || version === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "createClusterCustomObject", "version");
+        }
+        // verify required parameter 'plural' is not null or undefined
+        if (plural === null || plural === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "createClusterCustomObject", "plural");
+        }
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "createClusterCustomObject", "body");
+        }
+        // Path Params
+        const localVarPath = '/apis/{group}/{version}/{plural}'
+            .replace('{' + 'group' + '}', encodeURIComponent(String(group)))
+            .replace('{' + 'version' + '}', encodeURIComponent(String(version)))
+            .replace('{' + 'plural' + '}', encodeURIComponent(String(plural)));
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.POST);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+        // Query Params
+        if (pretty !== undefined) {
+            requestContext.setQueryParam("pretty", ObjectSerializer_1.ObjectSerializer.serialize(pretty, "string", ""));
+        }
+        // Query Params
+        if (dryRun !== undefined) {
+            requestContext.setQueryParam("dryRun", ObjectSerializer_1.ObjectSerializer.serialize(dryRun, "string", ""));
+        }
+        // Query Params
+        if (fieldManager !== undefined) {
+            requestContext.setQueryParam("fieldManager", ObjectSerializer_1.ObjectSerializer.serialize(fieldManager, "string", ""));
+        }
+        // Body Params
+        const contentType = ObjectSerializer_1.ObjectSerializer.getPreferredMediaType([]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(body, "any", ""), contentType);
+        requestContext.setBody(serializedBody);
+        let authMethod;
+        // Apply auth methods
+        authMethod = _config.authMethods["BearerToken"];
+        if (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication) {
+            await (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext));
+        }
+        const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
+        if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
+            await (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext));
+        }
+        return requestContext;
+    }
+    /**
+     * Creates a namespace scoped Custom object
+     * @param group The custom resource\&#39;s group name
+     * @param version The custom resource\&#39;s version
+     * @param namespace The custom resource\&#39;s namespace
+     * @param plural The custom resource\&#39;s plural name. For TPRs this would be lowercase plural kind.
+     * @param body The JSON schema of the Resource to create.
+     * @param pretty If \&#39;true\&#39;, then the output is pretty printed.
+     * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+     * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
+     */
+    async createNamespacedCustomObject(group, version, namespace, plural, body, pretty, dryRun, fieldManager, _options) {
+        var _a, _b, _c;
+        let _config = _options || this.configuration;
+        // verify required parameter 'group' is not null or undefined
+        if (group === null || group === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "createNamespacedCustomObject", "group");
+        }
+        // verify required parameter 'version' is not null or undefined
+        if (version === null || version === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "createNamespacedCustomObject", "version");
+        }
+        // verify required parameter 'namespace' is not null or undefined
+        if (namespace === null || namespace === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "createNamespacedCustomObject", "namespace");
+        }
+        // verify required parameter 'plural' is not null or undefined
+        if (plural === null || plural === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "createNamespacedCustomObject", "plural");
+        }
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "createNamespacedCustomObject", "body");
+        }
+        // Path Params
+        const localVarPath = '/apis/{group}/{version}/namespaces/{namespace}/{plural}'
+            .replace('{' + 'group' + '}', encodeURIComponent(String(group)))
+            .replace('{' + 'version' + '}', encodeURIComponent(String(version)))
+            .replace('{' + 'namespace' + '}', encodeURIComponent(String(namespace)))
+            .replace('{' + 'plural' + '}', encodeURIComponent(String(plural)));
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.POST);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+        // Query Params
+        if (pretty !== undefined) {
+            requestContext.setQueryParam("pretty", ObjectSerializer_1.ObjectSerializer.serialize(pretty, "string", ""));
+        }
+        // Query Params
+        if (dryRun !== undefined) {
+            requestContext.setQueryParam("dryRun", ObjectSerializer_1.ObjectSerializer.serialize(dryRun, "string", ""));
+        }
+        // Query Params
+        if (fieldManager !== undefined) {
+            requestContext.setQueryParam("fieldManager", ObjectSerializer_1.ObjectSerializer.serialize(fieldManager, "string", ""));
+        }
+        // Body Params
+        const contentType = ObjectSerializer_1.ObjectSerializer.getPreferredMediaType([]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(body, "any", ""), contentType);
+        requestContext.setBody(serializedBody);
+        let authMethod;
+        // Apply auth methods
+        authMethod = _config.authMethods["BearerToken"];
+        if (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication) {
+            await (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext));
+        }
+        const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
+        if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
+            await (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext));
+        }
+        return requestContext;
+    }
+    /**
+     * Deletes the specified cluster scoped custom object
+     * @param group the custom resource\&#39;s group
+     * @param version the custom resource\&#39;s version
+     * @param plural the custom object\&#39;s plural name. For TPRs this would be lowercase plural kind.
+     * @param name the custom object\&#39;s name
+     * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
+     * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object\&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both.
+     * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
+     * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+     * @param body
+     */
+    async deleteClusterCustomObject(group, version, plural, name, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, _options) {
+        var _a, _b, _c;
+        let _config = _options || this.configuration;
+        // verify required parameter 'group' is not null or undefined
+        if (group === null || group === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "deleteClusterCustomObject", "group");
+        }
+        // verify required parameter 'version' is not null or undefined
+        if (version === null || version === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "deleteClusterCustomObject", "version");
+        }
+        // verify required parameter 'plural' is not null or undefined
+        if (plural === null || plural === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "deleteClusterCustomObject", "plural");
+        }
+        // verify required parameter 'name' is not null or undefined
+        if (name === null || name === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "deleteClusterCustomObject", "name");
+        }
+        // Path Params
+        const localVarPath = '/apis/{group}/{version}/{plural}/{name}'
+            .replace('{' + 'group' + '}', encodeURIComponent(String(group)))
+            .replace('{' + 'version' + '}', encodeURIComponent(String(version)))
+            .replace('{' + 'plural' + '}', encodeURIComponent(String(plural)))
+            .replace('{' + 'name' + '}', encodeURIComponent(String(name)));
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.DELETE);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+        // Query Params
+        if (gracePeriodSeconds !== undefined) {
+            requestContext.setQueryParam("gracePeriodSeconds", ObjectSerializer_1.ObjectSerializer.serialize(gracePeriodSeconds, "number", ""));
+        }
+        // Query Params
+        if (orphanDependents !== undefined) {
+            requestContext.setQueryParam("orphanDependents", ObjectSerializer_1.ObjectSerializer.serialize(orphanDependents, "boolean", ""));
+        }
+        // Query Params
+        if (propagationPolicy !== undefined) {
+            requestContext.setQueryParam("propagationPolicy", ObjectSerializer_1.ObjectSerializer.serialize(propagationPolicy, "string", ""));
+        }
+        // Query Params
+        if (dryRun !== undefined) {
+            requestContext.setQueryParam("dryRun", ObjectSerializer_1.ObjectSerializer.serialize(dryRun, "string", ""));
+        }
+        // Body Params
+        const contentType = ObjectSerializer_1.ObjectSerializer.getPreferredMediaType([]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(body, "V1DeleteOptions", ""), contentType);
+        requestContext.setBody(serializedBody);
+        let authMethod;
+        // Apply auth methods
+        authMethod = _config.authMethods["BearerToken"];
+        if (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication) {
+            await (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext));
+        }
+        const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
+        if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
+            await (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext));
+        }
+        return requestContext;
+    }
+    /**
+     * Delete collection of cluster scoped custom objects
+     * @param group The custom resource\&#39;s group name
+     * @param version The custom resource\&#39;s version
+     * @param plural The custom resource\&#39;s plural name. For TPRs this would be lowercase plural kind.
+     * @param pretty If \&#39;true\&#39;, then the output is pretty printed.
+     * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
+     * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object\&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both.
+     * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
+     * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+     * @param body
+     */
+    async deleteCollectionClusterCustomObject(group, version, plural, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, _options) {
+        var _a, _b, _c;
+        let _config = _options || this.configuration;
+        // verify required parameter 'group' is not null or undefined
+        if (group === null || group === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "deleteCollectionClusterCustomObject", "group");
+        }
+        // verify required parameter 'version' is not null or undefined
+        if (version === null || version === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "deleteCollectionClusterCustomObject", "version");
+        }
+        // verify required parameter 'plural' is not null or undefined
+        if (plural === null || plural === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "deleteCollectionClusterCustomObject", "plural");
+        }
+        // Path Params
+        const localVarPath = '/apis/{group}/{version}/{plural}'
+            .replace('{' + 'group' + '}', encodeURIComponent(String(group)))
+            .replace('{' + 'version' + '}', encodeURIComponent(String(version)))
+            .replace('{' + 'plural' + '}', encodeURIComponent(String(plural)));
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.DELETE);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+        // Query Params
+        if (pretty !== undefined) {
+            requestContext.setQueryParam("pretty", ObjectSerializer_1.ObjectSerializer.serialize(pretty, "string", ""));
+        }
+        // Query Params
+        if (gracePeriodSeconds !== undefined) {
+            requestContext.setQueryParam("gracePeriodSeconds", ObjectSerializer_1.ObjectSerializer.serialize(gracePeriodSeconds, "number", ""));
+        }
+        // Query Params
+        if (orphanDependents !== undefined) {
+            requestContext.setQueryParam("orphanDependents", ObjectSerializer_1.ObjectSerializer.serialize(orphanDependents, "boolean", ""));
+        }
+        // Query Params
+        if (propagationPolicy !== undefined) {
+            requestContext.setQueryParam("propagationPolicy", ObjectSerializer_1.ObjectSerializer.serialize(propagationPolicy, "string", ""));
+        }
+        // Query Params
+        if (dryRun !== undefined) {
+            requestContext.setQueryParam("dryRun", ObjectSerializer_1.ObjectSerializer.serialize(dryRun, "string", ""));
+        }
+        // Body Params
+        const contentType = ObjectSerializer_1.ObjectSerializer.getPreferredMediaType([]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(body, "V1DeleteOptions", ""), contentType);
+        requestContext.setBody(serializedBody);
+        let authMethod;
+        // Apply auth methods
+        authMethod = _config.authMethods["BearerToken"];
+        if (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication) {
+            await (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext));
+        }
+        const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
+        if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
+            await (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext));
+        }
+        return requestContext;
+    }
+    /**
+     * Delete collection of namespace scoped custom objects
+     * @param group The custom resource\&#39;s group name
+     * @param version The custom resource\&#39;s version
+     * @param namespace The custom resource\&#39;s namespace
+     * @param plural The custom resource\&#39;s plural name. For TPRs this would be lowercase plural kind.
+     * @param pretty If \&#39;true\&#39;, then the output is pretty printed.
+     * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
+     * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object\&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both.
+     * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
+     * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+     * @param body
+     */
+    async deleteCollectionNamespacedCustomObject(group, version, namespace, plural, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, _options) {
+        var _a, _b, _c;
+        let _config = _options || this.configuration;
+        // verify required parameter 'group' is not null or undefined
+        if (group === null || group === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "deleteCollectionNamespacedCustomObject", "group");
+        }
+        // verify required parameter 'version' is not null or undefined
+        if (version === null || version === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "deleteCollectionNamespacedCustomObject", "version");
+        }
+        // verify required parameter 'namespace' is not null or undefined
+        if (namespace === null || namespace === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "deleteCollectionNamespacedCustomObject", "namespace");
+        }
+        // verify required parameter 'plural' is not null or undefined
+        if (plural === null || plural === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "deleteCollectionNamespacedCustomObject", "plural");
+        }
+        // Path Params
+        const localVarPath = '/apis/{group}/{version}/namespaces/{namespace}/{plural}'
+            .replace('{' + 'group' + '}', encodeURIComponent(String(group)))
+            .replace('{' + 'version' + '}', encodeURIComponent(String(version)))
+            .replace('{' + 'namespace' + '}', encodeURIComponent(String(namespace)))
+            .replace('{' + 'plural' + '}', encodeURIComponent(String(plural)));
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.DELETE);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+        // Query Params
+        if (pretty !== undefined) {
+            requestContext.setQueryParam("pretty", ObjectSerializer_1.ObjectSerializer.serialize(pretty, "string", ""));
+        }
+        // Query Params
+        if (gracePeriodSeconds !== undefined) {
+            requestContext.setQueryParam("gracePeriodSeconds", ObjectSerializer_1.ObjectSerializer.serialize(gracePeriodSeconds, "number", ""));
+        }
+        // Query Params
+        if (orphanDependents !== undefined) {
+            requestContext.setQueryParam("orphanDependents", ObjectSerializer_1.ObjectSerializer.serialize(orphanDependents, "boolean", ""));
+        }
+        // Query Params
+        if (propagationPolicy !== undefined) {
+            requestContext.setQueryParam("propagationPolicy", ObjectSerializer_1.ObjectSerializer.serialize(propagationPolicy, "string", ""));
+        }
+        // Query Params
+        if (dryRun !== undefined) {
+            requestContext.setQueryParam("dryRun", ObjectSerializer_1.ObjectSerializer.serialize(dryRun, "string", ""));
+        }
+        // Body Params
+        const contentType = ObjectSerializer_1.ObjectSerializer.getPreferredMediaType([]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(body, "V1DeleteOptions", ""), contentType);
+        requestContext.setBody(serializedBody);
+        let authMethod;
+        // Apply auth methods
+        authMethod = _config.authMethods["BearerToken"];
+        if (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication) {
+            await (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext));
+        }
+        const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
+        if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
+            await (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext));
+        }
+        return requestContext;
+    }
+    /**
+     * Deletes the specified namespace scoped custom object
+     * @param group the custom resource\&#39;s group
+     * @param version the custom resource\&#39;s version
+     * @param namespace The custom resource\&#39;s namespace
+     * @param plural the custom resource\&#39;s plural name. For TPRs this would be lowercase plural kind.
+     * @param name the custom object\&#39;s name
+     * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
+     * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object\&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both.
+     * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
+     * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+     * @param body
+     */
+    async deleteNamespacedCustomObject(group, version, namespace, plural, name, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, _options) {
+        var _a, _b, _c;
+        let _config = _options || this.configuration;
+        // verify required parameter 'group' is not null or undefined
+        if (group === null || group === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "deleteNamespacedCustomObject", "group");
+        }
+        // verify required parameter 'version' is not null or undefined
+        if (version === null || version === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "deleteNamespacedCustomObject", "version");
+        }
+        // verify required parameter 'namespace' is not null or undefined
+        if (namespace === null || namespace === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "deleteNamespacedCustomObject", "namespace");
+        }
+        // verify required parameter 'plural' is not null or undefined
+        if (plural === null || plural === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "deleteNamespacedCustomObject", "plural");
+        }
+        // verify required parameter 'name' is not null or undefined
+        if (name === null || name === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "deleteNamespacedCustomObject", "name");
+        }
+        // Path Params
+        const localVarPath = '/apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}'
+            .replace('{' + 'group' + '}', encodeURIComponent(String(group)))
+            .replace('{' + 'version' + '}', encodeURIComponent(String(version)))
+            .replace('{' + 'namespace' + '}', encodeURIComponent(String(namespace)))
+            .replace('{' + 'plural' + '}', encodeURIComponent(String(plural)))
+            .replace('{' + 'name' + '}', encodeURIComponent(String(name)));
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.DELETE);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+        // Query Params
+        if (gracePeriodSeconds !== undefined) {
+            requestContext.setQueryParam("gracePeriodSeconds", ObjectSerializer_1.ObjectSerializer.serialize(gracePeriodSeconds, "number", ""));
+        }
+        // Query Params
+        if (orphanDependents !== undefined) {
+            requestContext.setQueryParam("orphanDependents", ObjectSerializer_1.ObjectSerializer.serialize(orphanDependents, "boolean", ""));
+        }
+        // Query Params
+        if (propagationPolicy !== undefined) {
+            requestContext.setQueryParam("propagationPolicy", ObjectSerializer_1.ObjectSerializer.serialize(propagationPolicy, "string", ""));
+        }
+        // Query Params
+        if (dryRun !== undefined) {
+            requestContext.setQueryParam("dryRun", ObjectSerializer_1.ObjectSerializer.serialize(dryRun, "string", ""));
+        }
+        // Body Params
+        const contentType = ObjectSerializer_1.ObjectSerializer.getPreferredMediaType([]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(body, "V1DeleteOptions", ""), contentType);
+        requestContext.setBody(serializedBody);
+        let authMethod;
+        // Apply auth methods
+        authMethod = _config.authMethods["BearerToken"];
+        if (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication) {
+            await (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext));
+        }
+        const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
+        if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
+            await (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext));
+        }
+        return requestContext;
+    }
+    /**
+     * get available resources
+     * @param group The custom resource\&#39;s group name
+     * @param version The custom resource\&#39;s version
+     */
+    async getAPIResources(group, version, _options) {
+        var _a, _b, _c;
+        let _config = _options || this.configuration;
+        // verify required parameter 'group' is not null or undefined
+        if (group === null || group === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "getAPIResources", "group");
+        }
+        // verify required parameter 'version' is not null or undefined
+        if (version === null || version === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "getAPIResources", "version");
+        }
+        // Path Params
+        const localVarPath = '/apis/{group}/{version}'
+            .replace('{' + 'group' + '}', encodeURIComponent(String(group)))
+            .replace('{' + 'version' + '}', encodeURIComponent(String(version)));
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+        let authMethod;
+        // Apply auth methods
+        authMethod = _config.authMethods["BearerToken"];
+        if (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication) {
+            await (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext));
+        }
+        const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
+        if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
+            await (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext));
+        }
+        return requestContext;
+    }
+    /**
+     * Returns a cluster scoped custom object
+     * @param group the custom resource\&#39;s group
+     * @param version the custom resource\&#39;s version
+     * @param plural the custom object\&#39;s plural name. For TPRs this would be lowercase plural kind.
+     * @param name the custom object\&#39;s name
+     */
+    async getClusterCustomObject(group, version, plural, name, _options) {
+        var _a, _b, _c;
+        let _config = _options || this.configuration;
+        // verify required parameter 'group' is not null or undefined
+        if (group === null || group === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "getClusterCustomObject", "group");
+        }
+        // verify required parameter 'version' is not null or undefined
+        if (version === null || version === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "getClusterCustomObject", "version");
+        }
+        // verify required parameter 'plural' is not null or undefined
+        if (plural === null || plural === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "getClusterCustomObject", "plural");
+        }
+        // verify required parameter 'name' is not null or undefined
+        if (name === null || name === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "getClusterCustomObject", "name");
+        }
+        // Path Params
+        const localVarPath = '/apis/{group}/{version}/{plural}/{name}'
+            .replace('{' + 'group' + '}', encodeURIComponent(String(group)))
+            .replace('{' + 'version' + '}', encodeURIComponent(String(version)))
+            .replace('{' + 'plural' + '}', encodeURIComponent(String(plural)))
+            .replace('{' + 'name' + '}', encodeURIComponent(String(name)));
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+        let authMethod;
+        // Apply auth methods
+        authMethod = _config.authMethods["BearerToken"];
+        if (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication) {
+            await (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext));
+        }
+        const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
+        if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
+            await (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext));
+        }
+        return requestContext;
+    }
+    /**
+     * read scale of the specified custom object
+     * @param group the custom resource\&#39;s group
+     * @param version the custom resource\&#39;s version
+     * @param plural the custom resource\&#39;s plural name. For TPRs this would be lowercase plural kind.
+     * @param name the custom object\&#39;s name
+     */
+    async getClusterCustomObjectScale(group, version, plural, name, _options) {
+        var _a, _b, _c;
+        let _config = _options || this.configuration;
+        // verify required parameter 'group' is not null or undefined
+        if (group === null || group === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "getClusterCustomObjectScale", "group");
+        }
+        // verify required parameter 'version' is not null or undefined
+        if (version === null || version === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "getClusterCustomObjectScale", "version");
+        }
+        // verify required parameter 'plural' is not null or undefined
+        if (plural === null || plural === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "getClusterCustomObjectScale", "plural");
+        }
+        // verify required parameter 'name' is not null or undefined
+        if (name === null || name === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "getClusterCustomObjectScale", "name");
+        }
+        // Path Params
+        const localVarPath = '/apis/{group}/{version}/{plural}/{name}/scale'
+            .replace('{' + 'group' + '}', encodeURIComponent(String(group)))
+            .replace('{' + 'version' + '}', encodeURIComponent(String(version)))
+            .replace('{' + 'plural' + '}', encodeURIComponent(String(plural)))
+            .replace('{' + 'name' + '}', encodeURIComponent(String(name)));
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+        let authMethod;
+        // Apply auth methods
+        authMethod = _config.authMethods["BearerToken"];
+        if (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication) {
+            await (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext));
+        }
+        const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
+        if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
+            await (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext));
+        }
+        return requestContext;
+    }
+    /**
+     * read status of the specified cluster scoped custom object
+     * @param group the custom resource\&#39;s group
+     * @param version the custom resource\&#39;s version
+     * @param plural the custom resource\&#39;s plural name. For TPRs this would be lowercase plural kind.
+     * @param name the custom object\&#39;s name
+     */
+    async getClusterCustomObjectStatus(group, version, plural, name, _options) {
+        var _a, _b, _c;
+        let _config = _options || this.configuration;
+        // verify required parameter 'group' is not null or undefined
+        if (group === null || group === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "getClusterCustomObjectStatus", "group");
+        }
+        // verify required parameter 'version' is not null or undefined
+        if (version === null || version === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "getClusterCustomObjectStatus", "version");
+        }
+        // verify required parameter 'plural' is not null or undefined
+        if (plural === null || plural === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "getClusterCustomObjectStatus", "plural");
+        }
+        // verify required parameter 'name' is not null or undefined
+        if (name === null || name === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "getClusterCustomObjectStatus", "name");
+        }
+        // Path Params
+        const localVarPath = '/apis/{group}/{version}/{plural}/{name}/status'
+            .replace('{' + 'group' + '}', encodeURIComponent(String(group)))
+            .replace('{' + 'version' + '}', encodeURIComponent(String(version)))
+            .replace('{' + 'plural' + '}', encodeURIComponent(String(plural)))
+            .replace('{' + 'name' + '}', encodeURIComponent(String(name)));
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+        let authMethod;
+        // Apply auth methods
+        authMethod = _config.authMethods["BearerToken"];
+        if (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication) {
+            await (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext));
+        }
+        const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
+        if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
+            await (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext));
+        }
+        return requestContext;
+    }
+    /**
+     * Returns a namespace scoped custom object
+     * @param group the custom resource\&#39;s group
+     * @param version the custom resource\&#39;s version
+     * @param namespace The custom resource\&#39;s namespace
+     * @param plural the custom resource\&#39;s plural name. For TPRs this would be lowercase plural kind.
+     * @param name the custom object\&#39;s name
+     */
+    async getNamespacedCustomObject(group, version, namespace, plural, name, _options) {
+        var _a, _b, _c;
+        let _config = _options || this.configuration;
+        // verify required parameter 'group' is not null or undefined
+        if (group === null || group === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "getNamespacedCustomObject", "group");
+        }
+        // verify required parameter 'version' is not null or undefined
+        if (version === null || version === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "getNamespacedCustomObject", "version");
+        }
+        // verify required parameter 'namespace' is not null or undefined
+        if (namespace === null || namespace === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "getNamespacedCustomObject", "namespace");
+        }
+        // verify required parameter 'plural' is not null or undefined
+        if (plural === null || plural === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "getNamespacedCustomObject", "plural");
+        }
+        // verify required parameter 'name' is not null or undefined
+        if (name === null || name === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "getNamespacedCustomObject", "name");
+        }
+        // Path Params
+        const localVarPath = '/apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}'
+            .replace('{' + 'group' + '}', encodeURIComponent(String(group)))
+            .replace('{' + 'version' + '}', encodeURIComponent(String(version)))
+            .replace('{' + 'namespace' + '}', encodeURIComponent(String(namespace)))
+            .replace('{' + 'plural' + '}', encodeURIComponent(String(plural)))
+            .replace('{' + 'name' + '}', encodeURIComponent(String(name)));
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+        let authMethod;
+        // Apply auth methods
+        authMethod = _config.authMethods["BearerToken"];
+        if (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication) {
+            await (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext));
+        }
+        const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
+        if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
+            await (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext));
+        }
+        return requestContext;
+    }
+    /**
+     * read scale of the specified namespace scoped custom object
+     * @param group the custom resource\&#39;s group
+     * @param version the custom resource\&#39;s version
+     * @param namespace The custom resource\&#39;s namespace
+     * @param plural the custom resource\&#39;s plural name. For TPRs this would be lowercase plural kind.
+     * @param name the custom object\&#39;s name
+     */
+    async getNamespacedCustomObjectScale(group, version, namespace, plural, name, _options) {
+        var _a, _b, _c;
+        let _config = _options || this.configuration;
+        // verify required parameter 'group' is not null or undefined
+        if (group === null || group === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "getNamespacedCustomObjectScale", "group");
+        }
+        // verify required parameter 'version' is not null or undefined
+        if (version === null || version === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "getNamespacedCustomObjectScale", "version");
+        }
+        // verify required parameter 'namespace' is not null or undefined
+        if (namespace === null || namespace === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "getNamespacedCustomObjectScale", "namespace");
+        }
+        // verify required parameter 'plural' is not null or undefined
+        if (plural === null || plural === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "getNamespacedCustomObjectScale", "plural");
+        }
+        // verify required parameter 'name' is not null or undefined
+        if (name === null || name === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "getNamespacedCustomObjectScale", "name");
+        }
+        // Path Params
+        const localVarPath = '/apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}/scale'
+            .replace('{' + 'group' + '}', encodeURIComponent(String(group)))
+            .replace('{' + 'version' + '}', encodeURIComponent(String(version)))
+            .replace('{' + 'namespace' + '}', encodeURIComponent(String(namespace)))
+            .replace('{' + 'plural' + '}', encodeURIComponent(String(plural)))
+            .replace('{' + 'name' + '}', encodeURIComponent(String(name)));
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+        let authMethod;
+        // Apply auth methods
+        authMethod = _config.authMethods["BearerToken"];
+        if (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication) {
+            await (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext));
+        }
+        const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
+        if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
+            await (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext));
+        }
+        return requestContext;
+    }
+    /**
+     * read status of the specified namespace scoped custom object
+     * @param group the custom resource\&#39;s group
+     * @param version the custom resource\&#39;s version
+     * @param namespace The custom resource\&#39;s namespace
+     * @param plural the custom resource\&#39;s plural name. For TPRs this would be lowercase plural kind.
+     * @param name the custom object\&#39;s name
+     */
+    async getNamespacedCustomObjectStatus(group, version, namespace, plural, name, _options) {
+        var _a, _b, _c;
+        let _config = _options || this.configuration;
+        // verify required parameter 'group' is not null or undefined
+        if (group === null || group === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "getNamespacedCustomObjectStatus", "group");
+        }
+        // verify required parameter 'version' is not null or undefined
+        if (version === null || version === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "getNamespacedCustomObjectStatus", "version");
+        }
+        // verify required parameter 'namespace' is not null or undefined
+        if (namespace === null || namespace === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "getNamespacedCustomObjectStatus", "namespace");
+        }
+        // verify required parameter 'plural' is not null or undefined
+        if (plural === null || plural === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "getNamespacedCustomObjectStatus", "plural");
+        }
+        // verify required parameter 'name' is not null or undefined
+        if (name === null || name === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "getNamespacedCustomObjectStatus", "name");
+        }
+        // Path Params
+        const localVarPath = '/apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}/status'
+            .replace('{' + 'group' + '}', encodeURIComponent(String(group)))
+            .replace('{' + 'version' + '}', encodeURIComponent(String(version)))
+            .replace('{' + 'namespace' + '}', encodeURIComponent(String(namespace)))
+            .replace('{' + 'plural' + '}', encodeURIComponent(String(plural)))
+            .replace('{' + 'name' + '}', encodeURIComponent(String(name)));
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+        let authMethod;
+        // Apply auth methods
+        authMethod = _config.authMethods["BearerToken"];
+        if (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication) {
+            await (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext));
+        }
+        const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
+        if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
+            await (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext));
+        }
+        return requestContext;
+    }
+    /**
+     * list or watch cluster scoped custom objects
+     * @param group The custom resource\&#39;s group name
+     * @param version The custom resource\&#39;s version
+     * @param plural The custom resource\&#39;s plural name. For TPRs this would be lowercase plural kind.
+     * @param pretty If \&#39;true\&#39;, then the output is pretty printed.
+     * @param allowWatchBookmarks allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server\&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. If the feature gate WatchBookmarks is not enabled in apiserver, this field is ignored.
+     * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
+     * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything.
+     * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything.
+     * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
+     * @param resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it\&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+     * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset
+     * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
+     * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications.
+     */
+    async listClusterCustomObject(group, version, plural, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, timeoutSeconds, watch, _options) {
+        var _a, _b, _c;
+        let _config = _options || this.configuration;
+        // verify required parameter 'group' is not null or undefined
+        if (group === null || group === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "listClusterCustomObject", "group");
+        }
+        // verify required parameter 'version' is not null or undefined
+        if (version === null || version === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "listClusterCustomObject", "version");
+        }
+        // verify required parameter 'plural' is not null or undefined
+        if (plural === null || plural === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "listClusterCustomObject", "plural");
+        }
+        // Path Params
+        const localVarPath = '/apis/{group}/{version}/{plural}'
+            .replace('{' + 'group' + '}', encodeURIComponent(String(group)))
+            .replace('{' + 'version' + '}', encodeURIComponent(String(version)))
+            .replace('{' + 'plural' + '}', encodeURIComponent(String(plural)));
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+        // Query Params
+        if (pretty !== undefined) {
+            requestContext.setQueryParam("pretty", ObjectSerializer_1.ObjectSerializer.serialize(pretty, "string", ""));
+        }
+        // Query Params
+        if (allowWatchBookmarks !== undefined) {
+            requestContext.setQueryParam("allowWatchBookmarks", ObjectSerializer_1.ObjectSerializer.serialize(allowWatchBookmarks, "boolean", ""));
+        }
+        // Query Params
+        if (_continue !== undefined) {
+            requestContext.setQueryParam("continue", ObjectSerializer_1.ObjectSerializer.serialize(_continue, "string", ""));
+        }
+        // Query Params
+        if (fieldSelector !== undefined) {
+            requestContext.setQueryParam("fieldSelector", ObjectSerializer_1.ObjectSerializer.serialize(fieldSelector, "string", ""));
+        }
+        // Query Params
+        if (labelSelector !== undefined) {
+            requestContext.setQueryParam("labelSelector", ObjectSerializer_1.ObjectSerializer.serialize(labelSelector, "string", ""));
+        }
+        // Query Params
+        if (limit !== undefined) {
+            requestContext.setQueryParam("limit", ObjectSerializer_1.ObjectSerializer.serialize(limit, "number", ""));
+        }
+        // Query Params
+        if (resourceVersion !== undefined) {
+            requestContext.setQueryParam("resourceVersion", ObjectSerializer_1.ObjectSerializer.serialize(resourceVersion, "string", ""));
+        }
+        // Query Params
+        if (resourceVersionMatch !== undefined) {
+            requestContext.setQueryParam("resourceVersionMatch", ObjectSerializer_1.ObjectSerializer.serialize(resourceVersionMatch, "string", ""));
+        }
+        // Query Params
+        if (timeoutSeconds !== undefined) {
+            requestContext.setQueryParam("timeoutSeconds", ObjectSerializer_1.ObjectSerializer.serialize(timeoutSeconds, "number", ""));
+        }
+        // Query Params
+        if (watch !== undefined) {
+            requestContext.setQueryParam("watch", ObjectSerializer_1.ObjectSerializer.serialize(watch, "boolean", ""));
+        }
+        let authMethod;
+        // Apply auth methods
+        authMethod = _config.authMethods["BearerToken"];
+        if (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication) {
+            await (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext));
+        }
+        const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
+        if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
+            await (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext));
+        }
+        return requestContext;
+    }
+    /**
+     * list or watch namespace scoped custom objects
+     * @param group The custom resource\&#39;s group name
+     * @param version The custom resource\&#39;s version
+     * @param namespace The custom resource\&#39;s namespace
+     * @param plural The custom resource\&#39;s plural name. For TPRs this would be lowercase plural kind.
+     * @param pretty If \&#39;true\&#39;, then the output is pretty printed.
+     * @param allowWatchBookmarks allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server\&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. If the feature gate WatchBookmarks is not enabled in apiserver, this field is ignored.
+     * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
+     * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything.
+     * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything.
+     * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
+     * @param resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it\&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+     * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset
+     * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
+     * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications.
+     */
+    async listNamespacedCustomObject(group, version, namespace, plural, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, timeoutSeconds, watch, _options) {
+        var _a, _b, _c;
+        let _config = _options || this.configuration;
+        // verify required parameter 'group' is not null or undefined
+        if (group === null || group === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "listNamespacedCustomObject", "group");
+        }
+        // verify required parameter 'version' is not null or undefined
+        if (version === null || version === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "listNamespacedCustomObject", "version");
+        }
+        // verify required parameter 'namespace' is not null or undefined
+        if (namespace === null || namespace === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "listNamespacedCustomObject", "namespace");
+        }
+        // verify required parameter 'plural' is not null or undefined
+        if (plural === null || plural === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "listNamespacedCustomObject", "plural");
+        }
+        // Path Params
+        const localVarPath = '/apis/{group}/{version}/namespaces/{namespace}/{plural}'
+            .replace('{' + 'group' + '}', encodeURIComponent(String(group)))
+            .replace('{' + 'version' + '}', encodeURIComponent(String(version)))
+            .replace('{' + 'namespace' + '}', encodeURIComponent(String(namespace)))
+            .replace('{' + 'plural' + '}', encodeURIComponent(String(plural)));
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+        // Query Params
+        if (pretty !== undefined) {
+            requestContext.setQueryParam("pretty", ObjectSerializer_1.ObjectSerializer.serialize(pretty, "string", ""));
+        }
+        // Query Params
+        if (allowWatchBookmarks !== undefined) {
+            requestContext.setQueryParam("allowWatchBookmarks", ObjectSerializer_1.ObjectSerializer.serialize(allowWatchBookmarks, "boolean", ""));
+        }
+        // Query Params
+        if (_continue !== undefined) {
+            requestContext.setQueryParam("continue", ObjectSerializer_1.ObjectSerializer.serialize(_continue, "string", ""));
+        }
+        // Query Params
+        if (fieldSelector !== undefined) {
+            requestContext.setQueryParam("fieldSelector", ObjectSerializer_1.ObjectSerializer.serialize(fieldSelector, "string", ""));
+        }
+        // Query Params
+        if (labelSelector !== undefined) {
+            requestContext.setQueryParam("labelSelector", ObjectSerializer_1.ObjectSerializer.serialize(labelSelector, "string", ""));
+        }
+        // Query Params
+        if (limit !== undefined) {
+            requestContext.setQueryParam("limit", ObjectSerializer_1.ObjectSerializer.serialize(limit, "number", ""));
+        }
+        // Query Params
+        if (resourceVersion !== undefined) {
+            requestContext.setQueryParam("resourceVersion", ObjectSerializer_1.ObjectSerializer.serialize(resourceVersion, "string", ""));
+        }
+        // Query Params
+        if (resourceVersionMatch !== undefined) {
+            requestContext.setQueryParam("resourceVersionMatch", ObjectSerializer_1.ObjectSerializer.serialize(resourceVersionMatch, "string", ""));
+        }
+        // Query Params
+        if (timeoutSeconds !== undefined) {
+            requestContext.setQueryParam("timeoutSeconds", ObjectSerializer_1.ObjectSerializer.serialize(timeoutSeconds, "number", ""));
+        }
+        // Query Params
+        if (watch !== undefined) {
+            requestContext.setQueryParam("watch", ObjectSerializer_1.ObjectSerializer.serialize(watch, "boolean", ""));
+        }
+        let authMethod;
+        // Apply auth methods
+        authMethod = _config.authMethods["BearerToken"];
+        if (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication) {
+            await (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext));
+        }
+        const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
+        if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
+            await (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext));
+        }
+        return requestContext;
+    }
+    /**
+     * patch the specified cluster scoped custom object
+     * @param group the custom resource\&#39;s group
+     * @param version the custom resource\&#39;s version
+     * @param plural the custom object\&#39;s plural name. For TPRs this would be lowercase plural kind.
+     * @param name the custom object\&#39;s name
+     * @param body The JSON schema of the Resource to patch.
+     * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+     * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
+     * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests.
+     */
+    async patchClusterCustomObject(group, version, plural, name, body, dryRun, fieldManager, force, _options) {
+        var _a, _b, _c;
+        let _config = _options || this.configuration;
+        // verify required parameter 'group' is not null or undefined
+        if (group === null || group === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "patchClusterCustomObject", "group");
+        }
+        // verify required parameter 'version' is not null or undefined
+        if (version === null || version === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "patchClusterCustomObject", "version");
+        }
+        // verify required parameter 'plural' is not null or undefined
+        if (plural === null || plural === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "patchClusterCustomObject", "plural");
+        }
+        // verify required parameter 'name' is not null or undefined
+        if (name === null || name === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "patchClusterCustomObject", "name");
+        }
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "patchClusterCustomObject", "body");
+        }
+        // Path Params
+        const localVarPath = '/apis/{group}/{version}/{plural}/{name}'
+            .replace('{' + 'group' + '}', encodeURIComponent(String(group)))
+            .replace('{' + 'version' + '}', encodeURIComponent(String(version)))
+            .replace('{' + 'plural' + '}', encodeURIComponent(String(plural)))
+            .replace('{' + 'name' + '}', encodeURIComponent(String(name)));
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.PATCH);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+        // Query Params
+        if (dryRun !== undefined) {
+            requestContext.setQueryParam("dryRun", ObjectSerializer_1.ObjectSerializer.serialize(dryRun, "string", ""));
+        }
+        // Query Params
+        if (fieldManager !== undefined) {
+            requestContext.setQueryParam("fieldManager", ObjectSerializer_1.ObjectSerializer.serialize(fieldManager, "string", ""));
+        }
+        // Query Params
+        if (force !== undefined) {
+            requestContext.setQueryParam("force", ObjectSerializer_1.ObjectSerializer.serialize(force, "boolean", ""));
+        }
+        // Body Params
+        const contentType = ObjectSerializer_1.ObjectSerializer.getPreferredMediaType([
+            "application/json-patch+json",
+            "application/merge-patch+json"
+        ]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(body, "any", ""), contentType);
+        requestContext.setBody(serializedBody);
+        let authMethod;
+        // Apply auth methods
+        authMethod = _config.authMethods["BearerToken"];
+        if (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication) {
+            await (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext));
+        }
+        const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
+        if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
+            await (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext));
+        }
+        return requestContext;
+    }
+    /**
+     * partially update scale of the specified cluster scoped custom object
+     * @param group the custom resource\&#39;s group
+     * @param version the custom resource\&#39;s version
+     * @param plural the custom resource\&#39;s plural name. For TPRs this would be lowercase plural kind.
+     * @param name the custom object\&#39;s name
+     * @param body
+     * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+     * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
+     * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests.
+     */
+    async patchClusterCustomObjectScale(group, version, plural, name, body, dryRun, fieldManager, force, _options) {
+        var _a, _b, _c;
+        let _config = _options || this.configuration;
+        // verify required parameter 'group' is not null or undefined
+        if (group === null || group === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "patchClusterCustomObjectScale", "group");
+        }
+        // verify required parameter 'version' is not null or undefined
+        if (version === null || version === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "patchClusterCustomObjectScale", "version");
+        }
+        // verify required parameter 'plural' is not null or undefined
+        if (plural === null || plural === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "patchClusterCustomObjectScale", "plural");
+        }
+        // verify required parameter 'name' is not null or undefined
+        if (name === null || name === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "patchClusterCustomObjectScale", "name");
+        }
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "patchClusterCustomObjectScale", "body");
+        }
+        // Path Params
+        const localVarPath = '/apis/{group}/{version}/{plural}/{name}/scale'
+            .replace('{' + 'group' + '}', encodeURIComponent(String(group)))
+            .replace('{' + 'version' + '}', encodeURIComponent(String(version)))
+            .replace('{' + 'plural' + '}', encodeURIComponent(String(plural)))
+            .replace('{' + 'name' + '}', encodeURIComponent(String(name)));
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.PATCH);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+        // Query Params
+        if (dryRun !== undefined) {
+            requestContext.setQueryParam("dryRun", ObjectSerializer_1.ObjectSerializer.serialize(dryRun, "string", ""));
+        }
+        // Query Params
+        if (fieldManager !== undefined) {
+            requestContext.setQueryParam("fieldManager", ObjectSerializer_1.ObjectSerializer.serialize(fieldManager, "string", ""));
+        }
+        // Query Params
+        if (force !== undefined) {
+            requestContext.setQueryParam("force", ObjectSerializer_1.ObjectSerializer.serialize(force, "boolean", ""));
+        }
+        // Body Params
+        const contentType = ObjectSerializer_1.ObjectSerializer.getPreferredMediaType([
+            "application/json-patch+json",
+            "application/merge-patch+json"
+        ]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(body, "any", ""), contentType);
+        requestContext.setBody(serializedBody);
+        let authMethod;
+        // Apply auth methods
+        authMethod = _config.authMethods["BearerToken"];
+        if (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication) {
+            await (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext));
+        }
+        const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
+        if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
+            await (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext));
+        }
+        return requestContext;
+    }
+    /**
+     * partially update status of the specified cluster scoped custom object
+     * @param group the custom resource\&#39;s group
+     * @param version the custom resource\&#39;s version
+     * @param plural the custom resource\&#39;s plural name. For TPRs this would be lowercase plural kind.
+     * @param name the custom object\&#39;s name
+     * @param body
+     * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+     * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
+     * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests.
+     */
+    async patchClusterCustomObjectStatus(group, version, plural, name, body, dryRun, fieldManager, force, _options) {
+        var _a, _b, _c;
+        let _config = _options || this.configuration;
+        // verify required parameter 'group' is not null or undefined
+        if (group === null || group === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "patchClusterCustomObjectStatus", "group");
+        }
+        // verify required parameter 'version' is not null or undefined
+        if (version === null || version === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "patchClusterCustomObjectStatus", "version");
+        }
+        // verify required parameter 'plural' is not null or undefined
+        if (plural === null || plural === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "patchClusterCustomObjectStatus", "plural");
+        }
+        // verify required parameter 'name' is not null or undefined
+        if (name === null || name === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "patchClusterCustomObjectStatus", "name");
+        }
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "patchClusterCustomObjectStatus", "body");
+        }
+        // Path Params
+        const localVarPath = '/apis/{group}/{version}/{plural}/{name}/status'
+            .replace('{' + 'group' + '}', encodeURIComponent(String(group)))
+            .replace('{' + 'version' + '}', encodeURIComponent(String(version)))
+            .replace('{' + 'plural' + '}', encodeURIComponent(String(plural)))
+            .replace('{' + 'name' + '}', encodeURIComponent(String(name)));
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.PATCH);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+        // Query Params
+        if (dryRun !== undefined) {
+            requestContext.setQueryParam("dryRun", ObjectSerializer_1.ObjectSerializer.serialize(dryRun, "string", ""));
+        }
+        // Query Params
+        if (fieldManager !== undefined) {
+            requestContext.setQueryParam("fieldManager", ObjectSerializer_1.ObjectSerializer.serialize(fieldManager, "string", ""));
+        }
+        // Query Params
+        if (force !== undefined) {
+            requestContext.setQueryParam("force", ObjectSerializer_1.ObjectSerializer.serialize(force, "boolean", ""));
+        }
+        // Body Params
+        const contentType = ObjectSerializer_1.ObjectSerializer.getPreferredMediaType([
+            "application/json-patch+json",
+            "application/merge-patch+json"
+        ]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(body, "any", ""), contentType);
+        requestContext.setBody(serializedBody);
+        let authMethod;
+        // Apply auth methods
+        authMethod = _config.authMethods["BearerToken"];
+        if (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication) {
+            await (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext));
+        }
+        const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
+        if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
+            await (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext));
+        }
+        return requestContext;
+    }
+    /**
+     * patch the specified namespace scoped custom object
+     * @param group the custom resource\&#39;s group
+     * @param version the custom resource\&#39;s version
+     * @param namespace The custom resource\&#39;s namespace
+     * @param plural the custom resource\&#39;s plural name. For TPRs this would be lowercase plural kind.
+     * @param name the custom object\&#39;s name
+     * @param body The JSON schema of the Resource to patch.
+     * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+     * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
+     * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests.
+     */
+    async patchNamespacedCustomObject(group, version, namespace, plural, name, body, dryRun, fieldManager, force, _options) {
+        var _a, _b, _c;
+        let _config = _options || this.configuration;
+        // verify required parameter 'group' is not null or undefined
+        if (group === null || group === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "patchNamespacedCustomObject", "group");
+        }
+        // verify required parameter 'version' is not null or undefined
+        if (version === null || version === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "patchNamespacedCustomObject", "version");
+        }
+        // verify required parameter 'namespace' is not null or undefined
+        if (namespace === null || namespace === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "patchNamespacedCustomObject", "namespace");
+        }
+        // verify required parameter 'plural' is not null or undefined
+        if (plural === null || plural === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "patchNamespacedCustomObject", "plural");
+        }
+        // verify required parameter 'name' is not null or undefined
+        if (name === null || name === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "patchNamespacedCustomObject", "name");
+        }
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "patchNamespacedCustomObject", "body");
+        }
+        // Path Params
+        const localVarPath = '/apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}'
+            .replace('{' + 'group' + '}', encodeURIComponent(String(group)))
+            .replace('{' + 'version' + '}', encodeURIComponent(String(version)))
+            .replace('{' + 'namespace' + '}', encodeURIComponent(String(namespace)))
+            .replace('{' + 'plural' + '}', encodeURIComponent(String(plural)))
+            .replace('{' + 'name' + '}', encodeURIComponent(String(name)));
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.PATCH);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+        // Query Params
+        if (dryRun !== undefined) {
+            requestContext.setQueryParam("dryRun", ObjectSerializer_1.ObjectSerializer.serialize(dryRun, "string", ""));
+        }
+        // Query Params
+        if (fieldManager !== undefined) {
+            requestContext.setQueryParam("fieldManager", ObjectSerializer_1.ObjectSerializer.serialize(fieldManager, "string", ""));
+        }
+        // Query Params
+        if (force !== undefined) {
+            requestContext.setQueryParam("force", ObjectSerializer_1.ObjectSerializer.serialize(force, "boolean", ""));
+        }
+        // Body Params
+        const contentType = ObjectSerializer_1.ObjectSerializer.getPreferredMediaType([
+            "application/json-patch+json",
+            "application/merge-patch+json"
+        ]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(body, "any", ""), contentType);
+        requestContext.setBody(serializedBody);
+        let authMethod;
+        // Apply auth methods
+        authMethod = _config.authMethods["BearerToken"];
+        if (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication) {
+            await (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext));
+        }
+        const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
+        if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
+            await (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext));
+        }
+        return requestContext;
+    }
+    /**
+     * partially update scale of the specified namespace scoped custom object
+     * @param group the custom resource\&#39;s group
+     * @param version the custom resource\&#39;s version
+     * @param namespace The custom resource\&#39;s namespace
+     * @param plural the custom resource\&#39;s plural name. For TPRs this would be lowercase plural kind.
+     * @param name the custom object\&#39;s name
+     * @param body
+     * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+     * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
+     * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests.
+     */
+    async patchNamespacedCustomObjectScale(group, version, namespace, plural, name, body, dryRun, fieldManager, force, _options) {
+        var _a, _b, _c;
+        let _config = _options || this.configuration;
+        // verify required parameter 'group' is not null or undefined
+        if (group === null || group === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "patchNamespacedCustomObjectScale", "group");
+        }
+        // verify required parameter 'version' is not null or undefined
+        if (version === null || version === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "patchNamespacedCustomObjectScale", "version");
+        }
+        // verify required parameter 'namespace' is not null or undefined
+        if (namespace === null || namespace === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "patchNamespacedCustomObjectScale", "namespace");
+        }
+        // verify required parameter 'plural' is not null or undefined
+        if (plural === null || plural === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "patchNamespacedCustomObjectScale", "plural");
+        }
+        // verify required parameter 'name' is not null or undefined
+        if (name === null || name === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "patchNamespacedCustomObjectScale", "name");
+        }
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "patchNamespacedCustomObjectScale", "body");
+        }
+        // Path Params
+        const localVarPath = '/apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}/scale'
+            .replace('{' + 'group' + '}', encodeURIComponent(String(group)))
+            .replace('{' + 'version' + '}', encodeURIComponent(String(version)))
+            .replace('{' + 'namespace' + '}', encodeURIComponent(String(namespace)))
+            .replace('{' + 'plural' + '}', encodeURIComponent(String(plural)))
+            .replace('{' + 'name' + '}', encodeURIComponent(String(name)));
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.PATCH);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+        // Query Params
+        if (dryRun !== undefined) {
+            requestContext.setQueryParam("dryRun", ObjectSerializer_1.ObjectSerializer.serialize(dryRun, "string", ""));
+        }
+        // Query Params
+        if (fieldManager !== undefined) {
+            requestContext.setQueryParam("fieldManager", ObjectSerializer_1.ObjectSerializer.serialize(fieldManager, "string", ""));
+        }
+        // Query Params
+        if (force !== undefined) {
+            requestContext.setQueryParam("force", ObjectSerializer_1.ObjectSerializer.serialize(force, "boolean", ""));
+        }
+        // Body Params
+        const contentType = ObjectSerializer_1.ObjectSerializer.getPreferredMediaType([
+            "application/json-patch+json",
+            "application/merge-patch+json",
+            "application/apply-patch+yaml"
+        ]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(body, "any", ""), contentType);
+        requestContext.setBody(serializedBody);
+        let authMethod;
+        // Apply auth methods
+        authMethod = _config.authMethods["BearerToken"];
+        if (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication) {
+            await (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext));
+        }
+        const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
+        if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
+            await (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext));
+        }
+        return requestContext;
+    }
+    /**
+     * partially update status of the specified namespace scoped custom object
+     * @param group the custom resource\&#39;s group
+     * @param version the custom resource\&#39;s version
+     * @param namespace The custom resource\&#39;s namespace
+     * @param plural the custom resource\&#39;s plural name. For TPRs this would be lowercase plural kind.
+     * @param name the custom object\&#39;s name
+     * @param body
+     * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+     * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
+     * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests.
+     */
+    async patchNamespacedCustomObjectStatus(group, version, namespace, plural, name, body, dryRun, fieldManager, force, _options) {
+        var _a, _b, _c;
+        let _config = _options || this.configuration;
+        // verify required parameter 'group' is not null or undefined
+        if (group === null || group === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "patchNamespacedCustomObjectStatus", "group");
+        }
+        // verify required parameter 'version' is not null or undefined
+        if (version === null || version === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "patchNamespacedCustomObjectStatus", "version");
+        }
+        // verify required parameter 'namespace' is not null or undefined
+        if (namespace === null || namespace === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "patchNamespacedCustomObjectStatus", "namespace");
+        }
+        // verify required parameter 'plural' is not null or undefined
+        if (plural === null || plural === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "patchNamespacedCustomObjectStatus", "plural");
+        }
+        // verify required parameter 'name' is not null or undefined
+        if (name === null || name === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "patchNamespacedCustomObjectStatus", "name");
+        }
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "patchNamespacedCustomObjectStatus", "body");
+        }
+        // Path Params
+        const localVarPath = '/apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}/status'
+            .replace('{' + 'group' + '}', encodeURIComponent(String(group)))
+            .replace('{' + 'version' + '}', encodeURIComponent(String(version)))
+            .replace('{' + 'namespace' + '}', encodeURIComponent(String(namespace)))
+            .replace('{' + 'plural' + '}', encodeURIComponent(String(plural)))
+            .replace('{' + 'name' + '}', encodeURIComponent(String(name)));
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.PATCH);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+        // Query Params
+        if (dryRun !== undefined) {
+            requestContext.setQueryParam("dryRun", ObjectSerializer_1.ObjectSerializer.serialize(dryRun, "string", ""));
+        }
+        // Query Params
+        if (fieldManager !== undefined) {
+            requestContext.setQueryParam("fieldManager", ObjectSerializer_1.ObjectSerializer.serialize(fieldManager, "string", ""));
+        }
+        // Query Params
+        if (force !== undefined) {
+            requestContext.setQueryParam("force", ObjectSerializer_1.ObjectSerializer.serialize(force, "boolean", ""));
+        }
+        // Body Params
+        const contentType = ObjectSerializer_1.ObjectSerializer.getPreferredMediaType([
+            "application/json-patch+json",
+            "application/merge-patch+json",
+            "application/apply-patch+yaml"
+        ]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(body, "any", ""), contentType);
+        requestContext.setBody(serializedBody);
+        let authMethod;
+        // Apply auth methods
+        authMethod = _config.authMethods["BearerToken"];
+        if (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication) {
+            await (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext));
+        }
+        const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
+        if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
+            await (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext));
+        }
+        return requestContext;
+    }
+    /**
+     * replace the specified cluster scoped custom object
+     * @param group the custom resource\&#39;s group
+     * @param version the custom resource\&#39;s version
+     * @param plural the custom object\&#39;s plural name. For TPRs this would be lowercase plural kind.
+     * @param name the custom object\&#39;s name
+     * @param body The JSON schema of the Resource to replace.
+     * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+     * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
+     */
+    async replaceClusterCustomObject(group, version, plural, name, body, dryRun, fieldManager, _options) {
+        var _a, _b, _c;
+        let _config = _options || this.configuration;
+        // verify required parameter 'group' is not null or undefined
+        if (group === null || group === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "replaceClusterCustomObject", "group");
+        }
+        // verify required parameter 'version' is not null or undefined
+        if (version === null || version === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "replaceClusterCustomObject", "version");
+        }
+        // verify required parameter 'plural' is not null or undefined
+        if (plural === null || plural === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "replaceClusterCustomObject", "plural");
+        }
+        // verify required parameter 'name' is not null or undefined
+        if (name === null || name === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "replaceClusterCustomObject", "name");
+        }
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "replaceClusterCustomObject", "body");
+        }
+        // Path Params
+        const localVarPath = '/apis/{group}/{version}/{plural}/{name}'
+            .replace('{' + 'group' + '}', encodeURIComponent(String(group)))
+            .replace('{' + 'version' + '}', encodeURIComponent(String(version)))
+            .replace('{' + 'plural' + '}', encodeURIComponent(String(plural)))
+            .replace('{' + 'name' + '}', encodeURIComponent(String(name)));
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.PUT);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+        // Query Params
+        if (dryRun !== undefined) {
+            requestContext.setQueryParam("dryRun", ObjectSerializer_1.ObjectSerializer.serialize(dryRun, "string", ""));
+        }
+        // Query Params
+        if (fieldManager !== undefined) {
+            requestContext.setQueryParam("fieldManager", ObjectSerializer_1.ObjectSerializer.serialize(fieldManager, "string", ""));
+        }
+        // Body Params
+        const contentType = ObjectSerializer_1.ObjectSerializer.getPreferredMediaType([]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(body, "any", ""), contentType);
+        requestContext.setBody(serializedBody);
+        let authMethod;
+        // Apply auth methods
+        authMethod = _config.authMethods["BearerToken"];
+        if (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication) {
+            await (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext));
+        }
+        const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
+        if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
+            await (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext));
+        }
+        return requestContext;
+    }
+    /**
+     * replace scale of the specified cluster scoped custom object
+     * @param group the custom resource\&#39;s group
+     * @param version the custom resource\&#39;s version
+     * @param plural the custom resource\&#39;s plural name. For TPRs this would be lowercase plural kind.
+     * @param name the custom object\&#39;s name
+     * @param body
+     * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+     * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
+     */
+    async replaceClusterCustomObjectScale(group, version, plural, name, body, dryRun, fieldManager, _options) {
+        var _a, _b, _c;
+        let _config = _options || this.configuration;
+        // verify required parameter 'group' is not null or undefined
+        if (group === null || group === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "replaceClusterCustomObjectScale", "group");
+        }
+        // verify required parameter 'version' is not null or undefined
+        if (version === null || version === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "replaceClusterCustomObjectScale", "version");
+        }
+        // verify required parameter 'plural' is not null or undefined
+        if (plural === null || plural === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "replaceClusterCustomObjectScale", "plural");
+        }
+        // verify required parameter 'name' is not null or undefined
+        if (name === null || name === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "replaceClusterCustomObjectScale", "name");
+        }
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "replaceClusterCustomObjectScale", "body");
+        }
+        // Path Params
+        const localVarPath = '/apis/{group}/{version}/{plural}/{name}/scale'
+            .replace('{' + 'group' + '}', encodeURIComponent(String(group)))
+            .replace('{' + 'version' + '}', encodeURIComponent(String(version)))
+            .replace('{' + 'plural' + '}', encodeURIComponent(String(plural)))
+            .replace('{' + 'name' + '}', encodeURIComponent(String(name)));
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.PUT);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+        // Query Params
+        if (dryRun !== undefined) {
+            requestContext.setQueryParam("dryRun", ObjectSerializer_1.ObjectSerializer.serialize(dryRun, "string", ""));
+        }
+        // Query Params
+        if (fieldManager !== undefined) {
+            requestContext.setQueryParam("fieldManager", ObjectSerializer_1.ObjectSerializer.serialize(fieldManager, "string", ""));
+        }
+        // Body Params
+        const contentType = ObjectSerializer_1.ObjectSerializer.getPreferredMediaType([]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(body, "any", ""), contentType);
+        requestContext.setBody(serializedBody);
+        let authMethod;
+        // Apply auth methods
+        authMethod = _config.authMethods["BearerToken"];
+        if (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication) {
+            await (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext));
+        }
+        const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
+        if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
+            await (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext));
+        }
+        return requestContext;
+    }
+    /**
+     * replace status of the cluster scoped specified custom object
+     * @param group the custom resource\&#39;s group
+     * @param version the custom resource\&#39;s version
+     * @param plural the custom resource\&#39;s plural name. For TPRs this would be lowercase plural kind.
+     * @param name the custom object\&#39;s name
+     * @param body
+     * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+     * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
+     */
+    async replaceClusterCustomObjectStatus(group, version, plural, name, body, dryRun, fieldManager, _options) {
+        var _a, _b, _c;
+        let _config = _options || this.configuration;
+        // verify required parameter 'group' is not null or undefined
+        if (group === null || group === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "replaceClusterCustomObjectStatus", "group");
+        }
+        // verify required parameter 'version' is not null or undefined
+        if (version === null || version === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "replaceClusterCustomObjectStatus", "version");
+        }
+        // verify required parameter 'plural' is not null or undefined
+        if (plural === null || plural === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "replaceClusterCustomObjectStatus", "plural");
+        }
+        // verify required parameter 'name' is not null or undefined
+        if (name === null || name === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "replaceClusterCustomObjectStatus", "name");
+        }
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "replaceClusterCustomObjectStatus", "body");
+        }
+        // Path Params
+        const localVarPath = '/apis/{group}/{version}/{plural}/{name}/status'
+            .replace('{' + 'group' + '}', encodeURIComponent(String(group)))
+            .replace('{' + 'version' + '}', encodeURIComponent(String(version)))
+            .replace('{' + 'plural' + '}', encodeURIComponent(String(plural)))
+            .replace('{' + 'name' + '}', encodeURIComponent(String(name)));
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.PUT);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+        // Query Params
+        if (dryRun !== undefined) {
+            requestContext.setQueryParam("dryRun", ObjectSerializer_1.ObjectSerializer.serialize(dryRun, "string", ""));
+        }
+        // Query Params
+        if (fieldManager !== undefined) {
+            requestContext.setQueryParam("fieldManager", ObjectSerializer_1.ObjectSerializer.serialize(fieldManager, "string", ""));
+        }
+        // Body Params
+        const contentType = ObjectSerializer_1.ObjectSerializer.getPreferredMediaType([]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(body, "any", ""), contentType);
+        requestContext.setBody(serializedBody);
+        let authMethod;
+        // Apply auth methods
+        authMethod = _config.authMethods["BearerToken"];
+        if (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication) {
+            await (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext));
+        }
+        const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
+        if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
+            await (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext));
+        }
+        return requestContext;
+    }
+    /**
+     * replace the specified namespace scoped custom object
+     * @param group the custom resource\&#39;s group
+     * @param version the custom resource\&#39;s version
+     * @param namespace The custom resource\&#39;s namespace
+     * @param plural the custom resource\&#39;s plural name. For TPRs this would be lowercase plural kind.
+     * @param name the custom object\&#39;s name
+     * @param body The JSON schema of the Resource to replace.
+     * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+     * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
+     */
+    async replaceNamespacedCustomObject(group, version, namespace, plural, name, body, dryRun, fieldManager, _options) {
+        var _a, _b, _c;
+        let _config = _options || this.configuration;
+        // verify required parameter 'group' is not null or undefined
+        if (group === null || group === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "replaceNamespacedCustomObject", "group");
+        }
+        // verify required parameter 'version' is not null or undefined
+        if (version === null || version === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "replaceNamespacedCustomObject", "version");
+        }
+        // verify required parameter 'namespace' is not null or undefined
+        if (namespace === null || namespace === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "replaceNamespacedCustomObject", "namespace");
+        }
+        // verify required parameter 'plural' is not null or undefined
+        if (plural === null || plural === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "replaceNamespacedCustomObject", "plural");
+        }
+        // verify required parameter 'name' is not null or undefined
+        if (name === null || name === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "replaceNamespacedCustomObject", "name");
+        }
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "replaceNamespacedCustomObject", "body");
+        }
+        // Path Params
+        const localVarPath = '/apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}'
+            .replace('{' + 'group' + '}', encodeURIComponent(String(group)))
+            .replace('{' + 'version' + '}', encodeURIComponent(String(version)))
+            .replace('{' + 'namespace' + '}', encodeURIComponent(String(namespace)))
+            .replace('{' + 'plural' + '}', encodeURIComponent(String(plural)))
+            .replace('{' + 'name' + '}', encodeURIComponent(String(name)));
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.PUT);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+        // Query Params
+        if (dryRun !== undefined) {
+            requestContext.setQueryParam("dryRun", ObjectSerializer_1.ObjectSerializer.serialize(dryRun, "string", ""));
+        }
+        // Query Params
+        if (fieldManager !== undefined) {
+            requestContext.setQueryParam("fieldManager", ObjectSerializer_1.ObjectSerializer.serialize(fieldManager, "string", ""));
+        }
+        // Body Params
+        const contentType = ObjectSerializer_1.ObjectSerializer.getPreferredMediaType([]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(body, "any", ""), contentType);
+        requestContext.setBody(serializedBody);
+        let authMethod;
+        // Apply auth methods
+        authMethod = _config.authMethods["BearerToken"];
+        if (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication) {
+            await (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext));
+        }
+        const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
+        if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
+            await (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext));
+        }
+        return requestContext;
+    }
+    /**
+     * replace scale of the specified namespace scoped custom object
+     * @param group the custom resource\&#39;s group
+     * @param version the custom resource\&#39;s version
+     * @param namespace The custom resource\&#39;s namespace
+     * @param plural the custom resource\&#39;s plural name. For TPRs this would be lowercase plural kind.
+     * @param name the custom object\&#39;s name
+     * @param body
+     * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+     * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
+     */
+    async replaceNamespacedCustomObjectScale(group, version, namespace, plural, name, body, dryRun, fieldManager, _options) {
+        var _a, _b, _c;
+        let _config = _options || this.configuration;
+        // verify required parameter 'group' is not null or undefined
+        if (group === null || group === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "replaceNamespacedCustomObjectScale", "group");
+        }
+        // verify required parameter 'version' is not null or undefined
+        if (version === null || version === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "replaceNamespacedCustomObjectScale", "version");
+        }
+        // verify required parameter 'namespace' is not null or undefined
+        if (namespace === null || namespace === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "replaceNamespacedCustomObjectScale", "namespace");
+        }
+        // verify required parameter 'plural' is not null or undefined
+        if (plural === null || plural === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "replaceNamespacedCustomObjectScale", "plural");
+        }
+        // verify required parameter 'name' is not null or undefined
+        if (name === null || name === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "replaceNamespacedCustomObjectScale", "name");
+        }
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "replaceNamespacedCustomObjectScale", "body");
+        }
+        // Path Params
+        const localVarPath = '/apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}/scale'
+            .replace('{' + 'group' + '}', encodeURIComponent(String(group)))
+            .replace('{' + 'version' + '}', encodeURIComponent(String(version)))
+            .replace('{' + 'namespace' + '}', encodeURIComponent(String(namespace)))
+            .replace('{' + 'plural' + '}', encodeURIComponent(String(plural)))
+            .replace('{' + 'name' + '}', encodeURIComponent(String(name)));
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.PUT);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+        // Query Params
+        if (dryRun !== undefined) {
+            requestContext.setQueryParam("dryRun", ObjectSerializer_1.ObjectSerializer.serialize(dryRun, "string", ""));
+        }
+        // Query Params
+        if (fieldManager !== undefined) {
+            requestContext.setQueryParam("fieldManager", ObjectSerializer_1.ObjectSerializer.serialize(fieldManager, "string", ""));
+        }
+        // Body Params
+        const contentType = ObjectSerializer_1.ObjectSerializer.getPreferredMediaType([]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(body, "any", ""), contentType);
+        requestContext.setBody(serializedBody);
+        let authMethod;
+        // Apply auth methods
+        authMethod = _config.authMethods["BearerToken"];
+        if (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication) {
+            await (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext));
+        }
+        const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
+        if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
+            await (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext));
+        }
+        return requestContext;
+    }
+    /**
+     * replace status of the specified namespace scoped custom object
+     * @param group the custom resource\&#39;s group
+     * @param version the custom resource\&#39;s version
+     * @param namespace The custom resource\&#39;s namespace
+     * @param plural the custom resource\&#39;s plural name. For TPRs this would be lowercase plural kind.
+     * @param name the custom object\&#39;s name
+     * @param body
+     * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+     * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
+     */
+    async replaceNamespacedCustomObjectStatus(group, version, namespace, plural, name, body, dryRun, fieldManager, _options) {
+        var _a, _b, _c;
+        let _config = _options || this.configuration;
+        // verify required parameter 'group' is not null or undefined
+        if (group === null || group === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "replaceNamespacedCustomObjectStatus", "group");
+        }
+        // verify required parameter 'version' is not null or undefined
+        if (version === null || version === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "replaceNamespacedCustomObjectStatus", "version");
+        }
+        // verify required parameter 'namespace' is not null or undefined
+        if (namespace === null || namespace === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "replaceNamespacedCustomObjectStatus", "namespace");
+        }
+        // verify required parameter 'plural' is not null or undefined
+        if (plural === null || plural === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "replaceNamespacedCustomObjectStatus", "plural");
+        }
+        // verify required parameter 'name' is not null or undefined
+        if (name === null || name === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "replaceNamespacedCustomObjectStatus", "name");
+        }
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new baseapi_1.RequiredError("CustomObjectsApi", "replaceNamespacedCustomObjectStatus", "body");
+        }
+        // Path Params
+        const localVarPath = '/apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}/status'
+            .replace('{' + 'group' + '}', encodeURIComponent(String(group)))
+            .replace('{' + 'version' + '}', encodeURIComponent(String(version)))
+            .replace('{' + 'namespace' + '}', encodeURIComponent(String(namespace)))
+            .replace('{' + 'plural' + '}', encodeURIComponent(String(plural)))
+            .replace('{' + 'name' + '}', encodeURIComponent(String(name)));
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.PUT);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+        // Query Params
+        if (dryRun !== undefined) {
+            requestContext.setQueryParam("dryRun", ObjectSerializer_1.ObjectSerializer.serialize(dryRun, "string", ""));
+        }
+        // Query Params
+        if (fieldManager !== undefined) {
+            requestContext.setQueryParam("fieldManager", ObjectSerializer_1.ObjectSerializer.serialize(fieldManager, "string", ""));
+        }
+        // Body Params
+        const contentType = ObjectSerializer_1.ObjectSerializer.getPreferredMediaType([]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(body, "any", ""), contentType);
+        requestContext.setBody(serializedBody);
+        let authMethod;
+        // Apply auth methods
+        authMethod = _config.authMethods["BearerToken"];
+        if (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication) {
+            await (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext));
+        }
+        const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
+        if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
+            await (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext));
+        }
+        return requestContext;
+    }
+}
+exports.CustomObjectsApiRequestFactory = CustomObjectsApiRequestFactory;
+class CustomObjectsApiResponseProcessor {
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to createClusterCustomObject
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+    async createClusterCustomObjectWithHttpInfo(response) {
+        const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if ((0, util_1.isCodeInRange)("201", response.httpStatusCode)) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if ((0, util_1.isCodeInRange)("401", response.httpStatusCode)) {
+            throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+        }
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to createNamespacedCustomObject
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+    async createNamespacedCustomObjectWithHttpInfo(response) {
+        const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if ((0, util_1.isCodeInRange)("201", response.httpStatusCode)) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if ((0, util_1.isCodeInRange)("401", response.httpStatusCode)) {
+            throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+        }
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to deleteClusterCustomObject
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+    async deleteClusterCustomObjectWithHttpInfo(response) {
+        const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if ((0, util_1.isCodeInRange)("401", response.httpStatusCode)) {
+            throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+        }
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to deleteCollectionClusterCustomObject
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+    async deleteCollectionClusterCustomObjectWithHttpInfo(response) {
+        const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if ((0, util_1.isCodeInRange)("401", response.httpStatusCode)) {
+            throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+        }
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to deleteCollectionNamespacedCustomObject
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+    async deleteCollectionNamespacedCustomObjectWithHttpInfo(response) {
+        const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if ((0, util_1.isCodeInRange)("401", response.httpStatusCode)) {
+            throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+        }
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to deleteNamespacedCustomObject
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+    async deleteNamespacedCustomObjectWithHttpInfo(response) {
+        const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if ((0, util_1.isCodeInRange)("401", response.httpStatusCode)) {
+            throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+        }
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to getAPIResources
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+    async getAPIResourcesWithHttpInfo(response) {
+        const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "V1APIResourceList", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if ((0, util_1.isCodeInRange)("401", response.httpStatusCode)) {
+            throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+        }
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "V1APIResourceList", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to getClusterCustomObject
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+    async getClusterCustomObjectWithHttpInfo(response) {
+        const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if ((0, util_1.isCodeInRange)("401", response.httpStatusCode)) {
+            throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+        }
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to getClusterCustomObjectScale
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+    async getClusterCustomObjectScaleWithHttpInfo(response) {
+        const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if ((0, util_1.isCodeInRange)("401", response.httpStatusCode)) {
+            throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+        }
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to getClusterCustomObjectStatus
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+    async getClusterCustomObjectStatusWithHttpInfo(response) {
+        const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if ((0, util_1.isCodeInRange)("401", response.httpStatusCode)) {
+            throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+        }
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to getNamespacedCustomObject
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+    async getNamespacedCustomObjectWithHttpInfo(response) {
+        const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if ((0, util_1.isCodeInRange)("401", response.httpStatusCode)) {
+            throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+        }
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to getNamespacedCustomObjectScale
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+    async getNamespacedCustomObjectScaleWithHttpInfo(response) {
+        const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if ((0, util_1.isCodeInRange)("401", response.httpStatusCode)) {
+            throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+        }
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to getNamespacedCustomObjectStatus
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+    async getNamespacedCustomObjectStatusWithHttpInfo(response) {
+        const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if ((0, util_1.isCodeInRange)("401", response.httpStatusCode)) {
+            throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+        }
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to listClusterCustomObject
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+    async listClusterCustomObjectWithHttpInfo(response) {
+        const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if ((0, util_1.isCodeInRange)("401", response.httpStatusCode)) {
+            throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+        }
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to listNamespacedCustomObject
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+    async listNamespacedCustomObjectWithHttpInfo(response) {
+        const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if ((0, util_1.isCodeInRange)("401", response.httpStatusCode)) {
+            throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+        }
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to patchClusterCustomObject
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+    async patchClusterCustomObjectWithHttpInfo(response) {
+        const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if ((0, util_1.isCodeInRange)("401", response.httpStatusCode)) {
+            throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+        }
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to patchClusterCustomObjectScale
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+    async patchClusterCustomObjectScaleWithHttpInfo(response) {
+        const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if ((0, util_1.isCodeInRange)("401", response.httpStatusCode)) {
+            throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+        }
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to patchClusterCustomObjectStatus
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+    async patchClusterCustomObjectStatusWithHttpInfo(response) {
+        const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if ((0, util_1.isCodeInRange)("401", response.httpStatusCode)) {
+            throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+        }
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to patchNamespacedCustomObject
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+    async patchNamespacedCustomObjectWithHttpInfo(response) {
+        const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if ((0, util_1.isCodeInRange)("401", response.httpStatusCode)) {
+            throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+        }
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to patchNamespacedCustomObjectScale
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+    async patchNamespacedCustomObjectScaleWithHttpInfo(response) {
+        const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if ((0, util_1.isCodeInRange)("401", response.httpStatusCode)) {
+            throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+        }
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to patchNamespacedCustomObjectStatus
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+    async patchNamespacedCustomObjectStatusWithHttpInfo(response) {
+        const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if ((0, util_1.isCodeInRange)("401", response.httpStatusCode)) {
+            throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+        }
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to replaceClusterCustomObject
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+    async replaceClusterCustomObjectWithHttpInfo(response) {
+        const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if ((0, util_1.isCodeInRange)("401", response.httpStatusCode)) {
+            throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+        }
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to replaceClusterCustomObjectScale
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+    async replaceClusterCustomObjectScaleWithHttpInfo(response) {
+        const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if ((0, util_1.isCodeInRange)("201", response.httpStatusCode)) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if ((0, util_1.isCodeInRange)("401", response.httpStatusCode)) {
+            throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+        }
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to replaceClusterCustomObjectStatus
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+    async replaceClusterCustomObjectStatusWithHttpInfo(response) {
+        const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if ((0, util_1.isCodeInRange)("201", response.httpStatusCode)) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if ((0, util_1.isCodeInRange)("401", response.httpStatusCode)) {
+            throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+        }
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to replaceNamespacedCustomObject
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+    async replaceNamespacedCustomObjectWithHttpInfo(response) {
+        const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if ((0, util_1.isCodeInRange)("401", response.httpStatusCode)) {
+            throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+        }
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to replaceNamespacedCustomObjectScale
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+    async replaceNamespacedCustomObjectScaleWithHttpInfo(response) {
+        const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if ((0, util_1.isCodeInRange)("201", response.httpStatusCode)) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if ((0, util_1.isCodeInRange)("401", response.httpStatusCode)) {
+            throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+        }
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to replaceNamespacedCustomObjectStatus
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+    async replaceNamespacedCustomObjectStatusWithHttpInfo(response) {
+        const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if ((0, util_1.isCodeInRange)("201", response.httpStatusCode)) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if ((0, util_1.isCodeInRange)("401", response.httpStatusCode)) {
+            throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+        }
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(await response.body.text(), contentType), "any", "");
+            return new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+}
+exports.CustomObjectsApiResponseProcessor = CustomObjectsApiResponseProcessor;
+//# sourceMappingURL=CustomObjectsApi.js.map

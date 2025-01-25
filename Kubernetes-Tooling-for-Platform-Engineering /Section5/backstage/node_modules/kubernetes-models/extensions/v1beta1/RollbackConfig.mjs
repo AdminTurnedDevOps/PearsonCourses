@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiExtensionsV1beta1RollbackConfig.mjs";export class RollbackConfig extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(RollbackConfig,validate);export{RollbackConfig as IoK8sApiExtensionsV1beta1RollbackConfig};

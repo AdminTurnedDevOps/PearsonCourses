@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiExtensionsV1beta1NetworkPolicyPeer.mjs";export class NetworkPolicyPeer extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(NetworkPolicyPeer,validate);export{NetworkPolicyPeer as IoK8sApiExtensionsV1beta1NetworkPolicyPeer};

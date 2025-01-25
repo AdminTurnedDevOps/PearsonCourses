@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiPolicyV1beta1FSGroupStrategyOptions.mjs";export class FSGroupStrategyOptions extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(FSGroupStrategyOptions,validate);export{FSGroupStrategyOptions as IoK8sApiPolicyV1beta1FSGroupStrategyOptions};

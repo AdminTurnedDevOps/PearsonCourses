@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1NodeSystemInfo.mjs";export class NodeSystemInfo extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(NodeSystemInfo,validate);export{NodeSystemInfo as IoK8sApiCoreV1NodeSystemInfo};

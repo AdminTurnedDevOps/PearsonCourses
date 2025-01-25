@@ -1,0 +1,1 @@
+{"version":3,"file":"constants.js","sourceRoot":"","sources":["../src/constants.ts"],"names":[],"mappings":";;;AAAa,QAAA,yBAAyB,GAAG,wDAAwD,CAAC;AACrF,QAAA,8BAA8B,GAAG,IAAI,CAAC","sourcesContent":["export const DEFAULT_IDENTIFIER_FORMAT = \"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\";\nexport const DEFAULT_WANT_ASSERTIONS_SIGNED = true;\n"]}

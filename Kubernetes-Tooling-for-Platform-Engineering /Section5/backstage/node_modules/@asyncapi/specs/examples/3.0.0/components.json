@@ -1,0 +1,130 @@
+[{
+	"components": {
+		"schemas": {
+			"Category": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"name": {
+						"type": "string"
+					}
+				}
+			},
+			"Tag": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"name": {
+						"type": "string"
+					}
+				}
+			},
+			"AvroExample": {
+				"schemaFormat": "application/vnd.apache.avro+json;version=1.9.0",
+				"schema": {
+					"$ref": "path/to/user-create.avsc#/UserCreate"
+				}
+			}
+		},
+		"servers": {
+			"development": {
+				"host": "{stage}.in.mycompany.com:{port}",
+				"description": "RabbitMQ broker",
+				"protocol": "amqp",
+				"protocolVersion": "0-9-1",
+				"variables": {
+					"stage": {
+						"$ref": "#/components/serverVariables/stage"
+					},
+					"port": {
+						"$ref": "#/components/serverVariables/port"
+					}
+				}
+			}
+		},
+		"serverVariables": {
+			"stage": {
+				"default": "demo",
+				"description": "This value is assigned by the service provider, in this example `mycompany.com`"
+			},
+			"port": {
+				"enum": ["5671", "5672"],
+				"default": "5672"
+			}
+		},
+		"channels": {
+			"user/signedup": {
+				"subscribe": {
+					"message": {
+						"$ref": "#/components/messages/userSignUp"
+					}
+				}
+			}
+		},
+		"messages": {
+			"userSignUp": {
+				"summary": "Action to sign a user up.",
+				"description": "Multiline description of what this action does.\nHere you have another line.\n",
+				"tags": [
+					{
+						"name": "user"
+					},
+					{
+						"name": "signup"
+					}
+				],
+				"headers": {
+					"type": "object",
+					"properties": {
+						"applicationInstanceId": {
+							"description": "Unique identifier for a given instance of the publishing application",
+							"type": "string"
+						}
+					}
+				},
+				"payload": {
+					"type": "object",
+					"properties": {
+						"user": {
+							"$ref": "#/components/schemas/userCreate"
+						},
+						"signup": {
+							"$ref": "#/components/schemas/signup"
+						}
+					}
+				}
+			}
+		},
+		"parameters": {
+			"userId": {
+				"description": "Id of the user."
+			}
+		},
+		"correlationIds": {
+			"default": {
+				"description": "Default Correlation ID",
+				"location": "$message.header#/correlationId"
+			}
+		},
+		"messageTraits": {
+			"commonHeaders": {
+				"headers": {
+					"type": "object",
+					"properties": {
+						"my-app-header": {
+							"type": "integer",
+							"minimum": 0,
+							"maximum": 100
+						}
+					}
+				}
+			}
+		}
+	}
+}]

@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1SeccompProfile.mjs";export class SeccompProfile extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(SeccompProfile,validate);export{SeccompProfile as IoK8sApiCoreV1SeccompProfile};

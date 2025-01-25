@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiFlowcontrolV1beta1GroupSubject.mjs";export class GroupSubject extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(GroupSubject,validate);export{GroupSubject as IoK8sApiFlowcontrolV1beta1GroupSubject};

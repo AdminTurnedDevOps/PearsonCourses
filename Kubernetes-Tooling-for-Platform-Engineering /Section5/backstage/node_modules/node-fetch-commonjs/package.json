@@ -1,0 +1,45 @@
+{
+  "name": "node-fetch-commonjs",
+  "version": "3.3.2",
+  "description": "A light-weight module that brings Fetch API to node.js",
+  "main": "index.js",
+  "sideEffects": false,
+  "engines": {
+    "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:proteriax/node-fetch-cjs.git"
+  },
+  "keywords": [
+    "fetch",
+    "http",
+    "promise",
+    "request",
+    "curl",
+    "wget",
+    "xhr",
+    "whatwg"
+  ],
+  "author": "David Frank",
+  "license": "MIT",
+  "funding": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/node-fetch"
+  },
+  "dependencies": {
+    "node-domexception": "^1.0.0",
+    "web-streams-polyfill": "^3.0.3"
+  },
+  "release": {
+    "branches": [
+      "+([0-9]).x",
+      "main",
+      "next",
+      {
+        "name": "beta",
+        "prerelease": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApimachineryPkgRuntimeRawExtension.mjs";export class RawExtension extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(RawExtension,validate);export{RawExtension as IoK8sApimachineryPkgRuntimeRawExtension};

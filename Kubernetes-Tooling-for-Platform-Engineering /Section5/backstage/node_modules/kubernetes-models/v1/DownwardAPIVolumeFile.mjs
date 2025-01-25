@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1DownwardAPIVolumeFile.mjs";export class DownwardAPIVolumeFile extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(DownwardAPIVolumeFile,validate);export{DownwardAPIVolumeFile as IoK8sApiCoreV1DownwardAPIVolumeFile};

@@ -1,0 +1,9 @@
+{
+    "extends": "airbnb-base",
+    "rules": {
+      "consistent-return": "off",
+      "no-param-reassign": "off",
+      "no-underscore-dangle": "off",
+      "class-methods-use-this": "off"
+    }
+}

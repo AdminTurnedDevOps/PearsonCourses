@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1PodReadinessGate.mjs";export class PodReadinessGate extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(PodReadinessGate,validate);export{PodReadinessGate as IoK8sApiCoreV1PodReadinessGate};

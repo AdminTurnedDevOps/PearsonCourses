@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1PodResourceClaim.mjs";export class PodResourceClaim extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(PodResourceClaim,validate);export{PodResourceClaim as IoK8sApiCoreV1PodResourceClaim};

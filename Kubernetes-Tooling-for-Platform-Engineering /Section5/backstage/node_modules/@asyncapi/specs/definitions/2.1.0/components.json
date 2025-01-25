@@ -1,0 +1,89 @@
+{
+  "type": "object",
+  "description": "An object to hold a set of reusable objects for different aspects of the AsyncAPI Specification.",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^x-[\\w\\d\\.\\x2d_]+$": {
+      "$ref": "http://asyncapi.com/definitions/2.1.0/specificationExtension.json"
+    }
+  },
+  "properties": {
+    "schemas": {
+      "$ref": "http://asyncapi.com/definitions/2.1.0/schemas.json"
+    },
+    "messages": {
+      "$ref": "http://asyncapi.com/definitions/2.1.0/messages.json"
+    },
+    "securitySchemes": {
+      "type": "object",
+      "patternProperties": {
+        "^[\\w\\d\\.\\-_]+$": {
+          "oneOf": [
+            {
+              "$ref": "http://asyncapi.com/definitions/2.1.0/Reference.json"
+            },
+            {
+              "$ref": "http://asyncapi.com/definitions/2.1.0/SecurityScheme.json"
+            }
+          ]
+        }
+      }
+    },
+    "parameters": {
+      "$ref": "http://asyncapi.com/definitions/2.1.0/parameters.json"
+    },
+    "correlationIds": {
+      "type": "object",
+      "patternProperties": {
+        "^[\\w\\d\\.\\-_]+$": {
+          "oneOf": [
+            {
+              "$ref": "http://asyncapi.com/definitions/2.1.0/Reference.json"
+            },
+            {
+              "$ref": "http://asyncapi.com/definitions/2.1.0/correlationId.json"
+            }
+          ]
+        }
+      }
+    },
+    "operationTraits": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "http://asyncapi.com/definitions/2.1.0/operationTrait.json"
+      }
+    },
+    "messageTraits": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "http://asyncapi.com/definitions/2.1.0/messageTrait.json"
+      }
+    },
+    "serverBindings": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "http://asyncapi.com/definitions/2.1.0/bindingsObject.json"
+      }
+    },
+    "channelBindings": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "http://asyncapi.com/definitions/2.1.0/bindingsObject.json"
+      }
+    },
+    "operationBindings": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "http://asyncapi.com/definitions/2.1.0/bindingsObject.json"
+      }
+    },
+    "messageBindings": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "http://asyncapi.com/definitions/2.1.0/bindingsObject.json"
+      }
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://asyncapi.com/definitions/2.1.0/components.json"
+}

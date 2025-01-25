@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1HostPathVolumeSource.mjs";export class HostPathVolumeSource extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(HostPathVolumeSource,validate);export{HostPathVolumeSource as IoK8sApiCoreV1HostPathVolumeSource};

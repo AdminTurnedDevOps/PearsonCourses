@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1ContainerResizePolicy.mjs";export class ContainerResizePolicy extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(ContainerResizePolicy,validate);export{ContainerResizePolicy as IoK8sApiCoreV1ContainerResizePolicy};

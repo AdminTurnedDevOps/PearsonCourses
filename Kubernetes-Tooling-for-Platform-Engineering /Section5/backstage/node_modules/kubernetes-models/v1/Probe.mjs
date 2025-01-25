@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1Probe.mjs";export class Probe extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(Probe,validate);export{Probe as IoK8sApiCoreV1Probe};

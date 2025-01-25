@@ -1,0 +1,141 @@
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+var _rollupPluginBabelHelpers = require('../_virtual/_rollupPluginBabelHelpers.js');
+var isObject = require('./codegen-functions/is-object.js');
+
+function printSegment(path, segment) {
+  return path + `[${typeof segment === 'string' ? `'${segment}'` : segment}]`;
+}
+
+function dumpPath(path) {
+  return `$${path.reduce(printSegment, '')}`;
+}
+
+var _history = /*#__PURE__*/new WeakMap();
+
+var _path = /*#__PURE__*/new WeakMap();
+
+var _value = /*#__PURE__*/new WeakMap();
+
+var _parent = /*#__PURE__*/new WeakMap();
+
+class Sandbox {
+  constructor(path, root, history = null) {
+    _parent.set(this, {
+      get: _get_parent,
+      set: void 0
+    });
+
+    _history.set(this, {
+      writable: true,
+      value: void 0
+    });
+
+    _path.set(this, {
+      writable: true,
+      value: void 0
+    });
+
+    _value.set(this, {
+      writable: true,
+      value: void 0
+    });
+
+    this.root = root;
+
+    _rollupPluginBabelHelpers.classPrivateFieldSet(this, _path, path);
+
+    _rollupPluginBabelHelpers.classPrivateFieldSet(this, _history, history !== null && history !== void 0 ? history : [[0, root]]);
+
+    _rollupPluginBabelHelpers.classPrivateFieldSet(this, _value, void 0);
+  }
+
+  get path() {
+    return dumpPath(_rollupPluginBabelHelpers.classPrivateFieldGet(this, _path));
+  }
+
+  get depth() {
+    return _rollupPluginBabelHelpers.classPrivateFieldGet(this, _path).length - 1;
+  }
+
+  get value() {
+    var _classPrivateFieldGet2;
+
+    if (_rollupPluginBabelHelpers.classPrivateFieldGet(this, _value) !== void 0) {
+      return _rollupPluginBabelHelpers.classPrivateFieldGet(this, _value);
+    }
+
+    return (_classPrivateFieldGet2 = _rollupPluginBabelHelpers.classPrivateFieldGet(this, _value)) !== null && _classPrivateFieldGet2 !== void 0 ? _classPrivateFieldGet2 : _rollupPluginBabelHelpers.classPrivateFieldSet(this, _value, _rollupPluginBabelHelpers.classPrivateFieldGet(this, _history)[_rollupPluginBabelHelpers.classPrivateFieldGet(this, _history).length - 1][1]);
+  }
+
+  get property() {
+    return unwrapOrNull(_rollupPluginBabelHelpers.classPrivateFieldGet(this, _path), this.depth);
+  }
+
+  get parentValue() {
+    var _classPrivateFieldGet3;
+
+    return (_classPrivateFieldGet3 = _rollupPluginBabelHelpers.classPrivateFieldGet(this, _parent)) === null || _classPrivateFieldGet3 === void 0 ? void 0 : _classPrivateFieldGet3[1];
+  }
+
+  get parentProperty() {
+    var _classPrivateFieldGet4;
+
+    return _rollupPluginBabelHelpers.classPrivateFieldGet(this, _path)[(_classPrivateFieldGet4 = _rollupPluginBabelHelpers.classPrivateFieldGet(this, _parent)) === null || _classPrivateFieldGet4 === void 0 ? void 0 : _classPrivateFieldGet4[0]];
+  }
+
+  destroy() {
+    _rollupPluginBabelHelpers.classPrivateFieldGet(this, _history).length = 0;
+  }
+
+  push() {
+    const root = this.property !== null && isObject['default'](this.value) ? this.value[this.property] : null;
+
+    _rollupPluginBabelHelpers.classPrivateFieldGet(this, _history).push([_rollupPluginBabelHelpers.classPrivateFieldGet(this, _path).length, root]);
+
+    _rollupPluginBabelHelpers.classPrivateFieldSet(this, _value, root);
+
+    return this;
+  }
+
+  pop() {
+    const length = Math.max(0, _rollupPluginBabelHelpers.classPrivateFieldGet(this, _path).length + 1);
+
+    while (_rollupPluginBabelHelpers.classPrivateFieldGet(this, _history).length > length) {
+      _rollupPluginBabelHelpers.classPrivateFieldGet(this, _history).pop();
+    }
+
+    _rollupPluginBabelHelpers.classPrivateFieldSet(this, _value, void 0);
+
+    return this;
+  }
+
+  at(pos) {
+    if (Math.abs(pos) > _rollupPluginBabelHelpers.classPrivateFieldGet(this, _history).length) {
+      return null;
+    }
+
+    const actualPos = (pos < 0 ? _rollupPluginBabelHelpers.classPrivateFieldGet(this, _history).length : 0) + pos;
+
+    const history = _rollupPluginBabelHelpers.classPrivateFieldGet(this, _history).slice(0, actualPos + 1);
+
+    return new Sandbox(_rollupPluginBabelHelpers.classPrivateFieldGet(this, _path).slice(0, history[history.length - 1][0]), history[history.length - 1][1], history);
+  }
+
+}
+
+function _get_parent() {
+  if (_rollupPluginBabelHelpers.classPrivateFieldGet(this, _history).length < 3) {
+    return void 0;
+  }
+
+  return _rollupPluginBabelHelpers.classPrivateFieldGet(this, _history)[_rollupPluginBabelHelpers.classPrivateFieldGet(this, _history).length - 3];
+}
+
+function unwrapOrNull(collection, pos) {
+  return pos >= 0 && collection.length > pos ? collection[pos] : null;
+}
+
+exports.Sandbox = Sandbox;

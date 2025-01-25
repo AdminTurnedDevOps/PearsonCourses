@@ -1,0 +1,156 @@
+{
+  "type": "object",
+  "description": "A deterministic version of a JSON Schema object.",
+  "patternProperties": {
+    "^x-[\\w\\d\\.\\x2d_]+$": {
+      "$ref": "http://asyncapi.com/definitions/2.0.0-rc1/specificationExtension.json"
+    }
+  },
+  "properties": {
+    "$ref": {
+      "$ref": "http://asyncapi.com/definitions/2.0.0-rc1/ReferenceObject.json"
+    },
+    "format": {
+      "type": "string"
+    },
+    "title": {
+      "$ref": "http://json-schema.org/draft-04/schema#/properties/title"
+    },
+    "description": {
+      "$ref": "http://json-schema.org/draft-04/schema#/properties/description"
+    },
+    "default": {
+      "$ref": "http://json-schema.org/draft-04/schema#/properties/default"
+    },
+    "multipleOf": {
+      "$ref": "http://json-schema.org/draft-04/schema#/properties/multipleOf"
+    },
+    "maximum": {
+      "$ref": "http://json-schema.org/draft-04/schema#/properties/maximum"
+    },
+    "exclusiveMaximum": {
+      "$ref": "http://json-schema.org/draft-04/schema#/properties/exclusiveMaximum"
+    },
+    "minimum": {
+      "$ref": "http://json-schema.org/draft-04/schema#/properties/minimum"
+    },
+    "exclusiveMinimum": {
+      "$ref": "http://json-schema.org/draft-04/schema#/properties/exclusiveMinimum"
+    },
+    "maxLength": {
+      "$ref": "http://json-schema.org/draft-04/schema#/definitions/positiveInteger"
+    },
+    "minLength": {
+      "$ref": "http://json-schema.org/draft-04/schema#/definitions/positiveIntegerDefault0"
+    },
+    "pattern": {
+      "$ref": "http://json-schema.org/draft-04/schema#/properties/pattern"
+    },
+    "maxItems": {
+      "$ref": "http://json-schema.org/draft-04/schema#/definitions/positiveInteger"
+    },
+    "minItems": {
+      "$ref": "http://json-schema.org/draft-04/schema#/definitions/positiveIntegerDefault0"
+    },
+    "uniqueItems": {
+      "$ref": "http://json-schema.org/draft-04/schema#/properties/uniqueItems"
+    },
+    "maxProperties": {
+      "$ref": "http://json-schema.org/draft-04/schema#/definitions/positiveInteger"
+    },
+    "minProperties": {
+      "$ref": "http://json-schema.org/draft-04/schema#/definitions/positiveIntegerDefault0"
+    },
+    "required": {
+      "$ref": "http://json-schema.org/draft-04/schema#/definitions/stringArray"
+    },
+    "enum": {
+      "$ref": "http://json-schema.org/draft-04/schema#/properties/enum"
+    },
+    "deprecated": {
+      "type": "boolean",
+      "default": false
+    },
+    "additionalProperties": {
+      "anyOf": [
+        {
+          "$ref": "http://asyncapi.com/definitions/2.0.0-rc1/schema.json"
+        },
+        {
+          "type": "boolean"
+        }
+      ],
+      "default": {}
+    },
+    "type": {
+      "$ref": "http://json-schema.org/draft-04/schema#/properties/type"
+    },
+    "items": {
+      "anyOf": [
+        {
+          "$ref": "http://asyncapi.com/definitions/2.0.0-rc1/schema.json"
+        },
+        {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "http://asyncapi.com/definitions/2.0.0-rc1/schema.json"
+          }
+        }
+      ],
+      "default": {}
+    },
+    "allOf": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "http://asyncapi.com/definitions/2.0.0-rc1/schema.json"
+      }
+    },
+    "oneOf": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "$ref": "http://asyncapi.com/definitions/2.0.0-rc1/schema.json"
+      }
+    },
+    "anyOf": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "$ref": "http://asyncapi.com/definitions/2.0.0-rc1/schema.json"
+      }
+    },
+    "not": {
+      "$ref": "http://asyncapi.com/definitions/2.0.0-rc1/schema.json"
+    },
+    "properties": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "http://asyncapi.com/definitions/2.0.0-rc1/schema.json"
+      },
+      "default": {}
+    },
+    "discriminator": {
+      "type": "string"
+    },
+    "readOnly": {
+      "type": "boolean",
+      "default": false
+    },
+    "xml": {
+      "$ref": "http://asyncapi.com/definitions/2.0.0-rc1/xml.json"
+    },
+    "externalDocs": {
+      "$ref": "http://asyncapi.com/definitions/2.0.0-rc1/externalDocs.json"
+    },
+    "example": {},
+    "examples": {
+      "type": "array",
+      "items": {}
+    }
+  },
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://asyncapi.com/definitions/2.0.0-rc1/schema.json"
+}

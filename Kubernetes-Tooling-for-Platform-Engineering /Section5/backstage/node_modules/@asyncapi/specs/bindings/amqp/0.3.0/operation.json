@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://asyncapi.com/bindings/amqp/0.3.0/operation.json",
+  "title": "AMQP operation bindings object",
+  "description": "This object contains information about the operation representation in AMQP.",
+  "type": "object",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^x-[\\w\\d\\.\\x2d_]+$": {
+      "$ref": "http://asyncapi.com/definitions/3.0.0/specificationExtension.json"
+    }
+  },
+  "properties": {
+    "expiration": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "TTL (Time-To-Live) for the message. It MUST be greater than or equal to zero."
+    },
+    "userId": {
+      "type": "string",
+      "description": "Identifies the user who has sent the message."
+    },
+    "cc": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "The routing keys the message should be routed to at the time of publishing."
+    },
+    "priority": {
+      "type": "integer",
+      "description": "A priority for the message."
+    },
+    "deliveryMode": {
+      "type": "integer",
+      "enum": [1,2],
+      "description": "Delivery mode of the message. Its value MUST be either 1 (transient) or 2 (persistent)."
+    },
+    "mandatory": {
+      "type": "boolean",
+      "description": "Whether the message is mandatory or not."
+    },
+    "bcc": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Like cc but consumers will not receive this information."
+    },
+    "timestamp": {
+      "type": "boolean",
+      "description": "Whether the message should include a timestamp or not."
+    },
+    "ack": {
+      "type": "boolean",
+      "description": "Whether the consumer should ack the message or not."
+    },
+    "bindingVersion": {
+      "type": "string",
+      "enum": [
+        "0.3.0"
+      ],
+      "description": "The version of this binding. If omitted, \"latest\" MUST be assumed."
+    }
+  },
+  "examples": [
+    {
+      "expiration": 100000,
+      "userId": "guest",
+      "cc": [
+        "user.logs"
+      ],
+      "priority": 10,
+      "deliveryMode": 2,
+      "mandatory": false,
+      "bcc": [
+        "external.audit"
+      ],
+      "timestamp": true,
+      "ack": false,
+      "bindingVersion": "0.3.0"
+    }
+  ]
+}

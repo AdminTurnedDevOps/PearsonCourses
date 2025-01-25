@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1KeyToPath.mjs";export class KeyToPath extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(KeyToPath,validate);export{KeyToPath as IoK8sApiCoreV1KeyToPath};

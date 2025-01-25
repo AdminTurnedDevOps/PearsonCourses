@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiStorageV1VolumeError.mjs";export class VolumeError extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(VolumeError,validate);export{VolumeError as IoK8sApiStorageV1VolumeError};

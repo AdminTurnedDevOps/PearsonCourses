@@ -1,0 +1,55 @@
+{
+  "name": "ts-is-present",
+  "version": "1.2.2",
+  "description": "A library to have a generic typescript definition for object presence.",
+  "keywords": [
+    "typescript",
+    "filter",
+    "undefined",
+    "null"
+  ],
+  "main": "lib/index",
+  "typings": "lib/index",
+  "files": [
+    "lib/**/*",
+    "runkit-example.js"
+  ],
+  "author": {
+    "name": "Robert Massaioli",
+    "url": "https://keybase.io/robertmassaioli"
+  },
+  "license": "MIT",
+  "private": false,
+  "homepage": "https://github.com/robertmassaioli/ts-is-present",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:robertmassaioli/ts-is-present.git"
+  },
+  "bugs": {
+    "url": "https://github.com/robertmassaioli/ts-is-present/issues"
+  },
+  "scripts": {
+    "build": "tsc --project .",
+    "test": "jest",
+    "lint": "eslint . --ext .ts,.tsx --format visualstudio",
+    "prepublish": "tsc --project ."
+  },
+  "devDependencies": {
+    "@types/jest": "^27.0.1",
+    "@types/node": "^12.12.17",
+    "@typescript-eslint/eslint-plugin": "^4.10.0",
+    "@typescript-eslint/parser": "^4.10.0",
+    "eslint": "^7.15.0",
+    "husky": "^4.3.6",
+    "istanbul-reports": "^3.0.2",
+    "jest": "^27.1.1",
+    "ts-jest": "^27.0.5",
+    "typescript": "^4.1.3"
+  },
+  "runkitExampleFilename": "runkit-example.js",
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint"
+    }
+  }
+}

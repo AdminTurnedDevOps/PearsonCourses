@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiAutoscalingV2HPAScalingRules.mjs";export class HPAScalingRules extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(HPAScalingRules,validate);export{HPAScalingRules as IoK8sApiAutoscalingV2HPAScalingRules};

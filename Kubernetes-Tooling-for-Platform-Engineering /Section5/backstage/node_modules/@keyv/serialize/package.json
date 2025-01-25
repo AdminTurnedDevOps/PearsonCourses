@@ -1,0 +1,77 @@
+{
+  "name": "@keyv/serialize",
+  "version": "1.0.1",
+  "description": "Serialization for keyv",
+  "type": "module",
+  "main": "dist/index.cjs",
+	"module": "dist/index.js",
+	"types": "dist/index.d.ts",
+  "exports": {
+		".": {
+			"require": "./dist/index.cjs",
+			"import": "./dist/index.js"
+		}
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsup src/index.ts --format cjs,esm --dts --clean",
+    "prepare": "yarn build",
+    "test": "xo --fix && vitest run --coverage",
+    "test:ci": "xo && vitest --run --sequence.setupFiles=list",
+    "clean": "rm -rf node_modules && rm -rf ./coverage"
+  },
+  "xo": {
+    "rules": {
+      "import/no-named-as-default": "off",
+      "unicorn/prefer-module": "off",
+      "unicorn/prefer-event-target": "off",
+      "unicorn/no-array-reduce": "off",
+      "n/prefer-global/process": "off",
+      "node/prefer-global/process": "off",
+      "unicorn/prefer-object-from-entries": "off",
+      "unicorn/prefer-node-protocol": "off",
+      "@typescript-eslint/consistent-type-imports": "off",
+      "@typescript-eslint/consistent-type-definitions": "off",
+      "@typescript-eslint/no-empty-function": "off",
+      "import/extensions": "off",
+      "no-promise-executor-return": "off",
+      "import/no-extraneous-dependencies": "off",
+      "@typescript-eslint/no-unsafe-call": "off",
+      "@typescript-eslint/no-unsafe-assignment": "off"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaredwray/keyv.git"
+  },
+  "keywords": [
+    "keyv",
+    "serialize",
+    "key",
+    "value",
+    "store"
+  ],
+  "author": "Jared Wray <me@jaredwray.com> (https://jaredwray.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jaredwray/keyv/issues"
+  },
+  "homepage": "https://github.com/jaredwray/keyv",
+  "dependencies": {
+    "buffer": "^6.0.3"
+  },
+  "devDependencies": {
+    "@keyv/test-suite": "*",
+    "keyv": "^5.0.0",
+    "ts-node": "^10.9.2",
+    "tsd": "^0.31.1",
+    "typescript": "^5.5.4",
+    "xo": "^0.59.3"
+  },
+  "tsd": {
+    "directory": "test"
+  },
+  "files": [
+    "dist",
+    "LICENSE"
+  ]
+}

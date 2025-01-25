@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1PortworxVolumeSource.mjs";export class PortworxVolumeSource extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(PortworxVolumeSource,validate);export{PortworxVolumeSource as IoK8sApiCoreV1PortworxVolumeSource};

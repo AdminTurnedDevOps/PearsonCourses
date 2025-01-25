@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1GitRepoVolumeSource.mjs";export class GitRepoVolumeSource extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(GitRepoVolumeSource,validate);export{GitRepoVolumeSource as IoK8sApiCoreV1GitRepoVolumeSource};

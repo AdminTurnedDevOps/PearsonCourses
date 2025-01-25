@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiAutoscalingV2beta1ResourceMetricSource.mjs";export class ResourceMetricSource extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(ResourceMetricSource,validate);export{ResourceMetricSource as IoK8sApiAutoscalingV2beta1ResourceMetricSource};

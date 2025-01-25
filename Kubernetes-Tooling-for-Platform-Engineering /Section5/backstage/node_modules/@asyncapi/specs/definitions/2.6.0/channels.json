@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "description": "Holds the relative paths to the individual channel and their operations. Channel paths are relative to servers.",
+  "propertyNames": {
+    "type": "string",
+    "format": "uri-template",
+    "minLength": 1
+  },
+  "additionalProperties": {
+    "$ref": "http://asyncapi.com/definitions/2.6.0/channelItem.json"
+  },
+  "example": {
+    "$ref": "http://asyncapi.com/examples/2.6.0/channels.json"
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://asyncapi.com/definitions/2.6.0/channels.json"
+}

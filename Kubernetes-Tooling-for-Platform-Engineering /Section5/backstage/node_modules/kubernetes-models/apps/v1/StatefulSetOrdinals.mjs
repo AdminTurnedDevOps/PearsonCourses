@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiAppsV1StatefulSetOrdinals.mjs";export class StatefulSetOrdinals extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(StatefulSetOrdinals,validate);export{StatefulSetOrdinals as IoK8sApiAppsV1StatefulSetOrdinals};

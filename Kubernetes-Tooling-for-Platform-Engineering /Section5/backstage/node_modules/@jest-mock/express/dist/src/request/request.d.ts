@@ -1,0 +1,8 @@
+/// <reference types="qs" />
+import type { Request } from 'express';
+import type { MockRequest } from './index';
+/**
+ * Returns a mocked **Express** `Request` with mocked functions and default values.
+ */
+export declare const getMockReq: <T extends Request<import("express-serve-static-core").ParamsDictionary, any, any, import("qs").ParsedQs, Record<string, any>>>(values?: MockRequest) => T;
+export default getMockReq;

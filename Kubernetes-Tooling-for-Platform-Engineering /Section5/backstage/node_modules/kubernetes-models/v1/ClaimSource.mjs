@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1ClaimSource.mjs";export class ClaimSource extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(ClaimSource,validate);export{ClaimSource as IoK8sApiCoreV1ClaimSource};

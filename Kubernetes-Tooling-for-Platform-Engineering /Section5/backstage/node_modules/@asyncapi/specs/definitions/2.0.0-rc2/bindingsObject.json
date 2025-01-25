@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "http": {},
+    "ws": {},
+    "amqp": {},
+    "amqp1": {},
+    "mqtt": {},
+    "mqtt5": {},
+    "kafka": {},
+    "nats": {},
+    "jms": {},
+    "sns": {},
+    "sqs": {},
+    "stomp": {},
+    "redis": {}
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://asyncapi.com/definitions/2.0.0-rc2/bindingsObject.json"
+}

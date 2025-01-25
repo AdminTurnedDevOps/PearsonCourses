@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1ConfigMapKeySelector.mjs";export class ConfigMapKeySelector extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(ConfigMapKeySelector,validate);export{ConfigMapKeySelector as IoK8sApiCoreV1ConfigMapKeySelector};

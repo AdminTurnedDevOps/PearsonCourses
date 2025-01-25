@@ -1,0 +1,8 @@
+/*! @azure/msal-common v14.16.0 2024-11-05 */
+'use strict';
+/* eslint-disable header/header */
+const name = "@azure/msal-common";
+const version = "14.16.0";
+
+export { name, version };
+//# sourceMappingURL=packageMetadata.mjs.map

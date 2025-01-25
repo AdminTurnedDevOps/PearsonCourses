@@ -1,0 +1,341 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://asyncapi.com/bindings/sqs/0.3.0/operation.json",
+  "title": "Operation Schema",
+  "description": "This object contains information about the operation representation in SQS.",
+  "type": "object",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^x-[\\w\\d\\.\\x2d_]+$": {
+      "$ref": "http://asyncapi.com/definitions/3.0.0/specificationExtension.json"
+    }
+  },
+  "properties": {
+    "queues": {
+      "type": "array",
+      "description": "Queue objects that are either the endpoint for an SNS Operation Binding Object, or the deadLetterQueue of the SQS Operation Binding Object.",
+      "items": {
+        "$ref": "http://asyncapi.com/bindings/sqs/0.3.0/operation.json#/definitions/queue"
+      }
+    },
+    "bindingVersion": {
+      "type": "string",
+      "enum": [
+        "0.1.0",
+        "0.2.0",
+        "0.3.0"
+      ],
+      "description": "The version of this binding. If omitted, 'latest' MUST be assumed.",
+      "default": "latest"
+    }
+  },
+  "required": [
+    "queues"
+  ],
+  "definitions": {
+    "queue": {
+      "type": "object",
+      "description": "A definition of a queue.",
+      "patternProperties": {
+        "^x-[\\w\\d\\.\\x2d_]+$": {
+          "$ref": "http://asyncapi.com/definitions/3.0.0/specificationExtension.json"
+        }
+      },
+      "properties": {
+        "$ref": {
+          "type": "string",
+          "description": "Allows for an external definition of a queue. The referenced structure MUST be in the format of a Queue. If there are conflicts between the referenced definition and this Queue's definition, the behavior is undefined."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the queue. When an SNS Operation Binding Object references an SQS queue by name, the identifier should be the one in this field."
+        },
+        "fifoQueue": {
+          "type": "boolean",
+          "description": "Is this a FIFO queue?",
+          "default": false
+        },
+        "deduplicationScope": {
+          "type": "string",
+          "enum": [
+            "queue",
+            "messageGroup"
+          ],
+          "description": "Specifies whether message deduplication occurs at the message group or queue level. Valid values are messageGroup and queue (default).",
+          "default": "queue"
+        },
+        "fifoThroughputLimit": {
+          "type": "string",
+          "enum": [
+            "perQueue",
+            "perMessageGroupId"
+          ],
+          "description": "Specifies whether the FIFO queue throughput quota applies to the entire queue or per message group. Valid values are perQueue (default) and perMessageGroupId.",
+          "default": "perQueue"
+        },
+        "deliveryDelay": {
+          "type": "integer",
+          "description": "The number of seconds to delay before a message sent to the queue can be received. Used to create a delay queue.",
+          "minimum": 0,
+          "maximum": 15,
+          "default": 0
+        },
+        "visibilityTimeout": {
+          "type": "integer",
+          "description": "The length of time, in seconds, that a consumer locks a message - hiding it from reads - before it is unlocked and can be read again.",
+          "minimum": 0,
+          "maximum": 43200,
+          "default": 30
+        },
+        "receiveMessageWaitTime": {
+          "type": "integer",
+          "description": "Determines if the queue uses short polling or long polling. Set to zero the queue reads available messages and returns immediately. Set to a non-zero integer, long polling waits the specified number of seconds for messages to arrive before returning.",
+          "default": 0
+        },
+        "messageRetentionPeriod": {
+          "type": "integer",
+          "description": "How long to retain a message on the queue in seconds, unless deleted.",
+          "minimum": 60,
+          "maximum": 1209600,
+          "default": 345600
+        },
+        "redrivePolicy": {
+          "$ref": "http://asyncapi.com/bindings/sqs/0.3.0/operation.json#/definitions/redrivePolicy"
+        },
+        "policy": {
+          "$ref": "http://asyncapi.com/bindings/sqs/0.3.0/operation.json#/definitions/policy"
+        },
+        "tags": {
+          "type": "object",
+          "description": "Key-value pairs that represent AWS tags on the queue."
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "redrivePolicy": {
+      "type": "object",
+      "description": "Prevent poison pill messages by moving un-processable messages to an SQS dead letter queue.",
+      "patternProperties": {
+        "^x-[\\w\\d\\.\\x2d_]+$": {
+          "$ref": "http://asyncapi.com/definitions/3.0.0/specificationExtension.json"
+        }
+      },
+      "properties": {
+        "deadLetterQueue": {
+          "$ref": "http://asyncapi.com/bindings/sqs/0.3.0/operation.json#/definitions/identifier"
+        },
+        "maxReceiveCount": {
+          "type": "integer",
+          "description": "The number of times a message is delivered to the source queue before being moved to the dead-letter queue.",
+          "default": 10
+        }
+      },
+      "required": [
+        "deadLetterQueue"
+      ]
+    },
+    "identifier": {
+      "type": "object",
+      "description": "The SQS queue to use as a dead letter queue (DLQ).",
+      "patternProperties": {
+        "^x-[\\w\\d\\.\\x2d_]+$": {
+          "$ref": "http://asyncapi.com/definitions/3.0.0/specificationExtension.json"
+        }
+      },
+      "properties": {
+        "arn": {
+          "type": "string",
+          "description": "The target is an ARN. For example, for SQS, the identifier may be an ARN, which will be of the form: arn:aws:sqs:{region}:{account-id}:{queueName}"
+        },
+        "name": {
+          "type": "string",
+          "description": "The endpoint is identified by a name, which corresponds to an identifying field called 'name' of a binding for that protocol on this publish Operation Object. For example, if the protocol is 'sqs' then the name refers to the name field sqs binding."
+        }
+      }
+    },
+    "policy": {
+      "type": "object",
+      "description": "The security policy for the SQS Queue",
+      "patternProperties": {
+        "^x-[\\w\\d\\.\\x2d_]+$": {
+          "$ref": "http://asyncapi.com/definitions/3.0.0/specificationExtension.json"
+        }
+      },
+      "properties": {
+        "statements": {
+          "type": "array",
+          "description": "An array of statement objects, each of which controls a permission for this queue.",
+          "items": {
+            "$ref": "http://asyncapi.com/bindings/sqs/0.3.0/operation.json#/definitions/statement"
+          }
+        }
+      },
+      "required": [
+        "statements"
+      ]
+    },
+    "statement": {
+      "type": "object",
+      "patternProperties": {
+        "^x-[\\w\\d\\.\\x2d_]+$": {
+          "$ref": "http://asyncapi.com/definitions/3.0.0/specificationExtension.json"
+        }
+      },
+      "properties": {
+        "effect": {
+          "type": "string",
+          "enum": [
+            "Allow",
+            "Deny"
+          ]
+        },
+        "principal": {
+          "description": "The AWS account(s) or resource ARN(s) that this statement applies to.",
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "AWS": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "AWS"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "Service": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "Service"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "action": {
+          "description": "The SQS permission(s) being allowed or denied e.g. sqs:ReceiveMessage",
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "resource": {
+          "description": "The resource(s) that this policy applies to.",
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "condition": {
+          "description": "Specific circumstances under which the policy grants permission",
+          "type": "object",
+          "patternProperties": {
+            ".*": {
+              "type": "object",
+              "patternProperties": {
+                ".*": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "required": [
+        "effect",
+        "principal",
+        "action"
+      ]
+    }
+  },
+  "examples": [
+    {
+      "queues": [
+        {
+          "name": "myQueue",
+          "fifoQueue": true,
+          "deduplicationScope": "messageGroup",
+          "fifoThroughputLimit": "perMessageGroupId",
+          "deliveryDelay": 10,
+          "redrivePolicy": {
+            "deadLetterQueue": {
+              "name": "myQueue_error"
+            },
+            "maxReceiveCount": 15
+          },
+          "policy": {
+            "statements": [
+              {
+                "effect": "Deny",
+                "principal": "arn:aws:iam::123456789012:user/dec.kolakowski",
+                "action": [
+                  "sqs:SendMessage",
+                  "sqs:ReceiveMessage"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "myQueue_error",
+          "deliveryDelay": 10
+        }
+      ]
+    }
+  ]
+}

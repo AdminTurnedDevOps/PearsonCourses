@@ -1,0 +1,60 @@
+{
+  "type": "object",
+  "description": "An object representing a message broker, a server or any other kind of computer program capable of sending and/or receiving data",
+  "required": [
+    "url",
+    "protocol"
+  ],
+  "additionalProperties": false,
+  "patternProperties": {
+    "^x-[\\w\\d\\.\\x2d_]+$": {
+      "$ref": "http://asyncapi.com/definitions/2.6.0/specificationExtension.json"
+    }
+  },
+  "properties": {
+    "url": {
+      "type": "string",
+      "description": "A URL to the target host. This URL supports Server Variables and MAY be relative, to indicate that the host location is relative to the location where the AsyncAPI document is being served."
+    },
+    "description": {
+      "type": "string",
+      "description": "An optional string describing the host designated by the URL. CommonMark syntax MAY be used for rich text representation."
+    },
+    "protocol": {
+      "type": "string",
+      "description": "The protocol this URL supports for connection. Supported protocol include, but are not limited to: amqp, amqps, http, https, ibmmq, jms, kafka, kafka-secure, anypointmq, mqtt, secure-mqtt, solace, stomp, stomps, ws, wss, mercure, googlepubsub."
+    },
+    "protocolVersion": {
+      "type": "string",
+      "description": "The version of the protocol used for connection. For instance: AMQP 0.9.1, HTTP 2.0, Kafka 1.0.0, etc."
+    },
+    "variables": {
+      "description": "A map between a variable name and its value. The value is used for substitution in the server's URL template.",
+      "$ref": "http://asyncapi.com/definitions/2.6.0/serverVariables.json"
+    },
+    "security": {
+      "type": "array",
+      "description": "A declaration of which security mechanisms can be used with this server. The list of values includes alternative security requirement objects that can be used. ",
+      "items": {
+        "$ref": "http://asyncapi.com/definitions/2.6.0/SecurityRequirement.json"
+      }
+    },
+    "bindings": {
+      "description": "A map where the keys describe the name of the protocol and the values describe protocol-specific definitions for the server.",
+      "$ref": "http://asyncapi.com/definitions/2.6.0/bindingsObject.json"
+    },
+    "tags": {
+      "type": "array",
+      "description": "A list of tags for logical grouping and categorization of servers.",
+      "items": {
+        "$ref": "http://asyncapi.com/definitions/2.6.0/tag.json"
+      },
+      "uniqueItems": true
+    }
+  },
+  "example": {
+    "$ref": "http://asyncapi.com/examples/2.6.0/server.json"
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://asyncapi.com/definitions/2.6.0/server.json"
+}

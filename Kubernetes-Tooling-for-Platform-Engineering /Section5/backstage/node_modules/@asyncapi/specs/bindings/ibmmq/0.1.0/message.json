@@ -1,0 +1,81 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://asyncapi.com/bindings/ibmmq/0.1.0/message.json",
+  "title": "IBM MQ message bindings object",
+  "description": "This object contains information about the message representation in IBM MQ.",
+  "type": "object",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^x-[\\w\\d\\.\\x2d_]+$": {
+      "$ref": "http://asyncapi.com/definitions/3.0.0/specificationExtension.json"
+    }
+  },
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["string", "jms", "binary"],
+      "default": "string",
+      "description": "The type of the message."
+    },
+    "headers": {
+      "type": "string",
+      "description": "Defines the IBM MQ message headers to include with this message. More than one header can be specified as a comma separated list. Supporting information on IBM MQ message formats can be found on this [page](https://www.ibm.com/docs/en/ibm-mq/9.2?topic=mqmd-format-mqchar8) in the IBM MQ Knowledge Center."
+    },
+    "description": {
+      "type": "string",
+      "description": "Provides additional information for application developers: describes the message type or format."
+    },
+    "expiry": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 0,
+      "description": "The recommended setting the client should use for the TTL (Time-To-Live) of the message. This is a period of time expressed in milliseconds and set by the application that puts the message. 'expiry' values are API dependant e.g., MQI and JMS use different units of time and default values for 'unlimited'. General information on IBM MQ message expiry can be found on this [page](https://www.ibm.com/docs/en/ibm-mq/9.2?topic=mqmd-expiry-mqlong) in the IBM MQ Knowledge Center."
+    },
+    "bindingVersion": {
+      "type": "string",
+      "enum": [
+        "0.1.0"
+      ],
+      "description": "The version of this binding."
+    }
+
+  },
+  "oneOf": [
+    {
+      "properties": {
+        "type": { "const": "binary" }
+      }
+    },
+    {
+      "properties": {
+        "type": { "const": "jms" }
+      },
+      "not": {
+        "required": [
+          "headers"
+        ]
+      }
+    },
+    {
+      "properties": {
+        "type": { "const": "string" }
+      },
+      "not": {
+        "required": [
+          "headers"
+        ]
+      }
+    }
+  ],
+  "examples": [
+    {
+      "type": "string",
+      "bindingVersion": "0.1.0"
+    },
+    {
+      "type": "jms",
+      "description": "JMS stream message",
+      "bindingVersion": "0.1.0"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiNetworkingV1NetworkPolicyStatus.mjs";export class NetworkPolicyStatus extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(NetworkPolicyStatus,validate);export{NetworkPolicyStatus as IoK8sApiNetworkingV1NetworkPolicyStatus};

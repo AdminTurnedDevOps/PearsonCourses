@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiFlowcontrolV1beta3ResourcePolicyRule.mjs";export class ResourcePolicyRule extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(ResourcePolicyRule,validate);export{ResourcePolicyRule as IoK8sApiFlowcontrolV1beta3ResourcePolicyRule};

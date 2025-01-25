@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1TCPSocketAction.mjs";export class TCPSocketAction extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(TCPSocketAction,validate);export{TCPSocketAction as IoK8sApiCoreV1TCPSocketAction};

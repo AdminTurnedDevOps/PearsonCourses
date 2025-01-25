@@ -1,0 +1,5 @@
+import type { OAuthAppStrategyOptions, GitHubAppStrategyOptions, OAuthAppAuthInterface, GitHubAuthInterface } from "./types";
+export type { OAuthAppStrategyOptions, GitHubAppStrategyOptions, AppAuthOptions, WebFlowAuthOptions, OAuthAppDeviceFlowAuthOptions, GitHubAppDeviceFlowAuthOptions, OAuthAppAuthInterface, GitHubAuthInterface, AppAuthentication, OAuthAppUserAuthentication, GitHubAppUserAuthentication, GitHubAppUserAuthenticationWithExpiration, FactoryGitHubWebFlow, FactoryGitHubDeviceFlow, } from "./types";
+export { createOAuthUserAuth } from "@octokit/auth-oauth-user";
+export declare function createOAuthAppAuth(options: OAuthAppStrategyOptions): OAuthAppAuthInterface;
+export declare function createOAuthAppAuth(options: GitHubAppStrategyOptions): GitHubAuthInterface;

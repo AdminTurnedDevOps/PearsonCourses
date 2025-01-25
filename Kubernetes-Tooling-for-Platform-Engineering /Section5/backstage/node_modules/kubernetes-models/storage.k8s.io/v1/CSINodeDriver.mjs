@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiStorageV1CSINodeDriver.mjs";export class CSINodeDriver extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(CSINodeDriver,validate);export{CSINodeDriver as IoK8sApiStorageV1CSINodeDriver};

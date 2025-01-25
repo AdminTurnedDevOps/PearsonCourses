@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiRbacV1PolicyRule.mjs";export class PolicyRule extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(PolicyRule,validate);export{PolicyRule as IoK8sApiRbacV1PolicyRule};

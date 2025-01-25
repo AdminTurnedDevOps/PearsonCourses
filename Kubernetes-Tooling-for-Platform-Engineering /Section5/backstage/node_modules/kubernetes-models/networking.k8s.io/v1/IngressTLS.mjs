@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiNetworkingV1IngressTLS.mjs";export class IngressTLS extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(IngressTLS,validate);export{IngressTLS as IoK8sApiNetworkingV1IngressTLS};

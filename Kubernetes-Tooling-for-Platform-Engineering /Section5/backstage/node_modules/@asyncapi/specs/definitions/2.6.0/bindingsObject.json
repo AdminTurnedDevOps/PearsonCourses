@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "description": "Map describing protocol-specific definitions for a server.",
+  "additionalProperties": true,
+  "properties": {
+    "http": {},
+    "ws": {},
+    "amqp": {},
+    "amqp1": {},
+    "mqtt": {},
+    "mqtt5": {},
+    "kafka": {},
+    "anypointmq": {},
+    "nats": {},
+    "jms": {},
+    "sns": {},
+    "sqs": {},
+    "stomp": {},
+    "redis": {},
+    "ibmmq": {},
+    "solace": {},
+    "googlepubsub": {},
+    "pulsar": {}
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://asyncapi.com/definitions/2.6.0/bindingsObject.json"
+}

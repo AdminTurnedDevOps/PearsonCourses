@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1Lifecycle.mjs";export class Lifecycle extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(Lifecycle,validate);export{Lifecycle as IoK8sApiCoreV1Lifecycle};

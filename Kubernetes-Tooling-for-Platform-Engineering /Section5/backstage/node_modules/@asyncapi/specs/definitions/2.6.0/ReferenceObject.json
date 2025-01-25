@@ -1,0 +1,10 @@
+{
+  "type": "string",
+  "description": "A simple object to allow referencing other components in the specification, internally and externally.",
+  "format": "uri-reference",
+  "example": {
+    "$ref": "http://asyncapi.com/examples/2.6.0/ReferenceObject.json"
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://asyncapi.com/definitions/2.6.0/ReferenceObject.json"
+}

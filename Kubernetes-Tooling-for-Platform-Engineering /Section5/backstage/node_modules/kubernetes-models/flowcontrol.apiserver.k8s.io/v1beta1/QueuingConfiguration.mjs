@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiFlowcontrolV1beta1QueuingConfiguration.mjs";export class QueuingConfiguration extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(QueuingConfiguration,validate);export{QueuingConfiguration as IoK8sApiFlowcontrolV1beta1QueuingConfiguration};

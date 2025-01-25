@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiNetworkingV1IPBlock.mjs";export class IPBlock extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(IPBlock,validate);export{IPBlock as IoK8sApiNetworkingV1IPBlock};

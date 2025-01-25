@@ -1,0 +1,397 @@
+{
+  "type": "object",
+  "description": "Map describing protocol-specific definitions for a channel.",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^x-[\\w\\d\\.\\x2d_]+$": {
+      "$ref": "http://asyncapi.com/definitions/3.0.0/specificationExtension.json"
+    }
+  },
+  "properties": {
+    "http": {},
+    "ws": {
+      "properties": {
+        "bindingVersion": {
+          "enum": ["0.1.0"]
+        }
+      },
+      "allOf": [
+        {
+          "description": "If no bindingVersion specified, use the latest binding",
+          "if": {
+            "not": {
+              "required": [
+                "bindingVersion"
+              ]
+            }
+          },
+          "then": {
+            "$ref": "http://asyncapi.com/bindings/websockets/0.1.0/channel.json"
+          }
+        },
+        {
+          "if": {
+            "required": [ "bindingVersion" ],
+            "properties": {
+              "bindingVersion": {
+                "const": "0.1.0"
+              }
+            }
+          }, 
+          "then": {
+            "$ref": "http://asyncapi.com/bindings/websockets/0.1.0/channel.json"
+          }
+        }
+      ]
+    },
+    "amqp": {
+      "properties": {
+        "bindingVersion": {
+          "enum": ["0.3.0"]
+        }
+      },
+      "allOf": [
+        {
+          "description": "If no bindingVersion specified, use the latest binding",
+          "if": {
+            "not": {
+              "required": [
+                "bindingVersion"
+              ]
+            }
+          },
+          "then": {
+            "$ref": "http://asyncapi.com/bindings/amqp/0.3.0/channel.json"
+          }
+        },
+        {
+          "if": {
+            "required": [ "bindingVersion" ],
+            "properties": {
+              "bindingVersion": {
+                "const": "0.3.0"
+              }
+            }
+          }, 
+          "then": {
+            "$ref": "http://asyncapi.com/bindings/amqp/0.3.0/channel.json"
+          }
+        }
+      ]
+    },
+    "amqp1": {},
+    "mqtt": {},
+    "kafka": {
+      "properties": {
+        "bindingVersion": {
+          "enum": ["0.5.0", "0.4.0", "0.3.0"]
+        }
+      },
+      "allOf": [
+        {
+          "description": "If no bindingVersion specified, use the latest binding",
+          "if": {
+            "not": {
+              "required": [
+                "bindingVersion"
+              ]
+            }
+          },
+          "then": {
+            "$ref": "http://asyncapi.com/bindings/kafka/0.5.0/channel.json"
+          }
+        },
+        {
+          "if": {
+            "required": [ "bindingVersion" ],
+            "properties": {
+              "bindingVersion": {
+                "const": "0.5.0"
+              }
+            }
+          },
+          "then": {
+            "$ref": "http://asyncapi.com/bindings/kafka/0.5.0/channel.json"
+          }
+        },
+        {
+          "if": {
+            "required": [ "bindingVersion" ],
+            "properties": {
+              "bindingVersion": {
+                "const": "0.4.0"
+              }
+            }
+          }, 
+          "then": {
+            "$ref": "http://asyncapi.com/bindings/kafka/0.4.0/channel.json"
+          }
+        },
+        {
+          "if": {
+            "required": [ "bindingVersion" ],
+            "properties": {
+              "bindingVersion": {
+                "const": "0.3.0"
+              }
+            }
+          }, 
+          "then": {
+            "$ref": "http://asyncapi.com/bindings/kafka/0.3.0/channel.json"
+          }
+        }
+      ]
+    },
+    "anypointmq": {
+      "properties": {
+        "bindingVersion": {
+          "enum": ["0.0.1"]
+        }
+      },
+      "allOf": [
+        {
+          "description": "If no bindingVersion specified, use the latest binding",
+          "if": {
+            "not": {
+              "required": [
+                "bindingVersion"
+              ]
+            }
+          },
+          "then": {
+            "$ref": "http://asyncapi.com/bindings/anypointmq/0.0.1/channel.json"
+          }
+        },
+        {
+          "if": {
+            "required": [ "bindingVersion" ],
+            "properties": {
+              "bindingVersion": {
+                "const": "0.0.1"
+              }
+            }
+          }, 
+          "then": {
+            "$ref": "http://asyncapi.com/bindings/anypointmq/0.0.1/channel.json"
+          }
+        }
+      ]
+    },
+    "nats": {},
+    "jms": {
+      "properties": {
+        "bindingVersion": {
+          "enum": ["0.0.1"]
+        }
+      },
+      "allOf": [
+        {
+          "description": "If no bindingVersion specified, use the latest binding",
+          "if": {
+            "not": {
+              "required": [
+                "bindingVersion"
+              ]
+            }
+          },
+          "then": {
+            "$ref": "http://asyncapi.com/bindings/jms/0.0.1/channel.json"
+          }
+        },
+        {
+          "if": {
+            "required": [ "bindingVersion" ],
+            "properties": {
+              "bindingVersion": {
+                "const": "0.0.1"
+              }
+            }
+          }, 
+          "then": {
+            "$ref": "http://asyncapi.com/bindings/jms/0.0.1/channel.json"
+          }
+        }
+      ]
+    },
+    "sns": {
+      "properties": {
+        "bindingVersion": {
+          "enum": ["0.1.0"]
+        }
+      },
+      "allOf": [
+        {
+          "description": "If no bindingVersion specified, use the latest binding",
+          "if": {
+            "not": {
+              "required": [
+                "bindingVersion"
+              ]
+            }
+          },
+          "then": {
+            "$ref": "http://asyncapi.com/bindings/sns/0.1.0/channel.json"
+          }
+        },
+        {
+          "if": {
+            "required": [ "bindingVersion" ],
+            "properties": {
+              "bindingVersion": {
+                "const": "0.1.0"
+              }
+            }
+          }, 
+          "then": {
+            "$ref": "http://asyncapi.com/bindings/sns/0.1.0/channel.json"
+          }
+        }
+      ]
+    },
+    "sqs": {
+      "properties": {
+        "bindingVersion": {
+          "enum": ["0.2.0"]
+        }
+      },
+      "allOf": [
+        {
+          "description": "If no bindingVersion specified, use the latest binding",
+          "if": {
+            "not": {
+              "required": [
+                "bindingVersion"
+              ]
+            }
+          },
+          "then": {
+            "$ref": "http://asyncapi.com/bindings/sqs/0.2.0/channel.json"
+          }
+        },
+        {
+          "if": {
+            "required": [ "bindingVersion" ],
+            "properties": {
+              "bindingVersion": {
+                "const": "0.2.0"
+              }
+            }
+          }, 
+          "then": {
+            "$ref": "http://asyncapi.com/bindings/sqs/0.2.0/channel.json"
+          }
+        }
+      ]
+    },
+    "stomp": {},
+    "redis": {},
+    "ibmmq": {
+      "properties": {
+        "bindingVersion": {
+          "enum": ["0.1.0"]
+        }
+      },
+      "allOf": [
+        {
+          "description": "If no bindingVersion specified, use the latest binding",
+          "if": {
+            "not": {
+              "required": [
+                "bindingVersion"
+              ]
+            }
+          },
+          "then": {
+            "$ref": "http://asyncapi.com/bindings/ibmmq/0.1.0/channel.json"
+          }
+        },
+        {
+          "if": {
+            "required": [ "bindingVersion" ],
+            "properties": {
+              "bindingVersion": {
+                "const": "0.1.0"
+              }
+            }
+          }, 
+          "then": {
+            "$ref": "http://asyncapi.com/bindings/ibmmq/0.1.0/channel.json"
+          }
+        }
+      ]
+    },
+    "solace": {},
+    "googlepubsub": {
+      "properties": {
+        "bindingVersion": {
+          "enum": ["0.2.0"]
+        }
+      },
+      "allOf": [
+        {
+          "description": "If no bindingVersion specified, use the latest binding",
+          "if": {
+            "not": {
+              "required": [
+                "bindingVersion"
+              ]
+            }
+          },
+          "then": {
+            "$ref": "http://asyncapi.com/bindings/googlepubsub/0.2.0/channel.json"
+          }
+        },
+        {
+          "if": {
+            "required": [ "bindingVersion" ],
+            "properties": {
+              "bindingVersion": {
+                "const": "0.2.0"
+              }
+            }
+          }, 
+          "then": {
+            "$ref": "http://asyncapi.com/bindings/googlepubsub/0.2.0/channel.json"
+          }
+        }
+      ]
+    },
+    "pulsar": {
+      "properties": {
+        "bindingVersion": {
+          "enum": ["0.1.0"]
+        }
+      },
+      "allOf": [
+        {
+          "description": "If no bindingVersion specified, use the latest binding",
+          "if": {
+            "not": {
+              "required": [
+                "bindingVersion"
+              ]
+            }
+          },
+          "then": {
+            "$ref": "http://asyncapi.com/bindings/pulsar/0.1.0/channel.json"
+          }
+        },
+        {
+          "if": {
+            "required": [ "bindingVersion" ],
+            "properties": {
+              "bindingVersion": {
+                "const": "0.1.0"
+              }
+            }
+          }, 
+          "then": {
+            "$ref": "http://asyncapi.com/bindings/pulsar/0.1.0/channel.json"
+          }
+        }
+      ]
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://asyncapi.com/definitions/3.0.0/channelBindingsObject.json"
+}

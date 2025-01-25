@@ -1,0 +1,15 @@
+export declare const xParserSpecParsed = "x-parser-spec-parsed";
+export declare const xParserSpecStringified = "x-parser-spec-stringified";
+export declare const xParserApiVersion = "x-parser-api-version";
+export declare const xParserMessageName = "x-parser-message-name";
+export declare const xParserMessageParsed = "x-parser-message-parsed";
+export declare const xParserSchemaId = "x-parser-schema-id";
+export declare const xParserOriginalSchemaFormat = "x-parser-original-schema-format";
+export declare const xParserOriginalPayload = "x-parser-original-payload";
+export declare const xParserOriginalTraits = "x-parser-original-traits";
+export declare const xParserCircular = "x-parser-circular";
+export declare const xParserCircularProps = "x-parser-circular-props";
+export declare const xParserObjectUniqueId = "x-parser-unique-object-id";
+export declare const EXTENSION_REGEX: RegExp;
+export declare const specVersions: string[];
+export declare const lastVersion: string;

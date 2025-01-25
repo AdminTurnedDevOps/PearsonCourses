@@ -1,0 +1,69 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://asyncapi.com/bindings/jms/0.0.1/server.json",
+    "title": "Server Schema",
+    "description": "This object contains configuration for describing a JMS broker as an AsyncAPI server. This objects only contains configuration that can not be provided in the AsyncAPI standard server object.",
+    "type": "object",
+    "additionalProperties": false,
+    "patternProperties": {
+      "^x-[\\w\\d\\.\\x2d_]+$": {
+        "$ref": "http://asyncapi.com/definitions/3.0.0/specificationExtension.json"
+      }
+    },
+    "required": ["jmsConnectionFactory"],
+    "properties": {
+      "jmsConnectionFactory": {
+        "type": "string",
+        "description": "The classname of the ConnectionFactory implementation for the JMS Provider."
+      },
+      "properties": {
+        "type": "array",
+        "items": {
+          "$ref": "http://asyncapi.com/bindings/jms/0.0.1/server.json#/definitions/property"
+        },
+        "description": "Additional properties to set on the JMS ConnectionFactory implementation for the JMS Provider."
+      },
+      "clientID": {
+        "type": "string",
+        "description": "A client identifier for applications that use this JMS connection factory. If the Client ID Policy is set to 'Restricted' (the default), then configuring a Client ID on the ConnectionFactory prevents more than one JMS client from using a connection from this factory."
+      },
+      "bindingVersion": {
+        "type": "string",
+        "enum": [
+          "0.0.1"
+        ],
+        "description": "The version of this binding. If omitted, 'latest' MUST be assumed."
+      }
+  
+    },
+    "definitions": {
+      "property": {
+        "type": "object",
+        "required": ["name", "value"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of a property"
+          },
+          "value": {
+            "type": ["string", "boolean", "number", "null"],
+            "description": "The name of a property"
+          }
+        }
+      }
+    },
+    "examples": [
+      {
+        "jmsConnectionFactory": "org.apache.activemq.ActiveMQConnectionFactory",
+        "properties": [
+            {
+                "name": "disableTimeStampsByDefault",
+                "value": false
+            }
+        ],
+        "clientID": "my-application-1",
+        "bindingVersion": "0.0.1"
+      }
+    ]
+  }
+  

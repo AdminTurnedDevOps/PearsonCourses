@@ -1,0 +1,191 @@
+{
+  "$id": "http://asyncapi.com/schema-store/all.schema-store.json",
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "JSON Schema documents for all AsyncAPI spec versions",
+  "description": "All AsyncAPI JSON Schema documents listed in one file. Needed for serving all documents through schemastore.org",
+  "type": "object",
+  "oneOf": [
+    {
+      "allOf": [
+        {
+          "properties": {
+            "asyncapi": {
+              "const": "1.0.0"
+            }
+          }
+        },
+        {
+          "$ref": "http://asyncapi.com/schema-store/1.0.0-without-$id.json"
+        }
+      ]
+    },
+    {
+      "allOf": [
+        {
+          "properties": {
+            "asyncapi": {
+              "const": "1.1.0"
+            }
+          }
+        },
+        {
+          "$ref": "http://asyncapi.com/schema-store/1.1.0-without-$id.json"
+        }
+      ]
+    },
+    {
+      "allOf": [
+        {
+          "properties": {
+            "asyncapi": {
+              "const": "1.2.0"
+            }
+          }
+        },
+        {
+          "$ref": "http://asyncapi.com/schema-store/1.2.0-without-$id.json"
+        }
+      ]
+    },
+    {
+      "allOf": [
+        {
+          "properties": {
+            "asyncapi": {
+              "const": "2.0.0-rc1"
+            }
+          }
+        },
+        {
+          "$ref": "http://asyncapi.com/schema-store/2.0.0-rc1-without-$id.json"
+        }
+      ]
+    },
+    {
+      "allOf": [
+        {
+          "properties": {
+            "asyncapi": {
+              "const": "2.0.0-rc2"
+            }
+          }
+        },
+        {
+          "$ref": "http://asyncapi.com/schema-store/2.0.0-rc2-without-$id.json"
+        }
+      ]
+    },
+    {
+      "allOf": [
+        {
+          "properties": {
+            "asyncapi": {
+              "const": "2.0.0"
+            }
+          }
+        },
+        {
+          "$ref": "http://asyncapi.com/schema-store/2.0.0-without-$id.json"
+        }
+      ]
+    },
+    {
+      "allOf": [
+        {
+          "properties": {
+            "asyncapi": {
+              "const": "2.1.0"
+            }
+          }
+        },
+        {
+          "$ref": "http://asyncapi.com/schema-store/2.1.0-without-$id.json"
+        }
+      ]
+    },
+    {
+      "allOf": [
+        {
+          "properties": {
+            "asyncapi": {
+              "const": "2.2.0"
+            }
+          }
+        },
+        {
+          "$ref": "http://asyncapi.com/schema-store/2.2.0-without-$id.json"
+        }
+      ]
+    },
+    {
+      "allOf": [
+        {
+          "properties": {
+            "asyncapi": {
+              "const": "2.3.0"
+            }
+          }
+        },
+        {
+          "$ref": "http://asyncapi.com/schema-store/2.3.0-without-$id.json"
+        }
+      ]
+    },
+    {
+      "allOf": [
+        {
+          "properties": {
+            "asyncapi": {
+              "const": "2.4.0"
+            }
+          }
+        },
+        {
+          "$ref": "http://asyncapi.com/schema-store/2.4.0-without-$id.json"
+        }
+      ]
+    },
+    {
+      "allOf": [
+        {
+          "properties": {
+            "asyncapi": {
+              "const": "2.5.0"
+            }
+          }
+        },
+        {
+          "$ref": "http://asyncapi.com/schema-store/2.5.0-without-$id.json"
+        }
+      ]
+    },
+    {
+      "allOf": [
+        {
+          "properties": {
+            "asyncapi": {
+              "const": "2.6.0"
+            }
+          }
+        },
+        {
+          "$ref": "http://asyncapi.com/schema-store/2.6.0-without-$id.json"
+        }
+      ]
+    },
+    {
+      "allOf": [
+        {
+          "properties": {
+            "asyncapi": {
+              "const": "3.0.0"
+            }
+          }
+        },
+        {
+          "$ref": "http://asyncapi.com/schema-store/3.0.0-without-$id.json"
+        }
+      ]
+    }
+  ]
+}

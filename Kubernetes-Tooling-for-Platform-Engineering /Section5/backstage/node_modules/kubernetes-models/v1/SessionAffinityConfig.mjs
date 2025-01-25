@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1SessionAffinityConfig.mjs";export class SessionAffinityConfig extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(SessionAffinityConfig,validate);export{SessionAffinityConfig as IoK8sApiCoreV1SessionAffinityConfig};

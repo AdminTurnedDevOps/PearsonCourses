@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1Handler.mjs";export class Handler extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(Handler,validate);export{Handler as IoK8sApiCoreV1Handler};

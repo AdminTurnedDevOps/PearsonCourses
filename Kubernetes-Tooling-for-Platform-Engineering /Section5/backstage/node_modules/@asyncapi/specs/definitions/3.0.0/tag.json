@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "description": "Allows adding metadata to a single tag.",
+  "additionalProperties": false,
+  "required": [
+    "name"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the tag."
+    },
+    "description": {
+      "type": "string",
+      "description": "A short description for the tag. CommonMark syntax can be used for rich text representation."
+    },
+    "externalDocs": {
+      "oneOf": [
+        {
+          "$ref": "http://asyncapi.com/definitions/3.0.0/Reference.json"
+        },
+        {
+          "$ref": "http://asyncapi.com/definitions/3.0.0/externalDocs.json"
+        }
+      ]
+    }
+  },
+  "patternProperties": {
+    "^x-[\\w\\d\\.\\x2d_]+$": {
+      "$ref": "http://asyncapi.com/definitions/3.0.0/specificationExtension.json"
+    }
+  },
+  "example": {
+    "$ref": "http://asyncapi.com/examples/3.0.0/tag.json"
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://asyncapi.com/definitions/3.0.0/tag.json"
+}

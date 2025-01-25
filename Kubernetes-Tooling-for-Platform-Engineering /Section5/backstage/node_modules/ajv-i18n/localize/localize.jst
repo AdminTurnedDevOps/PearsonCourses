@@ -1,0 +1,55 @@
+'use strict';
+
+{{
+  const STRIP_FUNCTION = /function\s+anonymous\s*\(it[^)]*\)\s*{|return\s+out;\s*}/g;
+  const VAR_OUT = /var\s+out/;
+  const OUT_EMPTY_STRING = /out\s*\+=\s*\'\'\s*\+\s*/g;
+}}
+
+{{ var name = 'localize_' + it.locale.replace('-','_'); }}
+module.exports = function {{=name}}(errors) {
+  if (!(errors && errors.length)) return;
+  for (const e of errors) {
+    let out;
+    switch (e.keyword) {
+      {{~ it.messages:msg }}
+        case "{{= msg.keyword }}":
+          {{~ msg.keywords:kwd }}
+            case '{{= kwd }}':
+          {{~}}
+          {{? typeof msg.msgFunc == "function" }}
+            {{= stripFunction(msg.msgFunc) }}
+          {{?? msg.msgFunc.length }}
+            switch (e.params.error) {
+              {{~ msg.msgFunc:err }}
+                case "{{= err.error }}":
+                  {{= stripFunction(err.func) }}
+                  break;
+              {{~}}
+              default:
+                {{? it.typeMessage }}
+                  {{= stripFunction(it.typeMessage) }}
+                {{??}}
+                  {{= stripFunction(it.defaultMessage) }}
+                {{?}}
+            }
+          {{??}}
+            {{= stripFunction(it.typeMessage) }}
+          {{?}}
+          break;
+      {{~}}
+      default:
+        {{= stripFunction(it.defaultMessage) }}
+    }
+    e.message = out;
+  }
+};
+
+{{
+  function stripFunction(code) {
+    return code.toString()
+            .replace(STRIP_FUNCTION, '')
+            .replace(VAR_OUT, 'out')
+            .replace(OUT_EMPTY_STRING, 'out += ');
+  }
+}}

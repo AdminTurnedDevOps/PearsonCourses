@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1PortStatus.mjs";export class PortStatus extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(PortStatus,validate);export{PortStatus as IoK8sApiCoreV1PortStatus};

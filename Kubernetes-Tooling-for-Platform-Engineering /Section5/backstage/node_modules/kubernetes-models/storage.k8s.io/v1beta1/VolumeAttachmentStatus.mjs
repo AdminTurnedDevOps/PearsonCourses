@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiStorageV1beta1VolumeAttachmentStatus.mjs";export class VolumeAttachmentStatus extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(VolumeAttachmentStatus,validate);export{VolumeAttachmentStatus as IoK8sApiStorageV1beta1VolumeAttachmentStatus};

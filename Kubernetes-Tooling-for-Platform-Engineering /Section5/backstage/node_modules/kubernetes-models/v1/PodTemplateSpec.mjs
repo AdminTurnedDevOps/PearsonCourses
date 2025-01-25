@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1PodTemplateSpec.mjs";export class PodTemplateSpec extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(PodTemplateSpec,validate);export{PodTemplateSpec as IoK8sApiCoreV1PodTemplateSpec};

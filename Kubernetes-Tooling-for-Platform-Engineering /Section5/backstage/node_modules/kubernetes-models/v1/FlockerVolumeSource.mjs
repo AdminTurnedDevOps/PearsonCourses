@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1FlockerVolumeSource.mjs";export class FlockerVolumeSource extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(FlockerVolumeSource,validate);export{FlockerVolumeSource as IoK8sApiCoreV1FlockerVolumeSource};

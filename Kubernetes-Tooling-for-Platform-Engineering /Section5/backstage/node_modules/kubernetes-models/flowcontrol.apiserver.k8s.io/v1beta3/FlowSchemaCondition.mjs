@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiFlowcontrolV1beta3FlowSchemaCondition.mjs";export class FlowSchemaCondition extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(FlowSchemaCondition,validate);export{FlowSchemaCondition as IoK8sApiFlowcontrolV1beta3FlowSchemaCondition};

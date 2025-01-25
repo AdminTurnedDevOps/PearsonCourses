@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../../_schemas/IoK8sApimachineryPkgApisMetaV1WatchEvent.mjs";export class WatchEvent extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(WatchEvent,validate);export{WatchEvent as IoK8sApimachineryPkgApisMetaV1WatchEvent};

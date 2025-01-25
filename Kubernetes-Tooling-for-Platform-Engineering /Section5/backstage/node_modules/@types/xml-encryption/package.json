@@ -1,0 +1,27 @@
+{
+    "name": "@types/xml-encryption",
+    "version": "1.2.4",
+    "description": "TypeScript definitions for xml-encryption",
+    "homepage": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/xml-encryption",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "Chris Midgley",
+            "githubUsername": "midgleyc",
+            "url": "https://github.com/midgleyc"
+        }
+    ],
+    "main": "",
+    "types": "index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+        "directory": "types/xml-encryption"
+    },
+    "scripts": {},
+    "dependencies": {
+        "@types/node": "*"
+    },
+    "typesPublisherContentHash": "bec95e31838c779c4d78afe806f108d41f95a47541192f1517a985f65d1f96c1",
+    "typeScriptVersion": "4.5"
+}

@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1ContainerStateTerminated.mjs";export class ContainerStateTerminated extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(ContainerStateTerminated,validate);export{ContainerStateTerminated as IoK8sApiCoreV1ContainerStateTerminated};

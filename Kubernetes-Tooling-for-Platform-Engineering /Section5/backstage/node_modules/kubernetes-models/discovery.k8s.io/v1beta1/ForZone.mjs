@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiDiscoveryV1beta1ForZone.mjs";export class ForZone extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(ForZone,validate);export{ForZone as IoK8sApiDiscoveryV1beta1ForZone};

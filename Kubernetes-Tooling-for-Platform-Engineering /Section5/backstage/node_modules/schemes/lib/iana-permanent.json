@@ -1,0 +1,911 @@
+[
+  {
+    "scheme": "aaa",
+    "description": "Diameter Protocol",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc6733"
+      }
+    ]
+  },
+  {
+    "scheme": "aaas",
+    "description": "Diameter Protocol with Secure Transport",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc6733"
+      }
+    ]
+  },
+  {
+    "scheme": "about",
+    "description": "about",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc6694"
+      }
+    ]
+  },
+  {
+    "scheme": "acap",
+    "description": "application configuration access protocol",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc2244"
+      }
+    ]
+  },
+  {
+    "scheme": "acct",
+    "description": "acct",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc7565"
+      }
+    ]
+  },
+  {
+    "scheme": "cap",
+    "description": "Calendar Access Protocol",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc4324"
+      }
+    ]
+  },
+  {
+    "scheme": "cid",
+    "description": "content identifier",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc2392"
+      }
+    ]
+  },
+  {
+    "scheme": "coap",
+    "description": "coap",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc7252"
+      }
+    ]
+  },
+  {
+    "scheme": "coaps",
+    "description": "coaps",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc7252"
+      }
+    ]
+  },
+  {
+    "scheme": "crid",
+    "description": "TV-Anytime Content Reference Identifier",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc4078"
+      }
+    ]
+  },
+  {
+    "scheme": "data",
+    "description": "data",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc2397"
+      }
+    ]
+  },
+  {
+    "scheme": "dav",
+    "description": "dav",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc4918"
+      }
+    ]
+  },
+  {
+    "scheme": "dict",
+    "description": "dictionary service protocol",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc2229"
+      }
+    ]
+  },
+  {
+    "scheme": "dns",
+    "description": "Domain Name System",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc4501"
+      }
+    ]
+  },
+  {
+    "scheme": "example",
+    "description": "example",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc7595"
+      }
+    ]
+  },
+  {
+    "scheme": "file",
+    "description": "Host-specific file names",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc1738"
+      }
+    ]
+  },
+  {
+    "scheme": "ftp",
+    "description": "File Transfer Protocol",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc1738"
+      }
+    ]
+  },
+  {
+    "scheme": "geo",
+    "description": "Geographic Locations",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc5870"
+      }
+    ]
+  },
+  {
+    "scheme": "go",
+    "description": "go",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc3368"
+      }
+    ]
+  },
+  {
+    "scheme": "gopher",
+    "description": "The Gopher Protocol",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc4266"
+      }
+    ]
+  },
+  {
+    "scheme": "h323",
+    "description": "H.323",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc3508"
+      }
+    ]
+  },
+  {
+    "scheme": "http",
+    "description": "Hypertext Transfer Protocol",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc7230"
+      }
+    ]
+  },
+  {
+    "scheme": "https",
+    "description": "Hypertext Transfer Protocol Secure",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc7230"
+      }
+    ]
+  },
+  {
+    "scheme": "iax",
+    "description": "Inter-Asterisk eXchange Version 2",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc5456"
+      }
+    ]
+  },
+  {
+    "scheme": "icap",
+    "description": "Internet Content Adaptation Protocol",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc3507"
+      }
+    ]
+  },
+  {
+    "scheme": "im",
+    "description": "Instant Messaging",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc3860"
+      }
+    ]
+  },
+  {
+    "scheme": "imap",
+    "description": "internet message access protocol",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc5092"
+      }
+    ]
+  },
+  {
+    "scheme": "info",
+    "description": "Information Assets with Identifiers in Public Namespaces. \n       (section 3) defines an \"info\" registry \n        of public namespaces, which is maintained by NISO and can be accessed \n        from .",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc4452"
+      }
+    ]
+  },
+  {
+    "scheme": "ipp",
+    "description": "Internet Printing Protocol",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc3510"
+      }
+    ]
+  },
+  {
+    "scheme": "ipps",
+    "description": "Internet Printing Protocol over HTTPS",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc7472"
+      }
+    ]
+  },
+  {
+    "scheme": "iris",
+    "description": "Internet Registry Information Service",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc3981"
+      }
+    ]
+  },
+  {
+    "scheme": "iris.beep",
+    "description": "iris.beep",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc3983"
+      }
+    ]
+  },
+  {
+    "scheme": "iris.lwz",
+    "description": "iris.lwz",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc4993"
+      }
+    ]
+  },
+  {
+    "scheme": "iris.xpc",
+    "description": "iris.xpc",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc4992"
+      }
+    ]
+  },
+  {
+    "scheme": "iris.xpcs",
+    "description": "iris.xpcs",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc4992"
+      }
+    ]
+  },
+  {
+    "scheme": "jabber",
+    "description": "jabber",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/perm/jabber"
+  },
+  {
+    "scheme": "ldap",
+    "description": "Lightweight Directory Access Protocol",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc4516"
+      }
+    ]
+  },
+  {
+    "scheme": "mailto",
+    "description": "Electronic mail address",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc6068"
+      }
+    ]
+  },
+  {
+    "scheme": "mid",
+    "description": "message identifier",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc2392"
+      }
+    ]
+  },
+  {
+    "scheme": "msrp",
+    "description": "Message Session Relay Protocol",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc4975"
+      }
+    ]
+  },
+  {
+    "scheme": "msrps",
+    "description": "Message Session Relay Protocol Secure",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc4975"
+      }
+    ]
+  },
+  {
+    "scheme": "mtqp",
+    "description": "Message Tracking Query Protocol",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc3887"
+      }
+    ]
+  },
+  {
+    "scheme": "mupdate",
+    "description": "Mailbox Update (MUPDATE) Protocol",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc3656"
+      }
+    ]
+  },
+  {
+    "scheme": "news",
+    "description": "USENET news",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc5538"
+      }
+    ]
+  },
+  {
+    "scheme": "nfs",
+    "description": "network file system protocol",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc2224"
+      }
+    ]
+  },
+  {
+    "scheme": "ni",
+    "description": "ni",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc6920"
+      }
+    ]
+  },
+  {
+    "scheme": "nih",
+    "description": "nih",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc6920"
+      }
+    ]
+  },
+  {
+    "scheme": "nntp",
+    "description": "USENET news using NNTP access",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc5538"
+      }
+    ]
+  },
+  {
+    "scheme": "opaquelocktoken",
+    "description": "opaquelocktokent",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc4918"
+      }
+    ]
+  },
+  {
+    "scheme": "pkcs11",
+    "description": "PKCS#11",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc7512"
+      }
+    ]
+  },
+  {
+    "scheme": "pop",
+    "description": "Post Office Protocol v3",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc2384"
+      }
+    ]
+  },
+  {
+    "scheme": "pres",
+    "description": "Presence",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc3859"
+      }
+    ]
+  },
+  {
+    "scheme": "reload",
+    "description": "reload",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc6940"
+      }
+    ]
+  },
+  {
+    "scheme": "rtsp",
+    "description": "Real-time Streaming Protocol (RTSP)",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc2326"
+      },
+      {
+        "type": "draft",
+        "href": "http://www.iana.org/go/RFC-ietf-mmusic-rfc2326bis-40"
+      }
+    ]
+  },
+  {
+    "scheme": "rtsps",
+    "description": "Real-time Streaming Protocol (RTSP) over TLS",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc2326"
+      },
+      {
+        "type": "draft",
+        "href": "http://www.iana.org/go/RFC-ietf-mmusic-rfc2326bis-40"
+      }
+    ]
+  },
+  {
+    "scheme": "rtspu",
+    "description": "Real-time Streaming Protocol (RTSP) over unreliable datagram transport",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc2326"
+      }
+    ]
+  },
+  {
+    "scheme": "service",
+    "description": "service location",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc2609"
+      }
+    ]
+  },
+  {
+    "scheme": "session",
+    "description": "session",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc6787"
+      }
+    ]
+  },
+  {
+    "scheme": "shttp",
+    "description": "Secure Hypertext Transfer Protocol",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc2660"
+      }
+    ]
+  },
+  {
+    "scheme": "sieve",
+    "description": "ManageSieve Protocol",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc5804"
+      }
+    ]
+  },
+  {
+    "scheme": "sip",
+    "description": "session initiation protocol",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc3261"
+      }
+    ]
+  },
+  {
+    "scheme": "sips",
+    "description": "secure session initiation protocol",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc3261"
+      }
+    ]
+  },
+  {
+    "scheme": "sms",
+    "description": "Short Message Service",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc5724"
+      }
+    ]
+  },
+  {
+    "scheme": "snmp",
+    "description": "Simple Network Management Protocol",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc4088"
+      }
+    ]
+  },
+  {
+    "scheme": "soap.beep",
+    "description": "soap.beep",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc4227"
+      }
+    ]
+  },
+  {
+    "scheme": "soap.beeps",
+    "description": "soap.beeps",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc4227"
+      }
+    ]
+  },
+  {
+    "scheme": "stun",
+    "description": "stun",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc7064"
+      }
+    ]
+  },
+  {
+    "scheme": "stuns",
+    "description": "stuns",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc7064"
+      }
+    ]
+  },
+  {
+    "scheme": "tag",
+    "description": "tag",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc4151"
+      }
+    ]
+  },
+  {
+    "scheme": "tel",
+    "description": "telephone",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc3966"
+      }
+    ]
+  },
+  {
+    "scheme": "telnet",
+    "description": "Reference to interactive sessions",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc4248"
+      }
+    ]
+  },
+  {
+    "scheme": "tftp",
+    "description": "Trivial File Transfer Protocol",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc3617"
+      }
+    ]
+  },
+  {
+    "scheme": "thismessage",
+    "description": "multipart/related relative reference resolution",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc2557"
+      }
+    ],
+    "template": "http://www.iana.org/assignments/uri-schemes/perm/thismessage"
+  },
+  {
+    "scheme": "tip",
+    "description": "Transaction Internet Protocol",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc2371"
+      }
+    ]
+  },
+  {
+    "scheme": "tn3270",
+    "description": "Interactive 3270 emulation sessions",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc6270"
+      }
+    ]
+  },
+  {
+    "scheme": "turn",
+    "description": "turn",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc7065"
+      }
+    ]
+  },
+  {
+    "scheme": "turns",
+    "description": "turns",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc7065"
+      }
+    ]
+  },
+  {
+    "scheme": "tv",
+    "description": "TV Broadcasts",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc2838"
+      }
+    ]
+  },
+  {
+    "scheme": "urn",
+    "description": "Uniform Resource Names",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc2141"
+      },
+      {
+        "type": "registry",
+        "href": "http://www.iana.org/assignments/urn-namespaces"
+      }
+    ]
+  },
+  {
+    "scheme": "vemmi",
+    "description": "versatile multimedia interface",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc2122"
+      }
+    ]
+  },
+  {
+    "scheme": "vnc",
+    "description": "Remote Framebuffer Protocol",
+    "reference": [
+      {
+        "type": "draft",
+        "href": "http://www.iana.org/go/RFC-warden-appsawg-vnc-scheme-10"
+      }
+    ]
+  },
+  {
+    "scheme": "ws",
+    "description": "WebSocket connections",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc6455"
+      }
+    ]
+  },
+  {
+    "scheme": "wss",
+    "description": "Encrypted WebSocket connections",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc6455"
+      }
+    ]
+  },
+  {
+    "scheme": "xcon",
+    "description": "xcon",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc6501"
+      }
+    ]
+  },
+  {
+    "scheme": "xcon-userid",
+    "description": "xcon-userid",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc6501"
+      }
+    ]
+  },
+  {
+    "scheme": "xmlrpc.beep",
+    "description": "xmlrpc.beep",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc3529"
+      }
+    ]
+  },
+  {
+    "scheme": "xmlrpc.beeps",
+    "description": "xmlrpc.beeps",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc3529"
+      }
+    ]
+  },
+  {
+    "scheme": "xmpp",
+    "description": "Extensible Messaging and Presence Protocol",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc5122"
+      }
+    ]
+  },
+  {
+    "scheme": "z39.50r",
+    "description": "Z39.50 Retrieval",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc2056"
+      }
+    ]
+  },
+  {
+    "scheme": "z39.50s",
+    "description": "Z39.50 Session",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc2056"
+      }
+    ]
+  }
+]

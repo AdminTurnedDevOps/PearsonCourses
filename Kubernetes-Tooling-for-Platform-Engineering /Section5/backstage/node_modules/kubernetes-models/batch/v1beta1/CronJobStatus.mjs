@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiBatchV1beta1CronJobStatus.mjs";export class CronJobStatus extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(CronJobStatus,validate);export{CronJobStatus as IoK8sApiBatchV1beta1CronJobStatus};

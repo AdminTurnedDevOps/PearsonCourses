@@ -1,0 +1,5 @@
+[
+  {
+    "petstore_auth": ["write:pets", "read:pets"]
+  }
+]

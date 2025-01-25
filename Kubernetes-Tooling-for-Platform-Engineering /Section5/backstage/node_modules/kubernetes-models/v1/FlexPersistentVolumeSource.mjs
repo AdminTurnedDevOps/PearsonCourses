@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1FlexPersistentVolumeSource.mjs";export class FlexPersistentVolumeSource extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(FlexPersistentVolumeSource,validate);export{FlexPersistentVolumeSource as IoK8sApiCoreV1FlexPersistentVolumeSource};

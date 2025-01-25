@@ -1,0 +1,19 @@
+{
+  "email": "__test_email__",
+  "family_name": "__test_family_name__",
+  "gender": "__test_gender__",
+  "given_name": "__test_given_name__",
+  "identities": [
+    {
+      "provider": "__test_provider__",
+      "user_id": "__test_user_id__",
+      "connection": "__test_provider__",
+      "isSocial": true
+    }
+  ],
+  "locale": "__test_locale__",
+  "name": "__test_name__",
+  "nickname": "__test_nickname__",
+  "picture": "__test_picture__",
+  "user_id": "__test_provider__|__test_user_id__"
+}

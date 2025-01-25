@@ -1,0 +1,922 @@
+[
+  {
+    "scheme": "acr",
+    "description": "acr",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/acr"
+  },
+  {
+    "scheme": "adiumxtra",
+    "description": "adiumxtra",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/adiumxtra"
+  },
+  {
+    "scheme": "afp",
+    "description": "afp",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/afp"
+  },
+  {
+    "scheme": "afs",
+    "description": "Andrew File System global file names",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc1738"
+      }
+    ]
+  },
+  {
+    "scheme": "aim",
+    "description": "aim",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/aim"
+  },
+  {
+    "scheme": "appdata",
+    "description": "appdata",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/appdata"
+  },
+  {
+    "scheme": "apt",
+    "description": "apt",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/apt"
+  },
+  {
+    "scheme": "attachment",
+    "description": "attachment",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/attachment"
+  },
+  {
+    "scheme": "aw",
+    "description": "aw",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/aw"
+  },
+  {
+    "scheme": "barion",
+    "description": "barion",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/barion"
+  },
+  {
+    "scheme": "beshare",
+    "description": "beshare",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/beshare"
+  },
+  {
+    "scheme": "bitcoin",
+    "description": "bitcoin",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/bitcoin"
+  },
+  {
+    "scheme": "blob",
+    "description": "blob",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/blob"
+  },
+  {
+    "scheme": "bolo",
+    "description": "bolo",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/bolo"
+  },
+  {
+    "scheme": "callto",
+    "description": "callto",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/callto"
+  },
+  {
+    "scheme": "chrome",
+    "description": "chrome",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/chrome"
+  },
+  {
+    "scheme": "chrome-extension",
+    "description": "chrome-extension",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/chrome-extension"
+  },
+  {
+    "scheme": "com-eventbrite-attendee",
+    "description": "com-eventbrite-attendee",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/com-eventbrite-attendee"
+  },
+  {
+    "scheme": "content",
+    "description": "content",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/content"
+  },
+  {
+    "scheme": "cvs",
+    "description": "cvs",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/cvs"
+  },
+  {
+    "scheme": "dis",
+    "description": "dis",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/dis"
+  },
+  {
+    "scheme": "dlna-playcontainer",
+    "description": "dlna-playcontainer",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/dlna-playcontainer"
+  },
+  {
+    "scheme": "dlna-playsingle",
+    "description": "dlna-playsingle",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/dlna-playsingle"
+  },
+  {
+    "scheme": "dntp",
+    "description": "dntp",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/dntp"
+  },
+  {
+    "scheme": "dtn",
+    "description": "DTNRG research and development",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc5050"
+      }
+    ]
+  },
+  {
+    "scheme": "dvb",
+    "description": "dvb",
+    "reference": [
+      {
+        "type": "draft",
+        "href": "http://www.iana.org/go/draft-mcroberts-uri-dvb"
+      }
+    ]
+  },
+  {
+    "scheme": "ed2k",
+    "description": "ed2k",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ed2k"
+  },
+  {
+    "scheme": "facetime",
+    "description": "facetime",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/facetime"
+  },
+  {
+    "scheme": "feed",
+    "description": "feed",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/feed"
+  },
+  {
+    "scheme": "feedready",
+    "description": "feedready",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/feedready"
+  },
+  {
+    "scheme": "finger",
+    "description": "finger",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/finger"
+  },
+  {
+    "scheme": "fish",
+    "description": "fish",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/fish"
+  },
+  {
+    "scheme": "gg",
+    "description": "gg",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/gg"
+  },
+  {
+    "scheme": "git",
+    "description": "git",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/git"
+  },
+  {
+    "scheme": "gizmoproject",
+    "description": "gizmoproject",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/gizmoproject"
+  },
+  {
+    "scheme": "gtalk",
+    "description": "gtalk",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/gtalk"
+  },
+  {
+    "scheme": "ham",
+    "description": "ham",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc7046"
+      }
+    ]
+  },
+  {
+    "scheme": "hcp",
+    "description": "hcp",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/hcp"
+  },
+  {
+    "scheme": "icon",
+    "description": "icon",
+    "reference": [
+      {
+        "type": "draft",
+        "href": "http://www.iana.org/go/draft-lafayette-icon-uri-scheme"
+      }
+    ]
+  },
+  {
+    "scheme": "iotdisco",
+    "description": "iotdisco",
+    "reference": [
+      {
+        "type": "uri",
+        "href": "http://www.iana.org/assignments/uri-schemes/prov/iotdisco.pdf"
+      }
+    ],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/iotdisco"
+  },
+  {
+    "scheme": "ipn",
+    "description": "ipn",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc6260"
+      }
+    ]
+  },
+  {
+    "scheme": "irc",
+    "description": "irc",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/irc"
+  },
+  {
+    "scheme": "irc6",
+    "description": "irc6",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/irc6"
+  },
+  {
+    "scheme": "ircs",
+    "description": "ircs",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ircs"
+  },
+  {
+    "scheme": "isostore",
+    "description": "isostore",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/isostore"
+  },
+  {
+    "scheme": "itms",
+    "description": "itms",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/itms"
+  },
+  {
+    "scheme": "jar",
+    "description": "jar",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/jar"
+  },
+  {
+    "scheme": "jms",
+    "description": "Java Message Service",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc6167"
+      }
+    ]
+  },
+  {
+    "scheme": "keyparc",
+    "description": "keyparc",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/keyparc"
+  },
+  {
+    "scheme": "lastfm",
+    "description": "lastfm",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/lastfm"
+  },
+  {
+    "scheme": "ldaps",
+    "description": "ldaps",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ldaps"
+  },
+  {
+    "scheme": "magnet",
+    "description": "magnet",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/magnet"
+  },
+  {
+    "scheme": "maps",
+    "description": "maps",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/maps"
+  },
+  {
+    "scheme": "market",
+    "description": "market",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/market"
+  },
+  {
+    "scheme": "message",
+    "description": "message",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/message"
+  },
+  {
+    "scheme": "mms",
+    "description": "mms",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/mms"
+  },
+  {
+    "scheme": "ms-access",
+    "description": "ms-access",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ms-access"
+  },
+  {
+    "scheme": "ms-drive-to",
+    "description": "ms-drive-to",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ms-drive-to"
+  },
+  {
+    "scheme": "ms-enrollment",
+    "description": "ms-enrollment",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ms-enrollment"
+  },
+  {
+    "scheme": "ms-excel",
+    "description": "ms-excel",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ms-excel"
+  },
+  {
+    "scheme": "ms-getoffice",
+    "description": "ms-getoffice",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ms-getoffice"
+  },
+  {
+    "scheme": "ms-help",
+    "description": "ms-help",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ms-help"
+  },
+  {
+    "scheme": "ms-infopath",
+    "description": "ms-infopath",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ms-infopath"
+  },
+  {
+    "scheme": "ms-media-stream-id",
+    "description": "ms-media-stream-id",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ms-media-stream-id"
+  },
+  {
+    "scheme": "ms-powerpoint",
+    "description": "ms-powerpoint",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ms-powerpoint"
+  },
+  {
+    "scheme": "ms-project",
+    "description": "ms-project",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ms-project"
+  },
+  {
+    "scheme": "ms-publisher",
+    "description": "ms-publisher",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ms-publisher"
+  },
+  {
+    "scheme": "ms-search-repair",
+    "description": "ms-search-repair",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ms-search-repair"
+  },
+  {
+    "scheme": "ms-secondary-screen-controller",
+    "description": "ms-secondary-screen-controller",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ms-secondary-screen-controller"
+  },
+  {
+    "scheme": "ms-secondary-screen-setup",
+    "description": "ms-secondary-screen-setup",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ms-secondary-screen-setup"
+  },
+  {
+    "scheme": "ms-settings",
+    "description": "ms-settings",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ms-settings"
+  },
+  {
+    "scheme": "ms-settings-airplanemode",
+    "description": "ms-settings-airplanemode",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ms-settings-airplanemode"
+  },
+  {
+    "scheme": "ms-settings-bluetooth",
+    "description": "ms-settings-bluetooth",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ms-settings-bluetooth"
+  },
+  {
+    "scheme": "ms-settings-camera",
+    "description": "ms-settings-camera",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ms-settings-camera"
+  },
+  {
+    "scheme": "ms-settings-cellular",
+    "description": "ms-settings-cellular",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ms-settings-cellular"
+  },
+  {
+    "scheme": "ms-settings-cloudstorage",
+    "description": "ms-settings-cloudstorage",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ms-settings-cloudstorage"
+  },
+  {
+    "scheme": "ms-settings-connectabledevices",
+    "description": "ms-settings-connectabledevices",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ms-settings-connectabledevices"
+  },
+  {
+    "scheme": "ms-settings-displays-topology",
+    "description": "ms-settings-displays-topology",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ms-settings-displays-topology"
+  },
+  {
+    "scheme": "ms-settings-emailandaccounts",
+    "description": "ms-settings-emailandaccounts",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ms-settings-emailandaccounts"
+  },
+  {
+    "scheme": "ms-settings-language",
+    "description": "ms-settings-language",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ms-settings-language"
+  },
+  {
+    "scheme": "ms-settings-location",
+    "description": "ms-settings-location",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ms-settings-location"
+  },
+  {
+    "scheme": "ms-settings-lock",
+    "description": "ms-settings-lock",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ms-settings-lock"
+  },
+  {
+    "scheme": "ms-settings-nfctransactions",
+    "description": "ms-settings-nfctransactions",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ms-settings-nfctransactions"
+  },
+  {
+    "scheme": "ms-settings-notifications",
+    "description": "ms-settings-notifications",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ms-settings-notifications"
+  },
+  {
+    "scheme": "ms-settings-power",
+    "description": "ms-settings-power",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ms-settings-power"
+  },
+  {
+    "scheme": "ms-settings-privacy",
+    "description": "ms-settings-privacy",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ms-settings-privacy"
+  },
+  {
+    "scheme": "ms-settings-proximity",
+    "description": "ms-settings-proximity",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ms-settings-proximity"
+  },
+  {
+    "scheme": "ms-settings-screenrotation",
+    "description": "ms-settings-screenrotation",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ms-settings-screenrotation"
+  },
+  {
+    "scheme": "ms-settings-wifi",
+    "description": "ms-settings-wifi",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ms-settings-wifi"
+  },
+  {
+    "scheme": "ms-settings-workplace",
+    "description": "ms-settings-workplace",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ms-settings-workplace"
+  },
+  {
+    "scheme": "ms-spd",
+    "description": "ms-spd",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ms-spd"
+  },
+  {
+    "scheme": "ms-transit-to",
+    "description": "ms-transit-to",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ms-transit-to"
+  },
+  {
+    "scheme": "ms-visio",
+    "description": "ms-visio",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ms-visio"
+  },
+  {
+    "scheme": "ms-walk-to",
+    "description": "ms-walk-to",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ms-walk-to"
+  },
+  {
+    "scheme": "ms-word",
+    "description": "ms-word",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ms-word"
+  },
+  {
+    "scheme": "msnim",
+    "description": "msnim",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/msnim"
+  },
+  {
+    "scheme": "mumble",
+    "description": "mumble",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/mumble"
+  },
+  {
+    "scheme": "mvn",
+    "description": "mvn",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/mvn"
+  },
+  {
+    "scheme": "notes",
+    "description": "notes",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/notes"
+  },
+  {
+    "scheme": "oid",
+    "description": "oid",
+    "reference": [
+      {
+        "type": "draft",
+        "href": "http://www.iana.org/go/draft-larmouth-oid-iri"
+      }
+    ],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/oid"
+  },
+  {
+    "scheme": "palm",
+    "description": "palm",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/palm"
+  },
+  {
+    "scheme": "paparazzi",
+    "description": "paparazzi",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/paparazzi"
+  },
+  {
+    "scheme": "platform",
+    "description": "platform",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/platform"
+  },
+  {
+    "scheme": "proxy",
+    "description": "proxy",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/proxy"
+  },
+  {
+    "scheme": "psyc",
+    "description": "psyc",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/psyc"
+  },
+  {
+    "scheme": "query",
+    "description": "query",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/query"
+  },
+  {
+    "scheme": "redis",
+    "description": "redis",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/redis"
+  },
+  {
+    "scheme": "rediss",
+    "description": "rediss",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/rediss"
+  },
+  {
+    "scheme": "res",
+    "description": "res",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/res"
+  },
+  {
+    "scheme": "resource",
+    "description": "resource",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/resource"
+  },
+  {
+    "scheme": "rmi",
+    "description": "rmi",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/rmi"
+  },
+  {
+    "scheme": "rsync",
+    "description": "rsync",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc5781"
+      }
+    ]
+  },
+  {
+    "scheme": "rtmfp",
+    "description": "rtmfp",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc7425"
+      }
+    ],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/rtmfp"
+  },
+  {
+    "scheme": "rtmp",
+    "description": "rtmp",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/rtmp"
+  },
+  {
+    "scheme": "secondlife",
+    "description": "query",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/secondlife"
+  },
+  {
+    "scheme": "sftp",
+    "description": "query",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/sftp"
+  },
+  {
+    "scheme": "sgn",
+    "description": "sgn",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/sgn"
+  },
+  {
+    "scheme": "skype",
+    "description": "skype",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/skype"
+  },
+  {
+    "scheme": "smb",
+    "description": "smb",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/smb"
+  },
+  {
+    "scheme": "smtp",
+    "description": "smtp",
+    "reference": [
+      {
+        "type": "draft",
+        "href": "http://www.iana.org/go/draft-melnikov-smime-msa-to-mda"
+      }
+    ],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/smtp"
+  },
+  {
+    "scheme": "soldat",
+    "description": "soldat",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/soldat"
+  },
+  {
+    "scheme": "spotify",
+    "description": "spotify",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/spotify"
+  },
+  {
+    "scheme": "ssh",
+    "description": "ssh",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ssh"
+  },
+  {
+    "scheme": "steam",
+    "description": "steam",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/steam"
+  },
+  {
+    "scheme": "submit",
+    "description": "submit",
+    "reference": [
+      {
+        "type": "draft",
+        "href": "http://www.iana.org/go/draft-melnikov-smime-msa-to-mda"
+      }
+    ],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/submit"
+  },
+  {
+    "scheme": "svn",
+    "description": "svn",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/svn"
+  },
+  {
+    "scheme": "teamspeak",
+    "description": "teamspeak",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/teamspeak"
+  },
+  {
+    "scheme": "teliaeid",
+    "description": "teliaeid",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/teliaeid"
+  },
+  {
+    "scheme": "things",
+    "description": "things",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/things"
+  },
+  {
+    "scheme": "tool",
+    "description": "tool",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/tool"
+  },
+  {
+    "scheme": "udp",
+    "description": "udp",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/udp"
+  },
+  {
+    "scheme": "unreal",
+    "description": "unreal",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/unreal"
+  },
+  {
+    "scheme": "ut2004",
+    "description": "ut2004",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ut2004"
+  },
+  {
+    "scheme": "v-event",
+    "description": "v-event",
+    "reference": [
+      {
+        "type": "draft",
+        "href": "http://www.iana.org/go/draft-menderico-v-event-uri"
+      }
+    ],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/v-event"
+  },
+  {
+    "scheme": "ventrilo",
+    "description": "ventrilo",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ventrilo"
+  },
+  {
+    "scheme": "view-source",
+    "description": "view-source",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/view-source"
+  },
+  {
+    "scheme": "webcal",
+    "description": "webcal",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/webcal"
+  },
+  {
+    "scheme": "wpid",
+    "description": "wpid",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/wpid"
+  },
+  {
+    "scheme": "wtai",
+    "description": "wtai",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/wtai"
+  },
+  {
+    "scheme": "wyciwyg",
+    "description": "wyciwyg",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/wyciwyg"
+  },
+  {
+    "scheme": "xfire",
+    "description": "xfire",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/xfire"
+  },
+  {
+    "scheme": "xri",
+    "description": "xri",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/xri"
+  },
+  {
+    "scheme": "ymsgr",
+    "description": "ymsgr",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/prov/ymsgr"
+  }
+]

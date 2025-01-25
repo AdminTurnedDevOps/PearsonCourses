@@ -1,0 +1,98 @@
+{
+  "allOf": [
+    {
+      "$ref": "http://json-schema.org/draft-07/schema#"
+    },
+    {
+      "patternProperties": {
+        "^x-[\\w\\d\\.\\x2d_]+$": {
+          "$ref": "http://asyncapi.com/definitions/2.2.0/specificationExtension.json"
+        }
+      },
+      "properties": {
+        "additionalProperties": {
+          "anyOf": [
+            {
+              "$ref": "http://asyncapi.com/definitions/2.2.0/schema.json"
+            },
+            {
+              "type": "boolean"
+            }
+          ],
+          "default": {}
+        },
+        "items": {
+          "anyOf": [
+            {
+              "$ref": "http://asyncapi.com/definitions/2.2.0/schema.json"
+            },
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "http://asyncapi.com/definitions/2.2.0/schema.json"
+              }
+            }
+          ],
+          "default": {}
+        },
+        "allOf": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "http://asyncapi.com/definitions/2.2.0/schema.json"
+          }
+        },
+        "oneOf": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "http://asyncapi.com/definitions/2.2.0/schema.json"
+          }
+        },
+        "anyOf": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "http://asyncapi.com/definitions/2.2.0/schema.json"
+          }
+        },
+        "not": {
+          "$ref": "http://asyncapi.com/definitions/2.2.0/schema.json"
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "http://asyncapi.com/definitions/2.2.0/schema.json"
+          },
+          "default": {}
+        },
+        "patternProperties": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "http://asyncapi.com/definitions/2.2.0/schema.json"
+          },
+          "default": {}
+        },
+        "propertyNames": {
+          "$ref": "http://asyncapi.com/definitions/2.2.0/schema.json"
+        },
+        "contains": {
+          "$ref": "http://asyncapi.com/definitions/2.2.0/schema.json"
+        },
+        "discriminator": {
+          "type": "string"
+        },
+        "externalDocs": {
+          "$ref": "http://asyncapi.com/definitions/2.2.0/externalDocs.json"
+        },
+        "deprecated": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    }
+  ],
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://asyncapi.com/definitions/2.2.0/schema.json"
+}

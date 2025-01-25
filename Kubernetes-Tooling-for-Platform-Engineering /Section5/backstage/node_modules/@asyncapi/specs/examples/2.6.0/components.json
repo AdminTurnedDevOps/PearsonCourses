@@ -1,0 +1,131 @@
+[
+    {
+      "components": {
+        "schemas": {
+          "Category": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "name": {
+                "type": "string"
+              }
+            }
+          },
+          "Tag": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "servers": {
+          "development": {
+            "url": "{stage}.gigantic-server.com:{port}",
+            "description": "Development server",
+            "protocol": "amqp",
+            "protocolVersion": "0.9.1",
+            "variables": {
+              "stage": {
+                "$ref": "#/components/serverVariables/stage"
+              },
+              "port": {
+                "$ref": "#/components/serverVariables/port"
+              }
+            }
+          }
+        },
+        "serverVariables": {
+          "stage": {
+            "default": "demo",
+            "description": "This value is assigned by the service provider, in this example `gigantic-server.com`"
+          },
+          "port": {
+            "enum": ["8883", "8884"],
+            "default": "8883"
+          }
+        },
+        "channels": {
+          "user/signedup": {
+            "subscribe": {
+              "message": {
+                "$ref": "#/components/messages/userSignUp"
+              }
+            }
+          }
+        },
+        "messages": {
+          "userSignUp": {
+            "summary": "Action to sign a user up.",
+            "description": "Multiline description of what this action does.\nHere you have another line.\n",
+            "tags": [
+              {
+                "name": "user"
+              },
+              {
+                "name": "signup"
+              }
+            ],
+            "headers": {
+              "type": "object",
+              "properties": {
+                "applicationInstanceId": {
+                  "description": "Unique identifier for a given instance of the publishing application",
+                  "type": "string"
+                }
+              }
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "user": {
+                  "$ref": "#/components/schemas/userCreate"
+                },
+                "signup": {
+                  "$ref": "#/components/schemas/signup"
+                }
+              }
+            }
+          }
+        },
+        "parameters": {
+          "userId": {
+            "description": "Id of the user.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "correlationIds": {
+          "default": {
+            "description": "Default Correlation ID",
+            "location": "$message.header#/correlationId"
+          }
+        },
+        "messageTraits": {
+          "commonHeaders": {
+            "headers": {
+              "type": "object",
+              "properties": {
+                "my-app-header": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 100
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+
+]

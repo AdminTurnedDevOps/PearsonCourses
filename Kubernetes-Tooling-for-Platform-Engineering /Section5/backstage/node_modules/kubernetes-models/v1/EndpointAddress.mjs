@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1EndpointAddress.mjs";export class EndpointAddress extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(EndpointAddress,validate);export{EndpointAddress as IoK8sApiCoreV1EndpointAddress};

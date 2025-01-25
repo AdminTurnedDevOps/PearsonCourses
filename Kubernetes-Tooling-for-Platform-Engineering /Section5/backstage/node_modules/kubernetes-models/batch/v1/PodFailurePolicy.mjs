@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiBatchV1PodFailurePolicy.mjs";export class PodFailurePolicy extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(PodFailurePolicy,validate);export{PodFailurePolicy as IoK8sApiBatchV1PodFailurePolicy};

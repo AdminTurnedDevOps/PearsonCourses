@@ -1,0 +1,58 @@
+{
+  "name": "passport-oauth",
+  "version": "1.0.0",
+  "description": "OAuth 1.0 and 2.0 authentication strategies for Passport.",
+  "keywords": [
+    "passport",
+    "auth",
+    "authn",
+    "authentication",
+    "authz",
+    "authorization",
+    "oauth",
+    "oauth2"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jaredhanson/passport-oauth.git"
+  },
+  "bugs": {
+    "url": "http://github.com/jaredhanson/passport-oauth/issues"
+  },
+  "author": {
+    "name": "Jared Hanson",
+    "email": "jaredhanson@gmail.com",
+    "url": "http://www.jaredhanson.net/"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/MIT"
+    }
+  ],
+  "main": "./lib",
+  "dependencies": {
+    "passport-oauth1": "1.x.x",
+    "passport-oauth2": "1.x.x"
+  },
+  "devDependencies": {
+    "mocha": "1.x.x",
+    "chai": "1.x.x",
+    "chai-passport-strategy": "0.1.x"
+  },
+  "engines": { "node": ">= 0.4.0" },
+  "scripts": {
+    "test": "node_modules/.bin/mocha --reporter spec --require test/bootstrap/node test/*.test.js"
+  },
+  "testling": {
+    "browsers": [
+      "chrome/latest"
+    ],
+    "harness" : "mocha",
+    "files": [
+      "test/bootstrap/testling.js",
+      "test/*.test.js",
+      "test/**/*.test.js"
+    ]
+  }
+}

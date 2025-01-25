@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1PersistentVolumeSpec.mjs";export class PersistentVolumeSpec extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(PersistentVolumeSpec,validate);export{PersistentVolumeSpec as IoK8sApiCoreV1PersistentVolumeSpec};

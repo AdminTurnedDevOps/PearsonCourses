@@ -1,0 +1,36 @@
+import { IIoK8sApiFlowcontrolV1beta1FlowDistinguisherMethod } from "./FlowDistinguisherMethod";
+import { IIoK8sApiFlowcontrolV1beta1PriorityLevelConfigurationReference } from "./PriorityLevelConfigurationReference";
+import { IIoK8sApiFlowcontrolV1beta1PolicyRulesWithSubjects } from "./PolicyRulesWithSubjects";
+import { ModelData, Model } from "@kubernetes-models/base";
+/**
+ * FlowSchemaSpec describes how the FlowSchema's specification looks like.
+ */
+export interface IFlowSchemaSpec {
+    /**
+     * `distinguisherMethod` defines how to compute the flow distinguisher for requests that match this schema. `nil` specifies that the distinguisher is disabled and thus will always be the empty string.
+     */
+    "distinguisherMethod"?: IIoK8sApiFlowcontrolV1beta1FlowDistinguisherMethod;
+    /**
+     * `matchingPrecedence` is used to choose among the FlowSchemas that match a given request. The chosen FlowSchema is among those with the numerically lowest (which we take to be logically highest) MatchingPrecedence.  Each MatchingPrecedence value must be ranged in [1,10000]. Note that if the precedence is not specified, it will be set to 1000 as default.
+     */
+    "matchingPrecedence"?: number;
+    /**
+     * `priorityLevelConfiguration` should reference a PriorityLevelConfiguration in the cluster. If the reference cannot be resolved, the FlowSchema will be ignored and marked as invalid in its status. Required.
+     */
+    "priorityLevelConfiguration": IIoK8sApiFlowcontrolV1beta1PriorityLevelConfigurationReference;
+    /**
+     * `rules` describes which requests will match this flow schema. This FlowSchema matches a request if and only if at least one member of rules matches the request. if it is an empty slice, there will be no requests matching the FlowSchema.
+     */
+    "rules"?: Array<IIoK8sApiFlowcontrolV1beta1PolicyRulesWithSubjects>;
+}
+/**
+ * FlowSchemaSpec describes how the FlowSchema's specification looks like.
+ */
+export declare class FlowSchemaSpec extends Model<IFlowSchemaSpec> implements IFlowSchemaSpec {
+    "distinguisherMethod"?: IIoK8sApiFlowcontrolV1beta1FlowDistinguisherMethod;
+    "matchingPrecedence"?: number;
+    "priorityLevelConfiguration": IIoK8sApiFlowcontrolV1beta1PriorityLevelConfigurationReference;
+    "rules"?: Array<IIoK8sApiFlowcontrolV1beta1PolicyRulesWithSubjects>;
+    constructor(data?: ModelData<IFlowSchemaSpec>);
+}
+export { IFlowSchemaSpec as IIoK8sApiFlowcontrolV1beta1FlowSchemaSpec, FlowSchemaSpec as IoK8sApiFlowcontrolV1beta1FlowSchemaSpec };

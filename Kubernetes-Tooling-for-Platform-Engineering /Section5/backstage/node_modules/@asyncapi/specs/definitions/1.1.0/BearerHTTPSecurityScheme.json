@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "required": [
+    "type",
+    "scheme"
+  ],
+  "properties": {
+    "scheme": {
+      "type": "string",
+      "enum": [
+        "bearer"
+      ]
+    },
+    "bearerFormat": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "http"
+      ]
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "patternProperties": {
+    "^x-": {}
+  },
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://asyncapi.com/definitions/1.1.0/BearerHTTPSecurityScheme.json"
+}

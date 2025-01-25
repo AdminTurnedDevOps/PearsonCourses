@@ -1,0 +1,118 @@
+{
+  "name": "nimma",
+  "version": "0.2.3",
+  "description": "Scalable JSONPath engine.",
+  "keywords": [
+    "json",
+    "jsonpath"
+  ],
+  "homepage": "https://github.com/P0lip/nimma",
+  "bugs": {
+    "url": "https://github.com/P0lip/nimma/issues"
+  },
+  "engines": {
+    "node": "^12.20 || >=14.13"
+  },
+  "files": [
+    "dist/**"
+  ],
+  "types": "./dist/cjs/index.d.ts",
+  "type": "commonjs",
+  "main": "./dist/legacy/cjs/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.mjs",
+      "require": "./dist/cjs/index.js"
+    },
+    "./runtime": {
+      "import": "./dist/esm/runtime/index.mjs",
+      "require": "./dist/cjs/runtime/index.js"
+    },
+    "./parser": {
+      "import": "./dist/esm/parser/parser.mjs",
+      "require": "./dist/cjs/parser/parser.js"
+    },
+    "./errors": {
+      "import": "./dist/esm/runtime/errors/index.mjs",
+      "require": "./dist/cjs/runtime/errors/index.js"
+    },
+    "./fallbacks": {
+      "import": "./dist/esm/fallbacks/index.mjs",
+      "require": "./dist/cjs/fallbacks/index.js"
+    },
+    "./legacy": {
+      "import": "./dist/legacy/esm/index.mjs",
+      "require": "./dist/legacy/cjs/index.js"
+    },
+    "./legacy/runtime": {
+      "import": "./dist/legacy/esm/runtime/index.mjs",
+      "require": "./dist/legacy/cjs/runtime/index.js"
+    },
+    "./legacy/fallbacks": {
+      "import": "./dist/legacy/esm/fallbacks/index.mjs",
+      "require": "./dist/legacy/cjs/fallbacks/index.js"
+    }
+  },
+  "sideEffects": false,
+  "license": "Apache-2.0",
+  "author": "P0lip",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/P0lip/nimma"
+  },
+  "scripts": {
+    "prebuild": "peggy --format es -o src/parser/parser.mjs src/parser/parser.peg",
+    "build": "export NODE_ENV=production; rollup -c && BABEL_ENV=legacy rollup -c",
+    "postbuild": "(cd dist/legacy && sed -i \"s/nimma\\/runtime/nimma\\/legacy\\/runtime/\" cjs/codegen/tree/tree.js esm/codegen/tree/tree.mjs) && node ./scripts/copy-types.mjs",
+    "lint": "ls-lint && eslint --cache --cache-location .cache/ --ext .js,.mjs src",
+    "test": "export NODE_ENV=test; c8 mocha --config .mocharc ./**/__tests__/**/*.test.mjs && karma start",
+    "prepublishOnly": "npm run lint && npm run test && npm run build && (stat ./dist/esm/parser/parser.mjs && stat ./dist/cjs/parser/parser.js) >> /dev/null"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/eslint-parser": "^7.15.0",
+    "@babel/plugin-transform-runtime": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@ls-lint/ls-lint": "^1.10.0",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^19.0.2",
+    "@sindresorhus/fnv1a": "^3.0.0",
+    "benchmark": "^2.1.4",
+    "c8": "^7.8.0",
+    "chai": "^4.3.4",
+    "cpy": "^8.1.2",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-chai-expect": "^2.2.0",
+    "eslint-plugin-chai-friendly": "^0.7.2",
+    "eslint-plugin-prettier": "^3.4.1",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "fast-glob": "^2.2.7",
+    "file-entry-cache": "^6.0.1",
+    "husky": "^4.3.8",
+    "json-schema-faker": "^0.5.0-rcv.39",
+    "jsonpath": "^1.1.1",
+    "jsonpath-plus": "^10.1.0",
+    "karma": "^6.3.5",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-firefox-launcher": "^2.1.1",
+    "karma-mocha": "^2.0.1",
+    "karma-module-resolver-preprocessor": "^1.1.3",
+    "lodash.topath": "^4.5.2",
+    "mocha": "^8.0.1",
+    "mocha-each": "^2.0.1",
+    "peggy": "^1.2.0",
+    "prettier": "^2.3.2",
+    "rollup": "^2.56.2"
+  },
+  "optionalDependencies": {
+    "jsonpath-plus": "^6.0.1 || ^10.1.0",
+    "lodash.topath": "^4.5.2"
+  },
+  "dependencies": {
+    "@jsep-plugin/regex": "^1.0.1",
+    "@jsep-plugin/ternary": "^1.0.2",
+    "astring": "^1.8.1",
+    "jsep": "^1.2.0"
+  }
+}

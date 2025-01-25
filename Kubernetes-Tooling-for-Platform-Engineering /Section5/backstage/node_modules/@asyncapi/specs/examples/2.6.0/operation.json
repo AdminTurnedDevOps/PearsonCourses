@@ -1,0 +1,45 @@
+[
+    {
+      "operationId": "registerUser",
+      "summary": "Action to sign a user up.",
+      "description": "A longer description",
+      "security": [
+        {
+          "petstore_auth": ["write:pets", "read:pets"]
+        }
+      ],
+      "tags": [
+        { "name": "user" },
+        { "name": "signup" },
+        { "name": "register" }
+      ],
+      "message": {
+        "headers": {
+          "type": "object",
+          "properties": {
+            "applicationInstanceId": {
+              "description": "Unique identifier for a given instance of the publishing application",
+              "type": "string"
+            }
+          }
+        },
+        "payload": {
+          "type": "object",
+          "properties": {
+            "user": {
+              "$ref": "#/components/schemas/userCreate"
+            },
+            "signup": {
+              "$ref": "#/components/schemas/signup"
+            }
+          }
+        }
+      },
+      "bindings": {
+        "amqp": {
+          "ack": false
+        }
+      },
+      "traits": [{ "$ref": "#/components/operationTraits/kafka" }]
+    }
+]

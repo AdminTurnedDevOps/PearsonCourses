@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1WeightedPodAffinityTerm.mjs";export class WeightedPodAffinityTerm extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(WeightedPodAffinityTerm,validate);export{WeightedPodAffinityTerm as IoK8sApiCoreV1WeightedPodAffinityTerm};

@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1LocalObjectReference.mjs";export class LocalObjectReference extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(LocalObjectReference,validate);export{LocalObjectReference as IoK8sApiCoreV1LocalObjectReference};

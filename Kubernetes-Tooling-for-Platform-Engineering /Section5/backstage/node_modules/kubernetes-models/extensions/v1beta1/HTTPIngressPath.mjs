@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiExtensionsV1beta1HTTPIngressPath.mjs";export class HTTPIngressPath extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(HTTPIngressPath,validate);export{HTTPIngressPath as IoK8sApiExtensionsV1beta1HTTPIngressPath};

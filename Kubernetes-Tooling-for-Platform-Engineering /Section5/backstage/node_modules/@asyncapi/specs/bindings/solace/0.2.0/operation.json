@@ -1,0 +1,106 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://asyncapi.com/bindings/solace/0.2.0/operation.json",
+  "title": "Solace operation bindings object",
+  "description": "This object contains information about the operation representation in Solace.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "destinations": {
+      "description": "The list of Solace destinations referenced in the operation.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "deliveryMode": {
+            "type": "string",
+            "enum": [
+              "direct",
+              "persistent"
+            ]
+          }
+        },
+        "oneOf": [
+          {
+            "properties": {
+              "destinationType": {
+                "type": "string",
+                "const": "queue",
+                "description": "If the type is queue, then the subscriber can bind to the queue. The queue subscribes to the given topicSubscriptions. If no topicSubscriptions are provied, the queue will subscribe to the topic as represented by the channel name."
+              },
+              "queue": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The name of the queue"
+                  },
+                  "topicSubscriptions": {
+                    "type": "array",
+                    "description": "The list of topics that the queue subscribes to.",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "accessType": {
+                    "type": "string",
+                    "enum": [
+                      "exclusive",
+                      "nonexclusive"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          {
+            "properties": {
+              "destinationType": {
+                "type": "string",
+                "const": "topic",
+                "description": "If the type is topic, then the subscriber subscribes to the given topicSubscriptions. If no topicSubscriptions are provided, the client will subscribe to the topic as represented by the channel name."
+              },
+              "topicSubscriptions": {
+                "type": "array",
+                "description": "The list of topics that the client subscribes to.",
+                "items": {
+                  "type": "string"
+                }
+          }
+            }
+          }
+        ]
+      }
+    },
+    "bindingVersion": {
+      "type": "string",
+      "enum": [
+        "0.2.0"
+      ],
+      "description": "The version of this binding. If omitted, \"latest\" MUST be assumed."
+    }
+  },
+  "examples": [
+    {
+      "bindingVersion": "0.2.0",
+      "destinations": [
+        {
+          "destinationType": "queue",
+          "queue": {
+            "name": "sampleQueue",
+            "topicSubscriptions": [
+              "samples/*"
+            ],
+            "accessType": "nonexclusive"
+          }
+        },
+        {
+          "destinationType": "topic",
+          "topicSubscriptions": [
+            "samples/*"
+          ]
+        }
+      ]
+    }
+  ]
+}

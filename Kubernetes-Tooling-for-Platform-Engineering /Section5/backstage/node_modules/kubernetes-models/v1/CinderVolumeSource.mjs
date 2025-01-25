@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1CinderVolumeSource.mjs";export class CinderVolumeSource extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(CinderVolumeSource,validate);export{CinderVolumeSource as IoK8sApiCoreV1CinderVolumeSource};

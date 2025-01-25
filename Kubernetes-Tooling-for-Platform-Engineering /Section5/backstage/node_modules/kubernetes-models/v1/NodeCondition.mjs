@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1NodeCondition.mjs";export class NodeCondition extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(NodeCondition,validate);export{NodeCondition as IoK8sApiCoreV1NodeCondition};

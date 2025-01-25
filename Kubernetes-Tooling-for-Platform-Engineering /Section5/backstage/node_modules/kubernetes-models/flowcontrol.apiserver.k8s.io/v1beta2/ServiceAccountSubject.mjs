@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiFlowcontrolV1beta2ServiceAccountSubject.mjs";export class ServiceAccountSubject extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(ServiceAccountSubject,validate);export{ServiceAccountSubject as IoK8sApiFlowcontrolV1beta2ServiceAccountSubject};

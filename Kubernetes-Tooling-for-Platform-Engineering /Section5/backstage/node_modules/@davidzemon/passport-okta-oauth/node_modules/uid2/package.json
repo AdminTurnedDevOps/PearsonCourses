@@ -1,0 +1,18 @@
+{
+  "name": "uid2",
+  "description": "strong uid",
+  "tags": ["uid"],
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/coreh/uid2.git"
+  },
+  "engines": {
+    "node": ">= 4.0.0"
+  },
+  "license": "MIT",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "dependencies": {}
+}

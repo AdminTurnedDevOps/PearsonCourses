@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1AttachedVolume.mjs";export class AttachedVolume extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(AttachedVolume,validate);export{AttachedVolume as IoK8sApiCoreV1AttachedVolume};

@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1DaemonEndpoint.mjs";export class DaemonEndpoint extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(DaemonEndpoint,validate);export{DaemonEndpoint as IoK8sApiCoreV1DaemonEndpoint};

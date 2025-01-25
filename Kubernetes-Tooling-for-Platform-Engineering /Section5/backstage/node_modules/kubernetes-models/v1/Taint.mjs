@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1Taint.mjs";export class Taint extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(Taint,validate);export{Taint as IoK8sApiCoreV1Taint};

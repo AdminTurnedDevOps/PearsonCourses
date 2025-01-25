@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiAdmissionregistrationV1MatchCondition.mjs";export class MatchCondition extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(MatchCondition,validate);export{MatchCondition as IoK8sApiAdmissionregistrationV1MatchCondition};

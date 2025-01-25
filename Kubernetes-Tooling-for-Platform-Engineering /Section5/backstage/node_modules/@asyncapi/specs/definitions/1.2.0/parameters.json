@@ -1,0 +1,9 @@
+{
+  "type": "object",
+  "additionalProperties": {
+    "$ref": "http://asyncapi.com/definitions/1.2.0/parameter.json"
+  },
+  "description": "JSON objects describing re-usable topic parameters.",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://asyncapi.com/definitions/1.2.0/parameters.json"
+}

@@ -1,0 +1,20 @@
+[
+    {
+      "user/{userId}/signup": {
+        "parameters": {
+          "userId": {
+            "description": "Id of the user.",
+            "schema": {
+              "type": "string"
+            },
+            "location": "$message.payload#/user/id"
+          }
+        },
+        "subscribe": {
+          "message": {
+            "$ref": "#/components/messages/userSignedUp"
+          }
+        }
+      }
+    }
+]

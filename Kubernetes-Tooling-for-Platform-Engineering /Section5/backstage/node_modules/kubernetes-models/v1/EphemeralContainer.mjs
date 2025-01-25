@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1EphemeralContainer.mjs";export class EphemeralContainer extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(EphemeralContainer,validate);export{EphemeralContainer as IoK8sApiCoreV1EphemeralContainer};

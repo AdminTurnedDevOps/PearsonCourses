@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiNodeV1beta1Scheduling.mjs";export class Scheduling extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(Scheduling,validate);export{Scheduling as IoK8sApiNodeV1beta1Scheduling};

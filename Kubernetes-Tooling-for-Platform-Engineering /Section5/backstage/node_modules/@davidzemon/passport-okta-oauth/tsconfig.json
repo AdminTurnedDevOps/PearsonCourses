@@ -1,0 +1,11 @@
+{
+  "include": ["lib/**/*"],
+  "compilerOptions": {
+    "allowJs": true,
+    "declaration": true,
+    "emitDeclarationOnly": false,
+    "outDir": "types",
+    "declarationMap": true,
+    "esModuleInterop": true
+  }
+}

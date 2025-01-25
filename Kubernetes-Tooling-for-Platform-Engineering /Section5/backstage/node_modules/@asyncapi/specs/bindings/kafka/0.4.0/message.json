@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://asyncapi.com/bindings/kafka/0.4.0/message.json",
+  "title": "Message Schema",
+  "type": "object",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^x-[\\w\\d\\.\\x2d_]+$": {
+      "$ref": "http://asyncapi.com/definitions/3.0.0/specificationExtension.json"
+    }
+  },
+  "properties": {
+    "key": {
+      "anyOf": [
+        {
+          "$ref": "http://asyncapi.com/definitions/3.0.0/Reference.json"
+        },
+        {
+          "$ref": "http://asyncapi.com/definitions/3.0.0/schema.json"
+        },
+        {
+          "$ref": "http://asyncapi.com/definitions/3.0.0/avroSchema_v1.json"
+        }
+      ],
+      "description": "The message key."
+    },
+    "schemaIdLocation": {
+      "type": "string",
+      "description": "If a Schema Registry is used when performing this operation, tells where the id of schema is stored.",
+      "enum": ["header", "payload"]
+    },
+    "schemaIdPayloadEncoding": {
+      "type": "string",
+      "description": "Number of bytes or vendor specific values when schema id is encoded in payload."
+    },
+    "schemaLookupStrategy": {
+      "type": "string",
+      "description": "Freeform string for any naming strategy class to use. Clients should default to the vendor default if not supplied."
+    },
+    "bindingVersion": {
+      "type": "string",
+      "enum": [
+        "0.4.0"
+      ],
+      "description": "The version of this binding. If omitted, 'latest' MUST be assumed."
+    }
+
+  },
+  "examples": [
+    {
+      "key": {
+        "type": "string",
+        "enum": [
+          "myKey"
+        ]
+      },
+      "schemaIdLocation": "payload",
+      "schemaIdPayloadEncoding": "apicurio-new",
+      "schemaLookupStrategy": "TopicIdStrategy",
+      "bindingVersion": "0.4.0"
+    },
+    {
+      "key": {
+        "$ref": "path/to/user-create.avsc#/UserCreate"
+      },
+      "schemaIdLocation": "payload",
+      "schemaIdPayloadEncoding": "4",
+      "bindingVersion": "0.4.0"
+    }
+  ]
+}

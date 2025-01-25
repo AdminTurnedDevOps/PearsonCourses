@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiNodeV1Overhead.mjs";export class Overhead extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(Overhead,validate);export{Overhead as IoK8sApiNodeV1Overhead};

@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "required": [
+    "$ref"
+  ],
+  "properties": {
+    "$ref": {
+      "type": "string",
+      "format": "uri"
+    }
+  },
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://asyncapi.com/definitions/1.1.0/Reference.json"
+}

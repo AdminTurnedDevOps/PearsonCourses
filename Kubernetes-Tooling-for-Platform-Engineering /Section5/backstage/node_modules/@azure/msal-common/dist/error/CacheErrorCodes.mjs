@@ -1,0 +1,11 @@
+/*! @azure/msal-common v14.16.0 2024-11-05 */
+'use strict';
+/*
+ * Copyright (c) Microsoft Corporation. All rights reserved.
+ * Licensed under the MIT License.
+ */
+const cacheQuotaExceededErrorCode = "cache_quota_exceeded";
+const cacheUnknownErrorCode = "cache_error_unknown";
+
+export { cacheQuotaExceededErrorCode, cacheUnknownErrorCode };
+//# sourceMappingURL=CacheErrorCodes.mjs.map

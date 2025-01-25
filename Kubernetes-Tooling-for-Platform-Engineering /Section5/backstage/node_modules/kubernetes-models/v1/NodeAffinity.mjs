@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1NodeAffinity.mjs";export class NodeAffinity extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(NodeAffinity,validate);export{NodeAffinity as IoK8sApiCoreV1NodeAffinity};

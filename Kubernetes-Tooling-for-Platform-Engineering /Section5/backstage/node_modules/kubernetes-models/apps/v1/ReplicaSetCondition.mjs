@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiAppsV1ReplicaSetCondition.mjs";export class ReplicaSetCondition extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(ReplicaSetCondition,validate);export{ReplicaSetCondition as IoK8sApiAppsV1ReplicaSetCondition};

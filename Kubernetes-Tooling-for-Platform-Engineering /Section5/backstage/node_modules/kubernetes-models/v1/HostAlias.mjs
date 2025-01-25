@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1HostAlias.mjs";export class HostAlias extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(HostAlias,validate);export{HostAlias as IoK8sApiCoreV1HostAlias};

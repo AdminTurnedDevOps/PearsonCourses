@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1NodeConfigSource.mjs";export class NodeConfigSource extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(NodeConfigSource,validate);export{NodeConfigSource as IoK8sApiCoreV1NodeConfigSource};

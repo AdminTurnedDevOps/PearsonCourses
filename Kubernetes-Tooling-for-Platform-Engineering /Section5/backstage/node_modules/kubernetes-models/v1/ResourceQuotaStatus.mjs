@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1ResourceQuotaStatus.mjs";export class ResourceQuotaStatus extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(ResourceQuotaStatus,validate);export{ResourceQuotaStatus as IoK8sApiCoreV1ResourceQuotaStatus};

@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1PreferredSchedulingTerm.mjs";export class PreferredSchedulingTerm extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(PreferredSchedulingTerm,validate);export{PreferredSchedulingTerm as IoK8sApiCoreV1PreferredSchedulingTerm};

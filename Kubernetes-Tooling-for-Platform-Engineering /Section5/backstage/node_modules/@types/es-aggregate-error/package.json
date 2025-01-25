@@ -1,0 +1,27 @@
+{
+    "name": "@types/es-aggregate-error",
+    "version": "1.0.6",
+    "description": "TypeScript definitions for es-aggregate-error",
+    "homepage": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/es-aggregate-error",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "AverageHelper",
+            "githubUsername": "AverageHelper",
+            "url": "https://github.com/AverageHelper"
+        }
+    ],
+    "main": "",
+    "types": "index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+        "directory": "types/es-aggregate-error"
+    },
+    "scripts": {},
+    "dependencies": {
+        "@types/node": "*"
+    },
+    "typesPublisherContentHash": "5e2b11bdc23fe33aeb4769e30e1d12604763ae31eb7af6308bd6bf80a455e404",
+    "typeScriptVersion": "4.5"
+}

@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiStorageV1TokenRequest.mjs";export class TokenRequest extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(TokenRequest,validate);export{TokenRequest as IoK8sApiStorageV1TokenRequest};

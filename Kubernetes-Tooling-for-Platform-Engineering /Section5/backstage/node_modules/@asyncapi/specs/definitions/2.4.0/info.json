@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "description": "General information about the API.",
+  "required": [
+    "version",
+    "title"
+  ],
+  "additionalProperties": false,
+  "patternProperties": {
+    "^x-[\\w\\d\\.\\x2d_]+$": {
+      "$ref": "http://asyncapi.com/definitions/2.4.0/specificationExtension.json"
+    }
+  },
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "A unique and precise title of the API."
+    },
+    "version": {
+      "type": "string",
+      "description": "A semantic version number of the API."
+    },
+    "description": {
+      "type": "string",
+      "description": "A longer description of the API. Should be different from the title. CommonMark is allowed."
+    },
+    "termsOfService": {
+      "type": "string",
+      "description": "A URL to the Terms of Service for the API. MUST be in the format of a URL.",
+      "format": "uri"
+    },
+    "contact": {
+      "$ref": "http://asyncapi.com/definitions/2.4.0/contact.json"
+    },
+    "license": {
+      "$ref": "http://asyncapi.com/definitions/2.4.0/license.json"
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://asyncapi.com/definitions/2.4.0/info.json"
+}

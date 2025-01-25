@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiFlowcontrolV1beta2NonResourcePolicyRule.mjs";export class NonResourcePolicyRule extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(NonResourcePolicyRule,validate);export{NonResourcePolicyRule as IoK8sApiFlowcontrolV1beta2NonResourcePolicyRule};

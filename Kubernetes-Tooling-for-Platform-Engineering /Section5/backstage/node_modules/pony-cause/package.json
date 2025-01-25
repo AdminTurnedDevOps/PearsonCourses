@@ -1,0 +1,78 @@
+{
+  "name": "pony-cause",
+  "version": "1.1.1",
+  "description": "Ponyfill and helpers for Error Causes",
+  "homepage": "http://github.com/voxpelli/pony-cause",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/voxpelli/pony-cause.git"
+  },
+  "main": "index.js",
+  "types": "index.d.ts",
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "index.d.ts.map"
+  ],
+  "scripts": {
+    "build:0": "run-s clean",
+    "build:1-declaration": "tsc -p declaration.tsconfig.json",
+    "build": "run-s build:*",
+    "check:dependency-check": "dependency-check *.js 'lib/**/*.js' 'test/**/*.js' --no-dev",
+    "check:installed-check": "installed-check -i dependency-check -i installed-check",
+    "check:lint": "eslint .",
+    "check:tsc": "tsc",
+    "check:type-coverage": "type-coverage --detail --strict --at-least 97 --ignore-files 'test/*'",
+    "check": "run-s clean && run-p check:*",
+    "clean:declarations": "rm -rf $(find . -maxdepth 2 -type f -name '*.d.ts')",
+    "clean": "run-p clean:*",
+    "prepare": "husky install",
+    "prepublishOnly": "run-s build",
+    "sync-gh-actions": "ghat",
+    "test:mocha": "c8 --reporter=lcov --reporter text mocha 'test/**/*.spec.js'",
+    "test-ci": "run-s test:*",
+    "test": "run-s check test:*"
+  },
+  "keywords": [
+    "ponyfill",
+    "error",
+    "error-cause"
+  ],
+  "author": "Pelle Wessman <pelle@kodfabrik.se> (http://kodfabrik.se/)",
+  "license": "0BSD",
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.22",
+    "@types/chai-string": "^1.4.2",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^12.20.36",
+    "@types/verror": "^1.10.5",
+    "@voxpelli/eslint-config": "^12.0.2",
+    "@voxpelli/eslint-config-jsdoc-ts": "^0.3.1",
+    "@voxpelli/tsconfig": "^3.1.0-0",
+    "c8": "^7.10.0",
+    "chai": "^4.3.4",
+    "chai-string": "^1.5.0",
+    "dependency-check": "^5.0.0-2",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-es": "^4.1.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-jsdoc": "^30.7.13",
+    "eslint-plugin-mocha": "^9.0.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.3.1",
+    "eslint-plugin-security": "^1.4.0",
+    "eslint-plugin-unicorn": "^35.0.0",
+    "ghat": "^0.14.0",
+    "husky": "^7.0.4",
+    "installed-check": "^5.0.0-1",
+    "mocha": "^9.1.3",
+    "npm-run-all": "^4.1.5",
+    "type-coverage": "^2.19.0",
+    "typescript": "^4.5.1-rc",
+    "verror": "^1.10.1"
+  }
+}

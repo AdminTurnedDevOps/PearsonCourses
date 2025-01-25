@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiAdmissionregistrationV1ValidatingWebhook.mjs";export class ValidatingWebhook extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(ValidatingWebhook,validate);export{ValidatingWebhook as IoK8sApiAdmissionregistrationV1ValidatingWebhook};

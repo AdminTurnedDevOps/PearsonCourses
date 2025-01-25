@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "required": [
+    "name"
+  ],
+  "description": "License information for the exposed API.",
+  "additionalProperties": false,
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the license type. It's encouraged to use an OSI compatible license."
+    },
+    "url": {
+      "type": "string",
+      "description": "The URL pointing to the license.",
+      "format": "uri"
+    }
+  },
+  "patternProperties": {
+    "^x-[\\w\\d\\.\\x2d_]+$": {
+      "$ref": "http://asyncapi.com/definitions/2.6.0/specificationExtension.json"
+    }
+  },
+  "example": {
+    "$ref": "http://asyncapi.com/examples/2.6.0/license.json"
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://asyncapi.com/definitions/2.6.0/license.json"
+}

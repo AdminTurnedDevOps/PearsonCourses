@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1TypedObjectReference.mjs";export class TypedObjectReference extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(TypedObjectReference,validate);export{TypedObjectReference as IoK8sApiCoreV1TypedObjectReference};

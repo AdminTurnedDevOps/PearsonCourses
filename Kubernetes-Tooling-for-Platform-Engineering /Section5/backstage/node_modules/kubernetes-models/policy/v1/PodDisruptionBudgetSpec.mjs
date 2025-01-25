@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiPolicyV1PodDisruptionBudgetSpec.mjs";export class PodDisruptionBudgetSpec extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(PodDisruptionBudgetSpec,validate);export{PodDisruptionBudgetSpec as IoK8sApiPolicyV1PodDisruptionBudgetSpec};

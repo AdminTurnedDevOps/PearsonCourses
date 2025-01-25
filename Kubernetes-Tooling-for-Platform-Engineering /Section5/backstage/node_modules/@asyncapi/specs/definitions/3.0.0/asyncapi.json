@@ -1,0 +1,47 @@
+{
+  "title": "AsyncAPI 3.0.0 schema.",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://asyncapi.com/definitions/3.0.0/asyncapi.json",
+  "type": "object",
+  "required": [
+    "asyncapi",
+    "info"
+  ],
+  "additionalProperties": false,
+  "patternProperties": {
+    "^x-[\\w\\d\\.\\x2d_]+$": {
+      "$ref": "http://asyncapi.com/definitions/3.0.0/specificationExtension.json"
+    }
+  },
+  "properties": {
+    "asyncapi": {
+      "type": "string",
+      "const":  "3.0.0",
+      "description": "The AsyncAPI specification version of this document."
+    },
+    "id": {
+      "type": "string",
+      "description": "A unique id representing the application.",
+      "format": "uri"
+    },
+    "info": {
+      "$ref": "http://asyncapi.com/definitions/3.0.0/info.json"
+    },
+    "servers": {
+      "$ref": "http://asyncapi.com/definitions/3.0.0/servers.json"
+    },
+    "defaultContentType": {
+      "type": "string",
+      "description": "Default content type to use when encoding/decoding a message's payload."
+    },
+    "channels": {
+      "$ref": "http://asyncapi.com/definitions/3.0.0/channels.json"
+    },
+    "operations": {
+      "$ref": "http://asyncapi.com/definitions/3.0.0/operations.json"
+    },
+    "components": {
+      "$ref": "http://asyncapi.com/definitions/3.0.0/components.json"
+    }
+  }
+}

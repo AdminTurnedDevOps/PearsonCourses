@@ -1,0 +1,46 @@
+import { IIoK8sApiAutoscalingV2HorizontalPodAutoscalerCondition } from "./HorizontalPodAutoscalerCondition";
+import { IIoK8sApiAutoscalingV2MetricStatus } from "./MetricStatus";
+import { IIoK8sApimachineryPkgApisMetaV1Time } from "@kubernetes-models/apimachinery/apis/meta/v1/Time";
+import { ModelData, Model } from "@kubernetes-models/base";
+/**
+ * HorizontalPodAutoscalerStatus describes the current status of a horizontal pod autoscaler.
+ */
+export interface IHorizontalPodAutoscalerStatus {
+    /**
+     * conditions is the set of conditions required for this autoscaler to scale its target, and indicates whether or not those conditions are met.
+     */
+    "conditions"?: Array<IIoK8sApiAutoscalingV2HorizontalPodAutoscalerCondition>;
+    /**
+     * currentMetrics is the last read state of the metrics used by this autoscaler.
+     */
+    "currentMetrics"?: Array<IIoK8sApiAutoscalingV2MetricStatus>;
+    /**
+     * currentReplicas is current number of replicas of pods managed by this autoscaler, as last seen by the autoscaler.
+     */
+    "currentReplicas"?: number;
+    /**
+     * desiredReplicas is the desired number of replicas of pods managed by this autoscaler, as last calculated by the autoscaler.
+     */
+    "desiredReplicas": number;
+    /**
+     * lastScaleTime is the last time the HorizontalPodAutoscaler scaled the number of pods, used by the autoscaler to control how often the number of pods is changed.
+     */
+    "lastScaleTime"?: IIoK8sApimachineryPkgApisMetaV1Time;
+    /**
+     * observedGeneration is the most recent generation observed by this autoscaler.
+     */
+    "observedGeneration"?: number;
+}
+/**
+ * HorizontalPodAutoscalerStatus describes the current status of a horizontal pod autoscaler.
+ */
+export declare class HorizontalPodAutoscalerStatus extends Model<IHorizontalPodAutoscalerStatus> implements IHorizontalPodAutoscalerStatus {
+    "conditions"?: Array<IIoK8sApiAutoscalingV2HorizontalPodAutoscalerCondition>;
+    "currentMetrics"?: Array<IIoK8sApiAutoscalingV2MetricStatus>;
+    "currentReplicas"?: number;
+    "desiredReplicas": number;
+    "lastScaleTime"?: IIoK8sApimachineryPkgApisMetaV1Time;
+    "observedGeneration"?: number;
+    constructor(data?: ModelData<IHorizontalPodAutoscalerStatus>);
+}
+export { IHorizontalPodAutoscalerStatus as IIoK8sApiAutoscalingV2HorizontalPodAutoscalerStatus, HorizontalPodAutoscalerStatus as IoK8sApiAutoscalingV2HorizontalPodAutoscalerStatus };

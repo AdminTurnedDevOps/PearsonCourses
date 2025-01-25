@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1GRPCAction.mjs";export class GRPCAction extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(GRPCAction,validate);export{GRPCAction as IoK8sApiCoreV1GRPCAction};

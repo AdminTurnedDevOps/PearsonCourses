@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiDiscoveryV1Endpoint.mjs";export class Endpoint extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(Endpoint,validate);export{Endpoint as IoK8sApiDiscoveryV1Endpoint};

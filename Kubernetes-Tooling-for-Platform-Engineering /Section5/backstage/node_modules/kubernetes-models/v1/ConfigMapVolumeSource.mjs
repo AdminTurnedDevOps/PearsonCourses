@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1ConfigMapVolumeSource.mjs";export class ConfigMapVolumeSource extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(ConfigMapVolumeSource,validate);export{ConfigMapVolumeSource as IoK8sApiCoreV1ConfigMapVolumeSource};

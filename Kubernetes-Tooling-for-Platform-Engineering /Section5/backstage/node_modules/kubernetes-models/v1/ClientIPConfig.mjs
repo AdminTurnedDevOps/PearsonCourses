@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1ClientIPConfig.mjs";export class ClientIPConfig extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(ClientIPConfig,validate);export{ClientIPConfig as IoK8sApiCoreV1ClientIPConfig};

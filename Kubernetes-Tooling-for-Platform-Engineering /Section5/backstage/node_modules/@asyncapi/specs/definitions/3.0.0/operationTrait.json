@@ -1,0 +1,52 @@
+{ 
+  "type": "object",
+  "description": "Describes a trait that MAY be applied to an Operation Object. This object MAY contain any property from the Operation Object, except the action, channel and traits ones.",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^x-[\\w\\d\\.\\x2d_]+$": {
+      "$ref": "http://asyncapi.com/definitions/3.0.0/specificationExtension.json"
+    }
+  },
+  "properties": {
+    "title": {
+      "description": "A human-friendly title for the operation.",
+      "$ref": "http://asyncapi.com/definitions/3.0.0/operation.json#/properties/title"
+    },
+    "summary": {
+      "description": "A short summary of what the operation is about.",
+      "$ref": "http://asyncapi.com/definitions/3.0.0/operation.json#/properties/summary"
+    },
+    "description": {
+      "description": "A verbose explanation of the operation. CommonMark syntax can be used for rich text representation.",
+      "$ref": "http://asyncapi.com/definitions/3.0.0/operation.json#/properties/description"
+    },
+    "security": {
+      "description": "A declaration of which security schemes are associated with this operation. Only one of the security scheme objects MUST be satisfied to authorize an operation. In cases where Server Security also applies, it MUST also be satisfied.",
+      "$ref": "http://asyncapi.com/definitions/3.0.0/operation.json#/properties/security"
+    },
+    "tags": {
+      "description": "A list of tags for logical grouping and categorization of operations.",
+      "$ref": "http://asyncapi.com/definitions/3.0.0/operation.json#/properties/tags"
+    },
+    "externalDocs": {
+      "description": "Additional external documentation for this operation.",
+      "$ref": "http://asyncapi.com/definitions/3.0.0/operation.json#/properties/externalDocs"
+    },
+    "bindings": {
+      "description": "A map where the keys describe the name of the protocol and the values describe protocol-specific definitions for the operation.",
+      "oneOf": [
+        {
+          "$ref": "http://asyncapi.com/definitions/3.0.0/Reference.json"
+        },
+        {
+          "$ref": "http://asyncapi.com/definitions/3.0.0/operationBindingsObject.json"
+        }
+      ]
+    }
+  },
+  "example": {
+    "$ref": "http://asyncapi.com/examples/3.0.0/operationTrait.json"
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://asyncapi.com/definitions/3.0.0/operationTrait.json"
+}

@@ -1,0 +1,56 @@
+{
+  "name": "openapi-merge",
+  "version": "1.3.3",
+  "description": "A tool to merge numerous OpenAPI files into a single openapi definition.",
+  "keywords": [
+    "openapi",
+    "merge"
+  ],
+  "main": "dist/index",
+  "typings": "dist/index",
+  "files": [
+    "dist/!(__tests__)",
+    "dist/!(__tests__)/**/*"
+  ],
+  "author": {
+    "name": "Robert Massaioli",
+    "email": "packages@rmdir.app",
+    "url": "https://rmdir.app/"
+  },
+  "license": "MIT",
+  "private": false,
+  "homepage": "https://github.com/robertmassaioli/openapi-merge",
+  "repository": "github:robertmassaioli/openapi-merge",
+  "bugs": {
+    "url": "https://github.com/robertmassaioli/openapi-merge/issues"
+  },
+  "scripts": {
+    "build": "tsc --project .",
+    "prepare": "tsc --project .",
+    "prepublishOnly": "tsc --project .",
+    "test": "jest --collect-coverage --verbose",
+    "lint": "yarn eslint src --ext .js,.jsx,.ts,.tsx --fix --format=visualstudio",
+    "start": "ts-node --project ./tsconfig.json src/index.ts"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-typescript": "^7.9.0",
+    "@types/lodash": "^4.14.150",
+    "@typescript-eslint/eslint-plugin": "^2.31.0",
+    "@typescript-eslint/parser": "^2.31.0",
+    "babel-jest": "^26.0.1",
+    "eslint": "^7.0.0",
+    "jest": "^27.1.1",
+    "ts-node": "^8.10.1",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "atlassian-openapi": "^1.0.8",
+    "lodash": "^4.17.15",
+    "ts-is-present": "^1.1.1"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  }
+}

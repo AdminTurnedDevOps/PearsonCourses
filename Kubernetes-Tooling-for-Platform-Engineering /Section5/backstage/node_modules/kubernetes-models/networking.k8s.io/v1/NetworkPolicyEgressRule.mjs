@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiNetworkingV1NetworkPolicyEgressRule.mjs";export class NetworkPolicyEgressRule extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(NetworkPolicyEgressRule,validate);export{NetworkPolicyEgressRule as IoK8sApiNetworkingV1NetworkPolicyEgressRule};

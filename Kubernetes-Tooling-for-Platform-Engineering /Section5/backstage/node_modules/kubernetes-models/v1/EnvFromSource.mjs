@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1EnvFromSource.mjs";export class EnvFromSource extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(EnvFromSource,validate);export{EnvFromSource as IoK8sApiCoreV1EnvFromSource};

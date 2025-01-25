@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1CSIVolumeSource.mjs";export class CSIVolumeSource extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(CSIVolumeSource,validate);export{CSIVolumeSource as IoK8sApiCoreV1CSIVolumeSource};

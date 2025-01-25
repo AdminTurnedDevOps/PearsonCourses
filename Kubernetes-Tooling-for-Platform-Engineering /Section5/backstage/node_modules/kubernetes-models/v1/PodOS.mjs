@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1PodOS.mjs";export class PodOS extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(PodOS,validate);export{PodOS as IoK8sApiCoreV1PodOS};

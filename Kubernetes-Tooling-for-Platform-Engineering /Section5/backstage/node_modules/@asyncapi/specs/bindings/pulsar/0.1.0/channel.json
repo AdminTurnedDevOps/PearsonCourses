@@ -1,0 +1,92 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://asyncapi.com/bindings/pulsar/0.1.0/channel.json",
+  "title": "Channel Schema",
+  "description": "This object contains information about the channel representation in Pulsar, which covers namespace and topic level admin configuration. This object contains additional information not possible to represent within the core AsyncAPI specification.",
+  "type": "object",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^x-[\\w\\d\\.\\x2d_]+$": {
+      "$ref": "http://asyncapi.com/definitions/3.0.0/specificationExtension.json"
+    }
+  },
+  "required": [
+    "namespace",
+    "persistence"
+  ],
+  "properties": {
+    "namespace": {
+      "type": "string",
+      "description": "The namespace, the channel is associated with."
+    },
+    "persistence": {
+      "type": "string",
+      "enum": [
+        "persistent",
+        "non-persistent"
+      ],
+      "description": "persistence of the topic in Pulsar."
+    },
+    "compaction": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Topic compaction threshold given in MB"
+    },
+    "geo-replication": {
+      "type": "array",
+      "description": "A list of clusters the topic is replicated to.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "retention": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "time": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Time given in Minutes. `0` = Disable message retention."
+        },
+        "size": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Size given in MegaBytes. `0` = Disable message retention."
+        }
+      }
+    },
+    "ttl": {
+      "type": "integer",
+      "description": "TTL in seconds for the specified topic"
+    },
+    "deduplication": {
+      "type": "boolean",
+      "description": "Whether deduplication of events is enabled or not."
+    },
+    "bindingVersion": {
+      "type": "string",
+      "enum": [
+        "0.1.0"
+      ],
+      "description": "The version of this binding. If omitted, 'latest' MUST be assumed."
+    }
+  },
+  "examples": [
+    {
+      "namespace": "ns1",
+      "persistence": "persistent",
+      "compaction": 1000,
+      "retention": {
+        "time": 15,
+        "size": 1000
+      },
+      "ttl": 360,
+      "geo-replication": [
+        "us-west",
+        "us-east"
+      ],
+      "deduplication": true,
+      "bindingVersion": "0.1.0"
+    }
+  ]
+}

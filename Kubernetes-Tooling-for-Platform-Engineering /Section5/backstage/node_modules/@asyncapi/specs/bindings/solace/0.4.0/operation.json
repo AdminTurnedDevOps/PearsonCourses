@@ -1,0 +1,128 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://asyncapi.com/bindings/solace/0.4.0/operation.json",
+  "title": "Solace operation bindings object",
+  "description": "This object contains information about the operation representation in Solace.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "bindingVersion": {
+      "type": "string",
+      "enum": [
+        "0.4.0"
+      ],
+      "description": "The version of this binding. If omitted, \"latest\" MUST be assumed."
+    },
+    "destinations": {
+      "description": "The list of Solace destinations referenced in the operation.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "deliveryMode": {
+            "type": "string",
+            "enum": [
+              "direct",
+              "persistent"
+            ]
+          }
+        },
+        "oneOf": [
+          {
+            "properties": {
+              "destinationType": {
+                "type": "string",
+                "const": "queue",
+                "description": "If the type is queue, then the subscriber can bind to the queue. The queue subscribes to the given topicSubscriptions. If no topicSubscriptions are provied, the queue will subscribe to the topic as represented by the channel name."
+              },
+              "queue": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The name of the queue"
+                  },
+                  "topicSubscriptions": {
+                    "type": "array",
+                    "description": "The list of topics that the queue subscribes to.",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "accessType": {
+                    "type": "string",
+                    "enum": [
+                      "exclusive",
+                      "nonexclusive"
+                    ]
+                  },
+                  "maxTtl": {
+                    "type": "string",
+                    "description": "The maximum TTL to apply to messages to be spooled."
+                  },
+                  "maxMsgSpoolUsage": {
+                    "type": "string",
+                    "description": "The maximum amount of message spool that the given queue may use"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "properties": {
+              "destinationType": {
+                "type": "string",
+                "const": "topic",
+                "description": "If the type is topic, then the subscriber subscribes to the given topicSubscriptions. If no topicSubscriptions are provided, the client will subscribe to the topic as represented by the channel name."
+              },
+              "topicSubscriptions": {
+                "type": "array",
+                "description": "The list of topics that the client subscribes to.",
+                "items": {
+                  "type": "string"
+                }
+          }
+            }
+          }
+        ]
+      }
+    },
+    "timeToLive": {
+      "type": "integer",
+      "description": "Interval in milliseconds or a Schema Object containing the definition of the lifetime of the message."
+    },
+    "priority": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 255,
+      "description": "The valid priority value range is 0-255 with 0 as the lowest priority and 255 as the highest or a Schema Object containing the definition of the priority."
+    },
+    "dmqEligible": {
+      "type": "boolean",
+      "description": "Set the message to be eligible to be moved to a Dead Message Queue. The default value is false."
+    }
+  },
+  "examples": [
+    {
+      "bindingVersion": "0.4.0",
+      "destinations": [
+        {
+          "destinationType": "queue",
+          "queue": {
+            "name": "sampleQueue",
+            "topicSubscriptions": [
+              "samples/*"
+            ],
+            "accessType": "nonexclusive"
+          }
+        },
+        {
+          "destinationType": "topic",
+          "topicSubscriptions": [
+            "samples/*"
+          ]
+        }
+      ]
+    }
+  ]
+}

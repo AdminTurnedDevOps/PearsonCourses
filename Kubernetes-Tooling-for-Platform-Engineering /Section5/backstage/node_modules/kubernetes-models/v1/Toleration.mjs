@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1Toleration.mjs";export class Toleration extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(Toleration,validate);export{Toleration as IoK8sApiCoreV1Toleration};

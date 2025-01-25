@@ -1,0 +1,30 @@
+{
+  "name": "@n1ru4l/push-pull-async-iterable-iterator",
+  "version": "3.2.0",
+  "repository": "https://github.com/n1ru4l/push-pull-async-iterable-iterator",
+  "author": {
+    "name": "Laurin Quast",
+    "email": "laurinquast@googlemail.com",
+    "url": "https://github.com/n1ru4l"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=12"
+  },
+  "main": "index.js",
+  "module": "index.mjs",
+  "typings": "index.d.ts",
+  "typescript": {
+    "definition": "index.d.ts"
+  },
+  "exports": {
+    ".": {
+      "require": "./index.js",
+      "import": "./index.mjs"
+    },
+    "./*": {
+      "require": "./*.js",
+      "import": "./*.mjs"
+    }
+  }
+}

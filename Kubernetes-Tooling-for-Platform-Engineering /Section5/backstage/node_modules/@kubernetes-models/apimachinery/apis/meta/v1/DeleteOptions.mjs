@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../../_schemas/IoK8sApimachineryPkgApisMetaV1DeleteOptions.mjs";export class DeleteOptions extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(DeleteOptions,validate);export{DeleteOptions as IoK8sApimachineryPkgApisMetaV1DeleteOptions};

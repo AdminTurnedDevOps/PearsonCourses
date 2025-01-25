@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiAuthorizationV1NonResourceRule.mjs";export class NonResourceRule extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(NonResourceRule,validate);export{NonResourceRule as IoK8sApiAuthorizationV1NonResourceRule};

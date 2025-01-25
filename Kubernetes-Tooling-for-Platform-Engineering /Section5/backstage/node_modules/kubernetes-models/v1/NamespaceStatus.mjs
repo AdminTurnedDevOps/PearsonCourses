@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1NamespaceStatus.mjs";export class NamespaceStatus extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(NamespaceStatus,validate);export{NamespaceStatus as IoK8sApiCoreV1NamespaceStatus};

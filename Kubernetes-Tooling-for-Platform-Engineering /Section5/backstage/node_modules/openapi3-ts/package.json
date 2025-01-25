@@ -1,0 +1,51 @@
+{
+    "name": "openapi3-ts",
+    "version": "3.2.0",
+    "description": "TS Model & utils for OpenAPI 3.x specification.",
+    "main": "dist/cjs/index.js",
+    "module": "dist/mjs/index.js",
+    "typings": "dist/mjs/index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/metadevpro/openapi3-ts.git"
+    },
+    "scripts": {
+        "clean": "rimraf dist",
+        "build": "rimraf dist && npm run lint && tsc && tsc -p tsconfig-cjs.json",
+        "build:w": "BUILD_WATCH=true node build.mjs",
+        "lint": "eslint src/**/*.ts",
+        "lint:fix": "eslint src/**/*.ts --fix",
+        "prepare": "npm run build",
+        "test:tdd": "vitest -w",
+        "test": "vitest",
+        "test:ci": "npm run test",
+        "cover:ci": "npm run cover",
+        "cover": "vitest --coverage"
+    },
+    "keywords": [
+        "openapi3",
+        "ts",
+        "typescript"
+    ],
+    "author": "Pedro J. Molina / Metadev",
+    "license": "MIT",
+    "dependencies": {
+        "yaml": "^2.2.1"
+    },
+    "devDependencies": {
+        "@types/node": "^18.14.0",
+        "@typescript-eslint/eslint-plugin": "^5.53.0",
+        "@typescript-eslint/parser": "^5.53.0",
+        "@vitest/coverage-c8": "^0.28.5",
+        "c8": "^7.13.0",
+        "coveralls": "^3.1.1",
+        "eslint": "^8.34.0",
+        "eslint-config-prettier": "^8.6.0",
+        "eslint-plugin-prettier": "^4.2.1",
+        "prettier": "^2.8.4",
+        "rimraf": "^4.1.2",
+        "typescript": "~4.9.5",
+        "vitest": "^0.28.5",
+        "vitest-teamcity-reporter": "^0.1.10"
+    }
+}

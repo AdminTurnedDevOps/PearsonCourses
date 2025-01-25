@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiAppsV1beta2ScaleStatus.mjs";export class ScaleStatus extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(ScaleStatus,validate);export{ScaleStatus as IoK8sApiAppsV1beta2ScaleStatus};

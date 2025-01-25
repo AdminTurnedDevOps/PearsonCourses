@@ -1,0 +1,8 @@
+recursive: true
+reporter: 'spec'
+require:
+  - coffeescript/register
+  - ts-node/register/type-check
+spec:
+  - test/**/*.ts
+  - test/**/*.coffee

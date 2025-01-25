@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1LocalVolumeSource.mjs";export class LocalVolumeSource extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(LocalVolumeSource,validate);export{LocalVolumeSource as IoK8sApiCoreV1LocalVolumeSource};

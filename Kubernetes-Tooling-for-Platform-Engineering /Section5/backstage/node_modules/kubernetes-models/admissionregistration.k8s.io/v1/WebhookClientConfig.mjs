@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiAdmissionregistrationV1WebhookClientConfig.mjs";export class WebhookClientConfig extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(WebhookClientConfig,validate);export{WebhookClientConfig as IoK8sApiAdmissionregistrationV1WebhookClientConfig};

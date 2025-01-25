@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiAutoscalingV2beta1PodsMetricSource.mjs";export class PodsMetricSource extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(PodsMetricSource,validate);export{PodsMetricSource as IoK8sApiAutoscalingV2beta1PodsMetricSource};

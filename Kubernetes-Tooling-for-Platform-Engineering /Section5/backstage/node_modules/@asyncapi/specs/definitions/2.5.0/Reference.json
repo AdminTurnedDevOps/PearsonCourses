@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "required": [
+    "$ref"
+  ],
+  "properties": {
+    "$ref": {
+      "$ref": "http://asyncapi.com/definitions/2.5.0/ReferenceObject.json"
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://asyncapi.com/definitions/2.5.0/Reference.json"
+}

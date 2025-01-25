@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiAppsV1StatefulSetCondition.mjs";export class StatefulSetCondition extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(StatefulSetCondition,validate);export{StatefulSetCondition as IoK8sApiAppsV1StatefulSetCondition};

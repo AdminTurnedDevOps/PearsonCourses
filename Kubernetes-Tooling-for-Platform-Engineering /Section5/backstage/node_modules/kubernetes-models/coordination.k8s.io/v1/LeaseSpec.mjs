@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiCoordinationV1LeaseSpec.mjs";export class LeaseSpec extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(LeaseSpec,validate);export{LeaseSpec as IoK8sApiCoordinationV1LeaseSpec};

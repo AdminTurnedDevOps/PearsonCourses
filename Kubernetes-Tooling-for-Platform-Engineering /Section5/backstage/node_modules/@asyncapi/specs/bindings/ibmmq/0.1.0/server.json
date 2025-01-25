@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://asyncapi.com/bindings/ibmmq/0.1.0/server.json",
+  "title": "IBM MQ server bindings object",
+  "description": "This object contains server connection information about the IBM MQ server, referred to as an IBM MQ queue manager. This object contains additional connectivity information not possible to represent within the core AsyncAPI specification.",
+  "type": "object",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^x-[\\w\\d\\.\\x2d_]+$": {
+      "$ref": "http://asyncapi.com/definitions/3.0.0/specificationExtension.json"
+    }
+  },
+  "properties": {
+    "groupId": {
+      "type": "string",
+      "description": "Defines a logical group of IBM MQ server objects. This is necessary to specify multi-endpoint configurations used in high availability deployments. If omitted, the server object is not part of a group."
+    },
+    "ccdtQueueManagerName": {
+      "type": "string",
+      "default": "*",
+      "description": "The name of the IBM MQ queue manager to bind to in the CCDT file."
+    },
+    "cipherSpec": {
+      "type": "string",
+      "description": "The recommended cipher specification used to establish a TLS connection between the client and the IBM MQ queue manager. More information on SSL/TLS cipher specifications supported by IBM MQ can be found on this page in the IBM MQ Knowledge Center."
+    },
+    "multiEndpointServer": {
+      "type": "boolean",
+      "default": false,
+      "description": "If 'multiEndpointServer' is 'true' then multiple connections can be workload balanced and applications should not make assumptions as to where messages are processed. Where message ordering, or affinity to specific message resources is necessary, a single endpoint ('multiEndpointServer' = 'false') may be required."
+    },
+    "heartBeatInterval": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 999999,
+      "default": 300,
+      "description": "The recommended value (in seconds) for the heartbeat sent to the queue manager during periods of inactivity. A value of zero means that no heart beats are sent. A value of 1 means that the client will use the value defined by the queue manager. More information on heart beat interval can be found on this page in the IBM MQ Knowledge Center."
+    },
+    "bindingVersion": {
+      "type": "string",
+      "enum": [
+        "0.1.0"
+      ],
+      "description": "The version of this binding."
+    }
+  },
+  "examples": [
+    {
+      "groupId": "PRODCLSTR1",
+      "cipherSpec": "ANY_TLS12_OR_HIGHER",
+      "bindingVersion": "0.1.0"
+    },
+    {
+      "groupId": "PRODCLSTR1",
+      "bindingVersion": "0.1.0"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+import { UseQueryEditorArgs } from '../query-editor';
+import '../style/codemirror.css';
+import '../style/fold.css';
+import '../style/lint.css';
+import '../style/hint.css';
+import '../style/info.css';
+import '../style/jump.css';
+import '../style/auto-insertion.css';
+import '../style/editor.css';
+export declare function QueryEditor(props: UseQueryEditorArgs): import("react/jsx-runtime").JSX.Element;

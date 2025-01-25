@@ -1,0 +1,16 @@
+{
+  "if": {
+    "required": [
+      "schema"
+    ]
+  },
+  "then": {
+    "$ref": "http://asyncapi.com/definitions/3.0.0/multiFormatSchema.json"
+  },
+  "else": {
+    "$ref": "http://asyncapi.com/definitions/3.0.0/schema.json"
+  },
+  "description": "An object representing either a schema or a multiFormatSchema based on the existence of the 'schema' property. If the property 'schema' is present, use the multi-format schema. Use the default AsyncAPI Schema otherwise.",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://asyncapi.com/definitions/3.0.0/anySchema.json"
+}

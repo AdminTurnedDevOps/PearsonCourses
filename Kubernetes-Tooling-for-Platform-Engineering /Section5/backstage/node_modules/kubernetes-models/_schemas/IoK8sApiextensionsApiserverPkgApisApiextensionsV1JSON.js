@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),Object.defineProperty(exports,"validate",{enumerable:!0,get:function(){return validate}});let validate=function validate21(data,{instancePath="",parentData,parentDataProperty,rootData=data}={}){return validate21.errors=null,!0};

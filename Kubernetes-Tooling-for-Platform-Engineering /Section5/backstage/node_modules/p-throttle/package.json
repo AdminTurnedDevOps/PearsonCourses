@@ -1,0 +1,51 @@
+{
+	"name": "p-throttle",
+	"version": "4.1.1",
+	"description": "Throttle promise-returning & async functions",
+	"license": "MIT",
+	"repository": "sindresorhus/p-throttle",
+	"funding": "https://github.com/sponsors/sindresorhus",
+	"author": {
+		"name": "Sindre Sorhus",
+		"email": "sindresorhus@gmail.com",
+		"url": "https://sindresorhus.com"
+	},
+	"engines": {
+		"node": ">=10"
+	},
+	"scripts": {
+		"test": "xo && ava && tsd"
+	},
+	"files": [
+		"index.js",
+		"index.d.ts"
+	],
+	"keywords": [
+		"promise",
+		"throttle",
+		"throat",
+		"limit",
+		"limited",
+		"interval",
+		"rate",
+		"batch",
+		"ratelimit",
+		"queue",
+		"discard",
+		"async",
+		"await",
+		"promises",
+		"time",
+		"out",
+		"cancel",
+		"bluebird"
+	],
+	"devDependencies": {
+		"ava": "^2.4.0",
+		"delay": "^5.0.0",
+		"in-range": "^2.0.0",
+		"time-span": "^4.0.0",
+		"tsd": "^0.14.0",
+		"xo": "^0.38.1"
+	}
+}

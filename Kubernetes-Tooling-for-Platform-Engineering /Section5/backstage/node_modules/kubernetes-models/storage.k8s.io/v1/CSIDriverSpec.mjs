@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiStorageV1CSIDriverSpec.mjs";export class CSIDriverSpec extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(CSIDriverSpec,validate);export{CSIDriverSpec as IoK8sApiStorageV1CSIDriverSpec};

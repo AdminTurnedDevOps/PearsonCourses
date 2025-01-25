@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://asyncapi.com/bindings/googlepubsub/0.2.0/message.json",
+  "title": "Cloud Pub/Sub Channel Schema",
+  "description": "This object contains information about the message representation for Google Cloud Pub/Sub.",
+  "type": "object",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^x-[\\w\\d\\.\\x2d_]+$": {
+      "$ref": "http://asyncapi.com/definitions/3.0.0/specificationExtension.json"
+    }
+  },
+  "properties": {
+    "bindingVersion": {
+      "type": "string",
+      "enum": [
+        "0.2.0"
+      ],
+      "description": "The version of this binding."
+    },
+    "attributes": {
+      "type": "object"
+    },
+    "orderingKey": {
+      "type": "string"
+    },
+    "schema": {
+      "type": "object",
+      "additionalItems": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": ["name"]
+    }
+  },
+  "examples": [
+    {
+      "schema": {
+        "name": "projects/your-project-id/schemas/your-avro-schema-id"
+      }
+    },
+    {
+      "schema": {
+        "name": "projects/your-project-id/schemas/your-protobuf-schema-id"
+      }
+    }
+  ]
+}

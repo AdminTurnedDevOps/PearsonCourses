@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1ISCSIVolumeSource.mjs";export class ISCSIVolumeSource extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(ISCSIVolumeSource,validate);export{ISCSIVolumeSource as IoK8sApiCoreV1ISCSIVolumeSource};

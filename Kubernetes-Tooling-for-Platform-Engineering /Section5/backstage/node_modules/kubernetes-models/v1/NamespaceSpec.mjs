@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1NamespaceSpec.mjs";export class NamespaceSpec extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(NamespaceSpec,validate);export{NamespaceSpec as IoK8sApiCoreV1NamespaceSpec};

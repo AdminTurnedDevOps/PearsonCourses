@@ -1,0 +1,120 @@
+[
+  {
+    "scheme": "fax",
+    "description": "fax",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc2806"
+      },
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc3966"
+      }
+    ]
+  },
+  {
+    "scheme": "filesystem",
+    "description": "filesystem",
+    "reference": [],
+    "template": "http://www.iana.org/assignments/uri-schemes/historic/filesystem"
+  },
+  {
+    "scheme": "mailserver",
+    "description": "Access to data available from mail servers",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc6196"
+      }
+    ]
+  },
+  {
+    "scheme": "modem",
+    "description": "modem",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc2806"
+      },
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc3966"
+      }
+    ]
+  },
+  {
+    "scheme": "pack",
+    "description": "pack",
+    "reference": [
+      {
+        "type": "draft",
+        "href": "http://www.iana.org/go/draft-shur-pack-uri-scheme"
+      }
+    ],
+    "template": "http://www.iana.org/assignments/uri-schemes/historic/pack"
+  },
+  {
+    "scheme": "prospero",
+    "description": "Prospero Directory Service",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc4157"
+      }
+    ]
+  },
+  {
+    "scheme": "snews",
+    "description": "NNTP over SSL/TLS",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc5538"
+      }
+    ]
+  },
+  {
+    "scheme": "videotex",
+    "description": "videotex",
+    "reference": [
+      {
+        "type": "draft",
+        "href": "http://www.iana.org/go/draft-mavrakis-videotex-url-spec"
+      },
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc2122"
+      },
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc3986"
+      }
+    ],
+    "template": "http://www.iana.org/assignments/uri-schemes/historic/videotex"
+  },
+  {
+    "scheme": "wais",
+    "description": "Wide Area Information Servers",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc4156"
+      }
+    ]
+  },
+  {
+    "scheme": "z39.50",
+    "description": "Z39.50 information access",
+    "reference": [
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc1738"
+      },
+      {
+        "type": "rfc",
+        "href": "http://www.iana.org/go/rfc2056"
+      }
+    ]
+  }
+]

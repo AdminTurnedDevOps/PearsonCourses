@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiextensionsApiserverPkgApisApiextensionsV1beta1JSON.mjs";export class JSON extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(JSON,validate);export{JSON as IoK8sApiextensionsApiserverPkgApisApiextensionsV1beta1JSON};

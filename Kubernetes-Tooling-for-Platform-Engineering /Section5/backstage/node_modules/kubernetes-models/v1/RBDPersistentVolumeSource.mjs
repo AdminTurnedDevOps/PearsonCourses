@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1RBDPersistentVolumeSource.mjs";export class RBDPersistentVolumeSource extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(RBDPersistentVolumeSource,validate);export{RBDPersistentVolumeSource as IoK8sApiCoreV1RBDPersistentVolumeSource};

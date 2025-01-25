@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1ResourceFieldSelector.mjs";export class ResourceFieldSelector extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(ResourceFieldSelector,validate);export{ResourceFieldSelector as IoK8sApiCoreV1ResourceFieldSelector};

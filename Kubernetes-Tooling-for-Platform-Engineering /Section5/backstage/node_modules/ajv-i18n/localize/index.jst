@@ -1,0 +1,16 @@
+"use strict";
+
+{{
+  const IDENT = /^[a-z_$][a-z0-9_$]*$/i;
+}}
+
+module.exports = {
+  {{~ it.locales:locale }}
+    {{? IDENT.test(locale) }}
+      {{=locale}}:
+    {{??}}
+      "{{=locale}}":
+    {{?}}
+      require("./{{=locale}}{{=it.importFile}}"),
+  {{~}}
+};

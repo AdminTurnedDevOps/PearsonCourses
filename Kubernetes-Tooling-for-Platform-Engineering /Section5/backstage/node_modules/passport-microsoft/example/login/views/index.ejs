@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Passport-Microsoft Example</title>
+	</head>
+	<body>
+		<% if (!user) { %>
+			<h2>Welcome! Please log in.</h2>
+			<p>
+			<a href="/">Home</a> | 
+			<a href="/login">Log In</a>
+			</p>
+		<% } else { %>
+			<h2>Hello, <%= user.displayName %>.</h2>
+			<p>
+			<a href="/">Home</a> | 
+			<a href="/account">Account</a> | 
+			<a href="/logout">Log Out</a>
+			</p>
+		<% } %>
+		Made with ♥ by Sean Fisher (<a href="https://seafish.io" target="_blank">https://seafish.io</a>)
+	</body>
+</html>

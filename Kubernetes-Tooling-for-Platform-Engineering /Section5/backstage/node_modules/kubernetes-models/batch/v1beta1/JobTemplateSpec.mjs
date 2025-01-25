@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiBatchV1beta1JobTemplateSpec.mjs";export class JobTemplateSpec extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(JobTemplateSpec,validate);export{JobTemplateSpec as IoK8sApiBatchV1beta1JobTemplateSpec};

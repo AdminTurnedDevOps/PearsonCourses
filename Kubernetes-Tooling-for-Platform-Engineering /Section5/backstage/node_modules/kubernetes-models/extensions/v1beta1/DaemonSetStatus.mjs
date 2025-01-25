@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiExtensionsV1beta1DaemonSetStatus.mjs";export class DaemonSetStatus extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(DaemonSetStatus,validate);export{DaemonSetStatus as IoK8sApiExtensionsV1beta1DaemonSetStatus};

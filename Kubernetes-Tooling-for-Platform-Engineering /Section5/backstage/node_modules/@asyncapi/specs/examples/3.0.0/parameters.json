@@ -1,0 +1,8 @@
+[{
+	"address": "user/{userId}/signedup",
+	"parameters": {
+		"userId": {
+			"description": "Id of the user."
+		}
+	}
+}]

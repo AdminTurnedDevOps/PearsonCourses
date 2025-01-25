@@ -1,0 +1,13 @@
+/*! @azure/msal-common v14.16.0 2024-11-05 */
+'use strict';
+/*
+ * Copyright (c) Microsoft Corporation. All rights reserved.
+ * Licensed under the MIT License.
+ */
+function isCloudInstanceDiscoveryErrorResponse(response) {
+    return (response.hasOwnProperty("error") &&
+        response.hasOwnProperty("error_description"));
+}
+
+export { isCloudInstanceDiscoveryErrorResponse };
+//# sourceMappingURL=CloudInstanceDiscoveryErrorResponse.mjs.map

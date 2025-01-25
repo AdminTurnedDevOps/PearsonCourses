@@ -1,0 +1,1 @@
+{"version":3,"file":"getFirstMatchingOption.js","sourceRoot":"","sources":["../../src/schema/getFirstMatchingOption.ts"],"names":[],"mappings":"AAAA,OAAO,iBAAiB,MAAM,qBAAqB,CAAC;AAGpD;;;;;;;;;;GAUG;AACH,MAAM,CAAC,OAAO,UAAU,sBAAsB,CAK5C,SAAiC,EACjC,QAAuB,EACvB,OAAY,EACZ,UAAa,EACb,kBAA2B;IAE3B,OAAO,iBAAiB,CAAU,SAAS,EAAE,QAAQ,EAAE,OAAO,EAAE,UAAU,EAAE,kBAAkB,CAAC,CAAC;AAClG,CAAC"}

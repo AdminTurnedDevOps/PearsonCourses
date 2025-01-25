@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1DownwardAPIProjection.mjs";export class DownwardAPIProjection extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(DownwardAPIProjection,validate);export{DownwardAPIProjection as IoK8sApiCoreV1DownwardAPIProjection};

@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1EndpointSubset.mjs";export class EndpointSubset extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(EndpointSubset,validate);export{EndpointSubset as IoK8sApiCoreV1EndpointSubset};

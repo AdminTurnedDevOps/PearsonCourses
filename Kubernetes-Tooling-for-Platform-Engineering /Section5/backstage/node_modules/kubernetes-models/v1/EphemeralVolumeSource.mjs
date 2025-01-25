@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1EphemeralVolumeSource.mjs";export class EphemeralVolumeSource extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(EphemeralVolumeSource,validate);export{EphemeralVolumeSource as IoK8sApiCoreV1EphemeralVolumeSource};

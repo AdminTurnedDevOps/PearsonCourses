@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "namespace": {
+      "type": "string"
+    },
+    "prefix": {
+      "type": "string"
+    },
+    "attribute": {
+      "type": "boolean",
+      "default": false
+    },
+    "wrapped": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://asyncapi.com/definitions/1.0.0/xml.json"
+}

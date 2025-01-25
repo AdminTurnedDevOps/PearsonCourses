@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1HTTPGetAction.mjs";export class HTTPGetAction extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(HTTPGetAction,validate);export{HTTPGetAction as IoK8sApiCoreV1HTTPGetAction};

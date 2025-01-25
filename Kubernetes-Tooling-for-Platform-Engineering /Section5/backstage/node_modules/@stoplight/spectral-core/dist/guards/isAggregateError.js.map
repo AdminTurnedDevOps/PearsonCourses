@@ -1,0 +1,1 @@
+{"version":3,"file":"isAggregateError.js","sourceRoot":"","sources":["../../src/guards/isAggregateError.ts"],"names":[],"mappings":";;;AAAA,mCAAiC;AAEjC,SAAgB,gBAAgB,CAAC,mBAA4B;IAC3D,OAAO,IAAA,gBAAO,EAAC,mBAAmB,CAAC,IAAI,mBAAmB,CAAC,WAAW,CAAC,IAAI,KAAK,gBAAgB,CAAC;AACnG,CAAC;AAFD,4CAEC"}

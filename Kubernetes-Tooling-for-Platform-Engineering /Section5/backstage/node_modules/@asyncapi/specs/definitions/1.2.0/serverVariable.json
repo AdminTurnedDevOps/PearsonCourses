@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "description": "An object representing a Server Variable for server URL template substitution.",
+  "minProperties": 1,
+  "additionalProperties": false,
+  "patternProperties": {
+    "^x-": {
+      "$ref": "http://asyncapi.com/definitions/1.2.0/vendorExtension.json"
+    }
+  },
+  "properties": {
+    "enum": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "default": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://asyncapi.com/definitions/1.2.0/serverVariable.json"
+}

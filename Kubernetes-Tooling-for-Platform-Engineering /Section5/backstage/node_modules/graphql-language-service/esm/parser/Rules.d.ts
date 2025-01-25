@@ -1,0 +1,13 @@
+import { ParseRule } from './types';
+export declare const isIgnored: (ch: string) => boolean;
+export declare const LexRules: {
+    Name: RegExp;
+    Punctuation: RegExp;
+    Number: RegExp;
+    String: RegExp;
+    Comment: RegExp;
+};
+export declare const ParseRules: {
+    [name: string]: ParseRule;
+};
+//# sourceMappingURL=Rules.d.ts.map

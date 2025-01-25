@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "additionalProperties": {
+    "oneOf": [
+      {
+        "$ref": "http://asyncapi.com/definitions/3.0.0/Reference.json"
+      },
+      {
+        "$ref": "http://asyncapi.com/definitions/3.0.0/messageObject.json"
+      }
+    ]
+  },
+  "description": "A map of the messages that will be sent to this channel by any application at any time. **Every message sent to this channel MUST be valid against one, and only one, of the message objects defined in this map.**",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://asyncapi.com/definitions/3.0.0/channelMessages.json"
+}

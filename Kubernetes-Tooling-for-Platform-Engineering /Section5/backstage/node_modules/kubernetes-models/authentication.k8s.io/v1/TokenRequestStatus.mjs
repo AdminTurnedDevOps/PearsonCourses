@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiAuthenticationV1TokenRequestStatus.mjs";export class TokenRequestStatus extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(TokenRequestStatus,validate);export{TokenRequestStatus as IoK8sApiAuthenticationV1TokenRequestStatus};

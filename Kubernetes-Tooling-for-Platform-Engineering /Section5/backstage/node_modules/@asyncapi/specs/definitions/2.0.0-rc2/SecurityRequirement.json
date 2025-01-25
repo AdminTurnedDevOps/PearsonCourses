@@ -1,0 +1,12 @@
+{
+  "type": "object",
+  "additionalProperties": {
+    "type": "array",
+    "items": {
+      "type": "string"
+    },
+    "uniqueItems": true
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://asyncapi.com/definitions/2.0.0-rc2/SecurityRequirement.json"
+}

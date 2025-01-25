@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiExtensionsV1beta1HTTPIngressRuleValue.mjs";export class HTTPIngressRuleValue extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(HTTPIngressRuleValue,validate);export{HTTPIngressRuleValue as IoK8sApiExtensionsV1beta1HTTPIngressRuleValue};

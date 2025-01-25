@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^x-": {
+      "$ref": "http://asyncapi.com/definitions/1.0.0/vendorExtension.json"
+    }
+  },
+  "minProperties": 1,
+  "properties": {
+    "$ref": {
+      "type": "string"
+    },
+    "publish": {
+      "$ref": "http://asyncapi.com/definitions/1.0.0/message.json"
+    },
+    "subscribe": {
+      "$ref": "http://asyncapi.com/definitions/1.0.0/message.json"
+    },
+    "deprecated": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://asyncapi.com/definitions/1.0.0/topicItem.json"
+}

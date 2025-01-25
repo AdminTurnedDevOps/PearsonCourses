@@ -1,0 +1,82 @@
+{
+  "type": "object",
+  "description": "Describes a shared communication channel.",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^x-[\\w\\d\\.\\x2d_]+$": {
+      "$ref": "http://asyncapi.com/definitions/3.0.0/specificationExtension.json"
+    }
+  },
+  "properties": {
+    "address": {
+      "type": ["string", "null"],
+      "description": "An optional string representation of this channel's address. The address is typically the \"topic name\", \"routing key\", \"event type\", or \"path\". When `null` or absent, it MUST be interpreted as unknown. This is useful when the address is generated dynamically at runtime or can't be known upfront. It MAY contain Channel Address Expressions."
+    },
+    "messages": {
+      "$ref": "http://asyncapi.com/definitions/3.0.0/channelMessages.json"
+    },
+    "parameters": {
+      "$ref": "http://asyncapi.com/definitions/3.0.0/parameters.json"
+    },
+    "title": {
+      "type": "string",
+      "description": "A human-friendly title for the channel."
+    },
+    "summary": {
+      "type": "string",
+      "description": "A brief summary of the channel."
+    },
+    "description": {
+      "type": "string",
+      "description": "A longer description of the channel. CommonMark is allowed."
+    },
+    "servers": {
+      "type": "array",
+      "description": "The references of the servers on which this channel is available. If absent or empty then this channel must be available on all servers.",
+      "items": {
+        "$ref": "http://asyncapi.com/definitions/3.0.0/Reference.json"
+      },
+      "uniqueItems": true
+    },
+    "tags": {
+      "type": "array",
+      "description": "A list of tags for logical grouping of channels.",
+      "items": {
+        "oneOf": [
+  	  {
+	    "$ref": "http://asyncapi.com/definitions/3.0.0/Reference.json"
+	  },
+	  {
+  	    "$ref": "http://asyncapi.com/definitions/3.0.0/tag.json"
+	  }
+	]
+      },
+      "uniqueItems": true
+    },
+    "externalDocs": {
+      "oneOf": [
+        {
+  	  "$ref": "http://asyncapi.com/definitions/3.0.0/Reference.json"
+	},
+	{
+  	  "$ref": "http://asyncapi.com/definitions/3.0.0/externalDocs.json"
+	}
+      ]
+    },
+    "bindings": {
+      "oneOf": [
+        {
+          "$ref": "http://asyncapi.com/definitions/3.0.0/Reference.json"
+        },
+        {
+          "$ref": "http://asyncapi.com/definitions/3.0.0/channelBindingsObject.json"
+        }
+      ]
+    }
+  },
+  "example": {
+    "$ref": "http://asyncapi.com/examples/3.0.0/channel.json"
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://asyncapi.com/definitions/3.0.0/channel.json"
+}

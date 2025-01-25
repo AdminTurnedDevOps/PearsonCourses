@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiAuthenticationV1TokenReviewStatus.mjs";export class TokenReviewStatus extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(TokenReviewStatus,validate);export{TokenReviewStatus as IoK8sApiAuthenticationV1TokenReviewStatus};

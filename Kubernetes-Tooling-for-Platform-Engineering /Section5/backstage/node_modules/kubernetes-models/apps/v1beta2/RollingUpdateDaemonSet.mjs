@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiAppsV1beta2RollingUpdateDaemonSet.mjs";export class RollingUpdateDaemonSet extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(RollingUpdateDaemonSet,validate);export{RollingUpdateDaemonSet as IoK8sApiAppsV1beta2RollingUpdateDaemonSet};

@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^x-[\\w\\d\\.\\x2d_]+$": {
+      "$ref": "http://asyncapi.com/definitions/2.5.0/specificationExtension.json"
+    }
+  },
+  "properties": {
+    "$ref": {
+      "$ref": "http://asyncapi.com/definitions/2.5.0/ReferenceObject.json"
+    },
+    "parameters": {
+      "$ref": "http://asyncapi.com/definitions/2.5.0/parameters.json"
+    },
+    "description": {
+      "type": "string",
+      "description": "A description of the channel."
+    },
+    "servers": {
+      "type": "array",
+      "description": "The names of the servers on which this channel is available. If absent or empty then this channel must be available on all servers.",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "publish": {
+      "$ref": "http://asyncapi.com/definitions/2.5.0/operation.json"
+    },
+    "subscribe": {
+      "$ref": "http://asyncapi.com/definitions/2.5.0/operation.json"
+    },
+    "deprecated": {
+      "type": "boolean",
+      "default": false
+    },
+    "bindings": {
+      "$ref": "http://asyncapi.com/definitions/2.5.0/bindingsObject.json"
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://asyncapi.com/definitions/2.5.0/channelItem.json"
+}

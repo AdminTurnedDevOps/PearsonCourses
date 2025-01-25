@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "description": "An object representing a Server.",
+  "required": [
+    "url",
+    "protocol"
+  ],
+  "additionalProperties": false,
+  "patternProperties": {
+    "^x-[\\w\\d\\.\\x2d_]+$": {
+      "$ref": "http://asyncapi.com/definitions/2.4.0/specificationExtension.json"
+    }
+  },
+  "properties": {
+    "url": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "protocol": {
+      "type": "string",
+      "description": "The transfer protocol."
+    },
+    "protocolVersion": {
+      "type": "string"
+    },
+    "variables": {
+      "$ref": "http://asyncapi.com/definitions/2.4.0/serverVariables.json"
+    },
+    "security": {
+      "type": "array",
+      "items": {
+        "$ref": "http://asyncapi.com/definitions/2.4.0/SecurityRequirement.json"
+      }
+    },
+    "bindings": {
+      "$ref": "http://asyncapi.com/definitions/2.4.0/bindingsObject.json"
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://asyncapi.com/definitions/2.4.0/server.json"
+}

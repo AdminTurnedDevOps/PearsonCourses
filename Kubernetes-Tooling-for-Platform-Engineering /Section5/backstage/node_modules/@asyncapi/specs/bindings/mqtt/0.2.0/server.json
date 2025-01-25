@@ -1,0 +1,105 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://asyncapi.com/bindings/mqtt/0.2.0/server.json",
+  "title": "Server Schema",
+  "description": "This object contains information about the server representation in MQTT.",
+  "type": "object",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^x-[\\w\\d\\.\\x2d_]+$": {
+      "$ref": "http://asyncapi.com/definitions/3.0.0/specificationExtension.json"
+    }
+  },
+  "properties": {
+
+    "clientId": {
+      "type": "string",
+      "description": "The client identifier."
+    },
+    "cleanSession": {
+      "type": "boolean",
+      "description": "Whether to create a persistent connection or not. When 'false', the connection will be persistent. This is called clean start in MQTTv5."
+    },
+    "lastWill": {
+      "type": "object",
+      "description": "Last Will and Testament configuration.",
+      "properties": {
+        "topic": {
+          "type": "string",
+          "description": "The topic where the Last Will and Testament message will be sent."
+        },
+        "qos": {
+          "type": "integer",
+          "enum": [0,1,2],
+          "description": "Defines how hard the broker/client will try to ensure that the Last Will and Testament message is received. Its value MUST be either 0, 1 or 2."
+        },
+        "message": {
+          "type": "string",
+          "description": "Last Will message."
+        },
+        "retain": {
+          "type": "boolean",
+          "description": "Whether the broker should retain the Last Will and Testament message or not."
+        }
+      }
+    },
+    "keepAlive": {
+      "type": "integer",
+      "description": "Interval in seconds of the longest period of time the broker and the client can endure without sending a message."
+    },
+    "sessionExpiryInterval": {
+      "oneOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "$ref": "http://asyncapi.com/definitions/3.0.0/schema.json"
+        },
+        {
+          "$ref": "http://asyncapi.com/definitions/3.0.0/Reference.json"
+        }
+      ],
+      "description": "Interval time in seconds or a Schema Object containing the definition of the interval.  The broker maintains a session for a disconnected client until this interval expires."
+    },
+    "maximumPacketSize": {
+      "oneOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        {
+          "$ref": "http://asyncapi.com/definitions/3.0.0/schema.json"
+        },
+        {
+          "$ref": "http://asyncapi.com/definitions/3.0.0/Reference.json"
+        }
+      ],
+      "description": "Number of bytes or a Schema Object representing the Maximum Packet Size the Client is willing to accept."
+    },
+    "bindingVersion": {
+      "type": "string",
+      "enum": [
+        "0.2.0"
+      ],
+      "description": "The version of this binding. If omitted, 'latest' MUST be assumed."
+    }
+  },
+  "examples": [
+    {
+      "clientId": "guest",
+      "cleanSession": true,
+      "lastWill": {
+        "topic": "/last-wills",
+        "qos": 2,
+        "message": "Guest gone offline.",
+        "retain": false
+      },
+      "keepAlive": 60,
+      "sessionExpiryInterval": 120,
+      "maximumPacketSize": 1024,
+      "bindingVersion": "0.2.0"
+    }
+  ]
+}

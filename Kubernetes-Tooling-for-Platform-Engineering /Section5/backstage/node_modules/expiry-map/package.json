@@ -1,0 +1,58 @@
+{
+	"name": "expiry-map",
+	"version": "2.0.0",
+	"description": "A Map implementation with expirable items",
+	"license": "MIT",
+	"repository": "SamVerschueren/expiry-map",
+	"author": {
+		"name": "Sam Verschueren",
+		"email": "sam.verschueren@gmail.com",
+		"url": "github.com/SamVerschueren"
+	},
+	"main": "dist/index.js",
+	"engines": {
+		"node": ">=8"
+	},
+	"scripts": {
+		"prepublishOnly": "npm run build",
+		"pretest": "npm run build -- --sourceMap",
+		"test": "npm run lint && nyc ava dist/test.js",
+		"lint": "tslint --format stylish --project .",
+		"build": "npm run clean && tsc",
+		"clean": "del-cli dist"
+	},
+	"files": [
+		"dist/index.js",
+		"dist/index.d.ts"
+	],
+	"keywords": [
+		"map",
+		"cache",
+		"caching",
+		"ttl",
+		"expire",
+		"expiring",
+		"expiry"
+	],
+	"dependencies": {
+		"map-age-cleaner": "^0.2.0"
+	},
+	"devDependencies": {
+		"@types/delay": "^2.0.1",
+		"@types/node": "^10.5.8",
+		"ava": "^0.25.0",
+		"del-cli": "^1.1.0",
+		"delay": "^3.0.0",
+		"nyc": "^12.0.2",
+		"tslint": "^5.10.0",
+		"tslint-xo": "^0.8.0",
+		"typescript": "^3.0.1"
+	},
+	"typings": "dist/index.d.ts",
+	"sideEffects": false,
+	"nyc": {
+		"exclude": [
+			"dist/test.js"
+		]
+	}
+}

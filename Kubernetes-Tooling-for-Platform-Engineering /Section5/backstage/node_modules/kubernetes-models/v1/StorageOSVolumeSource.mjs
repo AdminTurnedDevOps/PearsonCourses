@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1StorageOSVolumeSource.mjs";export class StorageOSVolumeSource extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(StorageOSVolumeSource,validate);export{StorageOSVolumeSource as IoK8sApiCoreV1StorageOSVolumeSource};

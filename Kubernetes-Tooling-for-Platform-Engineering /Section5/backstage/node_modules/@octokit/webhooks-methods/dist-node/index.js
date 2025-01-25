@@ -1,0 +1,111 @@
+"use strict";
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: true });
+};
+var __copyProps = (to, from, except, desc) => {
+  if (from && typeof from === "object" || typeof from === "function") {
+    for (let key of __getOwnPropNames(from))
+      if (!__hasOwnProp.call(to, key) && key !== except)
+        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+  }
+  return to;
+};
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+
+// pkg/dist-src/index.js
+var dist_src_exports = {};
+__export(dist_src_exports, {
+  sign: () => sign,
+  verify: () => verify,
+  verifyWithFallback: () => verifyWithFallback
+});
+module.exports = __toCommonJS(dist_src_exports);
+
+// pkg/dist-src/node/sign.js
+var import_crypto = require("crypto");
+
+// pkg/dist-src/types.js
+var Algorithm = /* @__PURE__ */ ((Algorithm2) => {
+  Algorithm2["SHA1"] = "sha1";
+  Algorithm2["SHA256"] = "sha256";
+  return Algorithm2;
+})(Algorithm || {});
+
+// pkg/dist-src/version.js
+var VERSION = "3.0.3";
+
+// pkg/dist-src/node/sign.js
+async function sign(options, payload) {
+  const { secret, algorithm } = typeof options === "object" ? {
+    secret: options.secret,
+    algorithm: options.algorithm || Algorithm.SHA256
+  } : { secret: options, algorithm: Algorithm.SHA256 };
+  if (!secret || !payload) {
+    throw new TypeError(
+      "[@octokit/webhooks-methods] secret & payload required for sign()"
+    );
+  }
+  if (!Object.values(Algorithm).includes(algorithm)) {
+    throw new TypeError(
+      `[@octokit/webhooks] Algorithm ${algorithm} is not supported. Must be  'sha1' or 'sha256'`
+    );
+  }
+  return `${algorithm}=${(0, import_crypto.createHmac)(algorithm, secret).update(payload).digest("hex")}`;
+}
+sign.VERSION = VERSION;
+
+// pkg/dist-src/node/verify.js
+var import_crypto2 = require("crypto");
+var import_buffer = require("buffer");
+
+// pkg/dist-src/utils.js
+var getAlgorithm = (signature) => {
+  return signature.startsWith("sha256=") ? "sha256" : "sha1";
+};
+
+// pkg/dist-src/node/verify.js
+async function verify(secret, eventPayload, signature) {
+  if (!secret || !eventPayload || !signature) {
+    throw new TypeError(
+      "[@octokit/webhooks-methods] secret, eventPayload & signature required"
+    );
+  }
+  const signatureBuffer = import_buffer.Buffer.from(signature);
+  const algorithm = getAlgorithm(signature);
+  const verificationBuffer = import_buffer.Buffer.from(
+    await sign({ secret, algorithm }, eventPayload)
+  );
+  if (signatureBuffer.length !== verificationBuffer.length) {
+    return false;
+  }
+  return (0, import_crypto2.timingSafeEqual)(signatureBuffer, verificationBuffer);
+}
+verify.VERSION = VERSION;
+
+// pkg/dist-src/index.js
+async function verifyWithFallback(secret, payload, signature, additionalSecrets) {
+  const firstPass = await verify(secret, payload, signature);
+  if (firstPass) {
+    return true;
+  }
+  if (additionalSecrets !== void 0) {
+    for (const s of additionalSecrets) {
+      const v = await verify(s, payload, signature);
+      if (v) {
+        return v;
+      }
+    }
+  }
+  return false;
+}
+// Annotate the CommonJS export names for ESM import in node:
+0 && (module.exports = {
+  sign,
+  verify,
+  verifyWithFallback
+});

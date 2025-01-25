@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1NFSVolumeSource.mjs";export class NFSVolumeSource extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(NFSVolumeSource,validate);export{NFSVolumeSource as IoK8sApiCoreV1NFSVolumeSource};

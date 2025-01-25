@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://asyncapi.com/bindings/websockets/0.1.0/channel.json",
+  "title": "WebSockets channel bindings object",
+  "description": "When using WebSockets, the channel represents the connection. Unlike other protocols that support multiple virtual channels (topics, routing keys, etc.) per connection, WebSockets doesn't support virtual channels or, put it another way, there's only one channel and its characteristics are strongly related to the protocol used for the handshake, i.e., HTTP.",
+  "type": "object",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^x-[\\w\\d\\.\\x2d_]+$": {
+      "$ref": "http://asyncapi.com/definitions/3.0.0/specificationExtension.json"
+    }
+  },
+  "properties": {
+    "method": {
+      "type": "string",
+      "enum": [
+        "GET",
+        "POST"
+      ],
+      "description": "The HTTP method to use when establishing the connection. Its value MUST be either 'GET' or 'POST'."
+    },
+    "query": {
+      "oneOf": [
+        {
+          "$ref": "http://asyncapi.com/definitions/3.0.0/schema.json"
+        },
+        {
+          "$ref": "http://asyncapi.com/definitions/3.0.0/Reference.json"
+        }
+      ],
+      "description": "A Schema object containing the definitions for each query parameter. This schema MUST be of type 'object' and have a 'properties' key."
+    },
+    "headers": {
+      "oneOf": [
+        {
+          "$ref": "http://asyncapi.com/definitions/3.0.0/schema.json"
+        },
+        {
+          "$ref": "http://asyncapi.com/definitions/3.0.0/Reference.json"
+        }
+      ],
+      "description": "A Schema object containing the definitions of the HTTP headers to use when establishing the connection. This schema MUST be of type 'object' and have a 'properties' key."
+    },
+    "bindingVersion": {
+      "type": "string",
+      "enum": [
+        "0.1.0"
+      ],
+      "description": "The version of this binding. If omitted, 'latest' MUST be assumed."
+    }
+  },
+  "examples": [
+    {
+      "method": "POST",
+      "bindingVersion": "0.1.0"
+    }
+  ]
+}

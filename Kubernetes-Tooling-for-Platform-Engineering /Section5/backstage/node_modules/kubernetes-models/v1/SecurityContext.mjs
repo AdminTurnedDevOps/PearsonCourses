@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1SecurityContext.mjs";export class SecurityContext extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(SecurityContext,validate);export{SecurityContext as IoK8sApiCoreV1SecurityContext};

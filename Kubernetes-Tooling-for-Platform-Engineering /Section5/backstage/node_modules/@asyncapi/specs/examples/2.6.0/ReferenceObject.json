@@ -1,0 +1,5 @@
+[
+    {
+      "$ref": "#/components/schemas/Pet"
+    }
+]

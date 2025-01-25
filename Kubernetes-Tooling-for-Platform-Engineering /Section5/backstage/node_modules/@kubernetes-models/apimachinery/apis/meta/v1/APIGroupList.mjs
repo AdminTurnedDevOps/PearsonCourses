@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../../_schemas/IoK8sApimachineryPkgApisMetaV1APIGroupList.mjs";export class APIGroupList extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(APIGroupList,validate);export{APIGroupList as IoK8sApimachineryPkgApisMetaV1APIGroupList};

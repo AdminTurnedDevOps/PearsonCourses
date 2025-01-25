@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiRbacV1beta1RoleRef.mjs";export class RoleRef extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(RoleRef,validate);export{RoleRef as IoK8sApiRbacV1beta1RoleRef};

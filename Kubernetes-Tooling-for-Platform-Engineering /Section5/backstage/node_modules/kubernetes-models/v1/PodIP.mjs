@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1PodIP.mjs";export class PodIP extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(PodIP,validate);export{PodIP as IoK8sApiCoreV1PodIP};

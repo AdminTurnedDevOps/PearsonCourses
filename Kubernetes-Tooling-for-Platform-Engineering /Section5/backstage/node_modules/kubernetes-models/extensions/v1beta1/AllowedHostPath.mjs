@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiExtensionsV1beta1AllowedHostPath.mjs";export class AllowedHostPath extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(AllowedHostPath,validate);export{AllowedHostPath as IoK8sApiExtensionsV1beta1AllowedHostPath};

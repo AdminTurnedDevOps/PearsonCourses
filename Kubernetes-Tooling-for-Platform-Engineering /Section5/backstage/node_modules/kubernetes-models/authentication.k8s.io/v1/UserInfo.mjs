@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiAuthenticationV1UserInfo.mjs";export class UserInfo extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(UserInfo,validate);export{UserInfo as IoK8sApiAuthenticationV1UserInfo};

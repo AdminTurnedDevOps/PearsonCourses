@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1VolumeDevice.mjs";export class VolumeDevice extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(VolumeDevice,validate);export{VolumeDevice as IoK8sApiCoreV1VolumeDevice};

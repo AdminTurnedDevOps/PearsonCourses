@@ -1,0 +1,33 @@
+import { Swagger as S, Swagger } from './swagger';
+export declare namespace SwaggerTypeChecks {
+    function isPrimitiveType(t: S.SchemaType): boolean;
+    function isMediaTypeWithExamples(t: S.MediaType): t is S.MediaTypeWithExamples;
+    function isParameter(p: any): p is S.Parameter;
+    function isParameterWithSchema(p: any): p is S.ParameterWithSchema;
+    function isParameterWithContent(p: any): p is S.ParameterWithContent;
+    function isReference(s: any): s is S.Reference;
+    function isSchema(s: any): s is S.Schema;
+    function isRequestBody(b: any): b is S.RequestBody;
+    function isExample(e: any): e is S.Example;
+    function isPathItem(o: any): o is S.PathItem;
+    function isCallback(o: any): o is S.Callback;
+    function isHeaderWithSchema(o: any): o is S.HeaderWithSchema;
+    function isHeaderWithContent(o: any): o is S.HeaderWithContent;
+    function isHeader(o: any): o is S.Header;
+    function isLinkWithOperationRef(o: any): o is S.LinkWithOperationRef;
+    function isLinkWithOperationId(o: any): o is S.LinkWithOperationId;
+    function isLink(o: any): o is S.Link;
+    function isResponse(o: any): o is S.Response;
+    function isApiKeySecurityScheme(o: any): o is S.ApiKeySecurityScheme;
+    function isNonBearerHTTPSecurityScheme(o: any): o is S.NonBearerHttpSecurityScheme;
+    function isBearerHttpSecurityScheme(o: any): o is S.BearerHttpSecurityScheme;
+    function isOAuth2SecurityScheme(o: any): o is S.OAuth2SecurityScheme;
+    function isOpenIdConnectSecurityScheme(o: any): o is S.OpenIdConnectSecurityScheme;
+    function isHttpSecurityScheme(o: any): o is S.HttpSecurityScheme;
+    function isSecurityScheme(o: any): o is S.SecurityScheme;
+    function isPathParam(p: Swagger.Parameter): p is (Swagger.ParameterWithSchemaWithExampleInPath | Swagger.ParameterWithSchemaWithExamplesInPath | Swagger.ParameterWithContentInPath);
+    function isOAuth2ScopesArray(o: NonNullable<Swagger.Operation['x-atlassian-oauth2-scopes']>): o is Array<Swagger.OAuth2Scopes>;
+    function isOAuth2ScopesWithStateArray(o: NonNullable<Swagger.Operation['x-atlassian-oauth2-scopes']>): o is Array<Swagger.OAuth2ScopesWithState>;
+    function isOAuth2Scopes(o: Swagger.OAuth2Scopes | Swagger.OAuth2ScopesWithState): o is Swagger.OAuth2Scopes;
+    function isOAuth2ScopesWithState(o: Swagger.OAuth2Scopes | Swagger.OAuth2ScopesWithState): o is Swagger.OAuth2ScopesWithState;
+}

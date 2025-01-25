@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1Capabilities.mjs";export class Capabilities extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(Capabilities,validate);export{Capabilities as IoK8sApiCoreV1Capabilities};

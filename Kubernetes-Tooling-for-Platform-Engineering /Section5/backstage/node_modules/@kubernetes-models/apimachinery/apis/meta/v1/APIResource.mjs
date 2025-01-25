@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../../_schemas/IoK8sApimachineryPkgApisMetaV1APIResource.mjs";export class APIResource extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(APIResource,validate);export{APIResource as IoK8sApimachineryPkgApisMetaV1APIResource};

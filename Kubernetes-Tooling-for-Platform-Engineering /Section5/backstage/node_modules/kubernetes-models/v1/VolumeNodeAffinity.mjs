@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1VolumeNodeAffinity.mjs";export class VolumeNodeAffinity extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(VolumeNodeAffinity,validate);export{VolumeNodeAffinity as IoK8sApiCoreV1VolumeNodeAffinity};

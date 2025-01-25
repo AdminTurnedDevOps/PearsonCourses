@@ -1,0 +1,175 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+// Tested Module
+const response_1 = __importDefault(require("../../../response/response"));
+describe('response - Defaults for "event.EventEmitter" (accepts no arguments and return default values)', () => {
+    test('res.addListener is a mocked function', () => {
+        const { res } = (0, response_1.default)();
+        expect(res.addListener).toBeDefined();
+        expect(typeof res.addListener).toBe('function');
+        expect(res.addListener.getMockName()).toBe('addListener mock default');
+    });
+    test('res.addListener is chainable', () => {
+        const { res } = (0, response_1.default)();
+        // it returns itself (is chainable)
+        expect(res.addListener('test', jest.fn())).toBe(res);
+    });
+    test('res.on is a mocked function', () => {
+        const { res } = (0, response_1.default)();
+        expect(res.on).toBeDefined();
+        expect(typeof res.on).toBe('function');
+        expect(res.on.getMockName()).toBe('on mock default');
+    });
+    test('res.on is chainable', () => {
+        const { res } = (0, response_1.default)();
+        // it returns itself (is chainable)
+        expect(res.on('test', jest.fn())).toBe(res);
+    });
+    test('res.once is a mocked function', () => {
+        const { res } = (0, response_1.default)();
+        expect(res.once).toBeDefined();
+        expect(typeof res.once).toBe('function');
+        expect(res.once.getMockName()).toBe('once mock default');
+    });
+    test('res.once is chainable', () => {
+        const { res } = (0, response_1.default)();
+        // it returns itself (is chainable)
+        expect(res.once('test', jest.fn())).toBe(res);
+    });
+    test('res.removeListener is a mocked function', () => {
+        const { res } = (0, response_1.default)();
+        expect(res.removeListener).toBeDefined();
+        expect(typeof res.removeListener).toBe('function');
+        expect(res.removeListener.getMockName()).toBe('removeListener mock default');
+    });
+    test('res.removeListener is chainable', () => {
+        const { res } = (0, response_1.default)();
+        // it returns itself (is chainable)
+        expect(res.removeListener('test', jest.fn())).toBe(res);
+    });
+    test('res.off is a mocked function', () => {
+        const { res } = (0, response_1.default)();
+        expect(res.off).toBeDefined();
+        expect(typeof res.off).toBe('function');
+        expect(res.off.getMockName()).toBe('off mock default');
+    });
+    test('res.off is chainable', () => {
+        const { res } = (0, response_1.default)();
+        // it returns itself (is chainable)
+        expect(res.off('test', jest.fn())).toBe(res);
+    });
+    test('res.removeAllListeners is a mocked function', () => {
+        const { res } = (0, response_1.default)();
+        expect(res.removeAllListeners).toBeDefined();
+        expect(typeof res.removeAllListeners).toBe('function');
+        expect(res.removeAllListeners.getMockName()).toBe('removeAllListeners mock default');
+    });
+    test('res.removeAllListeners is chainable', () => {
+        const { res } = (0, response_1.default)();
+        // it returns itself (is chainable)
+        expect(res.removeAllListeners('test')).toBe(res);
+    });
+    test('res.setMaxListeners is a mocked function', () => {
+        const { res } = (0, response_1.default)();
+        expect(res.setMaxListeners).toBeDefined();
+        expect(typeof res.setMaxListeners).toBe('function');
+        expect(res.setMaxListeners.getMockName()).toBe('setMaxListeners mock default');
+    });
+    test('res.setMaxListeners is chainable', () => {
+        const { res } = (0, response_1.default)();
+        // it returns itself (is chainable)
+        expect(res.setMaxListeners(10)).toBe(res);
+    });
+    test('res.getMaxListeners is a mocked function', () => {
+        const { res } = (0, response_1.default)();
+        expect(res.getMaxListeners).toBeDefined();
+        expect(typeof res.getMaxListeners).toBe('function');
+        expect(res.getMaxListeners.getMockName()).toBe('getMaxListeners mock default');
+    });
+    test('res.getMaxListeners is not chainable', () => {
+        const { res } = (0, response_1.default)();
+        // it does not return itself (is not chainable)
+        expect(res.getMaxListeners()).toBeUndefined();
+    });
+    test('res.listeners is a mocked function', () => {
+        const { res } = (0, response_1.default)();
+        expect(res.listeners).toBeDefined();
+        expect(typeof res.listeners).toBe('function');
+        expect(res.listeners.getMockName()).toBe('listeners mock default');
+    });
+    test('res.listeners is not chainable', () => {
+        const { res } = (0, response_1.default)();
+        // it does not return itself (is not chainable)
+        expect(res.listeners('test')).toBeUndefined();
+    });
+    test('res.rawListeners is a mocked function', () => {
+        const { res } = (0, response_1.default)();
+        expect(res.rawListeners).toBeDefined();
+        expect(typeof res.rawListeners).toBe('function');
+        expect(res.rawListeners.getMockName()).toBe('rawListeners mock default');
+    });
+    test('res.rawListeners is not chainable', () => {
+        const { res } = (0, response_1.default)();
+        // it does not return itself (is not chainable)
+        expect(res.rawListeners('test')).toBeUndefined();
+    });
+    test('res.emit is a mocked function', () => {
+        const { res } = (0, response_1.default)();
+        expect(res.emit).toBeDefined();
+        expect(typeof res.emit).toBe('function');
+        expect(res.emit.getMockName()).toBe('emit mock default');
+    });
+    test('res.emit is not chainable', () => {
+        const { res } = (0, response_1.default)();
+        // it does not return itself (is not chainable)
+        expect(res.emit('test')).toBeUndefined();
+    });
+    test('res.listenerCount is a mocked function', () => {
+        const { res } = (0, response_1.default)();
+        expect(res.listenerCount).toBeDefined();
+        expect(typeof res.listenerCount).toBe('function');
+        expect(res.listenerCount.getMockName()).toBe('listenerCount mock default');
+    });
+    test('res.listenerCount is not chainable', () => {
+        const { res } = (0, response_1.default)();
+        // it does not return itself (is not chainable)
+        expect(res.listenerCount('test')).toBeUndefined();
+    });
+    test('res.prependListener is a mocked function', () => {
+        const { res } = (0, response_1.default)();
+        expect(res.prependListener).toBeDefined();
+        expect(typeof res.prependListener).toBe('function');
+        expect(res.prependListener.getMockName()).toBe('prependListener mock default');
+    });
+    test('res.prependListener is chainable', () => {
+        const { res } = (0, response_1.default)();
+        // it returns itself (is chainable)
+        expect(res.prependListener('test', jest.fn())).toBe(res);
+    });
+    test('res.prependOnceListener is a mocked function', () => {
+        const { res } = (0, response_1.default)();
+        expect(res.prependOnceListener).toBeDefined();
+        expect(typeof res.prependOnceListener).toBe('function');
+        expect(res.prependOnceListener.getMockName()).toBe('prependOnceListener mock default');
+    });
+    test('res.prependOnceListener is chainable', () => {
+        const { res } = (0, response_1.default)();
+        // it returns itself (is chainable)
+        expect(res.prependOnceListener('test', jest.fn())).toBe(res);
+    });
+    test('res.eventNames is a mocked function', () => {
+        const { res } = (0, response_1.default)();
+        expect(res.eventNames).toBeDefined();
+        expect(typeof res.eventNames).toBe('function');
+        expect(res.eventNames.getMockName()).toBe('eventNames mock default');
+    });
+    test('res.eventNames is not chainable', () => {
+        const { res } = (0, response_1.default)();
+        // it does not return itself (is not chainable)
+        expect(res.eventNames()).toBeUndefined();
+    });
+});
+//# sourceMappingURL=defaults.event.EventEmitter.test.js.map

@@ -1,0 +1,54 @@
+[
+    {
+      "description": "This channel is used to exchange messages about users signing up",
+      "subscribe": {
+        "summary": "A user signed up.",
+        "message": {
+          "description": "A longer description of the message",
+          "payload": {
+            "type": "object",
+            "properties": {
+              "user": {
+                "$ref": "#/components/schemas/user"
+              },
+              "signup": {
+                "$ref": "#/components/schemas/signup"
+              }
+            }
+          }
+        }
+      },
+      "bindings": {
+        "amqp": {
+          "is": "queue",
+          "queue": {
+            "exclusive": true
+          }
+        }
+      }
+    },
+    {
+      "subscribe": {
+        "message": {
+          "oneOf": [
+            { "$ref": "#/components/messages/signup" },
+            { "$ref": "#/components/messages/login" }
+          ]
+        }
+      }
+    },
+    {
+      "description": "This application publishes WebUICommand messages to an AMQP queue on RabbitMQ brokers in the Staging and Production environments.",
+      "servers": ["rabbitmqBrokerInProd", "rabbitmqBrokerInStaging"],
+      "subscribe": {
+        "message": {
+          "$ref": "#/components/messages/WebUICommand"
+        }
+      },
+      "bindings": {
+        "amqp": {
+          "is": "queue"
+        }
+      }
+    }
+]

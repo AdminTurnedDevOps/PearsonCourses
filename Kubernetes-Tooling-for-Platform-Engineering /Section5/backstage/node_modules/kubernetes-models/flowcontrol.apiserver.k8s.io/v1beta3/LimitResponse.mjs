@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiFlowcontrolV1beta3LimitResponse.mjs";export class LimitResponse extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(LimitResponse,validate);export{LimitResponse as IoK8sApiFlowcontrolV1beta3LimitResponse};

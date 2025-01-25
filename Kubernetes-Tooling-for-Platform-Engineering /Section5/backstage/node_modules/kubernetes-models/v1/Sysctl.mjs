@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1Sysctl.mjs";export class Sysctl extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(Sysctl,validate);export{Sysctl as IoK8sApiCoreV1Sysctl};

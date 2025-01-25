@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1SecretProjection.mjs";export class SecretProjection extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(SecretProjection,validate);export{SecretProjection as IoK8sApiCoreV1SecretProjection};

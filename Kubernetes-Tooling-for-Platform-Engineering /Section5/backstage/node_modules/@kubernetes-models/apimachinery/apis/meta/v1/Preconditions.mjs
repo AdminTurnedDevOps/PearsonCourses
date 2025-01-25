@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../../_schemas/IoK8sApimachineryPkgApisMetaV1Preconditions.mjs";export class Preconditions extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(Preconditions,validate);export{Preconditions as IoK8sApimachineryPkgApisMetaV1Preconditions};

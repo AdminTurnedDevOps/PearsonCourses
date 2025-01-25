@@ -1,0 +1,64 @@
+"use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+__exportStar(require("./v2"), exports);
+__exportStar(require("./v3"), exports);
+__exportStar(require("./asyncapi"), exports);
+__exportStar(require("./base"), exports);
+__exportStar(require("./binding"), exports);
+__exportStar(require("./bindings"), exports);
+__exportStar(require("./channel-parameter"), exports);
+__exportStar(require("./channel-parameters"), exports);
+__exportStar(require("./channel"), exports);
+__exportStar(require("./channels"), exports);
+__exportStar(require("./collection"), exports);
+__exportStar(require("./components"), exports);
+__exportStar(require("./contact"), exports);
+__exportStar(require("./correlation-id"), exports);
+__exportStar(require("./correlation-ids"), exports);
+__exportStar(require("./extension"), exports);
+__exportStar(require("./extensions"), exports);
+__exportStar(require("./external-docs"), exports);
+__exportStar(require("./info"), exports);
+__exportStar(require("./license"), exports);
+__exportStar(require("./message-example"), exports);
+__exportStar(require("./message-examples"), exports);
+__exportStar(require("./message-trait"), exports);
+__exportStar(require("./message-traits"), exports);
+__exportStar(require("./message"), exports);
+__exportStar(require("./messages"), exports);
+__exportStar(require("./oauth-flow"), exports);
+__exportStar(require("./oauth-flows"), exports);
+__exportStar(require("./operation-replies"), exports);
+__exportStar(require("./operation-reply-address"), exports);
+__exportStar(require("./operation-reply-addresses"), exports);
+__exportStar(require("./operation-reply"), exports);
+__exportStar(require("./operation-trait"), exports);
+__exportStar(require("./operation-traits"), exports);
+__exportStar(require("./operation"), exports);
+__exportStar(require("./operations"), exports);
+__exportStar(require("./schema"), exports);
+__exportStar(require("./schemas"), exports);
+__exportStar(require("./security-requirement"), exports);
+__exportStar(require("./security-requirements"), exports);
+__exportStar(require("./security-scheme"), exports);
+__exportStar(require("./security-schemes"), exports);
+__exportStar(require("./server-variable"), exports);
+__exportStar(require("./server-variables"), exports);
+__exportStar(require("./server"), exports);
+__exportStar(require("./servers"), exports);
+__exportStar(require("./tag"), exports);
+__exportStar(require("./tags"), exports);

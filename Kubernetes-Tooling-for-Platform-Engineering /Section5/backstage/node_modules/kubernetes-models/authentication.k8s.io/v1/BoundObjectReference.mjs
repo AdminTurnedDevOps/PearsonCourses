@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiAuthenticationV1BoundObjectReference.mjs";export class BoundObjectReference extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(BoundObjectReference,validate);export{BoundObjectReference as IoK8sApiAuthenticationV1BoundObjectReference};

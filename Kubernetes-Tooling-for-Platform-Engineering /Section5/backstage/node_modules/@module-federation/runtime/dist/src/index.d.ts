@@ -1,0 +1,17 @@
+import { FederationHost } from './core';
+import { UserOptions, FederationRuntimePlugin } from './type';
+export { FederationHost } from './core';
+export { registerGlobalPlugins } from './global';
+export { getRemoteEntry, getRemoteInfo } from './utils';
+export { loadScript, loadScriptNode } from '@module-federation/sdk';
+export { Module } from './module';
+export type { Federation } from './global';
+export type { FederationRuntimePlugin };
+export declare function init(options: UserOptions): FederationHost;
+export declare function loadRemote<T>(...args: Parameters<FederationHost['loadRemote']>): Promise<T | null>;
+export declare function loadShare<T>(...args: Parameters<FederationHost['loadShare']>): Promise<false | (() => T | undefined)>;
+export declare function loadShareSync<T>(...args: Parameters<FederationHost['loadShareSync']>): () => T | never;
+export declare function preloadRemote(...args: Parameters<FederationHost['preloadRemote']>): ReturnType<FederationHost['preloadRemote']>;
+export declare function registerRemotes(...args: Parameters<FederationHost['registerRemotes']>): ReturnType<FederationHost['registerRemotes']>;
+export declare function registerPlugins(...args: Parameters<FederationHost['registerPlugins']>): ReturnType<FederationHost['registerRemotes']>;
+export declare function getInstance(): FederationHost | null;

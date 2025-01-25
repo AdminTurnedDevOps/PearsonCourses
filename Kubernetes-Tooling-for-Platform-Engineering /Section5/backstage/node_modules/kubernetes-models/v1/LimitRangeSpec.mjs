@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1LimitRangeSpec.mjs";export class LimitRangeSpec extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(LimitRangeSpec,validate);export{LimitRangeSpec as IoK8sApiCoreV1LimitRangeSpec};

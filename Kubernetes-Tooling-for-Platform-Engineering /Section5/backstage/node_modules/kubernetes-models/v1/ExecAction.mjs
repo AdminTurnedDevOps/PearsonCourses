@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1ExecAction.mjs";export class ExecAction extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(ExecAction,validate);export{ExecAction as IoK8sApiCoreV1ExecAction};

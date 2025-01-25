@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiBatchV1JobStatus.mjs";export class JobStatus extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(JobStatus,validate);export{JobStatus as IoK8sApiBatchV1JobStatus};

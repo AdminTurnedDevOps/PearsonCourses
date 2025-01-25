@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../../_schemas/IoK8sApimachineryPkgApisMetaV1StatusDetails.mjs";export class StatusDetails extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(StatusDetails,validate);export{StatusDetails as IoK8sApimachineryPkgApisMetaV1StatusDetails};

@@ -1,0 +1,7 @@
+import { ArrayFieldTitleProps, FormContextType, RJSFSchema, StrictRJSFSchema } from '@rjsf/utils';
+/** The `ArrayFieldTitleTemplate` component renders a `TitleFieldTemplate` with an `id` derived from
+ * the `idSchema`.
+ *
+ * @param props - The `ArrayFieldTitleProps` for the component
+ */
+export default function ArrayFieldTitleTemplate<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(props: ArrayFieldTitleProps<T, S, F>): import("react/jsx-runtime").JSX.Element | null;

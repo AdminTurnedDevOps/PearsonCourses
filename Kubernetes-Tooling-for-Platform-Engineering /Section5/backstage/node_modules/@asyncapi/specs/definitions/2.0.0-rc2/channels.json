@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "propertyNames": {
+    "type": "string",
+    "format": "uri-template",
+    "minLength": 1
+  },
+  "additionalProperties": {
+    "$ref": "http://asyncapi.com/definitions/2.0.0-rc2/channelItem.json"
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://asyncapi.com/definitions/2.0.0-rc2/channels.json"
+}

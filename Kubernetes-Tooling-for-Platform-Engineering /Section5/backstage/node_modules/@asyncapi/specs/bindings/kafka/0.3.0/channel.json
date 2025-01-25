@@ -1,0 +1,46 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://asyncapi.com/bindings/kafka/0.3.0/channel.json",
+    "title": "Channel Schema",
+    "description": "This object contains information about the channel representation in Kafka.",
+    "type": "object",
+    "additionalProperties": false,
+    "patternProperties": {
+      "^x-[\\w\\d\\.\\x2d_]+$": {
+        "$ref": "http://asyncapi.com/definitions/3.0.0/specificationExtension.json"
+      }
+    },
+    "properties": {
+      "topic": {
+        "type": "string",
+        "description": "Kafka topic name if different from channel name."
+      },
+      "partitions": {
+        "type": "integer",
+        "minimum": 1,
+        "description": "Number of partitions configured on this topic."
+      },
+      "replicas": {
+        "type": "integer",
+        "minimum": 1,
+        "description": "Number of replicas configured on this topic."
+      },
+      "bindingVersion": {
+        "type": "string",
+        "enum": [
+          "0.3.0"
+        ],
+        "description": "The version of this binding. If omitted, 'latest' MUST be assumed."
+      }
+  
+    },
+    "examples": [
+      {
+        "topic": "my-specific-topic",
+        "partitions": 20,
+        "replicas": 3,
+        "bindingVersion": "0.3.0"
+      }
+    ]
+  }
+  

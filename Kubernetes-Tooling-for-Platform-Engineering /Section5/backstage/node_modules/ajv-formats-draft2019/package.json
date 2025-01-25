@@ -1,0 +1,28 @@
+{
+  "name": "ajv-formats-draft2019",
+  "version": "1.6.1",
+  "description": "Plugin for AJV that adds support for some of string formats adding in the draft2019 JSON Schema.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha index.test.js",
+    "format": "prettier --write '**/*.{js,md}'"
+  },
+  "author": "Carlo Quinonez <carlo@machina.bio>",
+  "license": "MIT",
+  "repository": "https://github.com/luzlab/ajv-formats-draft2019.git",
+  "dependencies": {
+    "punycode": "^2.1.1",
+    "schemes": "^1.4.0",
+    "smtp-address-parser": "^1.0.3",
+    "uri-js": "^4.4.1"
+  },
+  "peerDependencies": {
+    "ajv": "*"
+  },
+  "devDependencies": {
+    "ajv": "^8",
+    "mocha": "^9.0.3",
+    "prettier": "^2.3.2"
+  }
+}

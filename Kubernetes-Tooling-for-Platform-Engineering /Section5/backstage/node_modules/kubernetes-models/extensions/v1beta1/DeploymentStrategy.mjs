@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiExtensionsV1beta1DeploymentStrategy.mjs";export class DeploymentStrategy extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(DeploymentStrategy,validate);export{DeploymentStrategy as IoK8sApiExtensionsV1beta1DeploymentStrategy};

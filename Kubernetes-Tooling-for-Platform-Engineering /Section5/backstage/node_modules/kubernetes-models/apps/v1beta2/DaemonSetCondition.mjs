@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiAppsV1beta2DaemonSetCondition.mjs";export class DaemonSetCondition extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(DaemonSetCondition,validate);export{DaemonSetCondition as IoK8sApiAppsV1beta2DaemonSetCondition};

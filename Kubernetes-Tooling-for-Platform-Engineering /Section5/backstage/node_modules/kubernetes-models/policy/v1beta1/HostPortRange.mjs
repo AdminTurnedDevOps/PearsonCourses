@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiPolicyV1beta1HostPortRange.mjs";export class HostPortRange extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(HostPortRange,validate);export{HostPortRange as IoK8sApiPolicyV1beta1HostPortRange};

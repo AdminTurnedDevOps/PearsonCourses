@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiPolicyV1beta1IDRange.mjs";export class IDRange extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(IDRange,validate);export{IDRange as IoK8sApiPolicyV1beta1IDRange};

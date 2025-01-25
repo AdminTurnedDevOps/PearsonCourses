@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1GlusterfsVolumeSource.mjs";export class GlusterfsVolumeSource extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(GlusterfsVolumeSource,validate);export{GlusterfsVolumeSource as IoK8sApiCoreV1GlusterfsVolumeSource};

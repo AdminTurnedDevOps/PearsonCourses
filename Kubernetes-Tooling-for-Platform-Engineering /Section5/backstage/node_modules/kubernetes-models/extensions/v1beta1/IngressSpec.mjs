@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiExtensionsV1beta1IngressSpec.mjs";export class IngressSpec extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(IngressSpec,validate);export{IngressSpec as IoK8sApiExtensionsV1beta1IngressSpec};

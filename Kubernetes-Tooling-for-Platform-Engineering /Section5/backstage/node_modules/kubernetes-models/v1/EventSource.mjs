@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1EventSource.mjs";export class EventSource extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(EventSource,validate);export{EventSource as IoK8sApiCoreV1EventSource};

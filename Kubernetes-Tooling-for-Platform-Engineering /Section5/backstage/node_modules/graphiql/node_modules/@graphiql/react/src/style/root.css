@@ -1,0 +1,148 @@
+/* a very simple box-model reset, intentionally does not include pseudo elements */
+.graphiql-container * {
+  box-sizing: border-box;
+  font-variant-ligatures: none;
+}
+
+.graphiql-container,
+.CodeMirror-info,
+.CodeMirror-lint-tooltip,
+.graphiql-dialog,
+.graphiql-dialog-overlay,
+.graphiql-tooltip,
+[data-radix-popper-content-wrapper] {
+  /* Colors */
+  --color-primary: 320, 95%, 43%;
+  --color-secondary: 242, 51%, 61%;
+  --color-tertiary: 188, 100%, 36%;
+  --color-info: 208, 100%, 46%;
+  --color-success: 158, 60%, 42%;
+  --color-warning: 36, 100%, 41%;
+  --color-error: 13, 93%, 58%;
+  --color-neutral: 219, 28%, 32%;
+  --color-base: 219, 28%, 100%;
+
+  /* Color alpha values */
+  --alpha-secondary: 0.76;
+  --alpha-tertiary: 0.5;
+  --alpha-background-heavy: 0.15;
+  --alpha-background-medium: 0.1;
+  --alpha-background-light: 0.07;
+
+  /* Font */
+  --font-family: 'Roboto', sans-serif;
+  --font-family-mono: 'Fira Code', monospace;
+  --font-size-hint: calc(12rem / 16);
+  --font-size-inline-code: calc(13rem / 16);
+  --font-size-body: calc(15rem / 16);
+  --font-size-h4: calc(18rem / 16);
+  --font-size-h3: calc(22rem / 16);
+  --font-size-h2: calc(29rem / 16);
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --line-height: 1.5;
+
+  /* Spacing */
+  --px-2: 2px;
+  --px-4: 4px;
+  --px-6: 6px;
+  --px-8: 8px;
+  --px-10: 10px;
+  --px-12: 12px;
+  --px-16: 16px;
+  --px-20: 20px;
+  --px-24: 24px;
+
+  /* Border radius */
+  --border-radius-2: 2px;
+  --border-radius-4: 4px;
+  --border-radius-8: 8px;
+  --border-radius-12: 12px;
+
+  /* Popover styles (tooltip, dialog, etc) */
+  --popover-box-shadow: 0px 6px 20px rgba(59, 76, 106, 0.13),
+    0px 1.34018px 4.46726px rgba(59, 76, 106, 0.0774939),
+    0px 0.399006px 1.33002px rgba(59, 76, 106, 0.0525061);
+  --popover-border: none;
+
+  /* Layout */
+  --sidebar-width: 60px;
+  --toolbar-width: 40px;
+  --session-header-height: 51px;
+}
+
+@media (prefers-color-scheme: dark) {
+  body:not(.graphiql-light) .graphiql-container,
+  body:not(.graphiql-light) .CodeMirror-info,
+  body:not(.graphiql-light) .CodeMirror-lint-tooltip,
+  body:not(.graphiql-light) .graphiql-dialog,
+  body:not(.graphiql-light) .graphiql-dialog-overlay,
+  body:not(.graphiql-light) .graphiql-tooltip,
+  body:not(.graphiql-light) [data-radix-popper-content-wrapper] {
+    --color-primary: 338, 100%, 67%;
+    --color-secondary: 243, 100%, 77%;
+    --color-tertiary: 188, 100%, 44%;
+    --color-info: 208, 100%, 72%;
+    --color-success: 158, 100%, 42%;
+    --color-warning: 30, 100%, 80%;
+    --color-error: 13, 100%, 58%;
+    --color-neutral: 219, 29%, 78%;
+    --color-base: 219, 29%, 18%;
+
+    --popover-box-shadow: none;
+    --popover-border: 1px solid hsl(var(--color-neutral));
+  }
+}
+
+body.graphiql-dark .graphiql-container,
+body.graphiql-dark .CodeMirror-info,
+body.graphiql-dark .CodeMirror-lint-tooltip,
+body.graphiql-dark .graphiql-dialog,
+body.graphiql-dark .graphiql-dialog-overlay,
+body.graphiql-dark .graphiql-tooltip,
+body.graphiql-dark [data-radix-popper-content-wrapper] {
+  --color-primary: 338, 100%, 67%;
+  --color-secondary: 243, 100%, 77%;
+  --color-tertiary: 188, 100%, 44%;
+  --color-info: 208, 100%, 72%;
+  --color-success: 158, 100%, 42%;
+  --color-warning: 30, 100%, 80%;
+  --color-error: 13, 100%, 58%;
+  --color-neutral: 219, 29%, 78%;
+  --color-base: 219, 29%, 18%;
+
+  --popover-box-shadow: none;
+  --popover-border: 1px solid hsl(var(--color-neutral));
+}
+
+.graphiql-container,
+.CodeMirror-info,
+.CodeMirror-lint-tooltip,
+.graphiql-dialog {
+  &,
+  &:is(button) {
+    color: hsla(var(--color-neutral), 1);
+    font-family: var(--font-family);
+    font-size: var(--font-size-body);
+    font-weight: var(----font-weight-regular);
+    line-height: var(--line-height);
+  }
+
+  & input {
+    color: hsla(var(--color-neutral), 1);
+    font-family: var(--font-family);
+    font-size: var(--font-size-caption);
+
+    &::placeholder {
+      color: hsla(var(--color-neutral), var(--alpha-secondary));
+    }
+  }
+
+  & a {
+    color: hsl(var(--color-primary));
+
+    &:focus {
+      outline: hsl(var(--color-primary)) auto 1px;
+    }
+  }
+}

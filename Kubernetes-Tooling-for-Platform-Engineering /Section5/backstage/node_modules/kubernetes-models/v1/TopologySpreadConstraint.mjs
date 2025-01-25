@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1TopologySpreadConstraint.mjs";export class TopologySpreadConstraint extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(TopologySpreadConstraint,validate);export{TopologySpreadConstraint as IoK8sApiCoreV1TopologySpreadConstraint};

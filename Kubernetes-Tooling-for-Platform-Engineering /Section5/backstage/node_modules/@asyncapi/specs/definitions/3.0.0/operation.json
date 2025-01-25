@@ -1,0 +1,110 @@
+{
+  "type": "object",
+  "description": "Describes a specific operation.",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^x-[\\w\\d\\.\\x2d_]+$": {
+      "$ref": "http://asyncapi.com/definitions/3.0.0/specificationExtension.json"
+    }
+  },
+  "required": [
+    "action",
+    "channel"
+  ],
+  "properties": {
+    "action": {
+      "type": "string",
+      "description": "Allowed values are send and receive. Use send when it's expected that the application will send a message to the given channel, and receive when the application should expect receiving messages from the given channel.",
+      "enum": ["send", "receive"]
+    },
+    "channel": {
+      "$ref": "http://asyncapi.com/definitions/3.0.0/Reference.json"
+    },
+    "messages": {
+      "type": "array",
+      "description": "A list of $ref pointers pointing to the supported Message Objects that can be processed by this operation. It MUST contain a subset of the messages defined in the channel referenced in this operation. Every message processed by this operation MUST be valid against one, and only one, of the message objects referenced in this list. Please note the messages property value MUST be a list of Reference Objects and, therefore, MUST NOT contain Message Objects. However, it is RECOMMENDED that parsers (or other software) dereference this property for a better development experience.",
+      "items": {
+        "$ref": "http://asyncapi.com/definitions/3.0.0/Reference.json"
+      }
+    },
+    "reply": {
+      "oneOf": [
+        {
+          "$ref": "http://asyncapi.com/definitions/3.0.0/Reference.json"
+        },
+        {
+          "$ref": "http://asyncapi.com/definitions/3.0.0/operationReply.json"
+        }
+      ]
+    },
+    "traits": {
+      "type": "array",
+      "description": "A list of traits to apply to the operation object. Traits MUST be merged using traits merge mechanism. The resulting object MUST be a valid Operation Object.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "http://asyncapi.com/definitions/3.0.0/Reference.json"
+          },
+          {
+            "$ref": "http://asyncapi.com/definitions/3.0.0/operationTrait.json"
+          }
+        ]
+      }
+    },
+    "title": {
+      "type": "string",
+      "description": "A human-friendly title for the operation."
+    },
+    "summary": {
+      "type": "string",
+      "description": "A brief summary of the operation."
+    },
+    "description": {
+      "type": "string",
+      "description": "A longer description of the operation. CommonMark is allowed."
+    },
+    "security": {
+      "$ref": "http://asyncapi.com/definitions/3.0.0/securityRequirements.json"
+    },
+    "tags": {
+      "type": "array",
+      "description": "A list of tags for logical grouping and categorization of operations.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "http://asyncapi.com/definitions/3.0.0/Reference.json"
+          },
+          {
+            "$ref": "http://asyncapi.com/definitions/3.0.0/tag.json"
+          }
+        ]
+      },
+      "uniqueItems": true
+    },
+    "externalDocs": {
+      "oneOf": [
+        {
+          "$ref": "http://asyncapi.com/definitions/3.0.0/Reference.json"
+        },
+        {
+          "$ref": "http://asyncapi.com/definitions/3.0.0/externalDocs.json"
+        }
+      ]
+    },
+    "bindings": {
+      "oneOf": [
+        {
+          "$ref": "http://asyncapi.com/definitions/3.0.0/Reference.json"
+        },
+        {
+          "$ref": "http://asyncapi.com/definitions/3.0.0/operationBindingsObject.json"
+        }
+      ]
+    }
+  },
+  "example": {
+    "$ref": "http://asyncapi.com/examples/3.0.0/operation.json"
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://asyncapi.com/definitions/3.0.0/operation.json"
+}

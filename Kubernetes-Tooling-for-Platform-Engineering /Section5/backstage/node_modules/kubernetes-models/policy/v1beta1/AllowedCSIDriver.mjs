@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiPolicyV1beta1AllowedCSIDriver.mjs";export class AllowedCSIDriver extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(AllowedCSIDriver,validate);export{AllowedCSIDriver as IoK8sApiPolicyV1beta1AllowedCSIDriver};

@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1ServicePort.mjs";export class ServicePort extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(ServicePort,validate);export{ServicePort as IoK8sApiCoreV1ServicePort};

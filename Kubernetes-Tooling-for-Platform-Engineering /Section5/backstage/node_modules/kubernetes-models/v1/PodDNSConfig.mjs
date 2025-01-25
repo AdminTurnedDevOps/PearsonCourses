@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1PodDNSConfig.mjs";export class PodDNSConfig extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(PodDNSConfig,validate);export{PodDNSConfig as IoK8sApiCoreV1PodDNSConfig};

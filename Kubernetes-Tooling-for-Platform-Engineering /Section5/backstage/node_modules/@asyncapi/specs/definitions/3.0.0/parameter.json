@@ -1,0 +1,43 @@
+{
+  "description": "Describes a parameter included in a channel address.",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^x-[\\w\\d\\.\\x2d_]+$": {
+      "$ref": "http://asyncapi.com/definitions/3.0.0/specificationExtension.json"
+    }
+  },
+  "properties": {
+    "description": {
+      "type": "string",
+      "description": "A brief description of the parameter. This could contain examples of use. GitHub Flavored Markdown is allowed."
+    },
+    "enum": {
+      "description": "An enumeration of string values to be used if the substitution options are from a limited set.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "default": {
+      "description": "The default value to use for substitution, and to send, if an alternate value is not supplied.",
+      "type": "string"
+    },
+    "examples": {
+      "description": "An array of examples of the parameter value.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "location": {
+      "type": "string",
+      "description": "A runtime expression that specifies the location of the parameter value",
+      "pattern": "^\\$message\\.(header|payload)#(\\/(([^\\/~])|(~[01]))*)*"
+    }
+  },
+  "example": {
+    "$ref": "http://asyncapi.com/examples/3.0.0/parameter.json"
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://asyncapi.com/definitions/3.0.0/parameter.json"
+}

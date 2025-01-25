@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../../_schemas/IoK8sApimachineryPkgApisMetaV1LabelSelector.mjs";export class LabelSelector extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(LabelSelector,validate);export{LabelSelector as IoK8sApimachineryPkgApisMetaV1LabelSelector};

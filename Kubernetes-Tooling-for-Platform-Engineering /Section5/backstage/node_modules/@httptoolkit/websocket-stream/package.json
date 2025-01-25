@@ -1,0 +1,51 @@
+{
+  "name": "@httptoolkit/websocket-stream",
+  "version": "6.0.1",
+  "license": "BSD-2-Clause",
+  "description": "Use websockets with the node streams API. Works in browser and node, with all current WS versions",
+  "scripts": {
+    "test": "node test.js",
+    "start": "beefy test-client.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/httptoolkit/websocket-stream.git"
+  },
+  "keywords": [
+    "websocket",
+    "websockets",
+    "stream",
+    "streams",
+    "realtime"
+  ],
+  "dependencies": {
+    "@types/ws": "*",
+    "duplexify": "^3.5.1",
+    "inherits": "^2.0.1",
+    "isomorphic-ws": "^4.0.1",
+    "readable-stream": "^2.3.3",
+    "safe-buffer": "^5.1.2",
+    "ws": "*",
+    "xtend": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^11.13.4",
+    "beefy": "^2.1.8",
+    "browserify": "^16.2.3",
+    "concat-stream": "^1.6.2",
+    "tape": "^4.9.1",
+    "typescript": "^3.4.3"
+  },
+  "optionalDependencies": {},
+  "browser": {
+    "./echo-server.js": "./fake-server.js",
+    "./index.js": "./stream.js",
+    "ws": "./ws-fallback.js"
+  },
+  "bugs": {
+    "url": "https://github.com/httptoolkit/websocket-stream/issues"
+  },
+  "homepage": "https://github.com/httptoolkit/websocket-stream#readme",
+  "main": "index.js",
+  "author": ""
+}

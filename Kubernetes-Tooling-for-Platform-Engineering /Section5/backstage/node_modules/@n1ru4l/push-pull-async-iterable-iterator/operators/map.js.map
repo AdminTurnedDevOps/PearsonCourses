@@ -1,0 +1,1 @@
+{"version":3,"file":"map.js","sourceRoot":"","sources":["../../src/operators/map.ts"],"names":[],"mappings":"AAAA;;GAEG;AACH,MAAM,CAAC,MAAM,GAAG,GAAG,CAAO,GAAiC,EAAE,EAAE,CAC7D,KAAK,SAAS,CAAC,CAAC,YAAY,CAC1B,aAA+B;IAE/B,IAAI,KAAK,EAAE,MAAM,KAAK,IAAI,aAAa,EAAE;QACvC,MAAM,GAAG,CAAC,KAAK,CAAC,CAAC;KAClB;AACH,CAAC,CAAC"}

@@ -1,0 +1,2 @@
+export { RESOURCE_TYPE_CATALOG_ENTITY, catalogEntityCreatePermission, catalogEntityDeletePermission, catalogEntityReadPermission, catalogEntityRefreshPermission, catalogEntityValidatePermission, catalogLocationAnalyzePermission, catalogLocationCreatePermission, catalogLocationDeletePermission, catalogLocationReadPermission, catalogPermissions } from './permissions.esm.js';
+//# sourceMappingURL=alpha.esm.js.map

@@ -1,0 +1,60 @@
+{
+  "name": "find-file-up",
+  "description": "Find a file fast, by starting at the given cwd and recursing up one directory until the file is found or we run out of directories.",
+  "version": "2.0.1",
+  "homepage": "https://github.com/jonschlinkert/find-file-up",
+  "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
+  "contributors": [
+    "Jon Schlinkert (http://twitter.com/jonschlinkert)",
+    "pointnet (https://github.com/pointnet)"
+  ],
+  "repository": "jonschlinkert/find-file-up",
+  "bugs": {
+    "url": "https://github.com/jonschlinkert/find-file-up/issues"
+  },
+  "license": "MIT",
+  "files": [
+    "index.js"
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">=8"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "resolve-dir": "^1.0.1"
+  },
+  "devDependencies": {
+    "delete": "^1.1.0",
+    "gulp-format-md": "^1.0.0",
+    "mocha": "^3.5.3",
+    "write": "^1.0.3"
+  },
+  "keywords": [
+    "file",
+    "find",
+    "up"
+  ],
+  "verb": {
+    "toc": false,
+    "layout": "default",
+    "tasks": [
+      "readme"
+    ],
+    "plugins": [
+      "gulp-format-md"
+    ],
+    "related": {
+      "list": [
+        "find-pkg",
+        "findup-sync",
+        "global-modules"
+      ]
+    },
+    "lint": {
+      "reflinks": true
+    }
+  }
+}

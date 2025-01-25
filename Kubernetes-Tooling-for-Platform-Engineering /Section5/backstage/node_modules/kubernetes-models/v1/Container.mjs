@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1Container.mjs";export class Container extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(Container,validate);export{Container as IoK8sApiCoreV1Container};

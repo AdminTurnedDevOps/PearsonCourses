@@ -1,0 +1,1 @@
+{"version":3,"file":"isJsonPrimitive.js","sourceRoot":"","sources":["../../src/guards/isJsonPrimitive.ts"],"names":[],"mappings":";;;AAAA,SAAgB,eAAe,CAAC,kBAA2B;IACzD,OAAO,CACL,kBAAkB,KAAK,IAAI;QAC3B,OAAO,kBAAkB,KAAK,QAAQ;QACtC,OAAO,kBAAkB,KAAK,QAAQ;QACtC,OAAO,kBAAkB,KAAK,SAAS,CACxC,CAAC;AACJ,CAAC;AAPD,0CAOC"}

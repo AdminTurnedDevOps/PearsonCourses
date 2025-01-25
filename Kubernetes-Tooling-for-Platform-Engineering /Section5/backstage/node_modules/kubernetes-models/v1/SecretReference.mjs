@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1SecretReference.mjs";export class SecretReference extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(SecretReference,validate);export{SecretReference as IoK8sApiCoreV1SecretReference};

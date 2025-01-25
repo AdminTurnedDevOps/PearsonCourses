@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../../_schemas/IoK8sApimachineryPkgApisMetaV1OwnerReference.mjs";export class OwnerReference extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(OwnerReference,validate);export{OwnerReference as IoK8sApimachineryPkgApisMetaV1OwnerReference};

@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1PodAntiAffinity.mjs";export class PodAntiAffinity extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(PodAntiAffinity,validate);export{PodAntiAffinity as IoK8sApiCoreV1PodAntiAffinity};

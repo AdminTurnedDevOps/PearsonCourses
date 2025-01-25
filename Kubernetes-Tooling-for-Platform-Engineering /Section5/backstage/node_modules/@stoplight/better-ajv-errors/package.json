@@ -1,0 +1,81 @@
+{
+  "name": "@stoplight/better-ajv-errors",
+  "version": "1.0.3",
+  "description": "JSON Schema validation for Human",
+  "repository": "stoplightio/better-ajv-errors",
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "exports": {
+    "types": "./typings.d.ts",
+    "require": "./dist/index.js",
+    "import": "./dist/index.mjs"
+  },
+  "keywords": [
+    "json-schema",
+    "ajv",
+    "ajv-errors"
+  ],
+  "sideEffects": false,
+  "author": "Rifat Nabi <to.rifat@gmail.com>",
+  "maintainers": [
+    "Rifat Nabi <to.rifat@gmail.com>",
+    "Dmitrii Sorin <info@staypositive.ru>",
+    "Tong Li"
+  ],
+  "engines": {
+    "node": "^12.20 || >= 14.13"
+  },
+  "license": "Apache-2.0",
+  "typings": "typings.d.ts",
+  "files": [
+    "dist",
+    "index.js",
+    "typings.d.ts"
+  ],
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "build": "rollup -c",
+    "postbuild": "cp dist/index.mjs dist/index.esm.js && node --input-type=commonjs -e \"require('./dist/index.js')\" && node --input-type=module -e \"import './dist/index.mjs'\"",
+    "prepublishOnly": "yarn test && yarn build",
+    "format": "prettier --write src/*.js src/**/*.js",
+    "test": "jest",
+    "test-ci": "jest --coverage --colors"
+  },
+  "dependencies": {
+    "jsonpointer": "^5.0.0",
+    "leven": "^3.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.6.0",
+    "@babel/preset-env": "^7.10.2",
+    "ajv": "^8.1.0",
+    "babel-jest": "^24.9.0",
+    "dotenv": "^8.1.0",
+    "eslint": "^6.3.0",
+    "eslint-config-prettier": "^6.2.0",
+    "eslint-plugin-jest": "^22.17.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "flow-bin": "^0.107.0",
+    "husky": "^3.0.5",
+    "jest": "^24.9.0",
+    "jest-fixtures": "^0.6.0",
+    "prettier": "^2.0.5",
+    "pretty-quick": "^1.6.0",
+    "rollup": "^2.59.0"
+  },
+  "peerDependencies": {
+    "ajv": ">=8"
+  },
+  "jest": {
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.js"
+    ]
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/npm"
+    ]
+  }
+}

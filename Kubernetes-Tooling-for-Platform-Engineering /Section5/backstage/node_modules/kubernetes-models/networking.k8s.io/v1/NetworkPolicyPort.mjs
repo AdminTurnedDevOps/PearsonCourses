@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../../_schemas/IoK8sApiNetworkingV1NetworkPolicyPort.mjs";export class NetworkPolicyPort extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(NetworkPolicyPort,validate);export{NetworkPolicyPort as IoK8sApiNetworkingV1NetworkPolicyPort};

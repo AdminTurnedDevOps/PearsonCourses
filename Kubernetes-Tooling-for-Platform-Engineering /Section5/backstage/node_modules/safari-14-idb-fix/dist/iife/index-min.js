@@ -1,0 +1,1 @@
+var idbReady=function(){"use strict";return function(){if(!(!navigator.userAgentData&&/Safari\//.test(navigator.userAgent)&&!/Chrom(e|ium)\//.test(navigator.userAgent))||!indexedDB.databases)return Promise.resolve();let e;return new Promise((t=>{const a=()=>indexedDB.databases().finally(t);e=setInterval(a,100),a()})).finally((()=>clearInterval(e)))}}();

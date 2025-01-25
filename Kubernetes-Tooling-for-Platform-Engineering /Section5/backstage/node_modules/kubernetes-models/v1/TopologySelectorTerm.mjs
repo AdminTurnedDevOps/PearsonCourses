@@ -1,0 +1,1 @@
+import{Model,setValidateFunc}from"@kubernetes-models/base";import{validate}from"../_schemas/IoK8sApiCoreV1TopologySelectorTerm.mjs";export class TopologySelectorTerm extends Model{constructor(data){super(),this.setDefinedProps(data)}}setValidateFunc(TopologySelectorTerm,validate);export{TopologySelectorTerm as IoK8sApiCoreV1TopologySelectorTerm};

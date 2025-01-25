@@ -1,0 +1,13 @@
+import type { Format } from '@stoplight/spectral-core';
+export declare const aas2: Format;
+export declare const aas3: Format;
+export declare const asyncApi2: Format<void>;
+export declare const asyncapi2: Format<void>;
+export declare const aas2_0: Format;
+export declare const aas2_1: Format;
+export declare const aas2_2: Format;
+export declare const aas2_3: Format;
+export declare const aas2_4: Format;
+export declare const aas2_5: Format;
+export declare const aas2_6: Format;
+export declare const aas3_0: Format;
