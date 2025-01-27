@@ -2,22 +2,23 @@
 
 ## Configuring Grafana and Prometheus
 
+```bash
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 
 helm repo update
 
 helm install kube-prometheus -n monitoring prometheus-community/kube-prometheus-stack --create-namespace
+```
 
 Forward the port of the UI so you can log into Prometheus and see the Metrics.
 
-```
-kubectl --namespace monitoring port-forward svc/prometheus-k8s 9090
+```bash
+kubectl --namespace monitoring port-forward svc/prometheus-operated 9090
 ```
 
 Forward the port of the Grafana UI so you can log in and see the graphs
 
-
-```
+```bash
 kubectl --namespace monitoring port-forward svc/kube-prometheus-grafana 3000:80
 ```
 
