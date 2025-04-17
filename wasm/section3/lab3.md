@@ -1,3 +1,5 @@
+10 minutes
+
 ## Compile An Existing Rust App For Wasm
 
 1. If you don't already have Rust installed, please google "download rust" and you'll see a link for the appropriate operating system you're on.
