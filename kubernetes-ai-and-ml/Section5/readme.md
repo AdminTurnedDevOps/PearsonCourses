@@ -22,7 +22,3 @@ Use the Helm Option. You can copy the code from the Kubescape UI as it'll automa
 
 
 You'll see a ton of results on the bottom. You can go through each to get an idea of what they look like.
-
-## Installing KoPylot
-
-Use the Quick Start found in the GitHub repo: https://github.com/avsthiago/kopylot
