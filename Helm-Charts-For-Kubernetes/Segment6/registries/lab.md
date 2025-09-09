@@ -13,8 +13,9 @@ You'll need a Helm Chart that can then be turned into a Chart Repository. A Char
 2. `cd` into the `charts directory` and create a new Helm Chart
 `helm create nginxtest`
 
-3. Within the `charts` directory (not in the `nginxtest` directory), create an `index.yaml` file
-`helm repo index nginxtest`
+3. Package the Helm Chart `helm package nginxtest/`
+
+4. Create an `index.yaml` file `helm repo index .`
 
 ## GitHub Pages
 
@@ -22,7 +23,9 @@ You'll need a Helm Chart that can then be turned into a Chart Repository. A Char
 
 2. Create a new branch for the repo called `gh-pages`
 
-3. On your repo, go to *Settings* --> *Code and Automation* --> *Pages*
+3. Commit your changes on the `gh-pages` branch and do a push
+
+4. On your repo, go to *Settings* --> *Code and Automation* --> *Pages*
 
 You'll see that your repo is set up as a GitHub Page and there's a specific URL for it up top
 
