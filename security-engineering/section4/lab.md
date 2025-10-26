@@ -1,3 +1,5 @@
+10 minutes
+
 ## Come up with 5 main trainings for AWS security awareness for you IT teams
 
 You can either share this in the attendee chat or keep it for internal use only.

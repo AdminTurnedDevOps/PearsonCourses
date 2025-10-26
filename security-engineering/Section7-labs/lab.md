@@ -16,7 +16,9 @@ Here are a few details about the application:
 2. Test management: Defining tests, associating them with samples, and recording results.
 3. Data entry and storage: Creating forms for data input and storing data in a database (e.g., PostgreSQL).
 4. User authentication and authorization: Managing user access and permissions.
-Reporting: Generating reports on sample status, test results, and other lab data.   
+Reporting: Generating reports on sample status, test results, and other lab data.  
+
+Remember, this is a Minimal Viable Product (MVP)
 ```
 
 2. Run code tests:
